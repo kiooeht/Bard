@@ -1,0 +1,16 @@
+{
+  "bard:Lute": {
+    "NAME": "Lute",
+    "FLAVOR": "Your trusty instrument.",
+    "DESCRIPTIONS": [
+      "Each card you play may also queue #yNotes. The #yNotes queued depend on the type of the card played and are shown in the card's tooltips."
+    ]
+  },
+  "bard:PitchPipe": {
+    "NAME": "Pitch Pipe",
+    "FLAVOR": "Stay in tune.",
+    "DESCRIPTIONS": [
+      "Start each combat with a random #yNote queued."
+    ]
+  }
+}

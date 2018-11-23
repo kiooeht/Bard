@@ -1,0 +1,13 @@
+{
+  "bard:Inspiration": {
+    "NAME": "Inspiration",
+    "DESCRIPTIONS": [
+      "The next",
+      "The next #b",
+      " card you play has its",
+      " cards you play have their",
+      " damage and #yBlock increased by #b",
+      "%."
+    ]
+  }
+}
