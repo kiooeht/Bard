@@ -25,14 +25,7 @@ public class Inspire extends AbstractBardCard
 
     public Inspire()
     {
-        this(0);
-    }
-
-    public Inspire(int upgrades)
-    {
         super(ID, IMG, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.BASIC, CardTarget.SELF);
-
-        timesUpgraded = upgrades;
 
         magicNumber = baseMagicNumber = INSPIRATION;
         exhaust = true;
@@ -68,6 +61,6 @@ public class Inspire extends AbstractBardCard
     @Override
     public AbstractCard makeCopy()
     {
-        return new Inspire(timesUpgraded);
+        return new Inspire();
     }
 }
