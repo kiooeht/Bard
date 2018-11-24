@@ -20,7 +20,8 @@ public class Inspire extends AbstractBardCard
     public static final String ID = BardMod.makeID("Inspire");
     public static final String IMG = null;
     private static final int COST = 0;
-    private static final int INSPIRATION = 25;
+    private static final int INSPIRATION = 50;
+    private static final int UPGRADE_INSPIRATION = 25;
 
     public Inspire()
     {
@@ -57,7 +58,7 @@ public class Inspire extends AbstractBardCard
             rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
 
-            upgradeMagicNumber(INSPIRATION);
+            upgradeMagicNumber(UPGRADE_INSPIRATION);
             ExhaustiveFields.baseExhaustive.set(this, 2);
             ExhaustiveFields.exhaustive.set(this, 2);
             ExhaustiveFields.isExhaustiveUpgraded.set(this, true);
