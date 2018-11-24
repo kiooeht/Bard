@@ -1,20 +1,25 @@
 package com.evacipated.cardcrawl.mod.bard.cards;
 
 import basemod.abstracts.CustomCard;
-import com.evacipated.cardcrawl.mod.bard.notes.AbstractNote;
-import com.evacipated.cardcrawl.mod.bard.notes.AttackNote;
-import com.evacipated.cardcrawl.mod.bard.notes.BlockNote;
+import com.evacipated.cardcrawl.mod.bard.notes.*;
+import com.evacipated.cardcrawl.modthespire.Loader;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
+import com.megacrit.cardcrawl.powers.AbstractPower;
+import javassist.*;
+import javassist.expr.ExprEditor;
+import javassist.expr.FieldAccess;
+import javassist.expr.NewExpr;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public abstract class AbstractBardCard extends CustomCard
 {
+    private static Map<String, Integer> otherCardBuffDebuff = new HashMap<>();
+
     protected final CardStrings cardStrings;
     protected final String NAME;
     protected final String DESCRIPTION;
@@ -64,6 +69,12 @@ public abstract class AbstractBardCard extends CustomCard
         if (isDamageDealingCard(card)) {
             notes.add(new AttackNote());
         }
+        if (isBuffCard(card)) {
+            notes.add(new BuffNote());
+        }
+        if (isDebuffCard(card)) {
+            notes.add(new DebuffNote());
+        }
         return notes;
     }
 
@@ -75,5 +86,128 @@ public abstract class AbstractBardCard extends CustomCard
     public static boolean isBlockGainingCard(AbstractCard card)
     {
         return card.baseBlock >= 0;
+    }
+
+    public static boolean isBuffCard(AbstractCard card)
+    {
+        if (!otherCardBuffDebuff.containsKey(card.cardID)) {
+            calculateBuffDebuff(card);
+        }
+
+        Integer buffType = otherCardBuffDebuff.get(card.cardID);
+        if (buffType != null) {
+            if ((buffType & 1) == 1) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public static boolean isDebuffCard(AbstractCard card)
+    {
+        if (!otherCardBuffDebuff.containsKey(card.cardID)) {
+            calculateBuffDebuff(card);
+        }
+
+        Integer buffType = otherCardBuffDebuff.get(card.cardID);
+        if (buffType != null) {
+            if ((buffType & 2) == 2) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private static void calculateBuffDebuff(AbstractCard card)
+    {
+        try {
+            ClassPool pool = Loader.getClassPool();
+            CtClass ctClass = pool.get(card.getClass().getName());
+            CtMethod useMethod = ctClass.getDeclaredMethod("use");
+
+            final CardTarget[] targetType = {CardTarget.NONE};
+            for (CtConstructor ctor : ctClass.getConstructors()) {
+                if (ctor.callsSuper()) {
+                    ctor.instrument(new ExprEditor()
+                    {
+                        @Override
+                        public void edit(FieldAccess f)
+                        {
+                            if (f.getClassName().equals(CardTarget.class.getName())) {
+                                targetType[0] = CardTarget.valueOf(f.getFieldName());
+                            }
+                        }
+                    });
+                }
+            }
+
+            useMethod.instrument(new ExprEditor() {
+                @Override
+                public void edit(NewExpr e)
+                {
+                    try {
+                        CtConstructor ctConstructor = e.getConstructor();
+                        CtClass cls = ctConstructor.getDeclaringClass();
+                        if (cls != null) {
+                            CtClass parent = cls;
+                            do {
+                                parent = parent.getSuperclass();
+                            } while (parent != null && !parent.getName().equals(AbstractPower.class.getName()));
+                            if (parent != null && parent.getName().equals(AbstractPower.class.getName())) {
+                                // found a power
+                                final int[] buffType = {0};
+                                ExprEditor buffDebuffFinder = new ExprEditor() {
+                                    @Override
+                                    public void edit(FieldAccess f)
+                                    {
+                                        if (f.getClassName().equals(AbstractPower.PowerType.class.getName())) {
+                                            switch (f.getFieldName()) {
+                                                case "BUFF":
+                                                    buffType[0] |= 1;
+                                                    break;
+                                                case "DEBUFF":
+                                                    buffType[0] |= 2;
+                                                    break;
+                                                default:
+                                                    System.out.println("idk what we found ??");
+                                                    break;
+                                            }
+                                        }
+                                    }
+                                };
+                                ctConstructor.instrument(buffDebuffFinder);
+                                // Because StrengthPower sets its BUFF/DEBUFF status in updateDescription
+                                // Others probably do too
+                                CtMethod updateDescription = cls.getDeclaredMethod("updateDescription");
+                                updateDescription.instrument(buffDebuffFinder);
+
+                                if (buffType[0] == 0) {
+                                    // powers default to being a buff
+                                    buffType[0] = 1;
+                                }
+                                if ((buffType[0] & 1) == 1 && (buffType[0] & 2) == 2) {
+                                    // Both buff and debuff, guess at which based on CardTarget
+                                    switch (targetType[0]) {
+                                        case SELF:
+                                            buffType[0] = 1;
+                                            break;
+                                        case ENEMY:
+                                        case ALL_ENEMY:
+                                            buffType[0] = 2;
+                                            break;
+                                    }
+                                }
+                                otherCardBuffDebuff.put(card.cardID, buffType[0]);
+                            }
+                        }
+                    } catch (NotFoundException | CannotCompileException ignored) {
+                    }
+                }
+            });
+        } catch (NotFoundException | CannotCompileException e) {
+            e.printStackTrace();
+        }
     }
 }
