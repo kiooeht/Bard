@@ -4,8 +4,7 @@ import com.evacipated.cardcrawl.mod.bard.BardMod;
 import com.evacipated.cardcrawl.mod.bard.melodies.AbstractMelody;
 import com.evacipated.cardcrawl.mod.bard.notes.AbstractNote;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class MelodyManager
 {
@@ -30,5 +29,19 @@ public class MelodyManager
             }
         }
         return null;
+    }
+
+    public static List<AbstractMelody> getAllMelodiesFromNotes(List<AbstractNote> notes)
+    {
+        SortedMap<Integer, AbstractMelody> matches = new TreeMap<>();
+        for (AbstractMelody melody : melodies) {
+            int idx = melody.endIndexOf(notes);
+            if (idx != -1) {
+                matches.put(idx, melody.makeCopy());
+            }
+        }
+        List<AbstractMelody> ret = new ArrayList<>(matches.values());
+        Collections.reverse(ret);
+        return ret;
     }
 }

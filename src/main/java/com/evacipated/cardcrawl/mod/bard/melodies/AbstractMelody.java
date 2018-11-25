@@ -1,6 +1,8 @@
 package com.evacipated.cardcrawl.mod.bard.melodies;
 
 import com.evacipated.cardcrawl.mod.bard.notes.AbstractNote;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +22,11 @@ public abstract class AbstractMelody
         builder.append(")");
 
         return builder.toString();
+    }
+
+    public int length()
+    {
+        return notes.size();
     }
 
     public boolean conflictsMelody(AbstractMelody other)
@@ -60,6 +67,48 @@ public abstract class AbstractMelody
 
         return true;
     }
+
+    public boolean fuzzyMatchesNotes(List<AbstractNote> otherNotes)
+    {
+        return endIndexOf(otherNotes) != -1;
+    }
+
+    public int endIndexOf(List<AbstractNote> otherNotes)
+    {
+        if (otherNotes.size() < notes.size()) {
+            return -1;
+        }
+
+        for (int i=0; i<otherNotes.size() - notes.size() + 1; ++i) {
+            if (notesMatch(notes, otherNotes.subList(i, i+notes.size()))) {
+                return i + notes.size();
+            }
+        }
+
+        return -1;
+    }
+
+    private boolean notesMatch(List<AbstractNote> lhs, List<AbstractNote> rhs)
+    {
+        for (int i=0; i<lhs.size(); ++i) {
+            if (!lhs.get(i).getClass().equals(rhs.get(i).getClass())) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    protected void addToTop(AbstractGameAction action)
+    {
+        AbstractDungeon.actionManager.addToTop(action);
+    }
+
+    protected void addToBottom(AbstractGameAction action)
+    {
+        AbstractDungeon.actionManager.addToBottom(action);
+    }
+
+    public abstract void play();
 
     public abstract AbstractMelody makeCopy();
 }

@@ -9,10 +9,9 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.mod.bard.BardMod;
-import com.evacipated.cardcrawl.mod.bard.cards.Defend_Bard;
-import com.evacipated.cardcrawl.mod.bard.cards.Inspire;
-import com.evacipated.cardcrawl.mod.bard.cards.Riposte;
-import com.evacipated.cardcrawl.mod.bard.cards.Strike_Bard;
+import com.evacipated.cardcrawl.mod.bard.cards.*;
+import com.evacipated.cardcrawl.mod.bard.helpers.MelodyManager;
+import com.evacipated.cardcrawl.mod.bard.melodies.AbstractMelody;
 import com.evacipated.cardcrawl.mod.bard.notes.AbstractNote;
 import com.evacipated.cardcrawl.mod.bard.relics.Lute;
 import com.evacipated.cardcrawl.mod.bard.relics.PitchPipe;
@@ -32,9 +31,7 @@ import com.megacrit.cardcrawl.rooms.MonsterRoom;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 
-import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.Deque;
+import java.util.*;
 
 public class Bard extends CustomPlayer
 {
@@ -77,6 +74,16 @@ public class Bard extends CustomPlayer
         while (notes.size() > MAX_NOTES) {
             notes.removeFirst();
         }
+    }
+
+    public boolean canPlayMelody()
+    {
+        return !getPlayableMelodies().isEmpty();
+    }
+
+    public List<AbstractMelody> getPlayableMelodies()
+    {
+        return MelodyManager.getAllMelodiesFromNotes(new ArrayList<>(notes));
     }
 
     @Override
@@ -156,7 +163,7 @@ public class Bard extends CustomPlayer
         // 1 riposte
         ret.add(Riposte.ID);
         // 2 music
-        ret.add(Inspire.ID);
+        ret.add(Sing.ID);
         ret.add(Inspire.ID);
 
         return ret;
