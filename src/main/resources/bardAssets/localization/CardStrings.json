@@ -15,5 +15,9 @@
   "bard:Riposte": {
     "NAME": "Riposte",
     "DESCRIPTION": "Deal !D! damage. NL Gain !B! Block."
+  },
+  "bard:Sing": {
+    "NAME": "Sing",
+    "DESCRIPTION": "Play a Melody."
   }
 }
