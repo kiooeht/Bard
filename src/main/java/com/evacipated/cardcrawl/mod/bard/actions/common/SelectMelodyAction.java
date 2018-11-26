@@ -31,7 +31,7 @@ public class SelectMelodyAction extends AbstractGameAction
                 group.addToTop(melody.makeChoiceCard());
             }
 
-            AbstractDungeon.gridSelectScreen.open(group, 1, "", false);
+            AbstractDungeon.gridSelectScreen.open(group, 1, "Choose a Melody to Play.", false);
         } else {
             if (pickCard && !AbstractDungeon.gridSelectScreen.selectedCards.isEmpty()) {
                 pickCard = false;
