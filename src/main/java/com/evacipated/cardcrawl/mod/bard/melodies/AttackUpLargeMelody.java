@@ -4,6 +4,7 @@ import com.evacipated.cardcrawl.mod.bard.notes.AttackNote;
 import com.evacipated.cardcrawl.mod.bard.notes.BlockNote;
 import com.evacipated.cardcrawl.mod.bard.notes.BuffNote;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 
@@ -11,6 +12,8 @@ public class AttackUpLargeMelody extends AbstractMelody
 {
     public AttackUpLargeMelody()
     {
+        super("Attack Up (L)", "Gain 3 Strength.", AbstractCard.CardTarget.SELF);
+
         notes.add(new BlockNote());
         notes.add(new AttackNote());
         notes.add(new BuffNote());

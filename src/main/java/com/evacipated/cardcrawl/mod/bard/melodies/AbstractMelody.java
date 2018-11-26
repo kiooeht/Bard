@@ -1,7 +1,9 @@
 package com.evacipated.cardcrawl.mod.bard.melodies;
 
+import com.evacipated.cardcrawl.mod.bard.cards.MelodyCard;
 import com.evacipated.cardcrawl.mod.bard.notes.AbstractNote;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 import java.util.ArrayList;
@@ -9,7 +11,17 @@ import java.util.List;
 
 public abstract class AbstractMelody
 {
+    protected String name;
+    protected String rawDescription;
+    protected AbstractCard.CardTarget target;
     protected List<AbstractNote> notes = new ArrayList<>();
+
+    public AbstractMelody(String name, String rawDescription, AbstractCard.CardTarget target)
+    {
+        this.name = name;
+        this.rawDescription = rawDescription;
+        this.target = target;
+    }
 
     @Override
     public String toString()
@@ -22,6 +34,11 @@ public abstract class AbstractMelody
         builder.append(")");
 
         return builder.toString();
+    }
+
+    public AbstractCard makeChoiceCard()
+    {
+        return new MelodyCard(name, rawDescription, target, this::play);
     }
 
     public int length()

@@ -1,8 +1,8 @@
 package com.evacipated.cardcrawl.mod.bard.cards;
 
 import com.evacipated.cardcrawl.mod.bard.BardMod;
+import com.evacipated.cardcrawl.mod.bard.actions.common.SelectMelodyAction;
 import com.evacipated.cardcrawl.mod.bard.characters.Bard;
-import com.evacipated.cardcrawl.mod.bard.helpers.MelodyManager;
 import com.evacipated.cardcrawl.mod.bard.melodies.AbstractMelody;
 import com.evacipated.cardcrawl.mod.bard.notes.AbstractNote;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -44,9 +44,7 @@ public class Sing extends AbstractBardCard
     {
         if (p instanceof Bard) {
             List<AbstractMelody> melodies = ((Bard) p).getPlayableMelodies();
-            if (!melodies.isEmpty()) {
-                melodies.get(0).play();
-            }
+            addToBottom(new SelectMelodyAction(melodies));
         }
     }
 
