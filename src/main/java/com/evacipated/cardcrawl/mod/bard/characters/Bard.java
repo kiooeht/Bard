@@ -13,6 +13,7 @@ import com.evacipated.cardcrawl.mod.bard.cards.*;
 import com.evacipated.cardcrawl.mod.bard.helpers.MelodyManager;
 import com.evacipated.cardcrawl.mod.bard.melodies.AbstractMelody;
 import com.evacipated.cardcrawl.mod.bard.notes.AbstractNote;
+import com.evacipated.cardcrawl.mod.bard.powers.interfaces.OnNoteQueuedPower;
 import com.evacipated.cardcrawl.mod.bard.relics.Lute;
 import com.evacipated.cardcrawl.mod.bard.relics.PitchPipe;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
@@ -26,6 +27,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.rooms.MonsterRoom;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
@@ -70,9 +72,19 @@ public class Bard extends CustomPlayer
 
     public void queueNote(AbstractNote note)
     {
-        notes.addLast(note);
-        while (notes.size() > MAX_NOTES) {
-            notes.removeFirst();
+        for (AbstractPower power : AbstractDungeon.player.powers) {
+            if (power instanceof OnNoteQueuedPower) {
+                note = ((OnNoteQueuedPower) power).onNoteQueued(note);
+                if (note == null) {
+                    break;
+                }
+            }
+        }
+        if (note != null) {
+            notes.addLast(note);
+            while (notes.size() > MAX_NOTES) {
+                notes.removeFirst();
+            }
         }
     }
 
