@@ -16,5 +16,12 @@
       "Whenever you queue a <Block Note> or <Buff Note>, gain #b",
       " #yTemporary_HP."
     ]
+  },
+  "bard:DiscordantVoice": {
+    "NAME": "Discordant Voice",
+    "DESCRIPTIONS": [
+      "Whenever you queue a <Attack Note> or <Debuff Note>, deal #b",
+      " damage to a random enemy."
+    ]
   }
 }

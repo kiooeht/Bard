@@ -23,5 +23,9 @@
   "bard:HarmoniousVoice": {
     "NAME": "Harmonious Voice",
     "DESCRIPTION": "Whenever you queue a <Block Note> or <Buff Note>, gain !M! Temporary_HP."
+  },
+  "bard:DiscordantVoice": {
+    "NAME": "Discordant Voice",
+    "DESCRIPTION": "Whenever you queue a <Attack Note> or <Debuff Note>, deal !M! damage to a random enemy."
   }
 }
