@@ -31,5 +31,9 @@
   "bard:HideousLaughter": {
     "NAME": "Hideous Laughter",
     "DESCRIPTION": "Apply !M! Vulnerable and !M! Weak."
+  },
+  "bard:BucklerBash": {
+    "NAME": "Buckler Bash",
+    "DESCRIPTION": "Lose !M! Block. NL Deal !D! damage."
   }
 }
