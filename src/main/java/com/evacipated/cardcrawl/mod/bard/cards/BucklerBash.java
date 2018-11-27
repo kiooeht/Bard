@@ -4,6 +4,7 @@ import com.evacipated.cardcrawl.mod.bard.BardMod;
 import com.evacipated.cardcrawl.mod.bard.characters.Bard;
 import com.evacipated.cardcrawl.mod.bard.notes.AbstractNote;
 import com.evacipated.cardcrawl.mod.bard.notes.AttackNote;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.utility.LoseBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -42,7 +43,7 @@ public class BucklerBash extends AbstractBardCard
     public void use(AbstractPlayer p, AbstractMonster m)
     {
         addToBottom(new LoseBlockAction(p, p, magicNumber));
-        addToBottom(new DamageAction(m, new DamageInfo(p, baseDamage)));
+        addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
     }
 
     @Override
