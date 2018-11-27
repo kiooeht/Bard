@@ -19,5 +19,9 @@
   "bard:Sing": {
     "NAME": "Sing",
     "DESCRIPTION": "Play a Melody."
+  },
+  "bard:HarmoniousVoice": {
+    "NAME": "Harmonious Voice",
+    "DESCRIPTION": "Whenever you queue a <Block Note> or <Buff Note>, gain !M! Temporary_HP."
   }
 }

@@ -9,5 +9,12 @@
       " damage and #yBlock increased by #b",
       "%."
     ]
+  },
+  "bard:HarmoniousVoice": {
+    "NAME": "Harmonious Voice",
+    "DESCRIPTIONS": [
+      "Whenever you queue a <Block Note> or <Buff Note>, gain #b",
+      " #yTemporary_HP."
+    ]
   }
 }
