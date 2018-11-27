@@ -27,5 +27,9 @@
   "bard:DiscordantVoice": {
     "NAME": "Discordant Voice",
     "DESCRIPTION": "Whenever you queue a <Attack Note> or <Debuff Note>, deal !M! damage to a random enemy."
+  },
+  "bard:HideousLaughter": {
+    "NAME": "Hideous Laughter",
+    "DESCRIPTION": "Apply !M! Vulnerable and !M! Weak."
   }
 }
