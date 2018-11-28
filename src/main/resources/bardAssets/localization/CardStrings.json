@@ -59,5 +59,14 @@
   "bard:QuickSong": {
     "NAME": "Quick Song",
     "DESCRIPTION": "Discard a card. NL Queue Notes as if the card was played. NL Play a Melody."
+  },
+  "bard:TinyHut": {
+    "NAME": "Tiny Hut",
+    "DESCRIPTION": "Gain !B! Block. NL Draw 1 card for each <Buff Note> currently queued.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Draw ",
+      " card.)",
+      " cards.)"
+    ]
   }
 }

@@ -80,6 +80,17 @@ public class Bard extends CustomPlayer
         return notes.size();
     }
 
+    public int noteQueueCount(Class<? extends AbstractNote> type)
+    {
+        int count = 0;
+        for (AbstractNote note : notes) {
+            if (type.isInstance(note)) {
+                ++count;
+            }
+        }
+        return count;
+    }
+
     public void queueNote(AbstractNote note)
     {
         for (AbstractPower power : AbstractDungeon.player.powers) {
