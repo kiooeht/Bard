@@ -47,5 +47,9 @@
   "bard:FeastOnFear": {
     "NAME": "Feast on Fear",
     "DESCRIPTION": "Gain !B! Block. NL If the enemy is Vulnerable, gain !M! Temporary_HP instead."
+  },
+  "bard:Thunderwave": {
+    "NAME": "Thunderwave",
+    "DESCRIPTION": "Deal !D! damage and apply !M! Weak to ALL enemies."
   }
 }
