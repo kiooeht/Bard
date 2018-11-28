@@ -23,5 +23,13 @@
       "Whenever you queue a <Attack Note> or <Debuff Note>, deal #b",
       " damage to a random enemy."
     ]
+  },
+  "bard:Cursed": {
+    "NAME": "Cursed",
+    "DESCRIPTIONS": [
+      "At the start of your turn, lose #b",
+      "At the start of its turn, loses #b",
+      " HP."
+    ]
   }
 }

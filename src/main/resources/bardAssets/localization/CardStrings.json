@@ -39,5 +39,9 @@
   "bard:ViciousMockery": {
     "NAME": "Vicious Mockery",
     "DESCRIPTION": "Apply !M! Weak. NL Deal !D! damage."
+  },
+  "bard:BestowCurse": {
+    "NAME": "Bestow Curse",
+    "DESCRIPTION": "Enemy takes !M! damage at the start of each of its turns."
   }
 }
