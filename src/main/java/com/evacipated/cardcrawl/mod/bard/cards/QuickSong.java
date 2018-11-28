@@ -1,7 +1,7 @@
 package com.evacipated.cardcrawl.mod.bard.cards;
 
 import com.evacipated.cardcrawl.mod.bard.BardMod;
-import com.evacipated.cardcrawl.mod.bard.actions.common.SelectMelodyAction;
+import com.evacipated.cardcrawl.mod.bard.actions.unique.QuickSongAction;
 import com.evacipated.cardcrawl.mod.bard.characters.Bard;
 import com.evacipated.cardcrawl.mod.bard.notes.AbstractNote;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -11,16 +11,16 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import java.util.Collections;
 import java.util.List;
 
-public class Sing extends AbstractBardCard
+public class QuickSong extends AbstractBardCard
 {
-    public static final String ID = BardMod.makeID("Sing");
+    public static final String ID = BardMod.makeID("QuickSong");
     public static final String IMG = null;
     private static final int COST = 1;
     private static final int UPGRADE_COST = 0;
 
-    public Sing()
+    public QuickSong()
     {
-        super(ID, IMG, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.BASIC, CardTarget.SELF);
+        super(ID, IMG, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.COMMON, CardTarget.SELF);
     }
 
     @Override
@@ -30,18 +30,9 @@ public class Sing extends AbstractBardCard
     }
 
     @Override
-    public boolean canUse(AbstractPlayer p, AbstractMonster m)
-    {
-        if (p instanceof Bard) {
-            return ((Bard) p).canPlayMelody();
-        }
-        return false;
-    }
-
-    @Override
     public void use(AbstractPlayer p, AbstractMonster m)
     {
-        addToBottom(new SelectMelodyAction());
+        addToBottom(new QuickSongAction(1));
     }
 
     @Override
@@ -56,6 +47,6 @@ public class Sing extends AbstractBardCard
     @Override
     public AbstractCard makeCopy()
     {
-        return new Sing();
+        return new QuickSong();
     }
 }

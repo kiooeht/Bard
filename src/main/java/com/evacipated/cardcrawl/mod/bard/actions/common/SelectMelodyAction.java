@@ -1,6 +1,7 @@
 package com.evacipated.cardcrawl.mod.bard.actions.common;
 
 import com.evacipated.cardcrawl.mod.bard.cards.MelodyCard;
+import com.evacipated.cardcrawl.mod.bard.characters.Bard;
 import com.evacipated.cardcrawl.mod.bard.melodies.AbstractMelody;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.CardGroup;
@@ -14,6 +15,11 @@ public class SelectMelodyAction extends AbstractGameAction
     private List<AbstractMelody> melodies;
     private boolean pickCard = false;
 
+    public SelectMelodyAction()
+    {
+        this(null);
+    }
+
     public SelectMelodyAction(List<AbstractMelody> melodies)
     {
         this.melodies = melodies;
@@ -25,6 +31,16 @@ public class SelectMelodyAction extends AbstractGameAction
     public void update()
     {
         if (duration == Settings.ACTION_DUR_MED) {
+            if (melodies == null) {
+                if (AbstractDungeon.player instanceof Bard) {
+                    melodies = ((Bard) AbstractDungeon.player).getPlayableMelodies();
+                }
+                if (melodies == null) {
+                    isDone = true;
+                    return;
+                }
+            }
+
             pickCard = true;
             CardGroup group = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
             for (AbstractMelody melody : melodies) {
