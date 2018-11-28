@@ -1,7 +1,9 @@
 package com.evacipated.cardcrawl.mod.bard.relics;
 
 import com.evacipated.cardcrawl.mod.bard.BardMod;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
@@ -43,5 +45,15 @@ public abstract class AbstractBardRelic extends AbstractRelic
                 largeImg = ImageMaster.loadImage(BardMod.assetPath("images/largeRelics/" + imgUrl));
             }
         }
+    }
+
+    protected void addToTop(AbstractGameAction action)
+    {
+        AbstractDungeon.actionManager.addToTop(action);
+    }
+
+    protected void addToBottom(AbstractGameAction action)
+    {
+        AbstractDungeon.actionManager.addToBottom(action);
     }
 }
