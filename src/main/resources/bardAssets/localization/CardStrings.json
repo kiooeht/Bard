@@ -43,5 +43,9 @@
   "bard:BestowCurse": {
     "NAME": "Bestow Curse",
     "DESCRIPTION": "Enemy takes !M! damage at the start of each of its turns."
+  },
+  "bard:FeastOnFear": {
+    "NAME": "Feast on Fear",
+    "DESCRIPTION": "Gain !B! Block. NL If the enemy is Vulnerable, gain !M! Temporary_HP instead."
   }
 }
