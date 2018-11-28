@@ -51,5 +51,9 @@
   "bard:Thunderwave": {
     "NAME": "Thunderwave",
     "DESCRIPTION": "Deal !D! damage and apply !M! Weak to ALL enemies."
+  },
+  "bard:SongBolt": {
+    "NAME": "Song Bolt",
+    "DESCRIPTION": "Deal !D! damage for each Note you have queued. NL Clear your Note queue."
   }
 }

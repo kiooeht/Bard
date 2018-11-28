@@ -70,6 +70,16 @@ public class Bard extends CustomPlayer
                 getLoadout(), 0.0F, -20.0F, 240.0F, 240.0F, new EnergyManager(ENERGY_PER_TURN));
     }
 
+    public void clearNoteQueue()
+    {
+        notes.clear();
+    }
+
+    public int noteQueueSize()
+    {
+        return notes.size();
+    }
+
     public void queueNote(AbstractNote note)
     {
         for (AbstractPower power : AbstractDungeon.player.powers) {
@@ -101,7 +111,7 @@ public class Bard extends CustomPlayer
     @Override
     public void preBattlePrep()
     {
-        notes.clear();
+        clearNoteQueue();
         super.preBattlePrep();
     }
 
