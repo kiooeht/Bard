@@ -72,5 +72,13 @@
   "bard:Gamble": {
     "NAME": "Gamble",
     "DESCRIPTION": "Choose a card type (Attack/Skill/Power). NL Draw 1 card, if it is the chosen type, it costs 0 this turn."
+  },
+  "bard:DervishDance": {
+    "NAME": "Dervish Dance",
+    "DESCRIPTION": "Deal !D! damage to ALL enemies for each <Attack Note> you have queued.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (",
+      " queued.)"
+    ]
   }
 }
