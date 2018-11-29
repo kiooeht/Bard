@@ -62,7 +62,7 @@
   },
   "bard:TinyHut": {
     "NAME": "Tiny Hut",
-    "DESCRIPTION": "Gain !B! Block. NL Draw 1 card for each <Buff Note> currently queued.",
+    "DESCRIPTION": "Gain !B! Block. NL Draw 1 card for each <Block Note> currently queued.",
     "EXTENDED_DESCRIPTION": [
       " NL (Draw ",
       " card.)",

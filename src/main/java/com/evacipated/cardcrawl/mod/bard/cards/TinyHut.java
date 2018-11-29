@@ -4,7 +4,6 @@ import com.evacipated.cardcrawl.mod.bard.BardMod;
 import com.evacipated.cardcrawl.mod.bard.characters.Bard;
 import com.evacipated.cardcrawl.mod.bard.notes.AbstractNote;
 import com.evacipated.cardcrawl.mod.bard.notes.BlockNote;
-import com.evacipated.cardcrawl.mod.bard.notes.BuffNote;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -41,7 +40,7 @@ public class TinyHut extends AbstractBardCard
     {
         addToBottom(new GainBlockAction(p, p, block));
         if (p instanceof Bard) {
-            int count = ((Bard) p).noteQueueCount(BuffNote.class);
+            int count = ((Bard) p).noteQueueCount(BlockNote.class);
             if (count > 0) {
                 addToBottom(new DrawCardAction(p, count));
             }
@@ -58,7 +57,7 @@ public class TinyHut extends AbstractBardCard
 
         int count = 0;
         if (AbstractDungeon.player instanceof Bard) {
-            count = ((Bard) AbstractDungeon.player).noteQueueCount(BuffNote.class);
+            count = ((Bard) AbstractDungeon.player).noteQueueCount(BlockNote.class);
         }
         rawDescription = DESCRIPTION;
         rawDescription += EXTENDED_DESCRIPTION[0] + count;
