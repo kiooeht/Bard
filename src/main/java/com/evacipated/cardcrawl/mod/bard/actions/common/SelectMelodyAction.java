@@ -3,6 +3,7 @@ package com.evacipated.cardcrawl.mod.bard.actions.common;
 import com.evacipated.cardcrawl.mod.bard.cards.MelodyCard;
 import com.evacipated.cardcrawl.mod.bard.characters.Bard;
 import com.evacipated.cardcrawl.mod.bard.melodies.AbstractMelody;
+import com.evacipated.cardcrawl.mod.bard.patches.CenterGridCardSelectScreen;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.core.Settings;
@@ -47,12 +48,14 @@ public class SelectMelodyAction extends AbstractGameAction
                 group.addToTop(melody.makeChoiceCard());
             }
 
+            CenterGridCardSelectScreen.centerGridSelect = true;
             AbstractDungeon.gridSelectScreen.open(group, 1, "Choose a Melody to Play", false);
         } else {
             if (pickCard && !AbstractDungeon.gridSelectScreen.selectedCards.isEmpty()) {
                 pickCard = false;
                 MelodyCard select = (MelodyCard) AbstractDungeon.gridSelectScreen.selectedCards.get(0);
                 AbstractDungeon.gridSelectScreen.selectedCards.clear();
+                CenterGridCardSelectScreen.centerGridSelect = false;
 
                 select.use(AbstractDungeon.player, null);
                 isDone = true;
