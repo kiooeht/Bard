@@ -68,5 +68,9 @@
       " card.)",
       " cards.)"
     ]
+  },
+  "bard:Gamble": {
+    "NAME": "Gamble",
+    "DESCRIPTION": "Choose a card type (Attack/Skill/Power). NL Draw 1 card, if it is the chosen type, it costs 0 this turn."
   }
 }

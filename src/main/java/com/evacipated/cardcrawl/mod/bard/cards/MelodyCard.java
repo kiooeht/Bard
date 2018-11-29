@@ -17,9 +17,19 @@ public class MelodyCard extends AbstractCard
 
     private Procedure playCallback;
 
+    public MelodyCard(String name, String description, CardType type)
+    {
+        this(name, description, type, CardTarget.NONE, null);
+    }
+
     public MelodyCard(String name, String description, CardTarget target, Procedure playCallback)
     {
-        super(ID, name, null, IMG, COST, description, CardType.POWER, Bard.Enums.COLOR, CardRarity.SPECIAL, target);
+        this(name, description, CardType.POWER, target, playCallback);
+    }
+
+    public MelodyCard(String name, String description, CardType type, CardTarget target, Procedure playCallback)
+    {
+        super(ID, name, null, IMG, COST, description, type, Bard.Enums.COLOR, CardRarity.SPECIAL, target);
 
         this.playCallback = playCallback;
     }
@@ -27,7 +37,9 @@ public class MelodyCard extends AbstractCard
     @Override
     public void use(AbstractPlayer p, AbstractMonster m)
     {
-        playCallback.invoke();
+        if (playCallback != null) {
+            playCallback.invoke();
+        }
     }
 
     @Override
