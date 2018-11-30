@@ -60,12 +60,7 @@ public class TinyHut extends AbstractBardCard
             count = ((Bard) AbstractDungeon.player).noteQueueCount(BlockNote.class);
         }
         rawDescription = DESCRIPTION;
-        rawDescription += EXTENDED_DESCRIPTION[0] + count;
-        if (count == 1) {
-            rawDescription += EXTENDED_DESCRIPTION[1];
-        } else {
-            rawDescription += EXTENDED_DESCRIPTION[2];
-        }
+        rawDescription += EXTENDED_DESCRIPTION[0] + count + EXTENDED_DESCRIPTION[1];
         initializeDescription();
     }
 

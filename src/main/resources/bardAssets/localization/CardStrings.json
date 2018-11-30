@@ -62,11 +62,10 @@
   },
   "bard:TinyHut": {
     "NAME": "Tiny Hut",
-    "DESCRIPTION": "Gain !B! Block. NL Draw 1 card for each <Block Note> currently queued.",
+    "DESCRIPTION": "Gain !B! Block. NL Draw 1 card for each <Block Note> you have queued.",
     "EXTENDED_DESCRIPTION": [
-      " NL (Draw ",
-      " card.)",
-      " cards.)"
+      " NL (",
+      " <Block Note> queued.)"
     ]
   },
   "bard:Gamble": {
@@ -78,7 +77,7 @@
     "DESCRIPTION": "Deal !D! damage to ALL enemies for each <Attack Note> you have queued.",
     "EXTENDED_DESCRIPTION": [
       " NL (",
-      " queued.)"
+      " <Attack Note> queued.)"
     ]
   }
 }
