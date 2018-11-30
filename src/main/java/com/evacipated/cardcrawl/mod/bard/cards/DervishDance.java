@@ -14,7 +14,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.combat.CleaveEffect;
 
-import java.util.Collections;
+import java.util.Arrays;
 import java.util.List;
 
 public class DervishDance extends AbstractBardCard
@@ -36,7 +36,10 @@ public class DervishDance extends AbstractBardCard
     @Override
     public List<AbstractNote> getNotes()
     {
-        return Collections.singletonList(new AttackNote());
+        return Arrays.asList(
+                new AttackNote(),
+                new AttackNote()
+        );
     }
 
     @Override
