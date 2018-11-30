@@ -22,11 +22,11 @@
   },
   "bard:HarmoniousVoice": {
     "NAME": "Harmonious Voice",
-    "DESCRIPTION": "Whenever you queue a <Block Note> or <Buff Note>, gain !M! Temporary_HP."
+    "DESCRIPTION": "Whenever you queue a {Block Note} or {Buff Note} , gain !M! Temporary_HP."
   },
   "bard:DiscordantVoice": {
     "NAME": "Discordant Voice",
-    "DESCRIPTION": "Whenever you queue a <Attack Note> or <Debuff Note>, deal !M! damage to a random enemy."
+    "DESCRIPTION": "Whenever you queue a {Attack Note} or {Debuff Note} , deal !M! damage to a random enemy."
   },
   "bard:HideousLaughter": {
     "NAME": "Hideous Laughter",
@@ -62,10 +62,10 @@
   },
   "bard:TinyHut": {
     "NAME": "Tiny Hut",
-    "DESCRIPTION": "Gain !B! Block. NL Draw 1 card for each <Block Note> you have queued.",
+    "DESCRIPTION": "Gain !B! Block. NL Draw 1 card for each {Block Note} you have queued.",
     "EXTENDED_DESCRIPTION": [
       " NL (",
-      " <Block Note> queued.)"
+      " {Block Note} queued.)"
     ]
   },
   "bard:Gamble": {
@@ -74,10 +74,10 @@
   },
   "bard:DervishDance": {
     "NAME": "Dervish Dance",
-    "DESCRIPTION": "Deal !D! damage to ALL enemies for each <Attack Note> you have queued.",
+    "DESCRIPTION": "Deal !D! damage to ALL enemies for each {Attack Note} you have queued.",
     "EXTENDED_DESCRIPTION": [
       " NL (",
-      " <Attack Note> queued.)"
+      " {Attack Note} queued.)"
     ]
   }
 }

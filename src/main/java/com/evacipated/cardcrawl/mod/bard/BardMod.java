@@ -11,6 +11,10 @@ import com.evacipated.cardcrawl.mod.bard.characters.Bard;
 import com.evacipated.cardcrawl.mod.bard.helpers.MelodyManager;
 import com.evacipated.cardcrawl.mod.bard.melodies.AttackUpLargeMelody;
 import com.evacipated.cardcrawl.mod.bard.melodies.AttackUpSmallMelody;
+import com.evacipated.cardcrawl.mod.bard.notes.AttackNote;
+import com.evacipated.cardcrawl.mod.bard.notes.BlockNote;
+import com.evacipated.cardcrawl.mod.bard.notes.BuffNote;
+import com.evacipated.cardcrawl.mod.bard.notes.DebuffNote;
 import com.evacipated.cardcrawl.mod.bard.relics.AbstractBardRelic;
 import com.evacipated.cardcrawl.modthespire.Loader;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
@@ -64,6 +68,11 @@ public class BardMod implements
                 "images/cardui/1024/bg_attack_green.png", "images/cardui/1024/bg_skill_green.png",
                 "images/cardui/1024/bg_power_green.png", "images/cardui/1024/card_green_orb.png",
                 null);
+
+        MelodyManager.addNote(new AttackNote());
+        MelodyManager.addNote(new BlockNote());
+        MelodyManager.addNote(new BuffNote());
+        MelodyManager.addNote(new DebuffNote());
 
         MelodyManager.addMelody(new AttackUpSmallMelody());
         MelodyManager.addMelody(new AttackUpLargeMelody());

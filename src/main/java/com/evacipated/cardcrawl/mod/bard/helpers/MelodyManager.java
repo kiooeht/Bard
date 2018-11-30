@@ -8,7 +8,18 @@ import java.util.*;
 
 public class MelodyManager
 {
+    private static Map<String, AbstractNote> notes = new HashMap<>();
     private static List<AbstractMelody> melodies = new ArrayList<>();
+
+    public static void addNote(AbstractNote note)
+    {
+        notes.put(note.name() + " Note", note);
+    }
+
+    public static AbstractNote getNote(String key)
+    {
+        return notes.get(key);
+    }
 
     public static void addMelody(AbstractMelody melody)
     {
