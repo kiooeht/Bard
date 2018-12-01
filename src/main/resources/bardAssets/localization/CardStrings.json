@@ -92,5 +92,13 @@
     "NAME": "Greatness",
     "DESCRIPTION": "Gain Inspiration 100.",
     "UPGRADE_DESCRIPTION": "Gain !M! Inspiration 100."
+  },
+  "bard:Invisibility": {
+    "NAME": "Invisibility",
+    "DESCRIPTION": "Gain !M! Intangible. NL Draw !M! more card next turn.",
+    "UPGRADE_DESCRIPTION": "Gain !M! Intangible. NL Draw !M! more cards next turn.",
+    "EXTENDED_DESCRIPTION": [
+      "Greater Invisibility"
+    ]
   }
 }
