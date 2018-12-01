@@ -5,7 +5,6 @@ import com.evacipated.cardcrawl.mod.bard.characters.Bard;
 import com.evacipated.cardcrawl.mod.bard.notes.AbstractNote;
 import com.evacipated.cardcrawl.mod.bard.notes.BuffNote;
 import com.evacipated.cardcrawl.mod.bard.powers.InspirationPower;
-import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.ExhaustiveField.ExhaustiveFields;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -14,20 +13,21 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import java.util.Collections;
 import java.util.List;
 
-public class Inspire extends AbstractBardCard
+public class Greatness extends AbstractBardCard
 {
-    public static final String ID = BardMod.makeID("Inspire");
+    public static final String ID = BardMod.makeID("Greatness");
     public static final String IMG = null;
-    private static final int COST = 0;
-    private static final int INSPIRATION = 50;
-    private static final int UPGRADE_INSPIRATION = 25;
+    private static final int COST = 1;
+    private static final int AMT = 1;
+    private static final int UPGRADE_AMT = 1;
+    private static final int INSPIRATION = 100;
 
-    public Inspire()
+    public Greatness()
     {
-        super(ID, IMG, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.BASIC, CardTarget.SELF);
+        super(ID, IMG, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.UNCOMMON, CardTarget.SELF);
 
-        magicNumber = baseMagicNumber = INSPIRATION;
-        exhaust = true;
+        magicNumber = baseMagicNumber = AMT;
+        magicNumber2 = baseMagicNumber2 = INSPIRATION;
     }
 
     @Override
@@ -39,7 +39,7 @@ public class Inspire extends AbstractBardCard
     @Override
     public void use(AbstractPlayer p, AbstractMonster m)
     {
-        addToBottom(new ApplyPowerAction(p, p, new InspirationPower(p, 1, magicNumber), 1));
+        addToBottom(new ApplyPowerAction(p, p, new InspirationPower(p, magicNumber, magicNumber2), magicNumber));
     }
 
     @Override
@@ -47,19 +47,15 @@ public class Inspire extends AbstractBardCard
     {
         if (!upgraded) {
             upgradeName();
+            upgradeMagicNumber(UPGRADE_AMT);
             rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
-
-            upgradeMagicNumber(UPGRADE_INSPIRATION);
-            ExhaustiveFields.baseExhaustive.set(this, 2);
-            ExhaustiveFields.exhaustive.set(this, 2);
-            ExhaustiveFields.isExhaustiveUpgraded.set(this, true);
         }
     }
 
     @Override
     public AbstractCard makeCopy()
     {
-        return new Inspire();
+        return new Greatness();
     }
 }
