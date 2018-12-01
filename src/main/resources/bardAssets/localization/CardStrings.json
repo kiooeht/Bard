@@ -83,5 +83,9 @@
   "bard:Parry": {
     "NAME": "Parry",
     "DESCRIPTION": "Gain !B! Block. NL Dexterity affects this card !M! times."
+  },
+  "bard:Balestra": {
+    "NAME": "Balestra",
+    "DESCRIPTION": "Deal !D! damage !M! times. NL This card's damage is affected by Dexterity instead of Strength."
   }
 }
