@@ -79,5 +79,9 @@
       " NL (",
       " {Attack Note} queued.)"
     ]
+  },
+  "bard:Parry": {
+    "NAME": "Parry",
+    "DESCRIPTION": "Gain !B! Block. NL Dexterity affects this card !M! times."
   }
 }
