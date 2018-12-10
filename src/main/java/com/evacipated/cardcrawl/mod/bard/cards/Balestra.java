@@ -67,21 +67,95 @@ public class Balestra extends AbstractBardCard
     @Override
     public void applyPowers()
     {
+        AbstractPlayer p = AbstractDungeon.player;
+
+        int origStr = 0;
+        int origDex = 0;
+        StrengthPower fakeStrength = null;
+
+        AbstractPower strength = p.getPower(StrengthPower.POWER_ID);
+        AbstractPower dexterity = p.getPower(DexterityPower.POWER_ID);
+
+        if (strength != null && dexterity != null) {
+            // Swap Str/Dex
+            origStr = strength.amount;
+            origDex = dexterity.amount;
+            strength.amount = origDex;
+            dexterity.amount = origStr;
+        } else if (strength == null && dexterity != null) {
+            // No Str, only Dex
+            // Add fake Str
+            origDex = dexterity.amount;
+            dexterity.amount = 0;
+            fakeStrength = new StrengthPower(p, origDex);
+            p.powers.add(p.powers.indexOf(dexterity), fakeStrength);
+        } else if (strength != null && dexterity == null) {
+            // No Dex, only Str
+            origStr = strength.amount;
+            strength.amount = 0;
+        }
+
         super.applyPowers();
 
-        if (damageTypeForTurn == DamageInfo.DamageType.NORMAL) {
-            AbstractPower strength = AbstractDungeon.player.getPower(StrengthPower.POWER_ID);
-            if (strength != null) {
-                damage -= strength.amount;
-            }
+        if (strength != null && dexterity != null) {
+            // Swap Str/Dex back
+            strength.amount = origStr;
+            dexterity.amount = origDex;
+        } else if (strength == null && dexterity != null) {
+            // Reset Dex, remove fake Str
+            dexterity.amount = origDex;
+            p.powers.remove(fakeStrength);
+        } else if (strength != null && dexterity == null) {
+            // Reset Str
+            strength.amount = origStr;
+        }
+    }
+
+    @Override
+    public void calculateCardDamage(AbstractMonster mo)
+    {
+        AbstractPlayer p = AbstractDungeon.player;
+
+        int origStr = 0;
+        int origDex = 0;
+        StrengthPower fakeStrength = null;
+
+        AbstractPower strength = p.getPower(StrengthPower.POWER_ID);
+        AbstractPower dexterity = p.getPower(DexterityPower.POWER_ID);
+
+        if (strength != null && dexterity != null) {
+            // Swap Str/Dex
+            origStr = strength.amount;
+            origDex = dexterity.amount;
+            strength.amount = origDex;
+            dexterity.amount = origStr;
+        } else if (strength == null && dexterity != null) {
+            // No Str, only Dex
+            // Add fake Str
+            origDex = dexterity.amount;
+            dexterity.amount = 0;
+            fakeStrength = new StrengthPower(p, origDex);
+            p.powers.add(p.powers.indexOf(dexterity), fakeStrength);
+        } else if (strength != null && dexterity == null) {
+            // No Dex, only Str
+            origStr = strength.amount;
+            strength.amount = 0;
         }
 
-        AbstractPower dexterity = AbstractDungeon.player.getPower(DexterityPower.POWER_ID);
-        if (dexterity != null) {
-            damage += dexterity.amount;
-        }
+        super.calculateCardDamage(mo);
 
-        isDamageModified = damage != baseDamage;
+        if (strength != null && dexterity != null) {
+            // Swap Str/Dex back
+            strength.amount = origStr;
+            dexterity.amount = origDex;
+        } else if (strength == null && dexterity != null) {
+            // Reset Dex, remove fake Str
+            dexterity.amount = origDex;
+            p.powers.remove(fakeStrength);
+        } else if (strength != null && dexterity == null) {
+            // Reset Str
+            strength.amount = origStr;
+        }
     }
 
     @Override
