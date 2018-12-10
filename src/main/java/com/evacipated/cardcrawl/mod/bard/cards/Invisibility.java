@@ -27,6 +27,7 @@ public class Invisibility extends AbstractBardCard
         super(ID, IMG, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.RARE, CardTarget.SELF);
 
         magicNumber = baseMagicNumber = MAGIC;
+        exhaust = true;
     }
 
     @Override
