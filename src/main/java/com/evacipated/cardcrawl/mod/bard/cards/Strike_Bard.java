@@ -1,5 +1,6 @@
 package com.evacipated.cardcrawl.mod.bard.cards;
 
+import basemod.helpers.BaseModCardTags;
 import com.evacipated.cardcrawl.mod.bard.BardMod;
 import com.evacipated.cardcrawl.mod.bard.characters.Bard;
 import com.evacipated.cardcrawl.mod.bard.notes.AbstractNote;
@@ -28,6 +29,8 @@ public class Strike_Bard extends AbstractBardCard
         super(ID, IMG, COST, CardType.ATTACK, Bard.Enums.COLOR, CardRarity.BASIC, CardTarget.ENEMY);
 
         baseDamage = DAMAGE;
+        tags.add(CardTags.STRIKE);
+        tags.add(BaseModCardTags.BASIC_STRIKE);
     }
 
     @Override

@@ -1,5 +1,6 @@
 package com.evacipated.cardcrawl.mod.bard.cards;
 
+import basemod.helpers.BaseModCardTags;
 import com.evacipated.cardcrawl.mod.bard.BardMod;
 import com.evacipated.cardcrawl.mod.bard.characters.Bard;
 import com.evacipated.cardcrawl.mod.bard.notes.AbstractNote;
@@ -26,6 +27,7 @@ public class Defend_Bard extends AbstractBardCard
         super(ID, IMG, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.BASIC, CardTarget.SELF);
 
         baseBlock = BLOCK;
+        tags.add(BaseModCardTags.BASIC_DEFEND);
     }
 
     @Override
