@@ -56,6 +56,7 @@ public class BardMod implements
     private static final Color COLOR = CardHelper.getColor(244, 14, 122);
 
     public static TextureAtlas noteAtlas;
+    public static TextureAtlas powerAtlas;
 
     public static void initialize()
     {
@@ -92,6 +93,7 @@ public class BardMod implements
     public void receivePostInitialize()
     {
         noteAtlas = new TextureAtlas(Gdx.files.internal(assetPath("images/notes/notes.atlas")));
+        powerAtlas = new TextureAtlas(Gdx.files.internal(assetPath("images/powers/powers.atlas")));
     }
 
     @Override

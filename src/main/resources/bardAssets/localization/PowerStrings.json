@@ -31,5 +31,14 @@
       "At the start of its turn, loses #b",
       " HP."
     ]
+  },
+  "bard:DeEnergized": {
+    "NAME": "DeEnergized",
+    "DESCRIPTIONS": [
+      "Lose #b",
+      " [E] next turn.",
+      " [E] next turn.",
+      " - TRANSLATOR NOTE: - The above line is for plural if needed to distinguish from singular."
+    ]
   }
 }
