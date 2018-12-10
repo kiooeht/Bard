@@ -45,7 +45,7 @@ public class Heroism extends AbstractBardCard
     public void use(AbstractPlayer p, AbstractMonster m)
     {
         addToBottom(new AddTemporaryHPAction(p, p, magicNumber));
-        addToBottom(new ApplyPowerAction(p, p, new InspirationPower(p, 1, magicNumber2)));
+        addToBottom(new ApplyPowerAction(p, p, new InspirationPower(p, 1, magicNumber2), 1));
     }
 
     @Override
