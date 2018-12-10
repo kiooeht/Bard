@@ -19,7 +19,7 @@ public class SongBolt extends AbstractBardCard
     public static final String ID = BardMod.makeID("SongBolt");
     public static final String IMG = null;
     private static final int COST = 1;
-    private static final int DAMAGE = 5;
+    private static final int DAMAGE = 3;
     private static final int UPGRADE_DAMAGE = 2;
 
     public SongBolt()
