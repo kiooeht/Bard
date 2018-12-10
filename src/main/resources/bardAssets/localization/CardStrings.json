@@ -42,7 +42,7 @@
   },
   "bard:BestowCurse": {
     "NAME": "Bestow Curse",
-    "DESCRIPTION": "Enemy takes !M! damage at the start of each of its turns."
+    "DESCRIPTION": "Enemy takes !M! damage at the start of each of its turns. NL Exhaustive !stslib:ex!."
   },
   "bard:FeastOnFear": {
     "NAME": "Feast on Fear",
