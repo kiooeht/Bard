@@ -100,5 +100,10 @@
     "EXTENDED_DESCRIPTION": [
       "Greater Invisibility"
     ]
+  },
+  "bard:Advance": {
+    "NAME": "Advance",
+    "DESCRIPTION": "Gain [E]. NL Draw !M! cards. NL Lose [E] next turn.",
+    "UPGRADE_DESCRIPTION": "Retain. NL "
   }
 }
