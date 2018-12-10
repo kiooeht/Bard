@@ -122,5 +122,13 @@
   "bard:Hum": {
     "NAME": "Hum",
     "DESCRIPTION": "Play a Melody. NL Gain !B! Block."
+  },
+  "bard:InspiringSong": {
+    "NAME": "Inspiring Song",
+    "DESCRIPTION": "Gain Inspiration !bard:M2!   for each {Buff Note} you have queued.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (",
+      " {Buff Note} queued.)"
+    ]
   }
 }
