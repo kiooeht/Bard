@@ -105,5 +105,10 @@
     "NAME": "Advance",
     "DESCRIPTION": "Gain [E]. NL Draw !M! cards. NL Lose [E] next turn.",
     "UPGRADE_DESCRIPTION": "Retain. NL "
+  },
+  "bard:Haste": {
+    "NAME": "Haste",
+    "DESCRIPTION": "Double your Dexterity. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Double your Dexterity. NL Exhaustive !stslib:ex!."
   }
 }
