@@ -110,5 +110,9 @@
     "NAME": "Haste",
     "DESCRIPTION": "Double your Dexterity. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Double your Dexterity. NL Exhaustive !stslib:ex!."
+  },
+  "bard:Heroism": {
+    "NAME": "Heroism",
+    "DESCRIPTION": "Gain !M! Temporary_HP and Inspiration !bard:M2!."
   }
 }
