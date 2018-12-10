@@ -53,7 +53,7 @@ public class BardMod implements
 {
     public static final Logger logger = LogManager.getLogger(BardMod.class.getSimpleName());
 
-    private static final Color COLOR = CardHelper.getColor(244, 14, 122);
+    private static final Color COLOR = CardHelper.getColor(65, 105, 225);
 
     public static TextureAtlas noteAtlas;
     public static TextureAtlas powerAtlas;
@@ -61,6 +61,8 @@ public class BardMod implements
     public static void initialize()
     {
         BaseMod.subscribe(new BardMod());
+
+        System.out.println(Color.ROYAL.toString());
 
         BaseMod.addColor(Bard.Enums.COLOR,
                 COLOR,
