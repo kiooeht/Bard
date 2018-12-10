@@ -114,5 +114,9 @@
   "bard:Heroism": {
     "NAME": "Heroism",
     "DESCRIPTION": "Gain !M! Temporary_HP and Inspiration !bard:M2!."
+  },
+  "bard:GuardPoint": {
+    "NAME": "Guard Point",
+    "DESCRIPTION": "Gain !B! Block. NL If you have no {Block Note} queued, gain !B! Block again."
   }
 }
