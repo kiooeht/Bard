@@ -44,6 +44,13 @@ public abstract class AbstractBardCard extends CustomCard
         initializeDescription();
     }
 
+    protected void upgradeMagicNumber2(int amount)
+    {
+        baseMagicNumber2 += amount;
+        magicNumber2 = baseMagicNumber2;
+        upgradedMagicNumber2 = true;
+    }
+
     protected void addToTop(AbstractGameAction action)
     {
         AbstractDungeon.actionManager.addToTop(action);

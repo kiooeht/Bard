@@ -143,5 +143,9 @@
     "NAME": "Silence",
     "DESCRIPTION": "Enemy cannot debuff you. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Enemy cannot buff itself or debuff you. NL Exhaust."
+  },
+  "bard:Aphasia": {
+    "NAME": "Aphasia",
+    "DESCRIPTION": "ALL enemies lose between !bard:M2! and !M! Strength. NL Exhaust."
   }
 }
