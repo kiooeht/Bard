@@ -147,5 +147,10 @@
   "bard:Aphasia": {
     "NAME": "Aphasia",
     "DESCRIPTION": "ALL enemies lose between !bard:M2! and !M! Strength. NL Exhaust."
+  },
+  "bard:PrismaticSpray": {
+    "NAME": "Prismatic Spray",
+    "DESCRIPTION": "Add X random Attacks of any color into your hand. NL They are Ethereal, Exhaust, and cost 0.",
+    "UPGRADE_DESCRIPTION": "Add X+1 random Attacks of any color into your hand. NL They are Ethereal, Exhaust, and cost 0."
   }
 }
