@@ -130,5 +130,9 @@
       " NL (",
       " {Buff Note} queued.)"
     ]
+  },
+  "bard:FaerieFire": {
+    "NAME": "Faerie Fire",
+    "DESCRIPTION": "Apply !M! Vulnerable to ALL enemies."
   }
 }
