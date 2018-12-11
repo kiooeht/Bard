@@ -40,5 +40,19 @@
       " [E] next turn.",
       " - TRANSLATOR NOTE: - The above line is for plural if needed to distinguish from singular."
     ]
+  },
+  "bard:SilencedDebuffs": {
+    "NAME": "Silenced - Debuffs",
+    "DESCRIPTIONS": [
+      "You cannot debuff enemies.",
+      " cannot debuff you."
+    ]
+  },
+  "bard:SilencedBuffs": {
+    "NAME": "Silenced - Buffs",
+    "DESCRIPTIONS": [
+      "You cannot buff yourself.",
+      " cannot buff itself."
+    ]
   }
 }

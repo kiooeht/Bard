@@ -31,7 +31,7 @@ limitMemory=true
 useIndexes=true
 
 scaleFactors=[{suffix:"",factor:1,resampling:bicubic}]
-inputFiles=[{path:48/deenergized.png,type:Input,regionName:48/deenergized},{path:128/deenergized.png,type:Input,regionName:128/deenergized}]
+inputFiles=[{path:48/deenergized.png,type:Input,regionName:48/deenergized},{path:128/deenergized.png,type:Input,regionName:128/deenergized},{path:128/silenced.png,type:Input,regionName:128/silenced},{path:48/silenced.png,type:Input,regionName:48/silenced}]
 
 
 -PROJ-

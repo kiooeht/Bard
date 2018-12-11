@@ -138,5 +138,10 @@
   "bard:Shout": {
     "NAME": "Shout",
     "DESCRIPTION": "Deal !D! damage. NL Enemy loses !M! Strength. NL Decrease this card's Strength loss by 1 this combat."
+  },
+  "bard:Silence": {
+    "NAME": "Silence",
+    "DESCRIPTION": "Enemy cannot debuff you. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Enemy cannot buff itself or debuff you. NL Exhaust."
   }
 }
