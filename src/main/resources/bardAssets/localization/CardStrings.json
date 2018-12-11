@@ -134,5 +134,9 @@
   "bard:FaerieFire": {
     "NAME": "Faerie Fire",
     "DESCRIPTION": "Apply !M! Vulnerable to ALL enemies."
+  },
+  "bard:Shout": {
+    "NAME": "Shout",
+    "DESCRIPTION": "Deal !D! damage. NL Enemy loses !M! Strength. NL Decrease this card's Strength loss by 1 this combat."
   }
 }
