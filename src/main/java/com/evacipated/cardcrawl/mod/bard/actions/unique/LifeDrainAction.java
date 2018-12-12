@@ -49,6 +49,7 @@ public class LifeDrainAction extends AbstractGameAction
         if (tmp > target.currentHealth) {
             tmp = target.currentHealth;
         }
+        tmp /= 2;
         if (tmp > 0) {
             AbstractDungeon.actionManager.addToBottom(new AddTemporaryHPAction(source, source, tmp));
         }
