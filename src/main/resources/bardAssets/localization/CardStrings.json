@@ -152,5 +152,9 @@
     "NAME": "Prismatic Spray",
     "DESCRIPTION": "Add X random Attacks of any color into your hand. NL They are Ethereal, Exhaust, and cost 0.",
     "UPGRADE_DESCRIPTION": "Add X+1 random Attacks of any color into your hand. NL They are Ethereal, Exhaust, and cost 0."
+  },
+  "bard:LifeDrain": {
+    "NAME": "Life Drain",
+    "DESCRIPTION": "Deal !D! damage. NL Gain Temporary_HP for unlocked damage dealt."
   }
 }
