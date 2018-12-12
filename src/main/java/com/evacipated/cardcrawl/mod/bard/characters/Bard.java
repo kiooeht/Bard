@@ -13,6 +13,7 @@ import com.evacipated.cardcrawl.mod.bard.cards.*;
 import com.evacipated.cardcrawl.mod.bard.helpers.MelodyManager;
 import com.evacipated.cardcrawl.mod.bard.melodies.AbstractMelody;
 import com.evacipated.cardcrawl.mod.bard.notes.AbstractNote;
+import com.evacipated.cardcrawl.mod.bard.notes.BuffNote;
 import com.evacipated.cardcrawl.mod.bard.powers.interfaces.OnNoteQueuedPower;
 import com.evacipated.cardcrawl.mod.bard.relics.Lute;
 import com.evacipated.cardcrawl.mod.bard.relics.PitchPipe;
@@ -44,6 +45,7 @@ public class Bard extends CustomPlayer
     private static final int MAX_NOTES = 4;
     private static final float NOTE_SPACING = 32;
 
+    private int maxNotes = MAX_NOTES;
     private Deque<AbstractNote> notes = new ArrayDeque<>();
 
     private float timer = 0;
@@ -68,6 +70,14 @@ public class Bard extends CustomPlayer
 
         initializeClass(null, "images/characters/theSilent/shoulder2.png", "images/characters/theSilent/shoulder.png", "images/characters/theSilent/corpse.png",
                 getLoadout(), 0.0F, -20.0F, 240.0F, 240.0F, new EnergyManager(ENERGY_PER_TURN));
+    }
+
+    public void increaseMaxNotes(int amount)
+    {
+        maxNotes += amount;
+        for (int i=0; i<amount; ++i) {
+            queueNote(new BuffNote());
+        }
     }
 
     public void clearNoteQueue()
@@ -103,7 +113,7 @@ public class Bard extends CustomPlayer
         }
         if (note != null) {
             notes.addLast(note);
-            while (notes.size() > MAX_NOTES) {
+            while (notes.size() > maxNotes) {
                 notes.removeFirst();
             }
         }
@@ -123,6 +133,7 @@ public class Bard extends CustomPlayer
     public void preBattlePrep()
     {
         clearNoteQueue();
+        maxNotes = MAX_NOTES;
         super.preBattlePrep();
     }
 
@@ -135,17 +146,62 @@ public class Bard extends CustomPlayer
 
             sb.setColor(Color.WHITE);
             TextureAtlas.AtlasRegion tex = BardMod.noteAtlas.findRegion("bars");
+            // Left section of bars
             sb.draw(
-                    tex,
+                    tex.getTexture(),
                     drawX - (NOTE_SPACING * 3 * Settings.scale),
                     (146) * Settings.scale + drawY + hb_h / 2.0f,
                     0,
                     0,
-                    tex.getRegionWidth(),
-                    tex.getRegionHeight(),
+                    32,
+                    32,
                     Settings.scale * 2,
                     Settings.scale * 2,
-                    0
+                    0,
+                    tex.getRegionX(),
+                    tex.getRegionY(),
+                    32,
+                    32,
+                    false,
+                    false
+            );
+            // Middle (extendable) section of bars
+            sb.draw(
+                    tex.getTexture(),
+                    drawX - (NOTE_SPACING * 3 * Settings.scale) + (64 * Settings.scale),
+                    (146) * Settings.scale + drawY + hb_h / 2.0f,
+                    0,
+                    0,
+                    32,
+                    32,
+                    Settings.scale * (2 + (maxNotes - MAX_NOTES)),
+                    Settings.scale * 2,
+                    0,
+                    tex.getRegionX() + 32,
+                    tex.getRegionY(),
+                    32,
+                    32,
+                    false,
+                    false
+            );
+            // Right section of bars
+            sb.draw(
+                    tex.getTexture(),
+                    drawX - (NOTE_SPACING * 3 * Settings.scale) + (64 * Settings.scale) + (32 * (2 + (maxNotes - MAX_NOTES)) * Settings.scale),
+                    (146) * Settings.scale + drawY + hb_h / 2.0f,
+                    0,
+                    0,
+                    32,
+                    32,
+                    Settings.scale * 2,
+                    Settings.scale * 2,
+                    0,
+                    tex.getRegionX() + 64,
+                    tex.getRegionY(),
+                    32,
+                    32,
+                    false,
+                    false
             );
 
             float offset = 1.5f * (float) Math.sin(timer - 1.2);

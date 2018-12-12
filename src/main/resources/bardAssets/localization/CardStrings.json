@@ -156,5 +156,12 @@
   "bard:LifeDrain": {
     "NAME": "Life Drain",
     "DESCRIPTION": "Deal !D! damage. NL Gain Temporary_HP for unlocked damage dealt."
+  },
+  "bard:SixFourTime": {
+    "NAME": "6/4 Time",
+    "DESCRIPTION": "You can queue !M! additional Notes.",
+    "EXTENDED_DESCRIPTION": [
+      "8/4 Time"
+    ]
   }
 }
