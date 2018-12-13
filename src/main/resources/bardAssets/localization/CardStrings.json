@@ -172,5 +172,13 @@
   "bard:SplendidForm": {
     "NAME": "Splendid Form",
     "DESCRIPTION": "At the start of NL your turn, gain NL Inspiration !bard:M2!."
+  },
+  "bard:PowerWordStun": {
+    "NAME": "Power Word Stun",
+    "DESCRIPTION": "If the enemy has less than !bard:M2! % HP, Stun it for !M! turn.",
+    "EXTENDED_DESCRIPTION": [
+      "(Will Stun.) NL ",
+      "(Will NOT Stun.) NL "
+    ]
   }
 }
