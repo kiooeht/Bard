@@ -55,8 +55,8 @@
       " cannot buff itself."
     ]
   },
-  "bard:Splendid": {
-    "NAME": "Splendid",
+  "bard:SplendidForm": {
+    "NAME": "Splendid Form",
     "DESCRIPTIONS": [
       "At the start of your turn, gain #yInspiration #b",
       "At the start of your turn, gain #b",
