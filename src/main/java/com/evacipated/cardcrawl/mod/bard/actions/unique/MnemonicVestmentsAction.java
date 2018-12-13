@@ -1,12 +1,12 @@
 package com.evacipated.cardcrawl.mod.bard.actions.unique;
 
+import com.evacipated.cardcrawl.mod.bard.vfx.cardManip.ShowThisCardAndAddToDrawPileEffect;
 import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.ExhaustiveField;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.defect.DiscardPileToHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToDrawPileEffect;
 
 public class MnemonicVestmentsAction extends AbstractGameAction
 {
@@ -31,26 +31,12 @@ public class MnemonicVestmentsAction extends AbstractGameAction
 
         if (AbstractDungeon.gridSelectScreen.selectedCards.size() != 0) {
             for (AbstractCard c : AbstractDungeon.gridSelectScreen.selectedCards) {
-                AbstractCard copy = c.makeSameInstanceOf();
-                copy.modifyCostForCombat(-999);
-                if (exhaustive) {
-                    if (ExhaustiveField.ExhaustiveFields.baseExhaustive.get(copy) <= 0) {
-                        copy.rawDescription += " NL Exhaustive !stslib:ex!.";
-                    }
-                    ExhaustiveField.ExhaustiveFields.baseExhaustive.set(copy, amount);
-                    ExhaustiveField.ExhaustiveFields.exhaustive.set(copy, amount);
-                    copy.exhaust = false;
-                } else {
-                    if (!copy.exhaust) {
-                        copy.rawDescription += " NL Exhaust.";
-                    }
-                    copy.exhaustOnUseOnce = copy.exhaust = true;
-                }
-                copy.initializeDescription();
+                AbstractCard copy = makeAlteredCopy(c);
+                AbstractCard displayCopy = makeAlteredCopy(c);
 
-                // TODO: new "Exhaust/Exhaustive" isn't shown on card until it's in the draw pile
-                AbstractDungeon.effectList.add(new ShowCardAndAddToDrawPileEffect(
+                AbstractDungeon.effectList.add(new ShowThisCardAndAddToDrawPileEffect(
                         copy,
+                        displayCopy,
                         Settings.WIDTH / 2.0f,
                         Settings.HEIGHT / 2.0f,
                         true,
@@ -62,5 +48,27 @@ public class MnemonicVestmentsAction extends AbstractGameAction
             isDone = true;
         }
         tickDuration();
+    }
+
+    private AbstractCard makeAlteredCopy(AbstractCard card)
+    {
+        AbstractCard copy = card.makeSameInstanceOf();
+        copy.modifyCostForCombat(-999);
+        if (exhaustive) {
+            if (ExhaustiveField.ExhaustiveFields.baseExhaustive.get(copy) <= 0) {
+                copy.rawDescription += " NL Exhaustive !stslib:ex!.";
+            }
+            ExhaustiveField.ExhaustiveFields.baseExhaustive.set(copy, amount);
+            ExhaustiveField.ExhaustiveFields.exhaustive.set(copy, amount);
+            copy.exhaust = false;
+        } else {
+            if (!copy.exhaust) {
+                copy.rawDescription += " NL Exhaust.";
+            }
+            copy.exhaustOnUseOnce = copy.exhaust = true;
+        }
+        copy.initializeDescription();
+
+        return copy;
     }
 }
