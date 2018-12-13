@@ -180,5 +180,10 @@
       "(Will Stun.) NL ",
       "(Will NOT Stun.) NL "
     ]
+  },
+  "bard:Blink": {
+    "NAME": "Blink",
+    "DESCRIPTION": "Take 50% less damage for !M! turn.",
+    "UPGRADE_DESCRIPTION": "Take 50% less damage for !M! turns."
   }
 }

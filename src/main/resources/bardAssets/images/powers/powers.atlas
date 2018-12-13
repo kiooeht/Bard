@@ -1,48 +1,62 @@
 
 powers.png
-size: 512,256
+size: 512,128
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
+128/blink
+  rotate: false
+  xy: 179, 78
+  size: 93, 48
+  orig: 128, 128
+  offset: 17, 39
+  index: -1
 128/deenergized
   rotate: false
-  xy: 2, 102
-  size: 128, 128
+  xy: 93, 40
+  size: 84, 86
   orig: 128, 128
-  offset: 0, 0
+  offset: 22, 21
   index: -1
 128/silenced
   rotate: false
-  xy: 132, 102
-  size: 128, 128
+  xy: 2, 33
+  size: 89, 93
   orig: 128, 128
-  offset: 0, 0
+  offset: 21, 18
   index: -1
 128/splendid
   rotate: false
-  xy: 262, 102
-  size: 128, 128
+  xy: 274, 63
+  size: 75, 63
   orig: 128, 128
-  offset: 0, 0
+  offset: 27, 35
+  index: -1
+48/blink
+  rotate: false
+  xy: 351, 107
+  size: 36, 19
+  orig: 48, 48
+  offset: 6, 14
   index: -1
 48/deenergized
   rotate: false
-  xy: 2, 2
-  size: 48, 48
+  xy: 179, 44
+  size: 32, 32
   orig: 48, 48
-  offset: 0, 0
+  offset: 8, 8
   index: -1
 48/silenced
   rotate: false
-  xy: 2, 52
-  size: 48, 48
+  xy: 93, 2
+  size: 35, 36
   orig: 48, 48
-  offset: 0, 0
+  offset: 7, 6
   index: -1
 48/splendid
   rotate: false
-  xy: 392, 182
-  size: 48, 48
+  xy: 2, 6
+  size: 30, 25
   orig: 48, 48
-  offset: 0, 0
+  offset: 9, 12
   index: -1

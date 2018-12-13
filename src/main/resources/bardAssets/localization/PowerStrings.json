@@ -63,5 +63,13 @@
       " #yInspiration #b",
       "."
     ]
+  },
+  "bard:Blink": {
+    "NAME": "Blink",
+    "DESCRIPTIONS": [
+      "Receive 50% less damage for #b",
+      " turn.",
+      " turns."
+    ]
   }
 }

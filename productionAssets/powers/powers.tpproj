@@ -19,8 +19,8 @@ paddingX=2
 paddingY=2
 pot=true
 rotation=false
-stripWhitespaceX=false
-stripWhitespaceY=false
+stripWhitespaceX=true
+stripWhitespaceY=true
 wrapX=ClampToEdge
 wrapY=ClampToEdge
 premultiplyAlpha=false
@@ -31,7 +31,7 @@ limitMemory=true
 useIndexes=true
 
 scaleFactors=[{suffix:"",factor:1,resampling:bicubic}]
-inputFiles=[{path:48/deenergized.png,type:Input,regionName:48/deenergized},{path:128/deenergized.png,type:Input,regionName:128/deenergized},{path:128/silenced.png,type:Input,regionName:128/silenced},{path:48/silenced.png,type:Input,regionName:48/silenced},{path:48/splendid.png,type:Input,regionName:48/splendid},{path:128/splendid.png,type:Input,regionName:128/splendid}]
+inputFiles=[{path:48/deenergized.png,type:Input,regionName:48/deenergized},{path:128/deenergized.png,type:Input,regionName:128/deenergized},{path:128/silenced.png,type:Input,regionName:128/silenced},{path:48/silenced.png,type:Input,regionName:48/silenced},{path:48/splendid.png,type:Input,regionName:48/splendid},{path:128/splendid.png,type:Input,regionName:128/splendid},{path:128/blink.png,type:Input,regionName:128/blink},{path:48/blink.png,type:Input,regionName:48/blink}]
 
 
 -PROJ-
