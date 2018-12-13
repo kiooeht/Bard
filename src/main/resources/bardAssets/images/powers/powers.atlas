@@ -6,28 +6,42 @@ filter: Linear,Linear
 repeat: none
 128/deenergized
   rotate: false
-  xy: 2, 52
+  xy: 2, 102
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
 128/silenced
   rotate: false
-  xy: 132, 52
+  xy: 132, 102
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+128/splendid
+  rotate: false
+  xy: 262, 102
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
 48/deenergized
   rotate: false
-  xy: 262, 132
+  xy: 2, 2
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
 48/silenced
   rotate: false
-  xy: 2, 2
+  xy: 2, 52
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: -1
+48/splendid
+  rotate: false
+  xy: 392, 182
   size: 48, 48
   orig: 48, 48
   offset: 0, 0

@@ -168,5 +168,9 @@
     "NAME": "Mnemonic Vestments",
     "DESCRIPTION": "Choose any card in your deck and shuffle a 0-cost, Exhaust copy of that card into your draw pile. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Choose any card in your deck and shuffle a 0-cost, Exhaustive 2 copy of that card into your draw pile. NL Exhaust."
+  },
+  "bard:SplendidForm": {
+    "NAME": "Splendid Form",
+    "DESCRIPTION": "At the start of NL your turn, gain NL Inspiration !bard:M2!."
   }
 }

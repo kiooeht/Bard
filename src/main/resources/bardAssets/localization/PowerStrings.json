@@ -54,5 +54,14 @@
       "You cannot buff yourself.",
       " cannot buff itself."
     ]
+  },
+  "bard:Splendid": {
+    "NAME": "Splendid",
+    "DESCRIPTIONS": [
+      "At the start of your turn, gain #yInspiration #b",
+      "At the start of your turn, gain #b",
+      " #yInspiration #b",
+      "."
+    ]
   }
 }
