@@ -189,5 +189,9 @@
   "bard:LingeringEcho": {
     "NAME": "Lingering Echo",
     "DESCRIPTION": "Deal !D! damage. NL The next card you play this turn remains in your hand."
+  },
+  "bard:EchoEcho": {
+    "NAME": "Echo Echo",
+    "DESCRIPTION": "Deal !bard:M2! damage. NL Deal !D! damage."
   }
 }
