@@ -71,5 +71,13 @@
       " turn.",
       " turns."
     ]
+  },
+  "bard:LingeringEcho": {
+    "NAME": "Lingering Echo",
+    "DESCRIPTIONS": [
+      "The next card you play this turn remains in your hand.",
+      "The next #b",
+      " cards you play this turn remain in your hand."
+    ]
   }
 }

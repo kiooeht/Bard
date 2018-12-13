@@ -185,5 +185,9 @@
     "NAME": "Blink",
     "DESCRIPTION": "Take 50% less damage for !M! turn.",
     "UPGRADE_DESCRIPTION": "Take 50% less damage for !M! turns."
+  },
+  "bard:LingeringEcho": {
+    "NAME": "Lingering Echo",
+    "DESCRIPTION": "Deal !D! damage. NL The next card you play this turn remains in your hand."
   }
 }

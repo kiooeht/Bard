@@ -18,6 +18,7 @@ minWidth=16
 paddingX=2
 paddingY=2
 pot=true
+mof=false
 rotation=false
 stripWhitespaceX=true
 stripWhitespaceY=true
@@ -31,12 +32,12 @@ limitMemory=true
 useIndexes=true
 
 scaleFactors=[{suffix:"",factor:1,resampling:bicubic}]
-inputFiles=[{path:48/deenergized.png,type:Input,regionName:48/deenergized},{path:128/deenergized.png,type:Input,regionName:128/deenergized},{path:128/silenced.png,type:Input,regionName:128/silenced},{path:48/silenced.png,type:Input,regionName:48/silenced},{path:48/splendid.png,type:Input,regionName:48/splendid},{path:128/splendid.png,type:Input,regionName:128/splendid},{path:128/blink.png,type:Input,regionName:128/blink},{path:48/blink.png,type:Input,regionName:48/blink}]
+inputFiles=[{path:48/deenergized.png,type:Input,regionName:48/deenergized},{path:128/deenergized.png,type:Input,regionName:128/deenergized},{path:128/silenced.png,type:Input,regionName:128/silenced},{path:48/silenced.png,type:Input,regionName:48/silenced},{path:48/splendid.png,type:Input,regionName:48/splendid},{path:128/splendid.png,type:Input,regionName:128/splendid},{path:128/blink.png,type:Input,regionName:128/blink},{path:48/blink.png,type:Input,regionName:48/blink},{path:48/lingeringEcho.png,type:Input,regionName:48/lingeringEcho},{path:128/lingeringEcho.png,type:Input,regionName:128/lingeringEcho}]
 
 
 -PROJ-
 
-version=4.7.3
+version=4.8.1
 fileTypeType=png
 fileTypeData={encoding:RGBA8888}
 previewBackgroundColor=ffffffff
