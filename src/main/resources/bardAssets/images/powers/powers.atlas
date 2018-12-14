@@ -25,6 +25,13 @@ repeat: none
   orig: 128, 128
   offset: 22, 24
   index: -1
+128/reverseGravity
+  rotate: false
+  xy: 439, 61
+  size: 61, 61
+  orig: 128, 128
+  offset: 33, 33
+  index: -1
 128/silenced
   rotate: false
   xy: 2, 29
@@ -41,24 +48,31 @@ repeat: none
   index: -1
 48/blink
   rotate: false
-  xy: 474, 103
+  xy: 2, 8
   size: 36, 19
   orig: 48, 48
   offset: 6, 14
   index: -1
 48/deenergized
   rotate: false
-  xy: 304, 40
+  xy: 98, 3
   size: 32, 32
   orig: 48, 48
   offset: 8, 8
   index: -1
 48/lingeringEcho
   rotate: false
-  xy: 439, 90
+  xy: 304, 40
   size: 33, 32
   orig: 48, 48
   offset: 8, 9
+  index: -1
+48/reverseGravity
+  rotate: false
+  xy: 72, 3
+  size: 24, 24
+  orig: 48, 48
+  offset: 12, 12
   index: -1
 48/silenced
   rotate: false
@@ -69,7 +83,7 @@ repeat: none
   index: -1
 48/splendid
   rotate: false
-  xy: 2, 2
+  xy: 40, 2
   size: 30, 25
   orig: 48, 48
   offset: 9, 12

@@ -33,8 +33,8 @@ public class ReverseGravityPower extends TwoAmountPower implements NonStackableP
         amount = weak;
         isTurnBased = true;
         updateDescription();
-        // TODO
-        loadRegion("rupture");
+        region48 = BardMod.powerAtlas.findRegion("48/reverseGravity");
+        region128 = BardMod.powerAtlas.findRegion("128/reverseGravity");
     }
 
     @Override
@@ -47,6 +47,8 @@ public class ReverseGravityPower extends TwoAmountPower implements NonStackableP
     public void atStartOfTurn()
     {
         if (!AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
+            flash();
+
             AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(owner, owner, this));
 
             AbstractDungeon.actionManager.addToBottom(new AnimateReverseGravityAction());
