@@ -1,6 +1,7 @@
 package com.evacipated.cardcrawl.mod.bard.powers;
 
 import com.evacipated.cardcrawl.mod.bard.BardMod;
+import com.evacipated.cardcrawl.mod.bard.actions.animations.AnimateReverseGravityAction;
 import com.evacipated.cardcrawl.mod.bard.powers.interfaces.NonStackablePower;
 import com.evacipated.cardcrawl.mod.bard.powers.interfaces.TwoAmountPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -47,6 +48,8 @@ public class ReverseGravityPower extends TwoAmountPower implements NonStackableP
     {
         if (!AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
             AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(owner, owner, this));
+
+            AbstractDungeon.actionManager.addToBottom(new AnimateReverseGravityAction());
 
             AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(null, DamageInfo.createDamageMatrix(amount2, true), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.BLUNT_HEAVY));
             for (AbstractMonster mo : AbstractDungeon.getMonsters().monsters) {

@@ -1,6 +1,7 @@
 package com.evacipated.cardcrawl.mod.bard.cards;
 
 import com.evacipated.cardcrawl.mod.bard.BardMod;
+import com.evacipated.cardcrawl.mod.bard.actions.animations.AnimateReverseGravityAction;
 import com.evacipated.cardcrawl.mod.bard.characters.Bard;
 import com.evacipated.cardcrawl.mod.bard.notes.AbstractNote;
 import com.evacipated.cardcrawl.mod.bard.notes.AttackNote;
@@ -50,6 +51,8 @@ public class ReverseGravity extends AbstractBardCard
     @Override
     public void use(AbstractPlayer p, AbstractMonster m)
     {
+        addToBottom(new AnimateReverseGravityAction());
+
         addToBottom(new DamageAllEnemiesAction(p, multiDamage, damageTypeForTurn, AbstractGameAction.AttackEffect.BLUNT_HEAVY));
         for (AbstractMonster mo : AbstractDungeon.getMonsters().monsters) {
             addToBottom(new ApplyPowerAction(mo, p, new WeakPower(mo, magicNumber, false), magicNumber, true, AbstractGameAction.AttackEffect.NONE));
