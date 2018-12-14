@@ -79,5 +79,11 @@
       "The next #b",
       " cards you play this turn remain in your hand."
     ]
+  },
+  "bard:ReverseGravity": {
+    "NAME": "Reverse Gravity",
+    "DESCRIPTIONS": [
+      "At the start of next turn, deal #b%1$s damage and apply #b%2$s #yWeak to ALL enemies."
+    ]
   }
 }
