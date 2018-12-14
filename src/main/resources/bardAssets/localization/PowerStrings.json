@@ -85,5 +85,11 @@
     "DESCRIPTIONS": [
       "At the start of next turn, deal #b%1$s damage and apply #b%2$s #yWeak to ALL enemies."
     ]
+  },
+  "bard:CovetousAura": {
+    "NAME": "Covetous Aura",
+    "DESCRIPTIONS": [
+      "Anytime an enemy gains HP or Strength, you also gain the same HP or Strength."
+    ]
   }
 }

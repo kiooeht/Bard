@@ -197,5 +197,9 @@
   "bard:ReverseGravity": {
     "NAME": "Reverse Gravity",
     "DESCRIPTION": "Deal !D! damage and apply !M! Weak to ALL enemies. NL Next turn, deal !bard:M2! damage and apply !M! Weak to ALL enemies again."
+  },
+  "bard:CovetousAura": {
+    "NAME": "Covetous Aura",
+    "DESCRIPTION": "Anytime an enemy gains HP or Strength, you also gain the same HP or Strength."
   }
 }
