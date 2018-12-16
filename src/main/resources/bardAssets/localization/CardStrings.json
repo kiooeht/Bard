@@ -205,5 +205,9 @@
   "bard:EnGarde": {
     "NAME": "En Garde",
     "DESCRIPTION": "Gain !B! Block. NL Deal !D! damage. NL Inspiration affects this card !M! times."
+  },
+  "bard:GlyphOfWarding": {
+    "NAME": "Glyph of Warding",
+    "DESCRIPTION": "Whenever your Block is broken, deal !M! damage to ALL enemies."
   }
 }

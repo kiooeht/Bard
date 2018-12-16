@@ -91,5 +91,14 @@
     "DESCRIPTIONS": [
       "Anytime an enemy gains HP or Strength, you also gain the same HP or Strength."
     ]
+  },
+  "bard:GlyphOfWarding": {
+    "NAME": "Glyph of Warding",
+    "DESCRIPTIONS": [
+      "Whenever your #yBlock is broken, deal #b",
+      " damage to ALL enemies.",
+      "Whenever its #yBlock is broken, deals #b",
+      " damage to you."
+    ]
   }
 }
