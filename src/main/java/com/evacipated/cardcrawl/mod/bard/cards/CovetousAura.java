@@ -18,6 +18,7 @@ public class CovetousAura extends AbstractBardCard
     public static final String ID = BardMod.makeID("CovetousAura");
     public static final String IMG = null;
     private static final int COST = 1;
+    private static final int UPGRADE_COST = 0;
 
     public CovetousAura()
     {
@@ -41,7 +42,7 @@ public class CovetousAura extends AbstractBardCard
     {
         if (!upgraded) {
             upgradeName();
-            // TODO
+            upgradeBaseCost(UPGRADE_COST);
         }
     }
 
