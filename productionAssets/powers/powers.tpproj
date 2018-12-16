@@ -32,7 +32,7 @@ limitMemory=true
 useIndexes=true
 
 scaleFactors=[{suffix:"",factor:1,resampling:bicubic}]
-inputFiles=[{path:48/deenergized.png,type:Input,regionName:48/deenergized},{path:128/deenergized.png,type:Input,regionName:128/deenergized},{path:128/silenced.png,type:Input,regionName:128/silenced},{path:48/silenced.png,type:Input,regionName:48/silenced},{path:48/splendid.png,type:Input,regionName:48/splendid},{path:128/splendid.png,type:Input,regionName:128/splendid},{path:128/blink.png,type:Input,regionName:128/blink},{path:48/blink.png,type:Input,regionName:48/blink},{path:48/lingeringEcho.png,type:Input,regionName:48/lingeringEcho},{path:128/lingeringEcho.png,type:Input,regionName:128/lingeringEcho},{path:128/reverseGravity.png,type:Input,regionName:128/reverseGravity},{path:48/reverseGravity.png,type:Input,regionName:48/reverseGravity}]
+inputFiles=[{path:48/deenergized.png,type:Input,regionName:48/deenergized},{path:128/deenergized.png,type:Input,regionName:128/deenergized},{path:128/silenced.png,type:Input,regionName:128/silenced},{path:48/silenced.png,type:Input,regionName:48/silenced},{path:48/splendid.png,type:Input,regionName:48/splendid},{path:128/splendid.png,type:Input,regionName:128/splendid},{path:128/blink.png,type:Input,regionName:128/blink},{path:48/blink.png,type:Input,regionName:48/blink},{path:48/lingeringEcho.png,type:Input,regionName:48/lingeringEcho},{path:128/lingeringEcho.png,type:Input,regionName:128/lingeringEcho},{path:128/reverseGravity.png,type:Input,regionName:128/reverseGravity},{path:48/reverseGravity.png,type:Input,regionName:48/reverseGravity},{path:48/covetousAura.png,type:Input,regionName:48/covetousAura},{path:128/covetousAura.png,type:Input,regionName:128/covetousAura}]
 
 
 -PROJ-

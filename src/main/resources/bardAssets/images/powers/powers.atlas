@@ -6,28 +6,35 @@ filter: Linear,Linear
 repeat: none
 128/blink
   rotate: false
-  xy: 267, 74
+  xy: 358, 74
   size: 93, 48
   orig: 128, 128
   offset: 17, 39
   index: -1
+128/covetousAura
+  rotate: false
+  xy: 93, 37
+  size: 89, 85
+  orig: 128, 128
+  offset: 18, 21
+  index: -1
 128/deenergized
   rotate: false
-  xy: 181, 36
+  xy: 272, 36
   size: 84, 86
   orig: 128, 128
   offset: 22, 21
   index: -1
 128/lingeringEcho
   rotate: false
-  xy: 93, 37
+  xy: 184, 37
   size: 86, 85
   orig: 128, 128
   offset: 22, 24
   index: -1
 128/reverseGravity
   rotate: false
-  xy: 439, 61
+  xy: 435, 11
   size: 61, 61
   orig: 128, 128
   offset: 33, 33
@@ -41,7 +48,7 @@ repeat: none
   index: -1
 128/splendid
   rotate: false
-  xy: 362, 59
+  xy: 358, 9
   size: 75, 63
   orig: 128, 128
   offset: 27, 35
@@ -53,16 +60,23 @@ repeat: none
   orig: 48, 48
   offset: 6, 14
   index: -1
+48/covetousAura
+  rotate: false
+  xy: 133, 3
+  size: 33, 32
+  orig: 48, 48
+  offset: 7, 8
+  index: -1
 48/deenergized
   rotate: false
-  xy: 98, 3
+  xy: 168, 3
   size: 32, 32
   orig: 48, 48
   offset: 8, 8
   index: -1
 48/lingeringEcho
   rotate: false
-  xy: 304, 40
+  xy: 98, 3
   size: 33, 32
   orig: 48, 48
   offset: 8, 9
@@ -76,7 +90,7 @@ repeat: none
   index: -1
 48/silenced
   rotate: false
-  xy: 267, 36
+  xy: 453, 86
   size: 35, 36
   orig: 48, 48
   offset: 7, 6

@@ -21,10 +21,8 @@ public class CovetousAuraPower extends AbstractPower
         type = PowerType.BUFF;
         isTurnBased = true;
         updateDescription();
-        // TODO
-        loadRegion("rupture");
-        //region48 = BardMod.powerAtlas.findRegion("48/reverseGravity");
-        //region128 = BardMod.powerAtlas.findRegion("128/reverseGravity");
+        region48 = BardMod.powerAtlas.findRegion("48/covetousAura");
+        region128 = BardMod.powerAtlas.findRegion("128/covetousAura");
     }
 
     @Override
