@@ -201,5 +201,9 @@
   "bard:CovetousAura": {
     "NAME": "Covetous Aura",
     "DESCRIPTION": "Anytime an enemy gains HP or Strength, you also gain the same HP or Strength."
+  },
+  "bard:EnGarde": {
+    "NAME": "En Garde",
+    "DESCRIPTION": "Gain !B! Block. NL Deal !D! damage. NL Inspiration affects this card !M! times."
   }
 }
