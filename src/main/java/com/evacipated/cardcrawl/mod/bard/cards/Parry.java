@@ -60,6 +60,21 @@ public class Parry extends AbstractBardCard
     }
 
     @Override
+    public void calculateCardDamage(AbstractMonster mo)
+    {
+        AbstractPower dexterity = AbstractDungeon.player.getPower(DexterityPower.POWER_ID);
+        if (dexterity != null) {
+            dexterity.amount *= magicNumber;
+        }
+
+        super.calculateCardDamage(mo);
+
+        if (dexterity != null) {
+            dexterity.amount /= magicNumber;
+        }
+    }
+
+    @Override
     public void upgrade()
     {
         if (!upgraded) {
