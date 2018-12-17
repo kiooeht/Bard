@@ -46,7 +46,7 @@ public class Advance extends AbstractBardCard
     {
         addToBottom(new GainEnergyAction(ENERGY));
         addToBottom(new DrawCardAction(p, magicNumber));
-        addToBottom(new ApplyPowerAction(p, p, new DeEnergizedPower(p, ENERGY)));
+        addToBottom(new ApplyPowerAction(p, p, new DeEnergizedPower(p, ENERGY), ENERGY));
     }
 
     @Override
