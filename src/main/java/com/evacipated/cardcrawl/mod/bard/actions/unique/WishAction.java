@@ -1,8 +1,8 @@
 package com.evacipated.cardcrawl.mod.bard.actions.unique;
 
+import com.evacipated.cardcrawl.mod.bard.actions.common.PutCardInHand;
 import com.evacipated.cardcrawl.mod.bard.characters.Bard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.core.Settings;
@@ -46,10 +46,10 @@ public class WishAction extends AbstractGameAction
                 group.addToTop(tmp);
             }
             group.sortAlphabetically(true);
-            group.sortByRarity(true);
+            group.sortByRarity(false);
             group.sortByStatus(true);
 
-            AbstractDungeon.gridSelectScreen.open(group, 1, false, "TODO");
+            AbstractDungeon.gridSelectScreen.open(group, 1, "Make a Wish", false, false, false, false);
             tickDuration();
             return;
         }
@@ -58,12 +58,11 @@ public class WishAction extends AbstractGameAction
             AbstractCard card = AbstractDungeon.gridSelectScreen.selectedCards.get(0);
             AbstractDungeon.gridSelectScreen.selectedCards.clear();
 
+            AbstractCard realCard = card.makeStatEquivalentCopy();
             if (deckPosition >= 0) {
-                AbstractDungeon.player.masterDeck.group.add(deckPosition, card.makeStatEquivalentCopy());
-            } else {
-                AbstractDungeon.player.masterDeck.group.add(card.makeStatEquivalentCopy());
+                AbstractDungeon.player.masterDeck.group.add(deckPosition, realCard);
             }
-            AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(card));
+            AbstractDungeon.actionManager.addToBottom(new PutCardInHand(realCard.makeSameInstanceOf(), false));
         }
         tickDuration();
     }
