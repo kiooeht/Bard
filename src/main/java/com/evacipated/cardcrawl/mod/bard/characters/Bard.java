@@ -13,7 +13,6 @@ import com.evacipated.cardcrawl.mod.bard.cards.*;
 import com.evacipated.cardcrawl.mod.bard.helpers.MelodyManager;
 import com.evacipated.cardcrawl.mod.bard.melodies.AbstractMelody;
 import com.evacipated.cardcrawl.mod.bard.notes.AbstractNote;
-import com.evacipated.cardcrawl.mod.bard.notes.BuffNote;
 import com.evacipated.cardcrawl.mod.bard.powers.interfaces.OnNoteQueuedPower;
 import com.evacipated.cardcrawl.mod.bard.relics.Lute;
 import com.evacipated.cardcrawl.mod.bard.relics.PitchPipe;
@@ -34,7 +33,10 @@ import com.megacrit.cardcrawl.rooms.MonsterRoom;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 
-import java.util.*;
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.Deque;
+import java.util.List;
 
 public class Bard extends CustomPlayer
 {
@@ -75,9 +77,6 @@ public class Bard extends CustomPlayer
     public void increaseMaxNotes(int amount)
     {
         maxNotes += amount;
-        for (int i=0; i<amount; ++i) {
-            queueNote(new BuffNote());
-        }
     }
 
     public void clearNoteQueue()
