@@ -209,5 +209,13 @@
   "bard:GlyphOfWarding": {
     "NAME": "Glyph of Warding",
     "DESCRIPTION": "Whenever your Block is broken, deal !M! damage to ALL enemies."
+  },
+  "bard:Wish": {
+    "NAME": "Wish",
+    "DESCRIPTION": "Unplayable. NL Ethereal.",
+    "UPGRADE_DESCRIPTION": "Choose any non-rare card. Permanently replace this card with the chosen card. NL Purge.",
+    "EXTENDED_DESCRIPTION": [
+      "I can't play this card."
+    ]
   }
 }
