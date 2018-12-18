@@ -217,5 +217,9 @@
     "EXTENDED_DESCRIPTION": [
       "I can't play this card."
     ]
+  },
+  "bard:Shifting": {
+    "NAME": "Shifting",
+    "DESCRIPTION": "Deal !D! damage or NL gain !B! Block. NL Deal !D! damage or NL gain !B! Block."
   }
 }
