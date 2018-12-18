@@ -4,6 +4,7 @@ import com.evacipated.cardcrawl.mod.bard.BardMod;
 import com.evacipated.cardcrawl.mod.bard.CardIgnore;
 import com.evacipated.cardcrawl.mod.bard.characters.Bard;
 import com.evacipated.cardcrawl.mod.bard.patches.CenterGridCardSelectScreen;
+import com.evacipated.cardcrawl.mod.bard.relics.Lute;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
@@ -14,6 +15,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 public class ShiftingAction extends AbstractGameAction
 {
@@ -57,6 +59,11 @@ public class ShiftingAction extends AbstractGameAction
             }
             if (cardChoice.baseDamage >= 0) {
                 AbstractDungeon.actionManager.addToTop(new DamageAction(target, new DamageInfo(AbstractDungeon.player, cardChoice.baseDamage, damageTypeForTurn)));
+            }
+
+            AbstractRelic lute = AbstractDungeon.player.getRelic(Lute.ID);
+            if (lute != null) {
+                lute.onUseCard(cardChoice, null);
             }
 
             isDone = true;
