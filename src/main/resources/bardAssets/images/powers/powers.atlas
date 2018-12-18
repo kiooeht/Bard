@@ -32,6 +32,13 @@ repeat: none
   orig: 128, 128
   offset: 20, 17
   index: -1
+128/inspiration
+  rotate: false
+  xy: 679, 27
+  size: 50, 89
+  orig: 128, 128
+  offset: 38, 20
+  index: -1
 128/lingeringEcho
   rotate: false
   xy: 270, 31
@@ -69,24 +76,31 @@ repeat: none
   index: -1
 48/covetousAura
   rotate: false
-  xy: 713, 84
+  xy: 765, 84
   size: 33, 32
   orig: 48, 48
   offset: 7, 8
   index: -1
 48/deenergized
   rotate: false
-  xy: 748, 84
+  xy: 731, 46
   size: 32, 32
   orig: 48, 48
   offset: 8, 8
   index: -1
 48/glyphOfWarding
   rotate: false
-  xy: 679, 80
+  xy: 731, 80
   size: 32, 36
   orig: 48, 48
   offset: 7, 6
+  index: -1
+48/inspiration
+  rotate: false
+  xy: 516, 32
+  size: 19, 34
+  orig: 48, 48
+  offset: 14, 7
   index: -1
 48/lingeringEcho
   rotate: false
@@ -97,7 +111,7 @@ repeat: none
   index: -1
 48/reverseGravity
   rotate: false
-  xy: 814, 92
+  xy: 800, 92
   size: 24, 24
   orig: 48, 48
   offset: 12, 12
@@ -111,7 +125,7 @@ repeat: none
   index: -1
 48/splendid
   rotate: false
-  xy: 782, 91
+  xy: 765, 57
   size: 30, 25
   orig: 48, 48
   offset: 9, 12

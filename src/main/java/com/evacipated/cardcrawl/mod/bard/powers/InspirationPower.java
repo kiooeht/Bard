@@ -31,7 +31,8 @@ public class InspirationPower extends TwoAmountPower implements NonStackablePowe
         amount2 = percent;
         priority = 6;
         updateDescription();
-        loadRegion("penNib");
+        region48 = BardMod.powerAtlas.findRegion("48/inspiration");
+        region128 = BardMod.powerAtlas.findRegion("128/inspiration");
     }
 
     @Override
