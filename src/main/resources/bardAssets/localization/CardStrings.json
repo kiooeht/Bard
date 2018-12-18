@@ -230,5 +230,10 @@
     "NAME": "Locate Object",
     "DESCRIPTION": "Put !M! card from your draw pile on top of your draw pile. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Put !M! card from your draw pile on top of your draw pile. NL Exhaustive !stslib:ex!."
+  },
+  "bard:GreaterMagicWeapon": {
+    "NAME": "Greater Magic Weapon",
+    "DESCRIPTION": "Your attacks ignore Block.",
+    "UPGRADE_DESCRIPTION": "Innate. NL "
   }
 }

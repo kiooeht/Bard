@@ -107,5 +107,11 @@
       "Increase all #yInspiration you gain by #b",
       "."
     ]
+  },
+  "bard:GreaterMagicWeapon": {
+    "NAME": "Greater Magic Weapon",
+    "DESCRIPTIONS": [
+      "Your #yAttacks ignore #yBlock."
+    ]
   }
 }
