@@ -6,7 +6,7 @@ filter: Linear,Linear
 repeat: none
 128/blink
   rotate: false
-  xy: 444, 68
+  xy: 508, 68
   size: 93, 48
   orig: 128, 128
   offset: 17, 39
@@ -34,7 +34,7 @@ repeat: none
   index: -1
 128/inspiration
   rotate: false
-  xy: 679, 27
+  xy: 743, 27
   size: 50, 89
   orig: 128, 128
   offset: 38, 20
@@ -46,9 +46,16 @@ repeat: none
   orig: 128, 128
   offset: 22, 24
   index: -1
+128/motivation
+  rotate: false
+  xy: 444, 27
+  size: 62, 89
+  orig: 128, 128
+  offset: 26, 20
+  index: -1
 128/reverseGravity
   rotate: false
-  xy: 616, 55
+  xy: 680, 55
   size: 61, 61
   orig: 128, 128
   offset: 33, 33
@@ -62,7 +69,7 @@ repeat: none
   index: -1
 128/splendid
   rotate: false
-  xy: 539, 53
+  xy: 603, 53
   size: 75, 63
   orig: 128, 128
   offset: 27, 35
@@ -76,56 +83,63 @@ repeat: none
   index: -1
 48/covetousAura
   rotate: false
-  xy: 765, 84
+  xy: 829, 84
   size: 33, 32
   orig: 48, 48
   offset: 7, 8
   index: -1
 48/deenergized
   rotate: false
-  xy: 731, 46
+  xy: 795, 46
   size: 32, 32
   orig: 48, 48
   offset: 8, 8
   index: -1
 48/glyphOfWarding
   rotate: false
-  xy: 731, 80
+  xy: 795, 80
   size: 32, 36
   orig: 48, 48
   offset: 7, 6
   index: -1
 48/inspiration
   rotate: false
-  xy: 516, 32
+  xy: 580, 32
   size: 19, 34
   orig: 48, 48
   offset: 14, 7
   index: -1
 48/lingeringEcho
   rotate: false
-  xy: 481, 34
+  xy: 545, 34
   size: 33, 32
   orig: 48, 48
   offset: 8, 9
   index: -1
+48/motivation
+  rotate: false
+  xy: 829, 47
+  size: 24, 35
+  orig: 48, 48
+  offset: 9, 7
+  index: -1
 48/reverseGravity
   rotate: false
-  xy: 800, 92
+  xy: 896, 92
   size: 24, 24
   orig: 48, 48
   offset: 12, 12
   index: -1
 48/silenced
   rotate: false
-  xy: 444, 30
+  xy: 508, 30
   size: 35, 36
   orig: 48, 48
   offset: 7, 6
   index: -1
 48/splendid
   rotate: false
-  xy: 765, 57
+  xy: 864, 91
   size: 30, 25
   orig: 48, 48
   offset: 9, 12

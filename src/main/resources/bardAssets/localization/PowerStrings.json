@@ -100,5 +100,12 @@
       "Whenever its #yBlock is broken, deals #b",
       " damage to you."
     ]
+  },
+  "bard:Motivation": {
+    "NAME": "Motivation",
+    "DESCRIPTIONS": [
+      "Increase all #yInspiration you gain by #b",
+      "."
+    ]
   }
 }

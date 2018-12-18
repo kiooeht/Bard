@@ -23,7 +23,7 @@ public class InspirationPower extends TwoAmountPower implements NonStackablePowe
 
     public InspirationPower(AbstractCreature owner, int cards, int percent)
     {
-        name = NAME + " " + percent;
+        name = NAME;
         ID = POWER_ID;
         this.owner = owner;
         type = PowerType.BUFF;
@@ -38,6 +38,7 @@ public class InspirationPower extends TwoAmountPower implements NonStackablePowe
     @Override
     public void updateDescription()
     {
+        name = NAME + " " + amount2;
         if (amount == 1) {
             description = DESCRIPTIONS[0] + DESCRIPTIONS[2] + DESCRIPTIONS[4] + amount2 + DESCRIPTIONS[5];
         } else {

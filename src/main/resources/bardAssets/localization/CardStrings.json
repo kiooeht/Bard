@@ -221,5 +221,9 @@
   "bard:Shifting": {
     "NAME": "Shifting",
     "DESCRIPTION": "Deal !D! damage or NL gain !B! Block. NL Deal !D! damage or NL gain !B! Block."
+  },
+  "bard:Motivation": {
+    "NAME": "Motivation",
+    "DESCRIPTION": "Increase all Inspiration you gain by !bard:M2!."
   }
 }
