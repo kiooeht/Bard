@@ -22,10 +22,7 @@ import com.google.gson.Gson;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.helpers.CardHelper;
-import com.megacrit.cardcrawl.localization.CardStrings;
-import com.megacrit.cardcrawl.localization.Keyword;
-import com.megacrit.cardcrawl.localization.PowerStrings;
-import com.megacrit.cardcrawl.localization.RelicStrings;
+import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import javassist.CannotCompileException;
 import javassist.CtClass;
@@ -137,6 +134,7 @@ public class BardMod implements
         BaseMod.loadCustomStringsFile(CardStrings.class, assetPath("localization/CardStrings.json"));
         BaseMod.loadCustomStringsFile(RelicStrings.class, assetPath("localization/RelicStrings.json"));
         BaseMod.loadCustomStringsFile(PowerStrings.class, assetPath("localization/PowerStrings.json"));
+        BaseMod.loadCustomStringsFile(UIStrings.class, assetPath("localization/UIStrings.json"));
     }
 
     @Override
