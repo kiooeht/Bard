@@ -27,7 +27,7 @@ public class Greatness extends AbstractBardCard
         super(ID, IMG, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.UNCOMMON, CardTarget.SELF);
 
         magicNumber = baseMagicNumber = AMT;
-        magicNumber2 = baseMagicNumber2 = INSPIRATION;
+        inspiration = baseInspiration = INSPIRATION;
     }
 
     @Override
@@ -39,7 +39,7 @@ public class Greatness extends AbstractBardCard
     @Override
     public void use(AbstractPlayer p, AbstractMonster m)
     {
-        addToBottom(new ApplyPowerAction(p, p, new InspirationPower(p, magicNumber, magicNumber2), magicNumber));
+        addToBottom(new ApplyPowerAction(p, p, new InspirationPower(p, magicNumber, inspiration), magicNumber));
     }
 
     @Override

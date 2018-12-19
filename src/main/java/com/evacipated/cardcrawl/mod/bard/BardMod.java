@@ -6,6 +6,7 @@ import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.evacipated.cardcrawl.mod.bard.cards.variables.InspirationVariable;
 import com.evacipated.cardcrawl.mod.bard.cards.variables.MagicNumber2;
 import com.evacipated.cardcrawl.mod.bard.characters.Bard;
 import com.evacipated.cardcrawl.mod.bard.helpers.MelodyManager;
@@ -110,6 +111,7 @@ public class BardMod implements
     public void receiveEditCards()
     {
         BaseMod.addDynamicVariable(new MagicNumber2());
+        BaseMod.addDynamicVariable(new InspirationVariable());
 
         try {
             autoAddCards();

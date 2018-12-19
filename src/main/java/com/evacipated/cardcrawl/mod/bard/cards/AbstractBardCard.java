@@ -31,6 +31,11 @@ public abstract class AbstractBardCard extends CustomCard
     public boolean isMagicNumber2Modified = false;
     public boolean upgradedMagicNumber2 = false;
 
+    public int baseInspiration = -1;
+    public int inspiration = -1;
+    public boolean isInspirationModified = false;
+    public boolean upgradedInspiration = false;
+
     public AbstractBardCard(String id, String img, int cost, CardType type, CardColor color, CardRarity rarity, CardTarget target)
     {
         super(id, "FAKE TITLE", img, cost, "FAKE DESCRIPTION", type, color, rarity, target);
@@ -49,6 +54,13 @@ public abstract class AbstractBardCard extends CustomCard
         baseMagicNumber2 += amount;
         magicNumber2 = baseMagicNumber2;
         upgradedMagicNumber2 = true;
+    }
+
+    protected void upgradeInspiration(int amount)
+    {
+        baseInspiration += amount;
+        inspiration = baseInspiration;
+        upgradedInspiration = true;
     }
 
     protected void addToTop(AbstractGameAction action)

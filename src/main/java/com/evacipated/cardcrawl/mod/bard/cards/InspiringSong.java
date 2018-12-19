@@ -26,7 +26,7 @@ public class InspiringSong extends AbstractBardCard
     {
         super(ID, IMG, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.COMMON, CardTarget.SELF);
 
-        magicNumber2 = baseMagicNumber2 = INSPIRATION;
+        inspiration = baseInspiration = INSPIRATION;
     }
 
     @Override
@@ -41,7 +41,7 @@ public class InspiringSong extends AbstractBardCard
         if (p instanceof Bard) {
             int count = ((Bard) p).noteQueueCount(BuffNote.class);
             if (count > 0) {
-                addToBottom(new ApplyPowerAction(p, p, new InspirationPower(p, count, magicNumber2), count));
+                addToBottom(new ApplyPowerAction(p, p, new InspirationPower(p, count, inspiration), count));
             }
         }
 
@@ -75,9 +75,7 @@ public class InspiringSong extends AbstractBardCard
     {
         if (!upgraded) {
             upgradeName();
-            baseMagicNumber2 += UPGRADE_INSPIRATION;
-            magicNumber2 = baseMagicNumber2;
-            upgradedMagicNumber2 = true;
+            upgradeInspiration(UPGRADE_INSPIRATION);
         }
     }
 

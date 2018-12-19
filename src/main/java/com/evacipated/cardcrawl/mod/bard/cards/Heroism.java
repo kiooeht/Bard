@@ -29,7 +29,7 @@ public class Heroism extends AbstractBardCard
         super(ID, IMG, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.UNCOMMON, CardTarget.SELF);
 
         magicNumber = baseMagicNumber = TEMP_HP;
-        magicNumber2 = baseMagicNumber2 = INSPIRATION;
+        inspiration = baseInspiration = INSPIRATION;
     }
 
     @Override
@@ -45,7 +45,7 @@ public class Heroism extends AbstractBardCard
     public void use(AbstractPlayer p, AbstractMonster m)
     {
         addToBottom(new AddTemporaryHPAction(p, p, magicNumber));
-        addToBottom(new ApplyPowerAction(p, p, new InspirationPower(p, 1, magicNumber2), 1));
+        addToBottom(new ApplyPowerAction(p, p, new InspirationPower(p, 1, inspiration), 1));
     }
 
     @Override

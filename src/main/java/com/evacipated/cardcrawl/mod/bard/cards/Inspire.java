@@ -26,7 +26,7 @@ public class Inspire extends AbstractBardCard
     {
         super(ID, IMG, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.BASIC, CardTarget.SELF);
 
-        magicNumber = baseMagicNumber = INSPIRATION;
+        inspiration = baseInspiration = INSPIRATION;
         exhaust = true;
     }
 
@@ -39,7 +39,7 @@ public class Inspire extends AbstractBardCard
     @Override
     public void use(AbstractPlayer p, AbstractMonster m)
     {
-        addToBottom(new ApplyPowerAction(p, p, new InspirationPower(p, 1, magicNumber), 1));
+        addToBottom(new ApplyPowerAction(p, p, new InspirationPower(p, 1, inspiration), 1));
     }
 
     @Override
@@ -50,7 +50,8 @@ public class Inspire extends AbstractBardCard
             rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
 
-            upgradeMagicNumber(UPGRADE_INSPIRATION);
+            upgradeInspiration(UPGRADE_INSPIRATION);
+            exhaust = false;
             ExhaustiveFields.baseExhaustive.set(this, 2);
             ExhaustiveFields.exhaustive.set(this, 2);
             ExhaustiveFields.isExhaustiveUpgraded.set(this, true);
