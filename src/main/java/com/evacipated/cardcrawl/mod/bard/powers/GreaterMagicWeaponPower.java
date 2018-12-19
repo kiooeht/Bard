@@ -1,8 +1,7 @@
 package com.evacipated.cardcrawl.mod.bard.powers;
 
 import com.evacipated.cardcrawl.mod.bard.BardMod;
-import com.megacrit.cardcrawl.actions.utility.UseCardAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -39,10 +38,9 @@ public class GreaterMagicWeaponPower extends AbstractPower
         description = DESCRIPTIONS[0];
     }
 
-    @Override
-    public void onUseCard(AbstractCard card, UseCardAction action)
+    public void beforeUse(DamageInfo info)
     {
-        if (card.type == AbstractCard.CardType.ATTACK) {
+        if (info.type == DamageInfo.DamageType.NORMAL) {
             for (AbstractMonster m : AbstractDungeon.getMonsters().monsters) {
                 monsterArmor.put(m, m.currentBlock);
                 m.currentBlock = 0;
@@ -50,10 +48,9 @@ public class GreaterMagicWeaponPower extends AbstractPower
         }
     }
 
-    @Override
-    public void onAfterUseCard(AbstractCard card, UseCardAction action)
+    public void afterUse(DamageInfo info)
     {
-        if (card.type == AbstractCard.CardType.ATTACK) {
+        if (info.type == DamageInfo.DamageType.NORMAL) {
             for (AbstractMonster m : AbstractDungeon.getMonsters().monsters) {
                 if (monsterArmor.containsKey(m)) {
                     m.currentBlock = monsterArmor.get(m);
