@@ -38,7 +38,7 @@ public abstract class AbstractMelody
 
     public AbstractCard makeChoiceCard()
     {
-        return new MelodyCard(name, rawDescription, target, this::play);
+        return new MelodyCard(name, rawDescription, new ArrayList<>(notes), target, this::play);
     }
 
     public int length()
