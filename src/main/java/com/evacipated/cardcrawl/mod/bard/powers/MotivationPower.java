@@ -1,13 +1,13 @@
 package com.evacipated.cardcrawl.mod.bard.powers;
 
 import com.evacipated.cardcrawl.mod.bard.BardMod;
-import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.OnReceivePowerPower;
+import com.evacipated.cardcrawl.mod.bard.powers.interfaces.ModifyInspirationPower;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-public class MotivationPower extends AbstractPower implements OnReceivePowerPower
+public class MotivationPower extends AbstractPower implements ModifyInspirationPower
 {
     public static final String POWER_ID = BardMod.makeID("Motivation");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -33,13 +33,8 @@ public class MotivationPower extends AbstractPower implements OnReceivePowerPowe
     }
 
     @Override
-    public boolean onReceivePower(AbstractPower power, AbstractCreature target, AbstractCreature source)
+    public float modifyInspiration(float inspirationAmount)
     {
-        if (power instanceof InspirationPower) {
-            ((InspirationPower) power).amount2 += amount;
-            power.updateDescription();
-        }
-
-        return true;
+        return inspirationAmount + amount;
     }
 }
