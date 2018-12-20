@@ -244,5 +244,9 @@
     "NAME": "Pluck",
     "DESCRIPTION": "Choose a Note to queue. NL Draw a card.",
     "UPGRADE_DESCRIPTION": "Choose !M! Notes to queue. NL Draw a card."
+  },
+  "bard:PhantasmalForce": {
+    "NAME": "Phantasmal Force",
+    "DESCRIPTION": "Gain !M! Temporary_HP. NL If the enemy is Weak, deal damage equal to your Temporary_HP."
   }
 }
