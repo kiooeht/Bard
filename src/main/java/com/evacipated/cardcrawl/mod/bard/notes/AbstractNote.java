@@ -3,6 +3,8 @@ package com.evacipated.cardcrawl.mod.bard.notes;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.evacipated.cardcrawl.mod.bard.cards.NoteCard;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
 
 public abstract class AbstractNote
@@ -33,5 +35,10 @@ public abstract class AbstractNote
                 Settings.scale * 2,
                 0
         );
+    }
+
+    public AbstractCard makeChoiceCard()
+    {
+        return new NoteCard(name(), "{" + name() + " Note}", this, AbstractCard.CardType.POWER);
     }
 }

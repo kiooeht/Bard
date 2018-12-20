@@ -21,6 +21,11 @@ public class MelodyManager
         return notes.get(key);
     }
 
+    public static List<AbstractNote> getAllNotes()
+    {
+        return new ArrayList<>(notes.values());
+    }
+
     public static void addMelody(AbstractMelody melody)
     {
         for (AbstractMelody m : melodies) {
