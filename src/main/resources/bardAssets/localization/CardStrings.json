@@ -248,5 +248,13 @@
   "bard:PhantasmalForce": {
     "NAME": "Phantasmal Force",
     "DESCRIPTION": "Gain !M! Temporary_HP. NL If the enemy is Weak, deal damage equal to your Temporary_HP."
+  },
+  "bard:CuttingWords": {
+    "NAME": "Cutting Words",
+    "DESCRIPTION": "Apply !M! Weak and !M! Vulnerable to a random enemy for each {Debuff Note} you have queued.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (",
+      " {Debuff Note} queued.)"
+    ]
   }
 }
