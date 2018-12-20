@@ -6,6 +6,7 @@ import com.evacipated.cardcrawl.mod.bard.notes.AbstractNote;
 import com.evacipated.cardcrawl.mod.bard.notes.BlockNote;
 import com.evacipated.cardcrawl.mod.bard.notes.DebuffNote;
 import com.evacipated.cardcrawl.mod.stslib.actions.tempHp.AddTemporaryHPAction;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -43,11 +44,19 @@ public class FeastOnFear extends AbstractBardCard
     @Override
     public void use(AbstractPlayer p, AbstractMonster m)
     {
-        if (m.hasPower(VulnerablePower.POWER_ID)) {
-            addToBottom(new AddTemporaryHPAction(p, p, magicNumber));
-        } else {
-            addToBottom(new GainBlockAction(p, p, block));
-        }
+        addToBottom(new AbstractGameAction()
+        {
+            @Override
+            public void update()
+            {
+                if (m.hasPower(VulnerablePower.POWER_ID)) {
+                    addToTop(new AddTemporaryHPAction(p, p, magicNumber));
+                } else {
+                    addToTop(new GainBlockAction(p, p, block));
+                }
+                isDone = true;
+            }
+        });
     }
 
     @Override
