@@ -1,6 +1,5 @@
 package com.evacipated.cardcrawl.mod.bard.helpers;
 
-import com.evacipated.cardcrawl.mod.bard.BardMod;
 import com.evacipated.cardcrawl.mod.bard.melodies.AbstractMelody;
 import com.evacipated.cardcrawl.mod.bard.notes.AbstractNote;
 
@@ -28,12 +27,14 @@ public class MelodyManager
 
     public static void addMelody(AbstractMelody melody)
     {
+        /*
         for (AbstractMelody m : melodies) {
             if (m.conflictsMelody(melody)) {
                 BardMod.logger.error(melody + " conflicts with existing " + m);
                 throw new RuntimeException(melody + " conflicts with existing " + m);
             }
         }
+        //*/
         melodies.add(melody);
     }
 
