@@ -12,6 +12,8 @@ import com.evacipated.cardcrawl.mod.bard.characters.Bard;
 import com.evacipated.cardcrawl.mod.bard.helpers.MelodyManager;
 import com.evacipated.cardcrawl.mod.bard.melodies.AttackUpLargeMelody;
 import com.evacipated.cardcrawl.mod.bard.melodies.AttackUpSmallMelody;
+import com.evacipated.cardcrawl.mod.bard.melodies.DefenseUpLargeMelody;
+import com.evacipated.cardcrawl.mod.bard.melodies.DefenseUpSmallMelody;
 import com.evacipated.cardcrawl.mod.bard.notes.AttackNote;
 import com.evacipated.cardcrawl.mod.bard.notes.BlockNote;
 import com.evacipated.cardcrawl.mod.bard.notes.BuffNote;
@@ -77,6 +79,8 @@ public class BardMod implements
 
         MelodyManager.addMelody(new AttackUpSmallMelody());
         MelodyManager.addMelody(new AttackUpLargeMelody());
+        MelodyManager.addMelody(new DefenseUpSmallMelody());
+        MelodyManager.addMelody(new DefenseUpLargeMelody());
     }
 
     public static String makeID(String id)
