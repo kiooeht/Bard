@@ -53,7 +53,7 @@ repeat: none
   orig: 128, 128
   offset: 22, 24
   index: -1
-128/motivation
+128/mantleOfInspiration
   rotate: false
   xy: 532, 27
   size: 62, 89
@@ -130,7 +130,7 @@ repeat: none
   orig: 48, 48
   offset: 8, 9
   index: -1
-48/motivation
+48/mantleOfInspiration
   rotate: false
   xy: 952, 81
   size: 24, 35

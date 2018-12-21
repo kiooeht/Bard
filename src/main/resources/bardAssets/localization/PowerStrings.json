@@ -101,8 +101,8 @@
       " damage to you."
     ]
   },
-  "bard:Motivation": {
-    "NAME": "Motivation",
+  "bard:MantleOfInspiration": {
+    "NAME": "Mantle of Inspiration",
     "DESCRIPTIONS": [
       "Increase all #yInspiration you gain by #b",
       "."

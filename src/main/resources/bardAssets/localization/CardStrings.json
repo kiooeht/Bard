@@ -222,8 +222,8 @@
     "NAME": "Shifting",
     "DESCRIPTION": "Deal !D! damage or NL gain !B! Block. NL Deal !D! damage or NL gain !B! Block."
   },
-  "bard:Motivation": {
-    "NAME": "Motivation",
+  "bard:MantleOfInspiration": {
+    "NAME": "Mantle of Inspiration",
     "DESCRIPTION": "Increase all Inspiration you gain by !bard:M2!."
   },
   "bard:LocateObject": {
