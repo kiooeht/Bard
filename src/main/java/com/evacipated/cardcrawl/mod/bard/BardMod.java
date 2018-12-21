@@ -87,6 +87,7 @@ public class BardMod implements
         MelodyManager.addMelody(new VulnerabilitySmallMelody());
         MelodyManager.addMelody(new InspireSmallMelody());
         MelodyManager.addMelody(new InspireLargeMelody());
+        MelodyManager.addMelody(new DamageSmallMelody());
     }
 
     public static String makeID(String id)
