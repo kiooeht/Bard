@@ -56,8 +56,6 @@ public class MelodyManager
                 matches.put(idx, melody.makeCopy());
             }
         }
-        List<AbstractMelody> ret = new ArrayList<>(matches.values());
-        Collections.reverse(ret);
-        return ret;
+        return new ArrayList<>(matches.values());
     }
 }
