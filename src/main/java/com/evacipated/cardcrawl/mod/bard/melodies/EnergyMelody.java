@@ -1,7 +1,6 @@
 package com.evacipated.cardcrawl.mod.bard.melodies;
 
 import com.evacipated.cardcrawl.mod.bard.notes.AttackNote;
-import com.evacipated.cardcrawl.mod.bard.notes.BlockNote;
 import com.evacipated.cardcrawl.mod.bard.notes.BuffNote;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -15,7 +14,7 @@ public class EnergyMelody extends AbstractMelody
         notes.add(new BuffNote());
         notes.add(new BuffNote());
         notes.add(new AttackNote());
-        notes.add(new BlockNote());
+        notes.add(new AttackNote());
     }
 
     @Override
