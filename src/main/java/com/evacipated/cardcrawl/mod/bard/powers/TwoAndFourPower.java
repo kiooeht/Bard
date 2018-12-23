@@ -23,10 +23,8 @@ public class TwoAndFourPower extends AbstractPower
         type = PowerType.BUFF;
         this.amount = amount;
         updateDescription();
-        // TODO
-        loadRegion("loop");
-        //region48 = BardMod.powerAtlas.findRegion("48/blink");
-        //region128 = BardMod.powerAtlas.findRegion("128/blink");
+        region48 = BardMod.powerAtlas.findRegion("48/twoAndFour");
+        region128 = BardMod.powerAtlas.findRegion("128/twoAndFour");
     }
 
     @Override

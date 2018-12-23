@@ -6,155 +6,169 @@ filter: Linear,Linear
 repeat: none
 128/blink
   rotate: false
-  xy: 596, 68
+  xy: 708, 78
   size: 93, 48
   orig: 128, 128
   offset: 17, 39
   index: -1
 128/covetousAura
   rotate: false
-  xy: 179, 31
+  xy: 291, 41
   size: 89, 85
   orig: 128, 128
   offset: 18, 21
   index: -1
 128/deenergized
   rotate: false
-  xy: 358, 30
+  xy: 470, 40
   size: 84, 86
   orig: 128, 128
   offset: 22, 21
   index: -1
 128/glyphOfWarding
   rotate: false
-  xy: 93, 23
+  xy: 205, 33
   size: 84, 93
   orig: 128, 128
   offset: 20, 17
   index: -1
 128/greaterMagicWeapon
   rotate: false
-  xy: 444, 34
+  xy: 556, 44
   size: 86, 82
   orig: 128, 128
   offset: 21, 23
   index: -1
 128/inspiration
   rotate: false
-  xy: 831, 27
+  xy: 943, 37
   size: 50, 89
   orig: 128, 128
   offset: 38, 20
   index: -1
 128/lingeringEcho
   rotate: false
-  xy: 270, 31
+  xy: 382, 41
   size: 86, 85
   orig: 128, 128
   offset: 22, 24
   index: -1
 128/mantleOfInspiration
   rotate: false
-  xy: 532, 27
+  xy: 644, 37
   size: 62, 89
   orig: 128, 128
   offset: 26, 20
   index: -1
 128/reverseGravity
   rotate: false
-  xy: 768, 55
+  xy: 880, 65
   size: 61, 61
   orig: 128, 128
   offset: 33, 33
   index: -1
 128/silenced
   rotate: false
-  xy: 2, 23
+  xy: 114, 33
   size: 89, 93
   orig: 128, 128
   offset: 21, 18
   index: -1
 128/splendid
   rotate: false
-  xy: 691, 53
+  xy: 803, 63
   size: 75, 63
   orig: 128, 128
   offset: 27, 35
   index: -1
+128/twoAndFour
+  rotate: false
+  xy: 2, 34
+  size: 110, 92
+  orig: 128, 128
+  offset: 7, 23
+  index: -1
 48/blink
   rotate: false
-  xy: 2, 2
+  xy: 2, 13
   size: 36, 19
   orig: 48, 48
   offset: 6, 14
   index: -1
 48/covetousAura
   rotate: false
-  xy: 917, 84
+  xy: 291, 7
   size: 33, 32
   orig: 48, 48
   offset: 7, 8
   index: -1
 48/deenergized
   rotate: false
-  xy: 883, 46
+  xy: 326, 7
   size: 32, 32
   orig: 48, 48
   offset: 8, 8
   index: -1
 48/glyphOfWarding
   rotate: false
-  xy: 883, 80
+  xy: 745, 2
   size: 32, 36
   orig: 48, 48
   offset: 7, 6
   index: -1
 48/greaterMagicWeapon
   rotate: false
-  xy: 917, 51
+  xy: 360, 8
   size: 33, 31
   orig: 48, 48
   offset: 8, 9
   index: -1
 48/inspiration
   rotate: false
-  xy: 668, 32
+  xy: 995, 55
   size: 19, 34
   orig: 48, 48
   offset: 14, 7
   index: -1
 48/lingeringEcho
   rotate: false
-  xy: 633, 34
+  xy: 753, 44
   size: 33, 32
   orig: 48, 48
   offset: 8, 9
   index: -1
 48/mantleOfInspiration
   rotate: false
-  xy: 952, 81
+  xy: 995, 91
   size: 24, 35
   orig: 48, 48
   offset: 9, 7
   index: -1
 48/reverseGravity
   rotate: false
-  xy: 952, 55
+  xy: 72, 8
   size: 24, 24
   orig: 48, 48
   offset: 12, 12
   index: -1
 48/silenced
   rotate: false
-  xy: 596, 30
+  xy: 708, 2
   size: 35, 36
   orig: 48, 48
   offset: 7, 6
   index: -1
 48/splendid
   rotate: false
-  xy: 978, 91
+  xy: 40, 7
   size: 30, 25
   orig: 48, 48
   offset: 9, 12
+  index: -1
+48/twoAndFour
+  rotate: false
+  xy: 708, 40
+  size: 43, 36
+  orig: 48, 48
+  offset: 2, 8
   index: -1
