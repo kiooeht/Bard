@@ -113,5 +113,13 @@
     "DESCRIPTIONS": [
       "Your #yAttacks ignore #yBlock."
     ]
+  },
+  "bard:TwoAndFour": {
+    "NAME": "2 and 4",
+    "DESCRIPTIONS": [
+      "At the start of your turn, choose a #yNote to queue.",
+      "At the start of your turn, choose #b",
+      " #yNotes to queue."
+    ]
   }
 }
