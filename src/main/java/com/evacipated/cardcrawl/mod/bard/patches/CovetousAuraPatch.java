@@ -22,7 +22,7 @@ public class CovetousAuraPatch
         public static void Prefix(HealAction __instance)
         {
             float duration = (float) ReflectionHacks.getPrivate(__instance, AbstractGameAction.class, "duration");
-            if (!__instance.target.isDeadOrEscaped() && duration == 0.5f) {
+            if (__instance.target != null && !__instance.target.isDeadOrEscaped() && duration == 0.5f) {
                 if (!__instance.target.isPlayer && AbstractDungeon.player.hasPower(CovetousAuraPower.POWER_ID)) {
                     AbstractDungeon.player.getPower(CovetousAuraPower.POWER_ID).flash();
                     AbstractDungeon.actionManager.addToTop(new HealAction(AbstractDungeon.player, AbstractDungeon.player, __instance.amount));
@@ -41,7 +41,7 @@ public class CovetousAuraPatch
         {
             float duration = (float) ReflectionHacks.getPrivate(__instance, AbstractGameAction.class, "duration");
             float startDuration = (float) ReflectionHacks.getPrivate(__instance, ApplyPowerAction.class, "startingDuration");
-            if (!__instance.target.isDeadOrEscaped() && duration == startDuration) {
+            if (__instance.target != null && !__instance.target.isDeadOrEscaped() && duration == startDuration) {
                 if (!__instance.target.isPlayer && AbstractDungeon.player.hasPower(CovetousAuraPower.POWER_ID)) {
                     AbstractPower powerToApply = (AbstractPower) ReflectionHacks.getPrivate(__instance, ApplyPowerAction.class, "powerToApply");
 
