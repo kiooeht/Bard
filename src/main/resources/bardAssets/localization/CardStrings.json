@@ -264,5 +264,9 @@
   "bard:Demoralize": {
     "NAME": "Demoralize",
     "DESCRIPTION": "Double the enemy's Weak and Vulnerable."
+  },
+  "bard:StudiedStrike": {
+    "NAME": "Studied Strike",
+    "DESCRIPTION": "Deal !D! damage. NL Deals additional damage for each NL stack of Weak or Vulnerable on the enemy."
   }
 }
