@@ -104,7 +104,7 @@
   "bard:MantleOfInspiration": {
     "NAME": "Mantle of Inspiration",
     "DESCRIPTIONS": [
-      "Increase all #yInspiration you gain by #b",
+      "Increase all #yInspiration you gain from cards by #b",
       "."
     ]
   },

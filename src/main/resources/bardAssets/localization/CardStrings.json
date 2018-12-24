@@ -171,7 +171,7 @@
   },
   "bard:SplendidForm": {
     "NAME": "Splendid Form",
-    "DESCRIPTION": "At the start of NL your turn, gain NL Inspiration !bard:In!."
+    "DESCRIPTION": "At the start of NL your turn, gain NL Inspiration !bard:M2!."
   },
   "bard:PowerWordStun": {
     "NAME": "Power Word Stun",
@@ -224,7 +224,7 @@
   },
   "bard:MantleOfInspiration": {
     "NAME": "Mantle of Inspiration",
-    "DESCRIPTION": "Increase all Inspiration you gain by !bard:M2!."
+    "DESCRIPTION": "Increase all Inspiration you gain from cards by !bard:M2!."
   },
   "bard:LocateObject": {
     "NAME": "Locate Object",

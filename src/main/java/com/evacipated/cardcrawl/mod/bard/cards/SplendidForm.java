@@ -28,7 +28,7 @@ public class SplendidForm extends AbstractBardCard
 
         tags.add(BaseModCardTags.FORM);
 
-        inspiration = baseInspiration = INSPIRATION;
+        magicNumber2 = baseMagicNumber2 = INSPIRATION;
     }
 
     @Override
@@ -40,7 +40,7 @@ public class SplendidForm extends AbstractBardCard
     @Override
     public void use(AbstractPlayer p, AbstractMonster m)
     {
-        addToBottom(new ApplyPowerAction(p, p, new SplendidPower(p, inspiration, 1), 1));
+        addToBottom(new ApplyPowerAction(p, p, new SplendidPower(p, magicNumber2, 1), 1));
     }
 
     @Override
@@ -48,7 +48,7 @@ public class SplendidForm extends AbstractBardCard
     {
         if (!upgraded) {
             upgradeName();
-            upgradeInspiration(UPGRADE_INSPIRATION);
+            upgradeMagicNumber2(UPGRADE_INSPIRATION);
         }
     }
 
