@@ -2,8 +2,8 @@ package com.evacipated.cardcrawl.mod.bard.powers;
 
 import com.evacipated.cardcrawl.mod.bard.BardMod;
 import com.evacipated.cardcrawl.mod.bard.cards.AbstractBardCard;
-import com.evacipated.cardcrawl.mod.bard.powers.interfaces.NonStackablePower;
-import com.evacipated.cardcrawl.mod.bard.powers.interfaces.TwoAmountPower;
+import com.evacipated.cardcrawl.mod.stslib.powers.abstracts.TwoAmountPower;
+import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.NonStackablePower;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
