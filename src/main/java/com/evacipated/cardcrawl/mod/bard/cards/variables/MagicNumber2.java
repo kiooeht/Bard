@@ -40,6 +40,14 @@ public class MagicNumber2 extends DynamicVariable
     }
 
     @Override
+    public void setIsModified(AbstractCard card, boolean v)
+    {
+        if (card instanceof AbstractBardCard) {
+            ((AbstractBardCard) card).isMagicNumber2Modified = true;
+        }
+    }
+
+    @Override
     public boolean upgraded(AbstractCard card)
     {
         if (card instanceof AbstractBardCard) {

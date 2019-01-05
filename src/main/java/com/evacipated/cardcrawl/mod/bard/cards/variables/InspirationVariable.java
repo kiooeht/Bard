@@ -40,6 +40,14 @@ public class InspirationVariable extends DynamicVariable
     }
 
     @Override
+    public void setIsModified(AbstractCard card, boolean v)
+    {
+        if (card instanceof AbstractBardCard) {
+            ((AbstractBardCard) card).isInspirationModified = v;
+        }
+    }
+
+    @Override
     public boolean upgraded(AbstractCard card)
     {
         if (card instanceof AbstractBardCard) {
