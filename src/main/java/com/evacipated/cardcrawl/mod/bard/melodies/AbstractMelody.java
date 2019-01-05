@@ -36,6 +36,16 @@ public abstract class AbstractMelody
         return builder.toString();
     }
 
+    public String makeUIString()
+    {
+        StringBuilder builder = new StringBuilder();
+        for (AbstractNote note : notes) {
+            builder.append("[").append(note.name()).append("Note] ");
+        }
+        builder.append(name);
+        return builder.toString();
+    }
+
     public AbstractCard makeChoiceCard()
     {
         return new MelodyCard(name, rawDescription, new ArrayList<>(notes), target, this::play);

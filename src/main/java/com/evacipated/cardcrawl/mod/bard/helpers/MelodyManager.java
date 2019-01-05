@@ -39,6 +39,11 @@ public class MelodyManager
         melodies.add(melody);
     }
 
+    public static List<AbstractMelody> getAllMelodies()
+    {
+        return melodies;
+    }
+
     public static AbstractMelody getMelodyFromNotes(List<AbstractNote> notes)
     {
         for (AbstractMelody melody : melodies) {

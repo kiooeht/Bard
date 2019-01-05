@@ -24,10 +24,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.helpers.CardLibrary;
-import com.megacrit.cardcrawl.helpers.FontHelper;
-import com.megacrit.cardcrawl.helpers.Hitbox;
-import com.megacrit.cardcrawl.helpers.ScreenShake;
+import com.megacrit.cardcrawl.helpers.*;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.rooms.MonsterRoom;
@@ -155,6 +152,23 @@ public class Bard extends CustomPlayer
                 drawX - (NOTE_SPACING * 3 * Settings.scale),
                 (146) * Settings.scale + drawY + hb_h / 2.0f
         );
+
+        notesHb.update();
+        if (notesHb.hovered) {
+            StringBuilder body = new StringBuilder();
+            for (AbstractMelody melody : MelodyManager.getAllMelodies()) {
+                body.append(melody.makeUIString());
+                body.append(" NL ");
+            }
+            body.setLength(body.length() - 4);
+
+            TipHelper.renderGenericTip(
+                    10 * Settings.scale,
+                    Settings.HEIGHT - 200 * Settings.scale,
+                    "Melodies",
+                    body.toString()
+            );
+        }
     }
 
     @Override
