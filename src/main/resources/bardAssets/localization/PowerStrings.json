@@ -13,14 +13,14 @@
   "bard:HarmoniousVoice": {
     "NAME": "Harmonious Voice",
     "DESCRIPTIONS": [
-      "Whenever you queue a {Block Note} or {Buff Note}, gain #b",
+      "Whenever you queue a [BlockNote] or [BuffNote] , gain #b",
       " #yTemporary #yHP."
     ]
   },
   "bard:DiscordantVoice": {
     "NAME": "Discordant Voice",
     "DESCRIPTIONS": [
-      "Whenever you queue a {Attack Note} or {Debuff Note}, deal #b",
+      "Whenever you queue a [AttackNote] or [DebuffNote] , deal #b",
       " damage to a random enemy."
     ]
   },

@@ -13,6 +13,7 @@ public class MelodyManager
     public static void addNote(AbstractNote note)
     {
         notes.put(note.name() + " Note", note);
+        notes.put("[" + note.name() + "Note]", note);
     }
 
     public static AbstractNote getNote(String key)
