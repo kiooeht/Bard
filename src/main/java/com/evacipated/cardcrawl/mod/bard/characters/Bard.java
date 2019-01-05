@@ -26,6 +26,7 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
+import com.megacrit.cardcrawl.helpers.Hitbox;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
@@ -50,7 +51,9 @@ public class Bard extends CustomPlayer
     private int maxNotes = MAX_NOTES;
     private Deque<AbstractNote> notes = new ArrayDeque<>();
 
-    private float timer = 0;
+    private float noteFloatTimer = 0;
+
+    private Hitbox notesHb;
 
     public static class Enums
     {
@@ -72,6 +75,8 @@ public class Bard extends CustomPlayer
 
         initializeClass(null, "images/characters/theSilent/shoulder2.png", "images/characters/theSilent/shoulder.png", "images/characters/theSilent/corpse.png",
                 getLoadout(), 0.0F, -20.0F, 240.0F, 240.0F, new EnergyManager(ENERGY_PER_TURN));
+
+        notesHb = new Hitbox(32, 32); // This size doesn't matter, it's updated in update()
     }
 
     public void increaseMaxNotes(int amount)
@@ -137,11 +142,27 @@ public class Bard extends CustomPlayer
     }
 
     @Override
+    public void update()
+    {
+        super.update();
+
+        notesHb.resize(
+                64 * Settings.scale
+                        + 32 * Settings.scale * maxNotes,
+                64 * Settings.scale
+        );
+        notesHb.translate(
+                drawX - (NOTE_SPACING * 3 * Settings.scale),
+                (146) * Settings.scale + drawY + hb_h / 2.0f
+        );
+    }
+
+    @Override
     public void render(SpriteBatch sb)
     {
         if ((AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT ||
                 AbstractDungeon.getCurrRoom() instanceof MonsterRoom) && !isDead) {
-            timer += Gdx.graphics.getDeltaTime() * 2;
+            noteFloatTimer += Gdx.graphics.getDeltaTime() * 2;
 
             sb.setColor(Color.WHITE);
             TextureAtlas.AtlasRegion tex = BardMod.noteAtlas.findRegion("bars");
@@ -203,7 +224,8 @@ public class Bard extends CustomPlayer
                     false
             );
 
-            float offset = 1.5f * (float) Math.sin(timer - 1.2);
+            // Clef
+            float offset = 1.5f * (float) Math.sin(noteFloatTimer - 1.2);
             tex = BardMod.noteAtlas.findRegion("clefTreble");
             sb.draw(
                     tex,
@@ -218,9 +240,10 @@ public class Bard extends CustomPlayer
                     0
             );
 
+            // Notes
             int i = 0;
             for (AbstractNote note : notes) {
-                offset = 3 * (float) Math.sin(timer + i*1.2);
+                offset = 3 * (float) Math.sin(noteFloatTimer + i*1.2);
                 note.render(
                         sb,
                         drawX - (NOTE_SPACING * 2 * Settings.scale) + (i * NOTE_SPACING * Settings.scale),
@@ -231,6 +254,8 @@ public class Bard extends CustomPlayer
         }
 
         super.render(sb);
+
+        notesHb.render(sb);
     }
 
     @Override
