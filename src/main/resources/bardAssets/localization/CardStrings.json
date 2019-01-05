@@ -155,7 +155,7 @@
   },
   "bard:LifeDrain": {
     "NAME": "Life Drain",
-    "DESCRIPTION": "Deal !D! damage. NL Gain Temporary_HP for half the unlocked damage dealt."
+    "DESCRIPTION": "Deal !D! damage. NL Gain Temporary_HP for half the unblocked damage dealt."
   },
   "bard:SixFourTime": {
     "NAME": "6/4 Time",
