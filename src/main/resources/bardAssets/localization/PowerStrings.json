@@ -14,7 +14,7 @@
     "NAME": "Harmonious Voice",
     "DESCRIPTIONS": [
       "Whenever you queue a <Block Note> or <Buff Note>, gain #b",
-      " #yTemporary_HP."
+      " #yTemporary #yHP."
     ]
   },
   "bard:DiscordantVoice": {
