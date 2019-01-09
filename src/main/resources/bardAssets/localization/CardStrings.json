@@ -95,8 +95,8 @@
   },
   "bard:Invisibility": {
     "NAME": "Invisibility",
-    "DESCRIPTION": "Gain !M! Intangible. NL Draw !M! more card next turn. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Gain !M! Intangible. NL Draw !M! more cards next turn. NL Exhaust.",
+    "DESCRIPTION": "Gain !bard:M2! Intangible. NL Draw !M! more card next turn. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain !bard:M2! Intangible. NL Draw !M! more cards next turn. NL Exhaust.",
     "EXTENDED_DESCRIPTION": [
       "Greater Invisibility"
     ]

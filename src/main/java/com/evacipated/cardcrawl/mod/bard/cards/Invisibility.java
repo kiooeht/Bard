@@ -19,14 +19,16 @@ public class Invisibility extends AbstractBardCard
     public static final String ID = BardMod.makeID("Invisibility");
     public static final String IMG = null;
     private static final int COST = 2;
-    private static final int MAGIC = 1;
-    private static final int UPGRADE_MAGIC = 1;
+    private static final int INTANGIBLE = 1;
+    private static final int DRAW = 1;
+    private static final int UPGRADE_DRAW = 1;
 
     public Invisibility()
     {
         super(ID, IMG, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.RARE, CardTarget.SELF);
 
-        magicNumber = baseMagicNumber = MAGIC;
+        magicNumber2 = baseMagicNumber2 = INTANGIBLE;
+        magicNumber = baseMagicNumber = DRAW;
         exhaust = true;
     }
 
@@ -42,7 +44,7 @@ public class Invisibility extends AbstractBardCard
     @Override
     public void use(AbstractPlayer p, AbstractMonster m)
     {
-        addToBottom(new ApplyPowerAction(p, p, new IntangiblePlayerPower(p, magicNumber), magicNumber));
+        addToBottom(new ApplyPowerAction(p, p, new IntangiblePlayerPower(p, magicNumber2), magicNumber2));
         addToBottom(new ApplyPowerAction(p, p, new DrawCardNextTurnPower(p, magicNumber), magicNumber));
     }
 
@@ -54,7 +56,9 @@ public class Invisibility extends AbstractBardCard
             upgraded = true;
             name = EXTENDED_DESCRIPTION[0];
             initializeTitle();
-            upgradeMagicNumber(UPGRADE_MAGIC);
+            rawDescription = UPGRADE_DESCRIPTION;
+            initializeDescription();
+            upgradeMagicNumber(UPGRADE_DRAW);
         }
     }
 
