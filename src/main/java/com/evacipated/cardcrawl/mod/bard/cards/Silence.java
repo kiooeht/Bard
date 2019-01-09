@@ -36,10 +36,10 @@ public class Silence extends AbstractBardCard
     @Override
     public void use(AbstractPlayer p, AbstractMonster m)
     {
-        addToBottom(new ApplyPowerAction(m, p, new SilencedDebuffsPower(m)));
         if (upgraded) {
             addToBottom(new ApplyPowerAction(m, p, new SilencedBuffsPower(m)));
         }
+        addToBottom(new ApplyPowerAction(m, p, new SilencedDebuffsPower(m)));
     }
 
     @Override
