@@ -2,6 +2,7 @@ package com.evacipated.cardcrawl.mod.bard.powers;
 
 import com.evacipated.cardcrawl.mod.bard.BardMod;
 import com.evacipated.cardcrawl.mod.bard.cards.AbstractBardCard;
+import com.evacipated.cardcrawl.mod.bard.powers.interfaces.ModifyBlockFinalPower;
 import com.evacipated.cardcrawl.mod.stslib.powers.abstracts.TwoAmountPower;
 import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.NonStackablePower;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
@@ -14,12 +15,15 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-public class InspirationPower extends TwoAmountPower implements NonStackablePower
+public class InspirationPower extends TwoAmountPower implements NonStackablePower, ModifyBlockFinalPower
 {
     public static final String POWER_ID = BardMod.makeID("Inspiration");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
+
+    private static float additiveDamage = 0;
+    private static float additiveBlock = 0;
 
     public InspirationPower(AbstractCreature owner, int cards, int percent)
     {
@@ -29,7 +33,7 @@ public class InspirationPower extends TwoAmountPower implements NonStackablePowe
         type = PowerType.BUFF;
         amount = cards;
         amount2 = percent;
-        priority = 6;
+        priority = 7;
         updateDescription();
         region48 = BardMod.powerAtlas.findRegion("48/inspiration");
         region128 = BardMod.powerAtlas.findRegion("128/inspiration");
@@ -57,16 +61,47 @@ public class InspirationPower extends TwoAmountPower implements NonStackablePowe
     @Override
     public float atDamageGive(float damage, DamageInfo.DamageType type)
     {
-        if (type == DamageInfo.DamageType.NORMAL) {
-            return damage * (1.0f + amount2 / 100.0f);
+        // Only the first Inspiration alters the damage
+        // It collects all the bonuses from another Inspiration and applies them all at once
+        if (additiveDamage == 0 && type == DamageInfo.DamageType.NORMAL) {
+            for (AbstractPower p : owner.powers) {
+                if (p instanceof InspirationPower) {
+                    additiveDamage += damage * (((InspirationPower) p).amount2 / 100.0f);
+                }
+            }
+            return damage + additiveDamage;
         }
+        return damage;
+    }
+
+    @Override
+    public float atDamageFinalGive(float damage, DamageInfo.DamageType type)
+    {
+        additiveDamage = 0;
         return damage;
     }
 
     @Override
     public float modifyBlock(float blockAmount)
     {
-        return blockAmount * (1.0f + amount2 / 100.0f);
+        // Only the first Inspiration alters the block
+        // It collects all the bonuses from another Inspiration and applies them all at once
+        if (additiveBlock == 0) {
+            for (AbstractPower p : owner.powers) {
+                if (p instanceof InspirationPower) {
+                    additiveBlock += blockAmount * (((InspirationPower) p).amount2 / 100.0f);
+                }
+            }
+            return blockAmount + additiveBlock;
+        }
+        return blockAmount;
+    }
+
+    @Override
+    public float modifyBlockFinal(float blockAmount)
+    {
+        additiveBlock = 0;
+        return blockAmount;
     }
 
     @Override
