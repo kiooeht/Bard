@@ -7,11 +7,13 @@ import java.util.*;
 
 public class MelodyManager
 {
+    private static List<AbstractNote> allNotes = new ArrayList<>();
     private static Map<String, AbstractNote> notes = new HashMap<>();
     private static List<AbstractMelody> melodies = new ArrayList<>();
 
     public static void addNote(AbstractNote note)
     {
+        allNotes.add(note);
         notes.put(note.name() + " Note", note);
         notes.put("[" + note.name() + "Note]", note);
     }
@@ -23,7 +25,7 @@ public class MelodyManager
 
     public static List<AbstractNote> getAllNotes()
     {
-        return new ArrayList<>(notes.values());
+        return new ArrayList<>(allNotes);
     }
 
     public static void addMelody(AbstractMelody melody)
