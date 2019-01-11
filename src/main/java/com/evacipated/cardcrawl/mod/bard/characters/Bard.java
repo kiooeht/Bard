@@ -166,7 +166,7 @@ public class Bard extends CustomPlayer
 
         super.render(sb);
 
-        renderModelodiesPanel(sb);
+        renderMelodiesPanel(sb);
 
         notesHb.render(sb);
     }
@@ -269,7 +269,7 @@ public class Bard extends CustomPlayer
         }
     }
 
-    private void renderModelodiesPanel(SpriteBatch sb)
+    private void renderMelodiesPanel(SpriteBatch sb)
     {
         if (AbstractDungeon.getCurrMapNode() != null
                 && AbstractDungeon.getCurrRoom() != null
