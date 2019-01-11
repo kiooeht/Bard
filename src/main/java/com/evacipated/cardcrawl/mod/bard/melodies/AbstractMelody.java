@@ -36,13 +36,17 @@ public abstract class AbstractMelody
         return builder.toString();
     }
 
-    public String makeUIString()
+    public String getName()
+    {
+        return name;
+    }
+
+    public String makeNotesUIString()
     {
         StringBuilder builder = new StringBuilder();
         for (AbstractNote note : notes) {
             builder.append("[").append(note.name()).append("Note] ");
         }
-        builder.append(name);
         return builder.toString();
     }
 

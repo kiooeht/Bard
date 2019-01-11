@@ -154,21 +154,6 @@ public class Bard extends CustomPlayer
         );
 
         notesHb.update();
-        if (notesHb.hovered) {
-            StringBuilder body = new StringBuilder();
-            for (AbstractMelody melody : MelodyManager.getAllMelodies()) {
-                body.append(melody.makeUIString());
-                body.append(" NL ");
-            }
-            body.setLength(body.length() - 4);
-
-            TipHelper.renderGenericTip(
-                    10 * Settings.scale,
-                    Settings.HEIGHT - 200 * Settings.scale,
-                    "Melodies",
-                    body.toString()
-            );
-        }
     }
 
     @Override
@@ -268,6 +253,56 @@ public class Bard extends CustomPlayer
         }
 
         super.render(sb);
+
+        // Render Melodies panel
+
+        if (AbstractDungeon.getCurrMapNode() != null
+                && AbstractDungeon.getCurrRoom() != null
+                && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
+            FontHelper.renderFontLeftTopAligned(
+                    sb,
+                    FontHelper.tipHeaderFont,
+                    "Melodies",
+                    10 * Settings.scale,
+                    Settings.HEIGHT - 170 * Settings.scale,
+                    Settings.GOLD_COLOR
+            );
+
+            StringBuilder body = new StringBuilder();
+            for (AbstractMelody melody : MelodyManager.getAllMelodies()) {
+                body.append(melody.makeNotesUIString());
+                body.append(" NL ");
+            }
+            body.setLength(body.length() - 4);
+
+            FontHelper.renderSmartText(
+                    sb,
+                    FontHelper.tipBodyFont,
+                    body.toString(),
+                    10 * Settings.scale,
+                    Settings.HEIGHT - 200 * Settings.scale,
+                    280 * Settings.scale,
+                    26 * Settings.scale,
+                    Settings.CREAM_COLOR
+            );
+
+            float y = Settings.HEIGHT - 206 * Settings.scale;
+            for (AbstractMelody melody : MelodyManager.getAllMelodies()) {
+                Color color = Settings.CREAM_COLOR;
+                if (melody.fuzzyMatchesNotes(new ArrayList<>(notes))) {
+                    color = Settings.GREEN_TEXT_COLOR;
+                }
+                FontHelper.renderFontRightAligned(
+                        sb,
+                        FontHelper.tipBodyFont,
+                        melody.getName(),
+                        300 * Settings.scale,
+                        y,
+                        color
+                );
+                y -= 26 * Settings.scale;
+            }
+        }
 
         notesHb.render(sb);
     }
