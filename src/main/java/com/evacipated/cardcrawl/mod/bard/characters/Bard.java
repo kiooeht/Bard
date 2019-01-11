@@ -24,7 +24,10 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.helpers.*;
+import com.megacrit.cardcrawl.helpers.CardLibrary;
+import com.megacrit.cardcrawl.helpers.FontHelper;
+import com.megacrit.cardcrawl.helpers.Hitbox;
+import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.rooms.MonsterRoom;
@@ -159,8 +162,21 @@ public class Bard extends CustomPlayer
     @Override
     public void render(SpriteBatch sb)
     {
-        if ((AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT ||
-                AbstractDungeon.getCurrRoom() instanceof MonsterRoom) && !isDead) {
+        renderNotesQueue(sb);
+
+        super.render(sb);
+
+        renderModelodiesPanel(sb);
+
+        notesHb.render(sb);
+    }
+
+    private void renderNotesQueue(SpriteBatch sb)
+    {
+        if ((AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT
+                || AbstractDungeon.getCurrRoom() instanceof MonsterRoom)
+                && !isDead
+        ) {
             noteFloatTimer += Gdx.graphics.getDeltaTime() * 2;
 
             sb.setColor(Color.WHITE);
@@ -251,14 +267,15 @@ public class Bard extends CustomPlayer
                 ++i;
             }
         }
+    }
 
-        super.render(sb);
-
-        // Render Melodies panel
-
+    private void renderModelodiesPanel(SpriteBatch sb)
+    {
         if (AbstractDungeon.getCurrMapNode() != null
                 && AbstractDungeon.getCurrRoom() != null
-                && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
+                && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT
+                && !isDead
+        ) {
             FontHelper.renderFontLeftTopAligned(
                     sb,
                     FontHelper.tipHeaderFont,
@@ -303,8 +320,6 @@ public class Bard extends CustomPlayer
                 y -= 26 * Settings.scale;
             }
         }
-
-        notesHb.render(sb);
     }
 
     @Override
