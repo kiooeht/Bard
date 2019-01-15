@@ -394,7 +394,8 @@ public class Bard extends CustomPlayer implements HitboxListener
     {
         ArrayList<String> ret = new ArrayList<>();
         //*
-        // 3 strikes
+        // 4 strikes
+        ret.add(Strike_Bard.ID);
         ret.add(Strike_Bard.ID);
         ret.add(Strike_Bard.ID);
         ret.add(Strike_Bard.ID);
@@ -406,8 +407,7 @@ public class Bard extends CustomPlayer implements HitboxListener
         //*/
         // 1 riposte
         ret.add(Riposte.ID);
-        // 2 music
-        ret.add(Sing.ID);
+        // 1 music
         ret.add(Inspire.ID);
 
         return ret;

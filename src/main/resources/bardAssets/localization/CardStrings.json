@@ -58,7 +58,7 @@
   },
   "bard:QuickSong": {
     "NAME": "Quick Song",
-    "DESCRIPTION": "Discard a card. NL Queue Notes as if the card was played. NL Play a Melody."
+    "DESCRIPTION": "Gain !B! Block. NL Discard a card. NL Queue Notes as if the card was played."
   },
   "bard:TinyHut": {
     "NAME": "Tiny Hut",

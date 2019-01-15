@@ -1,7 +1,6 @@
 package com.evacipated.cardcrawl.mod.bard.actions.unique;
 
 import com.evacipated.cardcrawl.mod.bard.actions.common.QueueNoteAction;
-import com.evacipated.cardcrawl.mod.bard.actions.common.SelectMelodyAction;
 import com.evacipated.cardcrawl.mod.bard.cards.AbstractBardCard;
 import com.evacipated.cardcrawl.mod.bard.notes.AbstractNote;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -45,7 +44,6 @@ public class QuickSongAction extends AbstractGameAction
                     doDiscardAndQueue(c);
                 }
                 AbstractDungeon.player.hand.applyPowers();
-                AbstractDungeon.actionManager.addToBottom(new SelectMelodyAction());
                 tickDuration();
                 return;
             }
@@ -61,7 +59,6 @@ public class QuickSongAction extends AbstractGameAction
                 doDiscardAndQueue(c);
             }
             AbstractDungeon.handCardSelectScreen.wereCardsRetrieved = true;
-            AbstractDungeon.actionManager.addToBottom(new SelectMelodyAction());
         }
 
         tickDuration();
