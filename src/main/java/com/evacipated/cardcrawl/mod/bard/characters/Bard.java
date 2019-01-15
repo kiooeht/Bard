@@ -16,6 +16,7 @@ import com.evacipated.cardcrawl.mod.bard.notes.AbstractNote;
 import com.evacipated.cardcrawl.mod.bard.powers.interfaces.OnNoteQueuedPower;
 import com.evacipated.cardcrawl.mod.bard.relics.Lute;
 import com.evacipated.cardcrawl.mod.bard.relics.PitchPipe;
+import com.evacipated.cardcrawl.mod.bard.relics.SelfPlayingFlute;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -136,8 +137,13 @@ public class Bard extends CustomPlayer
     @Override
     public void preBattlePrep()
     {
-        clearNoteQueue();
+        if (!hasRelic(SelfPlayingFlute.ID)) {
+            clearNoteQueue();
+        }
         maxNotes = MAX_NOTES;
+        while (notes.size() > maxNotes) {
+            notes.pollFirst();
+        }
         super.preBattlePrep();
     }
 

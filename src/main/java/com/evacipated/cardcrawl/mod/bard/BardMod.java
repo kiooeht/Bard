@@ -50,7 +50,7 @@ public class BardMod implements
 {
     public static final Logger logger = LogManager.getLogger(BardMod.class.getSimpleName());
 
-    private static final Color COLOR = CardHelper.getColor(65, 105, 225);
+    public static final Color COLOR = CardHelper.getColor(65, 105, 225);
 
     public static TextureAtlas noteAtlas;
     public static TextureAtlas powerAtlas;

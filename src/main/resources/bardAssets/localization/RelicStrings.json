@@ -12,5 +12,13 @@
     "DESCRIPTIONS": [
       "Start each combat with a random #yNote queued."
     ]
+  },
+  "bard:SelfPlayingFlute": {
+    "NAME": "Self-Playing Flute",
+    "FLAVOR": "A magical flute, enchanted to play songs on its own.",
+    "DESCRIPTIONS": [
+      "Replaces ",
+      ".[] NL Queued Notes are carried over between combats."
+    ]
   }
 }
