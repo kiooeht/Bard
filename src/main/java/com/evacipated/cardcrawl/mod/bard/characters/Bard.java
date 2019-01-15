@@ -9,6 +9,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.mod.bard.BardMod;
+import com.evacipated.cardcrawl.mod.bard.actions.common.SelectMelodyAction;
 import com.evacipated.cardcrawl.mod.bard.cards.*;
 import com.evacipated.cardcrawl.mod.bard.helpers.MelodyManager;
 import com.evacipated.cardcrawl.mod.bard.melodies.AbstractMelody;
@@ -25,23 +26,20 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.helpers.CardLibrary;
-import com.megacrit.cardcrawl.helpers.FontHelper;
-import com.megacrit.cardcrawl.helpers.Hitbox;
-import com.megacrit.cardcrawl.helpers.ScreenShake;
+import com.megacrit.cardcrawl.helpers.*;
+import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.rooms.MonsterRoom;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 
-import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.Deque;
-import java.util.List;
+import java.util.*;
 
-public class Bard extends CustomPlayer
+public class Bard extends CustomPlayer implements HitboxListener
 {
+    private static final UIStrings performStrings = CardCrawlGame.languagePack.getUIString(BardMod.makeID("Perform"));
+
     private static final int START_HP = 70;
     private static final int ENERGY_PER_TURN = 3;
     private static final int START_ORBS = 0;
@@ -90,6 +88,25 @@ public class Bard extends CustomPlayer
         notes.clear();
     }
 
+    public boolean removeNoteFromQueue(int index)
+    {
+        if (index < 0 || index >= notes.size()) {
+            return false;
+        }
+
+        Iterator<AbstractNote> iter = notes.iterator();
+        int i = 0;
+        while (iter.hasNext()) {
+            iter.next();
+            if (i == index) {
+                iter.remove();
+                return true;
+            }
+            ++i;
+        }
+        return false;
+    }
+
     public int noteQueueSize()
     {
         return notes.size();
@@ -104,6 +121,16 @@ public class Bard extends CustomPlayer
             }
         }
         return count;
+    }
+
+    public int noteQueueMelodyPosition(AbstractMelody melody)
+    {
+        int endIndex = melody.endIndexOf(new ArrayList<>(notes));
+        if (endIndex < 0) {
+            return -1;
+        }
+        endIndex -= melody.length();
+        return endIndex;
     }
 
     public void queueNote(AbstractNote note)
@@ -162,7 +189,27 @@ public class Bard extends CustomPlayer
                 (146) * Settings.scale + drawY + hb_h / 2.0f
         );
 
-        notesHb.update();
+        notesHb.encapsulatedUpdate(this);
+    }
+
+    @Override
+    public void hoverStarted(Hitbox hitbox)
+    {
+
+    }
+
+    @Override
+    public void startClicking(Hitbox hitbox)
+    {
+
+    }
+
+    @Override
+    public void clicked(Hitbox hitbox)
+    {
+        if (canPlayMelody()) {
+            AbstractDungeon.actionManager.addToBottom(new SelectMelodyAction());
+        }
     }
 
     @Override
@@ -173,6 +220,20 @@ public class Bard extends CustomPlayer
         super.render(sb);
 
         renderMelodiesPanel(sb);
+
+        if (notesHb.hovered) {
+            String body = performStrings.TEXT[1] + maxNotes + performStrings.TEXT[2];
+
+            float height = -FontHelper.getSmartHeight(FontHelper.tipBodyFont, body, 280.0F * Settings.scale, 26.0F * Settings.scale);
+            height += 74 * Settings.scale; // accounts for header height, box border, and a bit of spacing
+
+            TipHelper.renderGenericTip(
+                    notesHb.x,
+                    notesHb.y + notesHb.height + height,
+                    performStrings.TEXT[0],
+                    body
+            );
+        }
 
         notesHb.render(sb);
     }

@@ -1,6 +1,8 @@
 package com.evacipated.cardcrawl.mod.bard.melodies;
 
+import com.evacipated.cardcrawl.mod.bard.actions.common.RemoveNoteFromQueueAction;
 import com.evacipated.cardcrawl.mod.bard.cards.MelodyCard;
+import com.evacipated.cardcrawl.mod.bard.characters.Bard;
 import com.evacipated.cardcrawl.mod.bard.notes.AbstractNote;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -52,7 +54,7 @@ public abstract class AbstractMelody
 
     public AbstractCard makeChoiceCard()
     {
-        return new MelodyCard(name, rawDescription, new ArrayList<>(notes), target, this::play);
+        return new MelodyCard(name, rawDescription, new ArrayList<>(notes), target, this::doPlay);
     }
 
     public int length()
@@ -137,6 +139,17 @@ public abstract class AbstractMelody
     protected void addToBottom(AbstractGameAction action)
     {
         AbstractDungeon.actionManager.addToBottom(action);
+    }
+
+    public final void doPlay()
+    {
+        // TODO play melody hook
+        play();
+
+        if (AbstractDungeon.player instanceof Bard) {
+            int startIndex = ((Bard) AbstractDungeon.player).noteQueueMelodyPosition(this);
+            addToBottom(new RemoveNoteFromQueueAction(startIndex, notes.size()));
+        }
     }
 
     public abstract void play();

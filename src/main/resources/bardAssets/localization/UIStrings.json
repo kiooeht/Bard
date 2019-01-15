@@ -4,5 +4,12 @@
       "Choose a Card to Place on Top of Your Draw Pile.",
       "Choose Cards to Place on Top of Your Draw Pile."
     ]
+  },
+  "bard:Perform": {
+    "TEXT": [
+      "Note Queue",
+      "Can hold up to #b",
+      " #yNotes. NL Click to #yPerform a #yMelody based on your #yNote #yQueue. #yPerforming a #yMelody consumes its #yNotes."
+    ]
   }
 }
