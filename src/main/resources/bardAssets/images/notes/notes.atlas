@@ -1,54 +1,68 @@
 
 notes.png
-size: 128,64
+size: 128,128
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
 attack
   rotate: false
-  xy: 20, 5
+  xy: 70, 34
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 bars
   rotate: false
-  xy: 2, 23
+  xy: 2, 86
+  size: 96, 32
+  orig: 96, 32
+  offset: 0, 0
+  index: -1
+barsGlow
+  rotate: false
+  xy: 2, 52
   size: 96, 32
   orig: 96, 32
   offset: 0, 0
   index: -1
 block
   rotate: false
-  xy: 38, 5
+  xy: 100, 81
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 buff
   rotate: false
-  xy: 56, 5
+  xy: 70, 16
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 clefTreble
   rotate: false
-  xy: 100, 23
-  size: 16, 32
-  orig: 16, 32
+  xy: 36, 2
+  size: 32, 48
+  orig: 32, 48
+  offset: 0, 0
+  index: -1
+clefTrebleGlow
+  rotate: false
+  xy: 2, 2
+  size: 32, 48
+  orig: 32, 48
   offset: 0, 0
   index: -1
 debuff
   rotate: false
-  xy: 74, 5
+  xy: 100, 63
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 queuedDebuff
   rotate: false
-  xy: 2, 2
+  xy: 100, 99
   size: 16, 19
   orig: 16, 19
   offset: 0, 0

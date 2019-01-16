@@ -10,7 +10,10 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.mod.bard.BardMod;
 import com.evacipated.cardcrawl.mod.bard.actions.common.SelectMelodyAction;
-import com.evacipated.cardcrawl.mod.bard.cards.*;
+import com.evacipated.cardcrawl.mod.bard.cards.Defend_Bard;
+import com.evacipated.cardcrawl.mod.bard.cards.Inspire;
+import com.evacipated.cardcrawl.mod.bard.cards.Riposte;
+import com.evacipated.cardcrawl.mod.bard.cards.Strike_Bard;
 import com.evacipated.cardcrawl.mod.bard.helpers.MelodyManager;
 import com.evacipated.cardcrawl.mod.bard.melodies.AbstractMelody;
 import com.evacipated.cardcrawl.mod.bard.notes.AbstractNote;
@@ -246,8 +249,10 @@ public class Bard extends CustomPlayer implements HitboxListener
         ) {
             noteFloatTimer += Gdx.graphics.getDeltaTime() * 2;
 
+            boolean canPlay = canPlayMelody();
+
             sb.setColor(Color.WHITE);
-            TextureAtlas.AtlasRegion tex = BardMod.noteAtlas.findRegion("bars");
+            TextureAtlas.AtlasRegion tex = BardMod.noteAtlas.findRegion(canPlay ? "barsGlow" : "bars");
             // Left section of bars
             sb.draw(
                     tex.getTexture(),
@@ -306,13 +311,14 @@ public class Bard extends CustomPlayer implements HitboxListener
                     false
             );
 
+            sb.setColor(Color.WHITE);
             // Clef
             float offset = 1.5f * (float) Math.sin(noteFloatTimer - 1.2);
-            tex = BardMod.noteAtlas.findRegion("clefTreble");
+            tex = BardMod.noteAtlas.findRegion(canPlay ? "clefTrebleGlow" : "clefTreble");
             sb.draw(
                     tex,
-                    drawX - (NOTE_SPACING * 3 * Settings.scale),
-                    (offset + 146) * Settings.scale + drawY + hb_h / 2.0f,
+                    drawX - (NOTE_SPACING * 3 * Settings.scale) - 16 * Settings.scale,
+                    (offset + 146) * Settings.scale + drawY + hb_h / 2.0f - 16 * Settings.scale,
                     0,
                     0,
                     tex.getRegionWidth(),
@@ -374,7 +380,7 @@ public class Bard extends CustomPlayer implements HitboxListener
             for (AbstractMelody melody : MelodyManager.getAllMelodies()) {
                 Color color = Settings.CREAM_COLOR;
                 if (melody.fuzzyMatchesNotes(new ArrayList<>(notes))) {
-                    color = Settings.GREEN_TEXT_COLOR;
+                    color = Settings.GOLD_COLOR;
                 }
                 FontHelper.renderFontRightAligned(
                         sb,
