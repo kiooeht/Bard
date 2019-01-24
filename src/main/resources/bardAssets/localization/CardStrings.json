@@ -166,8 +166,11 @@
   },
   "bard:MnemonicVestments": {
     "NAME": "Mnemonic Vestments",
-    "DESCRIPTION": "Choose any card in your deck and shuffle a 0-cost, Exhaust copy of that card into your draw pile. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Choose any card in your deck and shuffle a 0-cost, Exhaustive 2 copy of that card into your draw pile. NL Exhaust."
+    "DESCRIPTION": "Unplayable. Ethereal. NL Startup: Choose any card in your deck and shuffle a 0-cost, Exhaust copy of that card into your draw pile.",
+    "UPGRADE_DESCRIPTION": "Unplayable. Ethereal. NL Startup: Choose any card in your deck and shuffle a 0-cost, Exhaustive 2 copy of that card into your draw pile.",
+    "EXTENDED_DESCRIPTION": [
+      "I can't play this card."
+    ]
   },
   "bard:SplendidForm": {
     "NAME": "Splendid Form",
