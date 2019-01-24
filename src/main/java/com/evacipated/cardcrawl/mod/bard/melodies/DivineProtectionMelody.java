@@ -12,7 +12,7 @@ public class DivineProtectionMelody extends AbstractMelody
     {
         super("Divine Protection", "Gain 10 Temporary_HP.", AbstractCard.CardTarget.SELF);
 
-        notes.add(new BuffNote());
+        notes.add(new BlockNote());
         notes.add(new BuffNote());
         notes.add(new BlockNote());
     }

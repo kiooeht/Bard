@@ -1,6 +1,7 @@
 package com.evacipated.cardcrawl.mod.bard.melodies;
 
 import com.evacipated.cardcrawl.mod.bard.notes.AttackNote;
+import com.evacipated.cardcrawl.mod.bard.notes.BuffNote;
 import com.evacipated.cardcrawl.mod.bard.notes.DebuffNote;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
@@ -16,7 +17,7 @@ public class DamageLargeMelody extends AbstractMelody
 
         notes.add(new AttackNote());
         notes.add(new DebuffNote());
-        notes.add(new AttackNote());
+        notes.add(new BuffNote());
         notes.add(new AttackNote());
     }
 

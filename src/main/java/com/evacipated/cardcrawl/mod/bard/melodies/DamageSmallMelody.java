@@ -15,8 +15,8 @@ public class DamageSmallMelody extends AbstractMelody
         super("Damage (S)", "Deal 10 damage to ALL enemies.", AbstractCard.CardTarget.ALL_ENEMY);
 
         notes.add(new AttackNote());
-        notes.add(new AttackNote());
         notes.add(new DebuffNote());
+        notes.add(new AttackNote());
     }
 
     @Override

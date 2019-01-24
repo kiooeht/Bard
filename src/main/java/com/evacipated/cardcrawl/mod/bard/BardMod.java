@@ -75,13 +75,13 @@ public class BardMod implements
         MelodyManager.addNote(new DebuffNote());
 
         MelodyManager.addMelody(new AttackUpSmallMelody());
-        MelodyManager.addMelody(new AttackUpLargeMelody());
+        //MelodyManager.addMelody(new AttackUpLargeMelody());
         MelodyManager.addMelody(new DefenseUpSmallMelody());
-        MelodyManager.addMelody(new DefenseUpLargeMelody());
+        //MelodyManager.addMelody(new DefenseUpLargeMelody());
         MelodyManager.addMelody(new DivineProtectionMelody());
         MelodyManager.addMelody(new DrawMelody());
-        MelodyManager.addMelody(new DrawUpMelody());
-        MelodyManager.addMelody(new EnergyMelody());
+        //MelodyManager.addMelody(new DrawUpMelody());
+        //MelodyManager.addMelody(new EnergyMelody());
         MelodyManager.addMelody(new ArtifactMelody());
         MelodyManager.addMelody(new WeakenSmallMelody());
         MelodyManager.addMelody(new VulnerabilitySmallMelody());

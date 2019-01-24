@@ -1,6 +1,7 @@
 package com.evacipated.cardcrawl.mod.bard.melodies;
 
 import com.evacipated.cardcrawl.mod.bard.notes.AttackNote;
+import com.evacipated.cardcrawl.mod.bard.notes.BuffNote;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -12,6 +13,7 @@ public class AttackUpSmallMelody extends AbstractMelody
     {
         super("Attack Up (S)", "Gain 1 Strength.", AbstractCard.CardTarget.SELF);
 
+        notes.add(new BuffNote());
         notes.add(new AttackNote());
         notes.add(new AttackNote());
     }

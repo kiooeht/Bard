@@ -14,8 +14,8 @@ public class WeakenSmallMelody extends AbstractMelody
     {
         super("Weaken (S)", "Apply 1 Weak to ALL enemies.", AbstractCard.CardTarget.ALL_ENEMY);
 
-        notes.add(new AttackNote());
         notes.add(new DebuffNote());
+        notes.add(new AttackNote());
     }
 
     @Override
