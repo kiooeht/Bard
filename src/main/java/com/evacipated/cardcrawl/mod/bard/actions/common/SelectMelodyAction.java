@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.screens.select.GridCardSelectScreen;
 
 import java.util.List;
 
@@ -50,6 +51,7 @@ public class SelectMelodyAction extends AbstractGameAction
 
             CenterGridCardSelectScreen.centerGridSelect = true;
             AbstractDungeon.gridSelectScreen.open(group, 1, "Choose a Melody to Play", false);
+            AbstractDungeon.overlayMenu.cancelButton.show(GridCardSelectScreen.TEXT[1]);
         } else {
             if (pickCard && !AbstractDungeon.gridSelectScreen.selectedCards.isEmpty()) {
                 pickCard = false;
