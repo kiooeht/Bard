@@ -86,6 +86,32 @@ public class Bard extends CustomPlayer implements HitboxListener
         maxNotes += amount;
     }
 
+    public List<String> getNotesForSaving()
+    {
+        List<String> noteNames = new ArrayList<>();
+        for (AbstractNote note : notes) {
+            noteNames.add(note.name() + " Note");
+        }
+        return noteNames;
+    }
+
+    public void loadNotes(List<String> noteNames)
+    {
+        if (noteNames == null) {
+            return;
+        }
+
+        notes.clear();
+        for (String noteName : noteNames) {
+            AbstractNote note = MelodyManager.getNote(noteName);
+            if (note != null) {
+                notes.addLast(note);
+            } else {
+                BardMod.logger.warn("Failed to find note: " + noteName);
+            }
+        }
+    }
+
     public void clearNoteQueue()
     {
         notes.clear();

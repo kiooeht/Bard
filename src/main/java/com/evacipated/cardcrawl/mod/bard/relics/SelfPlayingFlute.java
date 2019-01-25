@@ -1,11 +1,14 @@
 package com.evacipated.cardcrawl.mod.bard.relics;
 
+import basemod.abstracts.CustomSavable;
 import com.evacipated.cardcrawl.mod.bard.BardMod;
 import com.evacipated.cardcrawl.mod.bard.characters.Bard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
-public class SelfPlayingFlute extends AbstractBardRelic
+import java.util.List;
+
+public class SelfPlayingFlute extends AbstractBardRelic implements CustomSavable<List<String>>
 {
     public static final String ID = BardMod.makeID("SelfPlayingFlute");
 
@@ -14,6 +17,23 @@ public class SelfPlayingFlute extends AbstractBardRelic
     public SelfPlayingFlute()
     {
         super(ID, "test6.png", RelicTier.BOSS, LandingSound.MAGICAL, Bard.Enums.COLOR);
+    }
+
+    @Override
+    public List<String> onSave()
+    {
+        if (AbstractDungeon.player instanceof Bard) {
+            return ((Bard) AbstractDungeon.player).getNotesForSaving();
+        }
+        return null;
+    }
+
+    @Override
+    public void onLoad(List<String> strings)
+    {
+        if (AbstractDungeon.player instanceof Bard) {
+            ((Bard) AbstractDungeon.player).loadNotes(strings);
+        }
     }
 
     @Override
