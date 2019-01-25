@@ -276,5 +276,9 @@
     "NAME": "2 and 4",
     "DESCRIPTION": "At the start of your turn, choose a Note to queue.",
     "UPGRADE_DESCRIPTION": "Innate. NL "
+  },
+  "bard:FirstStrike": {
+    "NAME": "First Strike",
+    "DESCRIPTION": "Deal !D! damage. NL Startup: Deal !M! damage to ALL enemies."
   }
 }
