@@ -58,19 +58,12 @@ public class MelodyManager
 
     public static List<AbstractMelody> getAllMelodiesFromNotes(List<AbstractNote> notes)
     {
-        SortedMap<Integer, List<AbstractMelody>> matches = new TreeMap<>();
+        List<AbstractMelody> ret = new ArrayList<>();
         for (AbstractMelody melody : melodies) {
             int idx = melody.endIndexOf(notes);
             if (idx != -1) {
-                if (!matches.containsKey(idx)) {
-                    matches.put(idx, new ArrayList<>());
-                }
-                matches.get(idx).add(melody.makeCopy());
+                ret.add(melody.makeCopy());
             }
-        }
-        List<AbstractMelody> ret = new ArrayList<>();
-        for (List<AbstractMelody> list : matches.values()) {
-            ret.addAll(list);
         }
         return ret;
     }
