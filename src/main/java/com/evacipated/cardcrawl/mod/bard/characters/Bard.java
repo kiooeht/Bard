@@ -224,7 +224,7 @@ public class Bard extends CustomPlayer implements HitboxListener
 
         renderMelodiesPanel(sb);
 
-        if (notesHb.hovered) {
+        if (notesHb.hovered && !AbstractDungeon.isScreenUp) {
             String body = performStrings.TEXT[1] + maxNotes + performStrings.TEXT[2];
 
             float height = -FontHelper.getSmartHeight(FontHelper.tipBodyFont, body, 280.0F * Settings.scale, 26.0F * Settings.scale);
