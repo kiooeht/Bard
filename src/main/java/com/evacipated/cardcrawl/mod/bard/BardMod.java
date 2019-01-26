@@ -127,7 +127,7 @@ public class BardMod implements
 
         try {
             autoAddCards();
-        } catch (URISyntaxException | IllegalAccessException | InstantiationException | NotFoundException | CannotCompileException e) {
+        } catch (URISyntaxException | IllegalAccessException | InstantiationException | NotFoundException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
     }
@@ -166,7 +166,7 @@ public class BardMod implements
     }
 
     private static void autoAddCards()
-            throws URISyntaxException, IllegalAccessException, InstantiationException, NotFoundException, CannotCompileException
+            throws URISyntaxException, IllegalAccessException, InstantiationException, NotFoundException, ClassNotFoundException
     {
         ClassFinder finder = new ClassFinder();
         URL url = BardMod.class.getProtectionDomain().getCodeSource().getLocation();
@@ -203,7 +203,7 @@ public class BardMod implements
                 continue;
             }
             System.out.println(classInfo.getClassName());
-            AbstractCard card = (AbstractCard) Loader.getClassPool().toClass(cls).newInstance();
+            AbstractCard card = (AbstractCard) Loader.getClassPool().getClassLoader().loadClass(cls.getName()).newInstance();
             BaseMod.addCard(card);
             if (cls.hasAnnotation(CardNoSeen.class)) {
                 UnlockTracker.hardUnlockOverride(card.cardID);
