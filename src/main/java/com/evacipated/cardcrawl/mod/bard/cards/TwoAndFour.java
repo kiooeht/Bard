@@ -1,6 +1,7 @@
 package com.evacipated.cardcrawl.mod.bard.cards;
 
 import com.evacipated.cardcrawl.mod.bard.BardMod;
+import com.evacipated.cardcrawl.mod.bard.CardIgnore;
 import com.evacipated.cardcrawl.mod.bard.characters.Bard;
 import com.evacipated.cardcrawl.mod.bard.notes.AbstractNote;
 import com.evacipated.cardcrawl.mod.bard.powers.TwoAndFourPower;
@@ -12,6 +13,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import java.util.Collections;
 import java.util.List;
 
+@CardIgnore
 public class TwoAndFour extends AbstractBardCard
 {
     public static final String ID = BardMod.makeID("TwoAndFour");
