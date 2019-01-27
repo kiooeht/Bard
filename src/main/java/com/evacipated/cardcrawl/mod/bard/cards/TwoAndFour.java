@@ -13,6 +13,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import java.util.Collections;
 import java.util.List;
 
+// Deprecated
 @CardIgnore
 public class TwoAndFour extends AbstractBardCard
 {
