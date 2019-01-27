@@ -1,8 +1,8 @@
-package com.evacipated.cardcrawl.mod.bard.relics.interfaces;
+package com.evacipated.cardcrawl.mod.bard.hooks;
 
 import com.evacipated.cardcrawl.mod.bard.notes.AbstractNote;
 
-public interface OnNoteQueuedRelic
+public interface OnNoteQueuedHook
 {
     AbstractNote onNoteQueued(AbstractNote note);
 }

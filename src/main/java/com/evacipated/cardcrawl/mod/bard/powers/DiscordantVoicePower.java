@@ -1,10 +1,10 @@
 package com.evacipated.cardcrawl.mod.bard.powers;
 
 import com.evacipated.cardcrawl.mod.bard.BardMod;
+import com.evacipated.cardcrawl.mod.bard.hooks.OnNoteQueuedHook;
 import com.evacipated.cardcrawl.mod.bard.notes.AbstractNote;
 import com.evacipated.cardcrawl.mod.bard.notes.AttackNote;
 import com.evacipated.cardcrawl.mod.bard.notes.DebuffNote;
-import com.evacipated.cardcrawl.mod.bard.powers.interfaces.OnNoteQueuedPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageRandomEnemyAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -14,7 +14,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-public class DiscordantVoicePower extends AbstractPower implements OnNoteQueuedPower
+public class DiscordantVoicePower extends AbstractPower implements OnNoteQueuedHook
 {
     public static final String POWER_ID = BardMod.makeID("DiscordantVoice");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);

@@ -15,13 +15,12 @@ import com.evacipated.cardcrawl.mod.bard.cards.Inspire;
 import com.evacipated.cardcrawl.mod.bard.cards.Riposte;
 import com.evacipated.cardcrawl.mod.bard.cards.Strike_Bard;
 import com.evacipated.cardcrawl.mod.bard.helpers.MelodyManager;
+import com.evacipated.cardcrawl.mod.bard.hooks.OnNoteQueuedHook;
 import com.evacipated.cardcrawl.mod.bard.melodies.AbstractMelody;
 import com.evacipated.cardcrawl.mod.bard.notes.AbstractNote;
-import com.evacipated.cardcrawl.mod.bard.powers.interfaces.OnNoteQueuedPower;
 import com.evacipated.cardcrawl.mod.bard.relics.Lute;
 import com.evacipated.cardcrawl.mod.bard.relics.PitchPipe;
 import com.evacipated.cardcrawl.mod.bard.relics.SelfPlayingFlute;
-import com.evacipated.cardcrawl.mod.bard.relics.interfaces.OnNoteQueuedRelic;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -167,8 +166,8 @@ public class Bard extends CustomPlayer implements HitboxListener
     public void queueNote(AbstractNote note)
     {
         for (AbstractPower power : AbstractDungeon.player.powers) {
-            if (power instanceof OnNoteQueuedPower) {
-                note = ((OnNoteQueuedPower) power).onNoteQueued(note);
+            if (power instanceof OnNoteQueuedHook) {
+                note = ((OnNoteQueuedHook) power).onNoteQueued(note);
                 if (note == null) {
                     break;
                 }
@@ -176,8 +175,8 @@ public class Bard extends CustomPlayer implements HitboxListener
         }
         if (note != null) {
             for (AbstractRelic relic : AbstractDungeon.player.relics) {
-                if (relic instanceof OnNoteQueuedRelic) {
-                    note = ((OnNoteQueuedRelic) relic).onNoteQueued(note);
+                if (relic instanceof OnNoteQueuedHook) {
+                    note = ((OnNoteQueuedHook) relic).onNoteQueued(note);
                     if (note == null) {
                         break;
                     }
