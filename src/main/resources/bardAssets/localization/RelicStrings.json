@@ -27,5 +27,13 @@
     "DESCRIPTIONS": [
       "Whenever an enemy dies, transfer any #yWeak or #yVulnerable it has to a random enemy."
     ]
+  },
+  "bard:CoralOrchestra": {
+    "NAME": "Coral Orchestra",
+    "FLAVOR": "",
+    "DESCRIPTIONS": [
+      "Every #b",
+      " #yMelody you #yPerform is #yPerformed twice."
+    ]
   }
 }
