@@ -25,6 +25,8 @@ public class RemoveNoteFromQueueAction extends AbstractGameAction
             for (int i=0; i<count; ++i) {
                 ((Bard) AbstractDungeon.player).removeNoteFromQueue(startIndex);
             }
+            // Refresh cards that care about notes in queue
+            AbstractDungeon.player.hand.applyPowers();
         }
         isDone = true;
     }
