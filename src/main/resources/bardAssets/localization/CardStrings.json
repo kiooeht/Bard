@@ -270,7 +270,7 @@
   },
   "bard:StudiedStrike": {
     "NAME": "Studied Strike",
-    "DESCRIPTION": "Deal !D! damage. NL Deals additional damage for each NL stack of Weak or Vulnerable on the enemy."
+    "DESCRIPTION": "Deal !D! damage. NL Deals !M! additional damage for each NL stack of Weak or Vulnerable on the enemy."
   },
   "bard:TwoAndFour": {
     "NAME": "2 and 4",

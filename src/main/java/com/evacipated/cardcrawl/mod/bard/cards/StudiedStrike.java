@@ -23,14 +23,16 @@ public class StudiedStrike extends AbstractBardCard
     public static final String IMG = null;
     private static final int COST = 1;
     private static final int DAMAGE = 8;
-    private static final int UPGRADE_DAMAGE = 4;
+    private static final int BONUS = 1;
+    private static final int UPGRADE_BONUS = 1;
 
     public StudiedStrike()
     {
-        super(ID, IMG, COST, CardType.ATTACK, Bard.Enums.COLOR, CardRarity.UNCOMMON, CardTarget.ENEMY);
+        super(ID, IMG, COST, CardType.ATTACK, Bard.Enums.COLOR, CardRarity.COMMON, CardTarget.ENEMY);
 
         tags.add(CardTags.STRIKE);
         baseDamage = DAMAGE;
+        magicNumber = baseMagicNumber = BONUS;
     }
 
     @Override
@@ -52,12 +54,12 @@ public class StudiedStrike extends AbstractBardCard
 
         AbstractPower weak = mo.getPower(WeakPower.POWER_ID);
         if (weak != null) {
-            baseDamage += weak.amount;
+            baseDamage += weak.amount * magicNumber;
         }
 
         AbstractPower vuln = mo.getPower(VulnerablePower.POWER_ID);
         if (vuln != null) {
-            baseDamage += vuln.amount;
+            baseDamage += vuln.amount * magicNumber;
         }
 
         super.calculateCardDamage(mo);
@@ -73,7 +75,7 @@ public class StudiedStrike extends AbstractBardCard
     {
         if (!upgraded) {
             upgradeName();
-            upgradeDamage(UPGRADE_DAMAGE);
+            upgradeMagicNumber(UPGRADE_BONUS);
         }
     }
 
