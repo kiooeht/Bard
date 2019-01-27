@@ -21,6 +21,7 @@ import com.evacipated.cardcrawl.mod.bard.powers.interfaces.OnNoteQueuedPower;
 import com.evacipated.cardcrawl.mod.bard.relics.Lute;
 import com.evacipated.cardcrawl.mod.bard.relics.PitchPipe;
 import com.evacipated.cardcrawl.mod.bard.relics.SelfPlayingFlute;
+import com.evacipated.cardcrawl.mod.bard.relics.interfaces.OnNoteQueuedRelic;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -32,6 +33,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.*;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.rooms.MonsterRoom;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
@@ -169,6 +171,16 @@ public class Bard extends CustomPlayer implements HitboxListener
                 note = ((OnNoteQueuedPower) power).onNoteQueued(note);
                 if (note == null) {
                     break;
+                }
+            }
+        }
+        if (note != null) {
+            for (AbstractRelic relic : AbstractDungeon.player.relics) {
+                if (relic instanceof OnNoteQueuedRelic) {
+                    note = ((OnNoteQueuedRelic) relic).onNoteQueued(note);
+                    if (note == null) {
+                        break;
+                    }
                 }
             }
         }
