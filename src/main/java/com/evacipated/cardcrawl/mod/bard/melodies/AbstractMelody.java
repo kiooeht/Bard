@@ -3,10 +3,13 @@ package com.evacipated.cardcrawl.mod.bard.melodies;
 import com.evacipated.cardcrawl.mod.bard.actions.common.RemoveNoteFromQueueAction;
 import com.evacipated.cardcrawl.mod.bard.cards.MelodyCard;
 import com.evacipated.cardcrawl.mod.bard.characters.Bard;
+import com.evacipated.cardcrawl.mod.bard.hooks.OnMelodyPlayedHook;
 import com.evacipated.cardcrawl.mod.bard.notes.AbstractNote;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -143,7 +146,17 @@ public abstract class AbstractMelody
 
     public final void doPlay()
     {
-        // TODO play melody hook
+        for (AbstractPower power : AbstractDungeon.player.powers) {
+            if (power instanceof OnMelodyPlayedHook) {
+                ((OnMelodyPlayedHook) power).onMelodyPlayed(this);
+            }
+        }
+        for (AbstractRelic relic : AbstractDungeon.player.relics) {
+            if (relic instanceof OnMelodyPlayedHook) {
+                ((OnMelodyPlayedHook) relic).onMelodyPlayed(this);
+            }
+        }
+
         play();
 
         if (AbstractDungeon.player instanceof Bard) {
