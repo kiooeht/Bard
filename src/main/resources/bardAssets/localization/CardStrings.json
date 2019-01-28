@@ -280,5 +280,10 @@
   "bard:FirstStrike": {
     "NAME": "First Strike",
     "DESCRIPTION": "Deal !D! damage. NL Startup: Deal !M! damage to ALL enemies."
+  },
+  "bard:Sift": {
+    "NAME": "Sift",
+    "DESCRIPTION": "Draw !bard:M2! card. NL Gain [E] equal NL to its cost.",
+    "UPGRADE_DESCRIPTION": " NL Draw !M! card."
   }
 }
