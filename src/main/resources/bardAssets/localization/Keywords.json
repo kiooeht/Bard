@@ -11,5 +11,12 @@
       "note"
     ],
     "DESCRIPTION": "[AttackNote] [BlockNote] [BuffNote] [DebuffNote]"
+  },
+  {
+    "NAMES": [
+      "queue",
+      "queued"
+    ],
+    "DESCRIPTION": "Queueing a Note puts it at the end of your Note Queue. If your Note Queue is full, the leftmost Note is removed to make room."
   }
 ]

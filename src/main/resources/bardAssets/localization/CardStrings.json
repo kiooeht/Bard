@@ -18,11 +18,11 @@
   },
   "bard:HarmoniousVoice": {
     "NAME": "Harmonious Voice",
-    "DESCRIPTION": "Whenever you queue a {Block Note} or {Buff Note} , gain !M! Temporary_HP."
+    "DESCRIPTION": "Whenever you bard:Queue a {Block Note} or {Buff Note} , gain !M! Temporary_HP."
   },
   "bard:DiscordantVoice": {
     "NAME": "Discordant Voice",
-    "DESCRIPTION": "Whenever you queue a {Attack Note} or {Debuff Note} , deal !M! damage to a random enemy."
+    "DESCRIPTION": "Whenever you bard:Queue a {Attack Note} or {Debuff Note} , deal !M! damage to a random enemy."
   },
   "bard:HideousLaughter": {
     "NAME": "Hideous Laughter",
@@ -50,18 +50,18 @@
   },
   "bard:SongBolt": {
     "NAME": "Song Bolt",
-    "DESCRIPTION": "Deal !D! damage for each bard:Note you have queued. NL Clear your Note queue."
+    "DESCRIPTION": "Deal !D! damage for each bard:Note you have bard:Queued. NL Clear your Note Queue."
   },
   "bard:QuickSong": {
     "NAME": "Quick Song",
-    "DESCRIPTION": "Gain !B! Block. NL Discard a card. NL Queue bard:Notes as if the card was played."
+    "DESCRIPTION": "Gain !B! Block. NL Discard a card. NL bard:Queue bard:Notes as if the card was played."
   },
   "bard:TinyHut": {
     "NAME": "Tiny Hut",
-    "DESCRIPTION": "Gain !B! Block. NL Draw 1 card for each {Block Note} you have queued.",
+    "DESCRIPTION": "Gain !B! Block. NL Draw 1 card for each {Block Note} you have bard:Queued.",
     "EXTENDED_DESCRIPTION": [
       " NL (",
-      " {Block Note} queued.)"
+      " {Block Note} bard:Queued.)"
     ]
   },
   "bard:Gamble": {
@@ -70,10 +70,10 @@
   },
   "bard:DervishDance": {
     "NAME": "Dervish Dance",
-    "DESCRIPTION": "Deal !D! damage to ALL enemies for each {Attack Note} you have queued.",
+    "DESCRIPTION": "Deal !D! damage to ALL enemies for each {Attack Note} you have bard:Queued.",
     "EXTENDED_DESCRIPTION": [
       " NL (",
-      " {Attack Note} queued.)"
+      " {Attack Note} bard:Queued.)"
     ]
   },
   "bard:Parry": {
@@ -113,14 +113,14 @@
   },
   "bard:GuardPoint": {
     "NAME": "Guard Point",
-    "DESCRIPTION": "Gain !B! Block. NL If you have no {Block Note} queued, gain !B! Block again."
+    "DESCRIPTION": "Gain !B! Block. NL If you have no {Block Note} bard:Queued, gain !B! Block again."
   },
   "bard:InspiringSong": {
     "NAME": "Inspiring Song",
-    "DESCRIPTION": "Gain bard:Inspiration !bard:In!   for each {Buff Note} you have queued.",
+    "DESCRIPTION": "Gain bard:Inspiration !bard:In!   for each {Buff Note} you have bard:Queued.",
     "EXTENDED_DESCRIPTION": [
       " NL (",
-      " {Buff Note} queued.)"
+      " {Buff Note} bard:Queued.)"
     ]
   },
   "bard:FaerieFire": {
@@ -151,7 +151,7 @@
   },
   "bard:SixFourTime": {
     "NAME": "6/4 Time",
-    "DESCRIPTION": "You can queue !M! additional bard:Notes.",
+    "DESCRIPTION": "You can bard:Queue !M! additional bard:Notes.",
     "EXTENDED_DESCRIPTION": [
       "8/4 Time"
     ]
@@ -233,8 +233,8 @@
   },
   "bard:Pluck": {
     "NAME": "Pluck",
-    "DESCRIPTION": "Choose a bard:Note to queue. NL Draw a card.",
-    "UPGRADE_DESCRIPTION": "Choose !M! bard:Notes to queue. NL Draw a card."
+    "DESCRIPTION": "Choose a bard:Note to bard:Queue. NL Draw a card.",
+    "UPGRADE_DESCRIPTION": "Choose !M! bard:Notes to bard:Queue. NL Draw a card."
   },
   "bard:PhantasmalForce": {
     "NAME": "Phantasmal Force",
@@ -242,10 +242,10 @@
   },
   "bard:CuttingWords": {
     "NAME": "Cutting Words",
-    "DESCRIPTION": "Apply !M! Weak and !M! Vulnerable to a random enemy for each {Debuff Note} you have queued.",
+    "DESCRIPTION": "Apply !M! Weak and !M! Vulnerable to a random enemy for each {Debuff Note} you have bard:Queued.",
     "EXTENDED_DESCRIPTION": [
       " NL (",
-      " {Debuff Note} queued.)"
+      " {Debuff Note} bard:Queued.)"
     ]
   },
   "bard:ThickOfTheFight": {
@@ -262,7 +262,7 @@
   },
   "bard:TwoAndFour": {
     "NAME": "2 and 4",
-    "DESCRIPTION": "At the start of your turn, choose a bard:Note to queue.",
+    "DESCRIPTION": "At the start of your turn, choose a bard:Note to bard:Queue.",
     "UPGRADE_DESCRIPTION": "Innate. NL "
   },
   "bard:FirstStrike": {
