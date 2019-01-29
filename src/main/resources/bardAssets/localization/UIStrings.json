@@ -1,11 +1,11 @@
 {
-  "bard:LocateObjectAction": {
+  "${ModID}:LocateObjectAction": {
     "TEXT": [
       "Choose a Card to Place on Top of Your Draw Pile.",
       "Choose Cards to Place on Top of Your Draw Pile."
     ]
   },
-  "bard:Perform": {
+  "${ModID}:Perform": {
     "TEXT": [
       "Note Queue",
       "Can hold up to #b",

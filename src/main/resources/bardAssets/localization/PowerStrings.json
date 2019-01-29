@@ -1,5 +1,5 @@
 {
-  "bard:Inspiration": {
+  "${ModID}:Inspiration": {
     "NAME": "Inspiration",
     "DESCRIPTIONS": [
       "The next",
@@ -10,21 +10,21 @@
       "%."
     ]
   },
-  "bard:HarmoniousVoice": {
+  "${ModID}:HarmoniousVoice": {
     "NAME": "Harmonious Voice",
     "DESCRIPTIONS": [
       "Whenever you queue a [BlockNote] or [BuffNote] , gain #b",
       " #yTemporary #yHP."
     ]
   },
-  "bard:DiscordantVoice": {
+  "${ModID}:DiscordantVoice": {
     "NAME": "Discordant Voice",
     "DESCRIPTIONS": [
       "Whenever you queue a [AttackNote] or [DebuffNote] , deal #b",
       " damage to a random enemy."
     ]
   },
-  "bard:Cursed": {
+  "${ModID}:Cursed": {
     "NAME": "Cursed",
     "DESCRIPTIONS": [
       "At the start of your turn, lose #b",
@@ -32,7 +32,7 @@
       " HP."
     ]
   },
-  "bard:DeEnergized": {
+  "${ModID}:DeEnergized": {
     "NAME": "DeEnergized",
     "DESCRIPTIONS": [
       "Lose #b",
@@ -41,21 +41,21 @@
       " - TRANSLATOR NOTE: - The above line is for plural if needed to distinguish from singular."
     ]
   },
-  "bard:SilencedDebuffs": {
+  "${ModID}:SilencedDebuffs": {
     "NAME": "Silenced - Debuffs",
     "DESCRIPTIONS": [
       "You cannot debuff enemies.",
       " cannot debuff you."
     ]
   },
-  "bard:SilencedBuffs": {
+  "${ModID}:SilencedBuffs": {
     "NAME": "Silenced - Buffs",
     "DESCRIPTIONS": [
       "You cannot buff yourself.",
       " cannot buff itself."
     ]
   },
-  "bard:SplendidForm": {
+  "${ModID}:SplendidForm": {
     "NAME": "Splendid Form",
     "DESCRIPTIONS": [
       "At the start of your turn, gain #yInspiration #b",
@@ -64,7 +64,7 @@
       "."
     ]
   },
-  "bard:Blink": {
+  "${ModID}:Blink": {
     "NAME": "Blink",
     "DESCRIPTIONS": [
       "Receive 50% less damage for #b",
@@ -72,7 +72,7 @@
       " turns."
     ]
   },
-  "bard:LingeringEcho": {
+  "${ModID}:LingeringEcho": {
     "NAME": "Lingering Echo",
     "DESCRIPTIONS": [
       "The next card you play this turn remains in your hand.",
@@ -80,19 +80,19 @@
       " cards you play this turn remain in your hand."
     ]
   },
-  "bard:ReverseGravity": {
+  "${ModID}:ReverseGravity": {
     "NAME": "Reverse Gravity",
     "DESCRIPTIONS": [
       "At the start of next turn, deal #b%1$s damage and apply #b%2$s #yWeak to ALL enemies."
     ]
   },
-  "bard:CovetousAura": {
+  "${ModID}:CovetousAura": {
     "NAME": "Covetous Aura",
     "DESCRIPTIONS": [
       "Anytime an enemy gains HP or Strength, you also gain the same HP or Strength."
     ]
   },
-  "bard:GlyphOfWarding": {
+  "${ModID}:GlyphOfWarding": {
     "NAME": "Glyph of Warding",
     "DESCRIPTIONS": [
       "Whenever your #yBlock is broken, deal #b",
@@ -101,20 +101,20 @@
       " damage to you."
     ]
   },
-  "bard:MantleOfInspiration": {
+  "${ModID}:MantleOfInspiration": {
     "NAME": "Mantle of Inspiration",
     "DESCRIPTIONS": [
       "Increase all #yInspiration you gain from cards by #b",
       "."
     ]
   },
-  "bard:GreaterMagicWeapon": {
+  "${ModID}:GreaterMagicWeapon": {
     "NAME": "Greater Magic Weapon",
     "DESCRIPTIONS": [
       "Your #yAttacks ignore #yBlock."
     ]
   },
-  "bard:TwoAndFour": {
+  "${ModID}:TwoAndFour": {
     "NAME": "2 and 4",
     "DESCRIPTIONS": [
       "At the start of your turn, choose a #yNote to queue.",

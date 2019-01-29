@@ -1,19 +1,19 @@
 {
-  "bard:Lute": {
+  "${ModID}:Lute": {
     "NAME": "Lute",
     "FLAVOR": "Your trusty instrument.",
     "DESCRIPTIONS": [
       "Each card you play may also queue #yNotes. The #yNotes queued depend on the type of the card played and are shown in the card's tooltips."
     ]
   },
-  "bard:PitchPipe": {
+  "${ModID}:PitchPipe": {
     "NAME": "Pitch Pipe",
     "FLAVOR": "Stay in tune.",
     "DESCRIPTIONS": [
       "Start each combat with a random #yNote queued."
     ]
   },
-  "bard:SelfPlayingFlute": {
+  "${ModID}:SelfPlayingFlute": {
     "NAME": "Self-Playing Flute",
     "FLAVOR": "A magical flute, enchanted to play songs on its own.",
     "DESCRIPTIONS": [
@@ -21,14 +21,14 @@
       ".[] NL Queued Notes are carried over between combats."
     ]
   },
-  "bard:StrangeHarp": {
+  "${ModID}:StrangeHarp": {
     "NAME": "Strange Harp",
     "FLAVOR": "Every note played on this harp sounds eerie.",
     "DESCRIPTIONS": [
       "Whenever an enemy dies, transfer any #yWeak or #yVulnerable it has to a random enemy."
     ]
   },
-  "bard:CoralOrchestra": {
+  "${ModID}:CoralOrchestra": {
     "NAME": "Coral Orchestra",
     "FLAVOR": "",
     "DESCRIPTIONS": [
