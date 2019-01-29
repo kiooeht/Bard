@@ -16,10 +16,6 @@
     "NAME": "Riposte",
     "DESCRIPTION": "Deal !D! damage. NL Gain !B! Block."
   },
-  "bard:Sing": {
-    "NAME": "Sing",
-    "DESCRIPTION": "Play a Melody."
-  },
   "bard:HarmoniousVoice": {
     "NAME": "Harmonious Voice",
     "DESCRIPTION": "Whenever you queue a {Block Note} or {Buff Note} , gain !M! Temporary_HP."
@@ -118,10 +114,6 @@
   "bard:GuardPoint": {
     "NAME": "Guard Point",
     "DESCRIPTION": "Gain !B! Block. NL If you have no {Block Note} queued, gain !B! Block again."
-  },
-  "bard:Hum": {
-    "NAME": "Hum",
-    "DESCRIPTION": "Play a Melody. NL Gain !B! Block."
   },
   "bard:InspiringSong": {
     "NAME": "Inspiring Song",
