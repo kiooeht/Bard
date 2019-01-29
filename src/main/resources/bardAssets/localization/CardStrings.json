@@ -54,11 +54,11 @@
   },
   "bard:SongBolt": {
     "NAME": "Song Bolt",
-    "DESCRIPTION": "Deal !D! damage for each Note you have queued. NL Clear your Note queue."
+    "DESCRIPTION": "Deal !D! damage for each bard:Note you have queued. NL Clear your Note queue."
   },
   "bard:QuickSong": {
     "NAME": "Quick Song",
-    "DESCRIPTION": "Gain !B! Block. NL Discard a card. NL Queue Notes as if the card was played."
+    "DESCRIPTION": "Gain !B! Block. NL Discard a card. NL Queue bard:Notes as if the card was played."
   },
   "bard:TinyHut": {
     "NAME": "Tiny Hut",
@@ -159,7 +159,7 @@
   },
   "bard:SixFourTime": {
     "NAME": "6/4 Time",
-    "DESCRIPTION": "You can queue !M! additional Notes.",
+    "DESCRIPTION": "You can queue !M! additional bard:Notes.",
     "EXTENDED_DESCRIPTION": [
       "8/4 Time"
     ]
@@ -241,8 +241,8 @@
   },
   "bard:Pluck": {
     "NAME": "Pluck",
-    "DESCRIPTION": "Choose a Note to queue. NL Draw a card.",
-    "UPGRADE_DESCRIPTION": "Choose !M! Notes to queue. NL Draw a card."
+    "DESCRIPTION": "Choose a bard:Note to queue. NL Draw a card.",
+    "UPGRADE_DESCRIPTION": "Choose !M! bard:Notes to queue. NL Draw a card."
   },
   "bard:PhantasmalForce": {
     "NAME": "Phantasmal Force",
@@ -270,7 +270,7 @@
   },
   "bard:TwoAndFour": {
     "NAME": "2 and 4",
-    "DESCRIPTION": "At the start of your turn, choose a Note to queue.",
+    "DESCRIPTION": "At the start of your turn, choose a bard:Note to queue.",
     "UPGRADE_DESCRIPTION": "Innate. NL "
   },
   "bard:FirstStrike": {
