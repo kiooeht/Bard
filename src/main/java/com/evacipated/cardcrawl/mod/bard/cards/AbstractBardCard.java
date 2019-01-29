@@ -144,6 +144,7 @@ public abstract class AbstractBardCard extends CustomCard
         try {
             ClassPool pool = Loader.getClassPool();
             CtClass ctClass = pool.get(card.getClass().getName());
+            ctClass.defrost();
             CtMethod useMethod = ctClass.getDeclaredMethod("use");
 
             final CardTarget[] targetType = {CardTarget.NONE};
