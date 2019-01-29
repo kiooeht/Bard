@@ -1,5 +1,5 @@
 {
-  "LocateObjectAction": {
+  "bard:LocateObjectAction": {
     "TEXT": [
       "Choose a Card to Place on Top of Your Draw Pile.",
       "Choose Cards to Place on Top of Your Draw Pile."

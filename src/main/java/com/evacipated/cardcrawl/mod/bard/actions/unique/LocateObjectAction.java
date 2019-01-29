@@ -1,5 +1,6 @@
 package com.evacipated.cardcrawl.mod.bard.actions.unique;
 
+import com.evacipated.cardcrawl.mod.bard.BardMod;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
@@ -11,7 +12,7 @@ import com.megacrit.cardcrawl.localization.UIStrings;
 
 public class LocateObjectAction extends AbstractGameAction
 {
-    private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString("LocateObjectAction");
+    private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString(BardMod.makeID("LocateObjectAction"));
     public static final String[] TEXT = uiStrings.TEXT;
 
     public LocateObjectAction(int amount)
