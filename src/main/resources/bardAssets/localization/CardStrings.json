@@ -9,8 +9,8 @@
   },
   "bard:Inspire": {
     "NAME": "Inspire",
-    "DESCRIPTION": "Gain Inspiration !bard:In!. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Gain Inspiration !bard:In!. NL Exhaustive !stslib:ex!."
+    "DESCRIPTION": "Gain bard:Inspiration !bard:In!. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain bard:Inspiration !bard:In!. NL Exhaustive !stslib:ex!."
   },
   "bard:Riposte": {
     "NAME": "Riposte",
@@ -90,8 +90,8 @@
   },
   "bard:Greatness": {
     "NAME": "Greatness",
-    "DESCRIPTION": "Gain Inspiration !bard:In!.",
-    "UPGRADE_DESCRIPTION": "Gain !M! Inspiration !bard:In!."
+    "DESCRIPTION": "Gain bard:Inspiration !bard:In!.",
+    "UPGRADE_DESCRIPTION": "Gain !M! bard:Inspiration !bard:In!."
   },
   "bard:Invisibility": {
     "NAME": "Invisibility",
@@ -113,7 +113,7 @@
   },
   "bard:Heroism": {
     "NAME": "Heroism",
-    "DESCRIPTION": "Gain !M! Temporary_HP and Inspiration !bard:In!."
+    "DESCRIPTION": "Gain !M! Temporary_HP and bard:Inspiration !bard:In!."
   },
   "bard:GuardPoint": {
     "NAME": "Guard Point",
@@ -125,7 +125,7 @@
   },
   "bard:InspiringSong": {
     "NAME": "Inspiring Song",
-    "DESCRIPTION": "Gain Inspiration !bard:In!   for each {Buff Note} you have queued.",
+    "DESCRIPTION": "Gain bard:Inspiration !bard:In!   for each {Buff Note} you have queued.",
     "EXTENDED_DESCRIPTION": [
       " NL (",
       " {Buff Note} queued.)"
@@ -174,7 +174,7 @@
   },
   "bard:SplendidForm": {
     "NAME": "Splendid Form",
-    "DESCRIPTION": "At the start of NL your turn, gain NL Inspiration !bard:M2!."
+    "DESCRIPTION": "At the start of NL your turn, gain NL bard:Inspiration !bard:M2!."
   },
   "bard:PowerWordStun": {
     "NAME": "Power Word Stun",
@@ -207,7 +207,7 @@
   },
   "bard:EnGarde": {
     "NAME": "En Garde",
-    "DESCRIPTION": "Gain !B! Block. NL Deal !D! damage. NL Inspiration affects this card !M! times."
+    "DESCRIPTION": "Gain !B! Block. NL Deal !D! damage. NL bard:Inspiration affects this card !M! times."
   },
   "bard:GlyphOfWarding": {
     "NAME": "Glyph of Warding",
@@ -227,7 +227,7 @@
   },
   "bard:MantleOfInspiration": {
     "NAME": "Mantle of Inspiration",
-    "DESCRIPTION": "Increase all Inspiration you gain from cards by !bard:M2!."
+    "DESCRIPTION": "Increase all bard:Inspiration you gain from cards by !bard:M2!."
   },
   "bard:LocateObject": {
     "NAME": "Locate Object",

@@ -16,13 +16,17 @@ import com.evacipated.cardcrawl.mod.bard.notes.BlockNote;
 import com.evacipated.cardcrawl.mod.bard.notes.BuffNote;
 import com.evacipated.cardcrawl.mod.bard.notes.DebuffNote;
 import com.evacipated.cardcrawl.mod.bard.relics.AbstractBardRelic;
+import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.Loader;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.helpers.CardHelper;
-import com.megacrit.cardcrawl.localization.*;
+import com.megacrit.cardcrawl.localization.CardStrings;
+import com.megacrit.cardcrawl.localization.PowerStrings;
+import com.megacrit.cardcrawl.localization.RelicStrings;
+import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import javassist.CannotCompileException;
 import javassist.CtClass;
@@ -49,6 +53,8 @@ public class BardMod implements
         EditKeywordsSubscriber
 {
     public static final Logger logger = LogManager.getLogger(BardMod.class.getSimpleName());
+
+    public static final String ID = "bard";
 
     public static final Color COLOR = CardHelper.getColor(65, 105, 225);
 
@@ -93,7 +99,7 @@ public class BardMod implements
 
     public static String makeID(String id)
     {
-        return "bard:" + id;
+        return ID + ":" + id;
     }
 
     public static String assetPath(String path)
@@ -160,7 +166,7 @@ public class BardMod implements
 
         if (keywords != null) {
             for (Keyword keyword : keywords) {
-                BaseMod.addKeyword(keyword.NAMES, keyword.DESCRIPTION);
+                BaseMod.addKeyword(ID, keyword.PROPER_NAME, keyword.NAMES, keyword.DESCRIPTION);
             }
         }
     }
