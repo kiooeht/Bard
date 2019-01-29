@@ -239,10 +239,6 @@
     "DESCRIPTION": "Your attacks ignore Block.",
     "UPGRADE_DESCRIPTION": "Innate. NL "
   },
-  "bard:SoothingSong": {
-    "NAME": "Soothing Song",
-    "DESCRIPTION": "Play a Melody. NL Heal !M! HP for each Note in the Melody. NL Exhaust."
-  },
   "bard:Pluck": {
     "NAME": "Pluck",
     "DESCRIPTION": "Choose a Note to queue. NL Draw a card.",
