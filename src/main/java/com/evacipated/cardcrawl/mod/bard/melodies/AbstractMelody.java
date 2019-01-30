@@ -144,7 +144,7 @@ public abstract class AbstractMelody
         AbstractDungeon.actionManager.addToBottom(action);
     }
 
-    public final void doPlay()
+    public final void doPlay(boolean consumeNotes)
     {
         for (AbstractPower power : AbstractDungeon.player.powers) {
             if (power instanceof OnMelodyPlayedHook) {
@@ -159,9 +159,11 @@ public abstract class AbstractMelody
 
         play();
 
-        if (AbstractDungeon.player instanceof Bard) {
-            int startIndex = ((Bard) AbstractDungeon.player).noteQueueMelodyPosition(this);
-            addToBottom(new RemoveNoteFromQueueAction(startIndex, notes.size()));
+        if (consumeNotes) {
+            if (AbstractDungeon.player instanceof Bard) {
+                int startIndex = ((Bard) AbstractDungeon.player).noteQueueMelodyPosition(this);
+                addToBottom(new RemoveNoteFromQueueAction(startIndex, notes.size()));
+            }
         }
     }
 

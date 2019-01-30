@@ -15,6 +15,7 @@ import java.util.List;
 public class SelectMelodyAction extends AbstractGameAction
 {
     private List<AbstractMelody> melodies;
+    private boolean consumeNotes;
     private boolean pickCard = false;
 
     public SelectMelodyAction()
@@ -24,7 +25,13 @@ public class SelectMelodyAction extends AbstractGameAction
 
     public SelectMelodyAction(List<AbstractMelody> melodies)
     {
+        this(melodies, true);
+    }
+
+    public SelectMelodyAction(List<AbstractMelody> melodies, boolean consumeNotes)
+    {
         this.melodies = melodies;
+        this.consumeNotes = consumeNotes;
         actionType = ActionType.SPECIAL;
         duration = Settings.ACTION_DUR_MED;
     }
@@ -59,6 +66,7 @@ public class SelectMelodyAction extends AbstractGameAction
                 AbstractDungeon.gridSelectScreen.selectedCards.clear();
                 CenterGridCardSelectScreen.centerGridSelect = false;
 
+                select.consumeNotes = consumeNotes;
                 select.use(AbstractDungeon.player, null);
                 isDone = true;
             }

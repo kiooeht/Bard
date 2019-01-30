@@ -64,7 +64,7 @@ public class ImprovisationPower extends TwoAmountPower implements NonStackablePo
             flash();
             amount2 = origNotes;
             for (int i=0; i<amount; ++i) {
-                AbstractDungeon.actionManager.addToBottom(new SelectMelodyAction(MelodyManager.getAllMelodies()));
+                AbstractDungeon.actionManager.addToBottom(new SelectMelodyAction(MelodyManager.getAllMelodies(), false));
             }
         }
         updateDescription();
