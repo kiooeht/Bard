@@ -273,5 +273,9 @@
     "NAME": "Sift",
     "DESCRIPTION": "Draw !${ModID}:M2! card. NL Gain [E] equal NL to its cost.",
     "UPGRADE_DESCRIPTION": " NL Draw !M! card."
+  },
+  "${ModID}:Improv": {
+    "NAME": "Improv",
+    "DESCRIPTION": "This turn, for every !M! ${ModID}:Notes you ${ModID}:Queue, perform any ${ModID}:Melody regardless of your Note Queue. NL At the end of this turn, clear your Note Queue."
   }
 }

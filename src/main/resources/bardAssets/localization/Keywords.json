@@ -18,5 +18,12 @@
       "queued"
     ],
     "DESCRIPTION": "Queueing a Note puts it at the end of your Note Queue. If your Note Queue is full, the leftmost Note is removed to make room."
+  },
+  {
+    "NAMES": [
+      "melody",
+      "melodies"
+    ],
+    "DESCRIPTION": "TODO"
   }
 ]

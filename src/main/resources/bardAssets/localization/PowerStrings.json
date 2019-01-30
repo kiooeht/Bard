@@ -121,5 +121,17 @@
       "At the start of your turn, choose #b",
       " #yNotes to queue."
     ]
+  },
+  "${ModID}:Improvisation": {
+    "NAME": "Improvisation",
+    "DESCRIPTIONS": [
+      "If you #yQueue #b",
+      " more #yNote this turn,",
+      " more #yNotes this turn,",
+      " #yPerform any #b",
+      " #yMelody.",
+      " #yMelodies.",
+      " NL At the end of your turn, clear your Note Queue."
+    ]
   }
 }
