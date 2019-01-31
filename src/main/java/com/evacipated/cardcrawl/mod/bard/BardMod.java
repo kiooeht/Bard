@@ -36,12 +36,14 @@ import org.apache.logging.log4j.Logger;
 import org.clapper.util.classutil.*;
 
 import java.io.File;
+import java.io.IOException;
 import java.lang.reflect.Modifier;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Properties;
 
 @SpireInitializer
 public class BardMod implements
@@ -54,12 +56,25 @@ public class BardMod implements
 {
     public static final Logger logger = LogManager.getLogger(BardMod.class.getSimpleName());
 
-    public static final String ID = "bard";
+    public static final String ID;
 
     public static final Color COLOR = CardHelper.getColor(65, 105, 225);
 
     public static TextureAtlas noteAtlas;
     public static TextureAtlas powerAtlas;
+
+    static
+    {
+        String tmpID = "bard";
+        try {
+            Properties properties = new Properties();
+            properties.load(BardMod.class.getResourceAsStream("/META-INF/bard_version.prop"));
+            tmpID = properties.getProperty("id");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        ID = tmpID;
+    }
 
     public static void initialize()
     {
