@@ -1,5 +1,6 @@
 package com.evacipated.cardcrawl.mod.bard.cards;
 
+import basemod.abstracts.CustomCard;
 import com.evacipated.cardcrawl.mod.bard.BardMod;
 import com.evacipated.cardcrawl.mod.bard.CardIgnore;
 import com.evacipated.cardcrawl.mod.bard.characters.Bard;
@@ -12,7 +13,7 @@ import java.util.List;
 import java.util.function.Consumer;
 
 @CardIgnore
-public class MelodyCard extends AbstractCard
+public class MelodyCard extends CustomCard
 {
     public static final String ID = BardMod.makeID("MelodyCard");
     public static final String IMG = null;
@@ -34,7 +35,7 @@ public class MelodyCard extends AbstractCard
 
     public MelodyCard(String name, String description, List<AbstractNote> notes, CardType type, CardTarget target, Consumer<Boolean> playCallback)
     {
-        super(ID, name, null, IMG, COST, description, type, Bard.Enums.COLOR, CardRarity.SPECIAL, target);
+        super(ID, name, IMG, COST, description, type, Bard.Enums.COLOR, CardRarity.SPECIAL, target);
 
         this.notes = notes;
         this.playCallback = playCallback;
