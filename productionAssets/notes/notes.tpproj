@@ -32,7 +32,7 @@ limitMemory=true
 useIndexes=true
 
 scaleFactors=[{suffix:"",factor:1,resampling:bicubic}]
-inputFiles=[{path:icons/noteBlock.png,type:Input,regionName:block},{path:icons/noteDebuff.png,type:Input,regionName:debuff},{path:icons/noteAttack.png,type:Input,regionName:attack},{path:icons/noteBuff.png,type:Input,regionName:buff},{path:icons/clefTreble.png,type:Input,regionName:clefTreble},{path:icons/bars.png,type:Input,regionName:null},{path:icons/queuedDebuff.png,type:Input,regionName:null},{path:icons/clefTrebleGlow.png,type:Input,regionName:null},{path:icons/barsGlow.png,type:Input,regionName:null}]
+inputFiles=[{path:icons/noteBlock.png,type:Input,regionName:block},{path:icons/noteDebuff.png,type:Input,regionName:debuff},{path:icons/noteAttack.png,type:Input,regionName:attack},{path:icons/noteBuff.png,type:Input,regionName:buff},{path:icons/clefTreble.png,type:Input,regionName:clefTreble},{path:icons/bars.png,type:Input,regionName:null},{path:icons/queuedDebuff.png,type:Input,regionName:null},{path:icons/clefTrebleGlow.png,type:Input,regionName:null},{path:icons/barsGlow.png,type:Input,regionName:null},{path:icons/toggleOff.png,type:Input,regionName:null},{path:icons/toggleOn.png,type:Input,regionName:null}]
 
 
 -PROJ-

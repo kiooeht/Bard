@@ -56,7 +56,10 @@ public class Bard extends CustomPlayer implements HitboxListener
 
     private float noteFloatTimer = 0;
 
+    private boolean showMelodiesPanel = true;
+
     private Hitbox notesHb;
+    private Hitbox melodiesToggleHb;
 
     public static class Enums
     {
@@ -80,6 +83,7 @@ public class Bard extends CustomPlayer implements HitboxListener
                 getLoadout(), 0.0F, -20.0F, 240.0F, 240.0F, new EnergyManager(ENERGY_PER_TURN));
 
         notesHb = new Hitbox(32, 32); // This size doesn't matter, it's updated in update()
+        melodiesToggleHb = new Hitbox(32, 32); // This size doesn't matter, it's updated in update()
     }
 
     public void increaseMaxNotes(int amount)
@@ -229,7 +233,36 @@ public class Bard extends CustomPlayer implements HitboxListener
                 (146) * Settings.scale + drawY + hb_h / 2.0f
         );
 
+        melodiesToggleHb.resize(
+                48 * Settings.scale,
+                64 * Settings.scale
+        );
+        melodiesToggleHb.translate(
+                drawX - (NOTE_SPACING * 3 * Settings.scale) - 48 * Settings.scale,
+                (146) * Settings.scale + drawY + hb_h / 2.0f
+        );
+
         notesHb.encapsulatedUpdate(this);
+        melodiesToggleHb.encapsulatedUpdate(new HitboxListener()
+        {
+            @Override
+            public void hoverStarted(Hitbox hitbox)
+            {
+
+            }
+
+            @Override
+            public void startClicking(Hitbox hitbox)
+            {
+
+            }
+
+            @Override
+            public void clicked(Hitbox hitbox)
+            {
+                showMelodiesPanel = !showMelodiesPanel;
+            }
+        });
     }
 
     @Override
@@ -275,7 +308,20 @@ public class Bard extends CustomPlayer implements HitboxListener
             );
         }
 
+        if (melodiesToggleHb.hovered && !AbstractDungeon.isScreenUp) {
+            float height = -FontHelper.getSmartHeight(FontHelper.tipBodyFont, "", 280.0F * Settings.scale, 26.0F * Settings.scale);
+            height += 74 * Settings.scale; // accounts for header height, box border, and a bit of spacing
+
+            TipHelper.renderGenericTip(
+                    melodiesToggleHb.x,
+                    melodiesToggleHb.y + melodiesToggleHb.height + height,
+                    performStrings.TEXT[3],
+                    ""
+            );
+        }
+
         notesHb.render(sb);
+        melodiesToggleHb.render(sb);
     }
 
     private void renderNotesQueue(SpriteBatch sb)
@@ -386,6 +432,25 @@ public class Bard extends CustomPlayer implements HitboxListener
                 && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT
                 && !isDead
         ) {
+            sb.setColor(Color.WHITE);
+            TextureAtlas.AtlasRegion tex = BardMod.noteAtlas.findRegion(showMelodiesPanel ? "toggleOff" : "toggleOn");
+            sb.draw(
+                    tex,
+                    drawX - (NOTE_SPACING * 3 * Settings.scale) - 32 * Settings.scale,
+                    (158) * Settings.scale + drawY + hb_h / 2.0f,
+                    0,
+                    0,
+                    tex.getRegionWidth(),
+                    tex.getRegionHeight(),
+                    Settings.scale * 2,
+                    Settings.scale * 2,
+                    0
+            );
+
+            if (!showMelodiesPanel) {
+                return;
+            }
+
             FontHelper.renderFontLeftTopAligned(
                     sb,
                     FontHelper.tipHeaderFont,

@@ -6,64 +6,78 @@ filter: Nearest,Nearest
 repeat: none
 attack
   rotate: false
-  xy: 70, 34
+  xy: 100, 85
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 bars
   rotate: false
-  xy: 2, 86
+  xy: 2, 90
   size: 96, 32
   orig: 96, 32
   offset: 0, 0
   index: -1
 barsGlow
   rotate: false
-  xy: 2, 52
+  xy: 2, 56
   size: 96, 32
   orig: 96, 32
   offset: 0, 0
   index: -1
 block
   rotate: false
-  xy: 100, 81
+  xy: 70, 20
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 buff
   rotate: false
-  xy: 70, 16
+  xy: 100, 67
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 clefTreble
   rotate: false
-  xy: 36, 2
+  xy: 36, 6
   size: 32, 48
   orig: 32, 48
   offset: 0, 0
   index: -1
 clefTrebleGlow
   rotate: false
-  xy: 2, 2
+  xy: 2, 6
   size: 32, 48
   orig: 32, 48
   offset: 0, 0
   index: -1
 debuff
   rotate: false
-  xy: 100, 63
+  xy: 70, 2
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 queuedDebuff
   rotate: false
-  xy: 100, 99
+  xy: 100, 103
   size: 16, 19
   orig: 16, 19
+  offset: 0, 0
+  index: -1
+toggleOff
+  rotate: false
+  xy: 88, 38
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+toggleOn
+  rotate: false
+  xy: 70, 38
+  size: 16, 16
+  orig: 16, 16
   offset: 0, 0
   index: -1
