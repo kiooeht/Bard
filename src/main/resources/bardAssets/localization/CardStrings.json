@@ -61,7 +61,7 @@
     "DESCRIPTION": "Gain !B! Block. NL Draw 1 card for each {Block Note} you have ${ModID}:Queued.",
     "EXTENDED_DESCRIPTION": [
       " NL (",
-      " {Block Note} ${ModID}:Queued.)"
+      " {Block Note} ${ModID}:Queued)"
     ]
   },
   "${ModID}:Gamble": {
@@ -73,7 +73,7 @@
     "DESCRIPTION": "Deal !D! damage to ALL enemies for each {Attack Note} you have ${ModID}:Queued.",
     "EXTENDED_DESCRIPTION": [
       " NL (",
-      " {Attack Note} ${ModID}:Queued.)"
+      " {Attack Note} ${ModID}:Queued)"
     ]
   },
   "${ModID}:Parry": {
@@ -120,7 +120,7 @@
     "DESCRIPTION": "Gain ${ModID}:Inspiration !${ModID}:In!   for each {Buff Note} you have ${ModID}:Queued.",
     "EXTENDED_DESCRIPTION": [
       " NL (",
-      " {Buff Note} ${ModID}:Queued.)"
+      " {Buff Note} ${ModID}:Queued)"
     ]
   },
   "${ModID}:FaerieFire": {
@@ -245,7 +245,7 @@
     "DESCRIPTION": "Apply !M! Weak and !M! Vulnerable to a random enemy for each {Debuff Note} you have ${ModID}:Queued.",
     "EXTENDED_DESCRIPTION": [
       " NL (",
-      " {Debuff Note} ${ModID}:Queued.)"
+      " {Debuff Note} ${ModID}:Queued)"
     ]
   },
   "${ModID}:ThickOfTheFight": {
