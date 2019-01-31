@@ -4,6 +4,7 @@ import com.evacipated.cardcrawl.mod.bard.BardMod;
 import com.evacipated.cardcrawl.mod.bard.actions.unique.GambleAction;
 import com.evacipated.cardcrawl.mod.bard.characters.Bard;
 import com.evacipated.cardcrawl.mod.bard.notes.AbstractNote;
+import com.megacrit.cardcrawl.actions.common.EmptyDeckShuffleAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -32,6 +33,9 @@ public class Gamble extends AbstractBardCard
     @Override
     public void use(AbstractPlayer p, AbstractMonster m)
     {
+        if (p.drawPile.isEmpty()) {
+            addToBottom(new EmptyDeckShuffleAction());
+        }
         addToBottom(new GambleAction());
     }
 
