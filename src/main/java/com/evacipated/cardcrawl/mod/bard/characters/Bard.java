@@ -2,11 +2,9 @@ package com.evacipated.cardcrawl.mod.bard.characters;
 
 import basemod.abstracts.CustomPlayer;
 import basemod.animations.SpineAnimation;
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.mod.bard.BardMod;
 import com.evacipated.cardcrawl.mod.bard.actions.common.SelectMelodyAction;
@@ -22,6 +20,7 @@ import com.evacipated.cardcrawl.mod.bard.relics.Lute;
 import com.evacipated.cardcrawl.mod.bard.relics.PitchPipe;
 import com.evacipated.cardcrawl.mod.bard.relics.SelfPlayingFlute;
 import com.evacipated.cardcrawl.mod.bard.ui.MelodiesPanel;
+import com.evacipated.cardcrawl.mod.bard.ui.NotesPanel;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -31,11 +30,8 @@ import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.*;
-import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
-import com.megacrit.cardcrawl.rooms.AbstractRoom;
-import com.megacrit.cardcrawl.rooms.MonsterRoom;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 
@@ -43,24 +39,17 @@ import java.util.*;
 
 public class Bard extends CustomPlayer implements HitboxListener
 {
-    private static final UIStrings performStrings = CardCrawlGame.languagePack.getUIString(BardMod.makeID("Perform"));
-
     private static final int START_HP = 70;
     private static final int ENERGY_PER_TURN = 3;
     private static final int START_ORBS = 0;
 
-    private static final int MAX_NOTES = 4;
-    public static final float NOTE_SPACING = 32;
+    public static final int MAX_NOTES = 4;
 
     private int maxNotes = MAX_NOTES;
     private Deque<AbstractNote> notes = new ArrayDeque<>();
 
-    private float noteFloatTimer = 0;
-
+    private NotesPanel notesPanel;
     private MelodiesPanel melodiesPanel;
-
-    private Hitbox notesHb;
-    private Hitbox melodiesToggleHb;
 
     public static class Enums
     {
@@ -83,10 +72,13 @@ public class Bard extends CustomPlayer implements HitboxListener
         initializeClass(null, "images/characters/theSilent/shoulder2.png", "images/characters/theSilent/shoulder.png", "images/characters/theSilent/corpse.png",
                 getLoadout(), 0.0F, -20.0F, 240.0F, 240.0F, new EnergyManager(ENERGY_PER_TURN));
 
-        notesHb = new Hitbox(32, 32); // This size doesn't matter, it's updated in update()
-        melodiesToggleHb = new Hitbox(32, 32); // This size doesn't matter, it's updated in update()
-
+        notesPanel = new NotesPanel();
         melodiesPanel = new MelodiesPanel();
+    }
+
+    public int getMaxNotes()
+    {
+        return maxNotes;
     }
 
     public void increaseMaxNotes(int amount)
@@ -226,46 +218,8 @@ public class Bard extends CustomPlayer implements HitboxListener
     {
         super.update();
 
-        notesHb.resize(
-                64 * Settings.scale
-                        + 32 * Settings.scale * maxNotes,
-                64 * Settings.scale
-        );
-        notesHb.translate(
-                drawX - (NOTE_SPACING * 3 * Settings.scale),
-                (146) * Settings.scale + drawY + hb_h / 2.0f
-        );
-
-        melodiesToggleHb.resize(
-                48 * Settings.scale,
-                64 * Settings.scale
-        );
-        melodiesToggleHb.translate(
-                drawX - (NOTE_SPACING * 3 * Settings.scale) - 48 * Settings.scale,
-                (146) * Settings.scale + drawY + hb_h / 2.0f
-        );
-
-        notesHb.encapsulatedUpdate(this);
-        melodiesToggleHb.encapsulatedUpdate(new HitboxListener()
-        {
-            @Override
-            public void hoverStarted(Hitbox hitbox)
-            {
-
-            }
-
-            @Override
-            public void startClicking(Hitbox hitbox)
-            {
-
-            }
-
-            @Override
-            public void clicked(Hitbox hitbox)
-            {
-                melodiesPanel.toggleShow();
-            }
-        });
+        notesPanel.update(this);
+        melodiesPanel.update(this);
     }
 
     @Override
@@ -291,141 +245,14 @@ public class Bard extends CustomPlayer implements HitboxListener
     @Override
     public void render(SpriteBatch sb)
     {
-        renderNotesQueue(sb);
+        notesPanel.preRender(sb, this, notes);
 
         super.render(sb);
 
-        melodiesPanel.render(sb, this, new ArrayList<>(notes));
+        melodiesPanel.preRender(sb, this, new ArrayList<>(notes));
 
-        if (notesHb.hovered && !AbstractDungeon.isScreenUp) {
-            String body = performStrings.TEXT[1] + maxNotes + performStrings.TEXT[2];
-
-            float height = -FontHelper.getSmartHeight(FontHelper.tipBodyFont, body, 280.0F * Settings.scale, 26.0F * Settings.scale);
-            height += 74 * Settings.scale; // accounts for header height, box border, and a bit of spacing
-
-            TipHelper.renderGenericTip(
-                    notesHb.x,
-                    notesHb.y + notesHb.height + height,
-                    performStrings.TEXT[0],
-                    body
-            );
-        }
-
-        if (melodiesToggleHb.hovered && !AbstractDungeon.isScreenUp) {
-            float height = -FontHelper.getSmartHeight(FontHelper.tipBodyFont, "", 280.0F * Settings.scale, 26.0F * Settings.scale);
-            height += 74 * Settings.scale; // accounts for header height, box border, and a bit of spacing
-
-            TipHelper.renderGenericTip(
-                    melodiesToggleHb.x,
-                    melodiesToggleHb.y + melodiesToggleHb.height + height,
-                    performStrings.TEXT[3],
-                    ""
-            );
-        }
-
-        notesHb.render(sb);
-        melodiesToggleHb.render(sb);
-    }
-
-    private void renderNotesQueue(SpriteBatch sb)
-    {
-        if ((AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT
-                || AbstractDungeon.getCurrRoom() instanceof MonsterRoom)
-                && !isDead
-        ) {
-            noteFloatTimer += Gdx.graphics.getDeltaTime() * 2;
-
-            boolean canPlay = canPlayMelody();
-
-            sb.setColor(Color.WHITE);
-            TextureAtlas.AtlasRegion tex = BardMod.noteAtlas.findRegion(canPlay ? "barsGlow" : "bars");
-            // Left section of bars
-            sb.draw(
-                    tex.getTexture(),
-                    drawX - (NOTE_SPACING * 3 * Settings.scale),
-                    (146) * Settings.scale + drawY + hb_h / 2.0f,
-                    0,
-                    0,
-                    32,
-                    32,
-                    Settings.scale * 2,
-                    Settings.scale * 2,
-                    0,
-                    tex.getRegionX(),
-                    tex.getRegionY(),
-                    32,
-                    32,
-                    false,
-                    false
-            );
-            // Middle (extendable) section of bars
-            sb.draw(
-                    tex.getTexture(),
-                    drawX - (NOTE_SPACING * 3 * Settings.scale) + (64 * Settings.scale),
-                    (146) * Settings.scale + drawY + hb_h / 2.0f,
-                    0,
-                    0,
-                    32,
-                    32,
-                    Settings.scale * (2 + (maxNotes - MAX_NOTES)),
-                    Settings.scale * 2,
-                    0,
-                    tex.getRegionX() + 32,
-                    tex.getRegionY(),
-                    32,
-                    32,
-                    false,
-                    false
-            );
-            // Right section of bars
-            sb.draw(
-                    tex.getTexture(),
-                    drawX - (NOTE_SPACING * 3 * Settings.scale) + (64 * Settings.scale) + (32 * (2 + (maxNotes - MAX_NOTES)) * Settings.scale),
-                    (146) * Settings.scale + drawY + hb_h / 2.0f,
-                    0,
-                    0,
-                    32,
-                    32,
-                    Settings.scale * 2,
-                    Settings.scale * 2,
-                    0,
-                    tex.getRegionX() + 64,
-                    tex.getRegionY(),
-                    32,
-                    32,
-                    false,
-                    false
-            );
-
-            sb.setColor(Color.WHITE);
-            // Clef
-            float offset = 1.5f * (float) Math.sin(noteFloatTimer - 1.2);
-            tex = BardMod.noteAtlas.findRegion(canPlay ? "clefTrebleGlow" : "clefTreble");
-            sb.draw(
-                    tex,
-                    drawX - (NOTE_SPACING * 3 * Settings.scale) - 16 * Settings.scale,
-                    (offset + 146) * Settings.scale + drawY + hb_h / 2.0f - 16 * Settings.scale,
-                    0,
-                    0,
-                    tex.getRegionWidth(),
-                    tex.getRegionHeight(),
-                    Settings.scale * 2,
-                    Settings.scale * 2,
-                    0
-            );
-
-            // Notes
-            int i = 0;
-            for (AbstractNote note : notes) {
-                offset = 3 * (float) Math.sin(noteFloatTimer + i*1.2);
-                note.render(
-                        sb,
-                        drawX - (NOTE_SPACING * 2 * Settings.scale) + (i * NOTE_SPACING * Settings.scale),
-                        (offset + 158) * Settings.scale + drawY + hb_h / 2.0f
-                );
-                ++i;
-            }
-        }
+        notesPanel.postRender(sb, this);
+        melodiesPanel.postRender(sb, this);
     }
 
     @Override

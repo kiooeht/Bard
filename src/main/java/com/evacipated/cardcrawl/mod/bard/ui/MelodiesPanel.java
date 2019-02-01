@@ -11,6 +11,9 @@ import com.evacipated.cardcrawl.mod.bard.notes.AbstractNote;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.FontHelper;
+import com.megacrit.cardcrawl.helpers.Hitbox;
+import com.megacrit.cardcrawl.helpers.HitboxListener;
+import com.megacrit.cardcrawl.helpers.TipHelper;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 
 import java.util.List;
@@ -19,17 +22,53 @@ public class MelodiesPanel
 {
     private boolean show = true;
 
+    private Hitbox melodiesToggleHb;
+
+    public MelodiesPanel()
+    {
+        // This size doesn't matter, it's updated in update()
+        melodiesToggleHb = new Hitbox(32, 32);
+    }
+
     public void toggleShow()
     {
         show = !show;
     }
 
-    public void update()
+    public void update(Bard player)
     {
+        melodiesToggleHb.resize(
+                48 * Settings.scale,
+                64 * Settings.scale
+        );
+        melodiesToggleHb.translate(
+                player.drawX - (NotesPanel.NOTE_SPACING * 3 * Settings.scale) - 48 * Settings.scale,
+                (146) * Settings.scale + player.drawY + player.hb_h / 2.0f
+        );
 
+        melodiesToggleHb.encapsulatedUpdate(new HitboxListener()
+        {
+            @Override
+            public void hoverStarted(Hitbox hitbox)
+            {
+
+            }
+
+            @Override
+            public void startClicking(Hitbox hitbox)
+            {
+
+            }
+
+            @Override
+            public void clicked(Hitbox hitbox)
+            {
+                toggleShow();
+            }
+        });
     }
 
-    public void render(SpriteBatch sb, Bard player, List<AbstractNote> notes)
+    public void preRender(SpriteBatch sb, Bard player, List<AbstractNote> notes)
     {
         if (AbstractDungeon.getCurrMapNode() != null
                 && AbstractDungeon.getCurrRoom() != null
@@ -40,7 +79,7 @@ public class MelodiesPanel
             TextureAtlas.AtlasRegion tex = BardMod.noteAtlas.findRegion(show ? "toggleOff" : "toggleOn");
             sb.draw(
                     tex,
-                    player.drawX - (Bard.NOTE_SPACING * 3 * Settings.scale) - 32 * Settings.scale,
+                    player.drawX - (NotesPanel.NOTE_SPACING * 3 * Settings.scale) - 32 * Settings.scale,
                     (158) * Settings.scale + player.drawY + player.hb_h / 2.0f,
                     0,
                     0,
@@ -99,5 +138,22 @@ public class MelodiesPanel
                 y -= 26 * Settings.scale;
             }
         }
+    }
+
+    public void postRender(SpriteBatch sb, Bard player)
+    {
+        if (melodiesToggleHb.hovered && !AbstractDungeon.isScreenUp) {
+            float height = -FontHelper.getSmartHeight(FontHelper.tipBodyFont, "", 280.0F * Settings.scale, 26.0F * Settings.scale);
+            height += 74 * Settings.scale; // accounts for header height, box border, and a bit of spacing
+
+            TipHelper.renderGenericTip(
+                    melodiesToggleHb.x,
+                    melodiesToggleHb.y + melodiesToggleHb.height + height,
+                    NotesPanel.performStrings.TEXT[3],
+                    ""
+            );
+        }
+
+        melodiesToggleHb.render(sb);
     }
 }
