@@ -1,5 +1,6 @@
 package com.evacipated.cardcrawl.mod.bard.melodies;
 
+import com.evacipated.cardcrawl.mod.bard.BardMod;
 import com.evacipated.cardcrawl.mod.bard.notes.BuffNote;
 import com.evacipated.cardcrawl.mod.bard.notes.DebuffNote;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
@@ -8,9 +9,11 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 public class DrawMelody extends AbstractMelody
 {
+    public static final String ID = BardMod.makeID("Draw");
+
     public DrawMelody()
     {
-        super("Draw", "Draw 3 cards.", AbstractCard.CardTarget.SELF);
+        super(ID, AbstractCard.CardTarget.SELF);
 
         notes.add(new DebuffNote());
         notes.add(new BuffNote());

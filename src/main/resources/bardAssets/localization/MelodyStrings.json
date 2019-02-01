@@ -10,5 +10,9 @@
   "${ModID}:DivineProtection": {
     "NAME": "Divine Protection",
     "DESCRIPTION": "Gain 10 Temporary_HP."
+  },
+  "${ModID}:Draw": {
+    "NAME": "Draw",
+    "DESCRIPTION": "Draw 3 cards."
   }
 }
