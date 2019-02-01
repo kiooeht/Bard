@@ -1,5 +1,6 @@
 package com.evacipated.cardcrawl.mod.bard.melodies;
 
+import com.evacipated.cardcrawl.mod.bard.BardMod;
 import com.evacipated.cardcrawl.mod.bard.notes.AttackNote;
 import com.evacipated.cardcrawl.mod.bard.notes.DebuffNote;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -10,9 +11,11 @@ import com.megacrit.cardcrawl.powers.WeakPower;
 
 public class WeakenSmallMelody extends AbstractMelody
 {
+    public static final String ID = BardMod.makeID("WeakenSmall");
+
     public WeakenSmallMelody()
     {
-        super("Weaken (S)", "Apply 1 Weak to ALL enemies.", AbstractCard.CardTarget.ALL_ENEMY);
+        super(ID, AbstractCard.CardTarget.ALL_ENEMY);
 
         notes.add(new DebuffNote());
         notes.add(new AttackNote());
