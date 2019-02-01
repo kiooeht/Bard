@@ -1,5 +1,6 @@
 package com.evacipated.cardcrawl.mod.bard.melodies;
 
+import com.evacipated.cardcrawl.mod.bard.BardMod;
 import com.evacipated.cardcrawl.mod.bard.notes.AttackNote;
 import com.evacipated.cardcrawl.mod.bard.notes.BlockNote;
 import com.evacipated.cardcrawl.mod.bard.notes.BuffNote;
@@ -10,9 +11,11 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 public class InspireLargeMelody extends AbstractMelody
 {
+    public static final String ID = BardMod.makeID("InspireLarge");
+
     public InspireLargeMelody()
     {
-        super("Inspire (L)", "Gain 2 Inspiration 100.", AbstractCard.CardTarget.SELF);
+        super(ID, AbstractCard.CardTarget.SELF);
 
         notes.add(new AttackNote());
         notes.add(new BuffNote());
