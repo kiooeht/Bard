@@ -28,6 +28,16 @@ public class MelodyManager
         notes.put("[" + note.name() + "Note]", note);
     }
 
+    public static AbstractNote getNoteByAscii(String key)
+    {
+        for (AbstractNote note : allNotes) {
+            if (note.ascii().equals(key)) {
+                return note;
+            }
+        }
+        return null;
+    }
+
     public static AbstractNote getNote(String key)
     {
         return notes.get(key);

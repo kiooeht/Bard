@@ -29,6 +29,17 @@ public abstract class AbstractMelody
         name = melodyStrings.NAME;
         rawDescription = melodyStrings.DESCRIPTION;
         this.target = target;
+
+        if (melodyStrings.NOTES != null) {
+            for (String noteStr : melodyStrings.NOTES) {
+                AbstractNote note = MelodyManager.getNoteByAscii(noteStr);
+                if (note != null) {
+                    notes.add(note);
+                } else {
+                    throw new RuntimeException("Invalid note: \"" + noteStr + "\"");
+                }
+            }
+        }
     }
 
     public AbstractMelody(String name, String rawDescription, AbstractCard.CardTarget target)
