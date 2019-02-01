@@ -1,8 +1,6 @@
 package com.evacipated.cardcrawl.mod.bard.melodies;
 
 import com.evacipated.cardcrawl.mod.bard.BardMod;
-import com.evacipated.cardcrawl.mod.bard.notes.AttackNote;
-import com.evacipated.cardcrawl.mod.bard.notes.DebuffNote;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -16,9 +14,6 @@ public class WeakenSmallMelody extends AbstractMelody
     public WeakenSmallMelody()
     {
         super(ID, AbstractCard.CardTarget.ALL_ENEMY);
-
-        notes.add(new DebuffNote());
-        notes.add(new AttackNote());
     }
 
     @Override

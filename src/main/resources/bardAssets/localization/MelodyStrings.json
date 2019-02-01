@@ -1,46 +1,79 @@
 {
   "${ModID}:AttackUpSmall": {
     "NAME": "Attack Up (S)",
-    "DESCRIPTION": "Gain 1 Strength."
+    "DESCRIPTION": "Gain 1 Strength.",
+    "NOTES": [
+      "U", "A", "A"
+    ]
   },
   "${ModID}:DefenseUpSmall": {
     "NAME": "Defense Up (S)",
-    "DESCRIPTION": "Gain 1 Dexterity."
+    "DESCRIPTION": "Gain 1 Dexterity.",
+    "NOTES": [
+      "U", "B", "B"
+    ]
   },
   "${ModID}:DivineProtection": {
     "NAME": "Divine Protection",
-    "DESCRIPTION": "Gain 10 Temporary_HP."
+    "DESCRIPTION": "Gain 10 Temporary_HP.",
+    "NOTES": [
+      "B", "U", "B"
+    ]
   },
   "${ModID}:Draw": {
     "NAME": "Draw",
-    "DESCRIPTION": "Draw 3 cards."
+    "DESCRIPTION": "Draw 3 cards.",
+    "NOTES": [
+      "D", "U", "U"
+    ]
   },
   "${ModID}:Artifact": {
     "NAME": "Artifact",
-    "DESCRIPTION": "Gain 1 Artifact."
+    "DESCRIPTION": "Gain 1 Artifact.",
+    "NOTES": [
+      "B", "D", "B"
+    ]
   },
   "${ModID}:WeakenSmall": {
     "NAME": "Weaken (S)",
-    "DESCRIPTION": "Apply 1 Weak to ALL enemies."
+    "DESCRIPTION": "Apply 1 Weak to ALL enemies.",
+    "NOTES": [
+      "D", "A"
+    ]
   },
   "${ModID}:VulnerabilitySmall": {
     "NAME": "Vulnerability (S)",
-    "DESCRIPTION": "Apply 1 Vulnerable to ALL enemies."
+    "DESCRIPTION": "Apply 1 Vulnerable to ALL enemies.",
+    "NOTES": [
+      "D", "B"
+    ]
   },
   "${ModID}:InspireSmall": {
     "NAME": "Inspire (S)",
-    "DESCRIPTION": "Gain 2 Inspiration 50."
+    "DESCRIPTION": "Gain 2 Inspiration 50.",
+    "NOTES": [
+      "A", "U", "B"
+    ]
   },
   "${ModID}:InspireLarge": {
     "NAME": "Inspire (L)",
-    "DESCRIPTION": "Gain 2 Inspiration 100."
+    "DESCRIPTION": "Gain 2 Inspiration 100.",
+    "NOTES": [
+      "A", "U", "U", "B"
+    ]
   },
   "${ModID}:DamageSmall": {
     "NAME": "Damage (S)",
-    "DESCRIPTION": "Deal 10 damage to ALL enemies."
+    "DESCRIPTION": "Deal 10 damage to ALL enemies.",
+    "NOTES": [
+      "A", "D", "A"
+    ]
   },
   "${ModID}:DamageLarge": {
     "NAME": "Damage (L)",
-    "DESCRIPTION": "Deal 18 damage to ALL enemies."
+    "DESCRIPTION": "Deal 18 damage to ALL enemies.",
+    "NOTES": [
+      "A", "D", "U", "A"
+    ]
   }
 }

@@ -1,8 +1,6 @@
 package com.evacipated.cardcrawl.mod.bard.melodies;
 
 import com.evacipated.cardcrawl.mod.bard.BardMod;
-import com.evacipated.cardcrawl.mod.bard.notes.BlockNote;
-import com.evacipated.cardcrawl.mod.bard.notes.DebuffNote;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -15,10 +13,6 @@ public class ArtifactMelody extends AbstractMelody
     public ArtifactMelody()
     {
         super(ID, AbstractCard.CardTarget.SELF);
-
-        notes.add(new BlockNote());
-        notes.add(new DebuffNote());
-        notes.add(new BlockNote());
     }
 
     @Override
