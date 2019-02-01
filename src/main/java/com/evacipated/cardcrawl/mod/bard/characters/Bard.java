@@ -21,6 +21,7 @@ import com.evacipated.cardcrawl.mod.bard.notes.AbstractNote;
 import com.evacipated.cardcrawl.mod.bard.relics.Lute;
 import com.evacipated.cardcrawl.mod.bard.relics.PitchPipe;
 import com.evacipated.cardcrawl.mod.bard.relics.SelfPlayingFlute;
+import com.evacipated.cardcrawl.mod.bard.ui.MelodiesPanel;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -49,14 +50,14 @@ public class Bard extends CustomPlayer implements HitboxListener
     private static final int START_ORBS = 0;
 
     private static final int MAX_NOTES = 4;
-    private static final float NOTE_SPACING = 32;
+    public static final float NOTE_SPACING = 32;
 
     private int maxNotes = MAX_NOTES;
     private Deque<AbstractNote> notes = new ArrayDeque<>();
 
     private float noteFloatTimer = 0;
 
-    private boolean showMelodiesPanel = true;
+    private MelodiesPanel melodiesPanel;
 
     private Hitbox notesHb;
     private Hitbox melodiesToggleHb;
@@ -84,6 +85,8 @@ public class Bard extends CustomPlayer implements HitboxListener
 
         notesHb = new Hitbox(32, 32); // This size doesn't matter, it's updated in update()
         melodiesToggleHb = new Hitbox(32, 32); // This size doesn't matter, it's updated in update()
+
+        melodiesPanel = new MelodiesPanel();
     }
 
     public void increaseMaxNotes(int amount)
@@ -260,7 +263,7 @@ public class Bard extends CustomPlayer implements HitboxListener
             @Override
             public void clicked(Hitbox hitbox)
             {
-                showMelodiesPanel = !showMelodiesPanel;
+                melodiesPanel.toggleShow();
             }
         });
     }
@@ -292,7 +295,7 @@ public class Bard extends CustomPlayer implements HitboxListener
 
         super.render(sb);
 
-        renderMelodiesPanel(sb);
+        melodiesPanel.render(sb, this, new ArrayList<>(notes));
 
         if (notesHb.hovered && !AbstractDungeon.isScreenUp) {
             String body = performStrings.TEXT[1] + maxNotes + performStrings.TEXT[2];
@@ -421,78 +424,6 @@ public class Bard extends CustomPlayer implements HitboxListener
                         (offset + 158) * Settings.scale + drawY + hb_h / 2.0f
                 );
                 ++i;
-            }
-        }
-    }
-
-    private void renderMelodiesPanel(SpriteBatch sb)
-    {
-        if (AbstractDungeon.getCurrMapNode() != null
-                && AbstractDungeon.getCurrRoom() != null
-                && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT
-                && !isDead
-        ) {
-            sb.setColor(Color.WHITE);
-            TextureAtlas.AtlasRegion tex = BardMod.noteAtlas.findRegion(showMelodiesPanel ? "toggleOff" : "toggleOn");
-            sb.draw(
-                    tex,
-                    drawX - (NOTE_SPACING * 3 * Settings.scale) - 32 * Settings.scale,
-                    (158) * Settings.scale + drawY + hb_h / 2.0f,
-                    0,
-                    0,
-                    tex.getRegionWidth(),
-                    tex.getRegionHeight(),
-                    Settings.scale * 2,
-                    Settings.scale * 2,
-                    0
-            );
-
-            if (!showMelodiesPanel) {
-                return;
-            }
-
-            FontHelper.renderFontLeftTopAligned(
-                    sb,
-                    FontHelper.tipHeaderFont,
-                    "Melodies",
-                    10 * Settings.scale,
-                    Settings.HEIGHT - 170 * Settings.scale,
-                    Settings.GOLD_COLOR
-            );
-
-            StringBuilder body = new StringBuilder();
-            for (AbstractMelody melody : MelodyManager.getAllMelodies()) {
-                body.append(melody.makeNotesUIString());
-                body.append(" NL ");
-            }
-            body.setLength(body.length() - 4);
-
-            FontHelper.renderSmartText(
-                    sb,
-                    FontHelper.tipBodyFont,
-                    body.toString(),
-                    10 * Settings.scale,
-                    Settings.HEIGHT - 200 * Settings.scale,
-                    280 * Settings.scale,
-                    26 * Settings.scale,
-                    Settings.CREAM_COLOR
-            );
-
-            float y = Settings.HEIGHT - 206 * Settings.scale;
-            for (AbstractMelody melody : MelodyManager.getAllMelodies()) {
-                Color color = Settings.CREAM_COLOR;
-                if (melody.fuzzyMatchesNotes(new ArrayList<>(notes))) {
-                    color = Settings.GOLD_COLOR;
-                }
-                FontHelper.renderFontRightAligned(
-                        sb,
-                        FontHelper.tipBodyFont,
-                        melody.getName(),
-                        300 * Settings.scale,
-                        y,
-                        color
-                );
-                y -= 26 * Settings.scale;
             }
         }
     }
