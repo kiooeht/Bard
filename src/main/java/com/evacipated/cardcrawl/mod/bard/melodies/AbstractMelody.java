@@ -1,8 +1,10 @@
 package com.evacipated.cardcrawl.mod.bard.melodies;
 
+import com.evacipated.cardcrawl.mod.bard.MelodyStrings;
 import com.evacipated.cardcrawl.mod.bard.actions.common.RemoveNoteFromQueueAction;
 import com.evacipated.cardcrawl.mod.bard.cards.MelodyCard;
 import com.evacipated.cardcrawl.mod.bard.characters.Bard;
+import com.evacipated.cardcrawl.mod.bard.helpers.MelodyManager;
 import com.evacipated.cardcrawl.mod.bard.hooks.OnMelodyPlayedHook;
 import com.evacipated.cardcrawl.mod.bard.notes.AbstractNote;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -20,6 +22,14 @@ public abstract class AbstractMelody
     protected String rawDescription;
     protected AbstractCard.CardTarget target;
     protected List<AbstractNote> notes = new ArrayList<>();
+
+    public AbstractMelody(String ID, AbstractCard.CardTarget target)
+    {
+        MelodyStrings melodyStrings = MelodyManager.getMelodyStrings(ID);
+        name = melodyStrings.NAME;
+        rawDescription = melodyStrings.DESCRIPTION;
+        this.target = target;
+    }
 
     public AbstractMelody(String name, String rawDescription, AbstractCard.CardTarget target)
     {

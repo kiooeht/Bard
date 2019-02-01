@@ -94,22 +94,6 @@ public class BardMod implements
         MelodyManager.addNote(new BlockNote());
         MelodyManager.addNote(new BuffNote());
         MelodyManager.addNote(new DebuffNote());
-
-        MelodyManager.addMelody(new AttackUpSmallMelody());
-        //MelodyManager.addMelody(new AttackUpLargeMelody());
-        MelodyManager.addMelody(new DefenseUpSmallMelody());
-        //MelodyManager.addMelody(new DefenseUpLargeMelody());
-        MelodyManager.addMelody(new DivineProtectionMelody());
-        MelodyManager.addMelody(new DrawMelody());
-        //MelodyManager.addMelody(new DrawUpMelody());
-        //MelodyManager.addMelody(new EnergyMelody());
-        MelodyManager.addMelody(new ArtifactMelody());
-        MelodyManager.addMelody(new WeakenSmallMelody());
-        MelodyManager.addMelody(new VulnerabilitySmallMelody());
-        MelodyManager.addMelody(new InspireSmallMelody());
-        MelodyManager.addMelody(new InspireLargeMelody());
-        MelodyManager.addMelody(new DamageSmallMelody());
-        MelodyManager.addMelody(new DamageLargeMelody());
     }
 
     public static String makeID(String id)
@@ -127,6 +111,22 @@ public class BardMod implements
     {
         noteAtlas = new TextureAtlas(Gdx.files.internal(assetPath("images/notes/notes.atlas")));
         powerAtlas = new TextureAtlas(Gdx.files.internal(assetPath("images/powers/powers.atlas")));
+
+        MelodyManager.addMelody(new AttackUpSmallMelody());
+        //MelodyManager.addMelody(new AttackUpLargeMelody());
+        MelodyManager.addMelody(new DefenseUpSmallMelody());
+        //MelodyManager.addMelody(new DefenseUpLargeMelody());
+        MelodyManager.addMelody(new DivineProtectionMelody());
+        MelodyManager.addMelody(new DrawMelody());
+        //MelodyManager.addMelody(new DrawUpMelody());
+        //MelodyManager.addMelody(new EnergyMelody());
+        MelodyManager.addMelody(new ArtifactMelody());
+        MelodyManager.addMelody(new WeakenSmallMelody());
+        MelodyManager.addMelody(new VulnerabilitySmallMelody());
+        MelodyManager.addMelody(new InspireSmallMelody());
+        MelodyManager.addMelody(new InspireLargeMelody());
+        MelodyManager.addMelody(new DamageSmallMelody());
+        MelodyManager.addMelody(new DamageLargeMelody());
     }
 
     @Override
@@ -166,6 +166,7 @@ public class BardMod implements
     @Override
     public void receiveEditStrings()
     {
+        MelodyManager.loadMelodyStrings(assetPath("localization/MelodyStrings.json"));
         BaseMod.loadCustomStringsFile(CardStrings.class, assetPath("localization/CardStrings.json"));
         BaseMod.loadCustomStringsFile(RelicStrings.class, assetPath("localization/RelicStrings.json"));
         BaseMod.loadCustomStringsFile(PowerStrings.class, assetPath("localization/PowerStrings.json"));

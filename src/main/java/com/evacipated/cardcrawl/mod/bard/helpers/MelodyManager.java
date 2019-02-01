@@ -1,15 +1,25 @@
 package com.evacipated.cardcrawl.mod.bard.helpers;
 
+import com.badlogic.gdx.Gdx;
+import com.evacipated.cardcrawl.mod.bard.MelodyStrings;
 import com.evacipated.cardcrawl.mod.bard.melodies.AbstractMelody;
 import com.evacipated.cardcrawl.mod.bard.notes.AbstractNote;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
-import java.util.*;
+import java.lang.reflect.Type;
+import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class MelodyManager
 {
     private static List<AbstractNote> allNotes = new ArrayList<>();
     private static Map<String, AbstractNote> notes = new HashMap<>();
     private static List<AbstractMelody> melodies = new ArrayList<>();
+    private static Map<String, MelodyStrings> melodyStrings = new HashMap<>();
 
     public static void addNote(AbstractNote note)
     {
@@ -66,5 +76,24 @@ public class MelodyManager
             }
         }
         return ret;
+    }
+
+    // MelodyStrings stuff
+    public static void loadMelodyStrings(String filepath)
+    {
+        Gson gson = new Gson();
+        Type melodyType = new TypeToken<Map<String, MelodyStrings>>(){}.getType();
+        Map<String, MelodyStrings> map = gson.fromJson(loadJson(filepath), melodyType);
+        melodyStrings.putAll(map);
+    }
+
+    private static String loadJson(String jsonPath)
+    {
+        return Gdx.files.internal(jsonPath).readString(String.valueOf(StandardCharsets.UTF_8));
+    }
+
+    public static MelodyStrings getMelodyStrings(String melodyID)
+    {
+        return melodyStrings.get(melodyID);
     }
 }
