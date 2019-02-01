@@ -20,6 +20,8 @@ import java.util.List;
 
 public class MelodiesPanel
 {
+    private static final int Y_POS = 220;
+
     private boolean show = true;
 
     private Hitbox melodiesToggleHb;
@@ -99,7 +101,7 @@ public class MelodiesPanel
                     FontHelper.tipHeaderFont,
                     "Melodies",
                     10 * Settings.scale,
-                    Settings.HEIGHT - 170 * Settings.scale,
+                    Settings.HEIGHT - Y_POS * Settings.scale,
                     Settings.GOLD_COLOR
             );
 
@@ -115,13 +117,13 @@ public class MelodiesPanel
                     FontHelper.tipBodyFont,
                     body.toString(),
                     10 * Settings.scale,
-                    Settings.HEIGHT - 200 * Settings.scale,
+                    Settings.HEIGHT - (Y_POS + 30) * Settings.scale,
                     280 * Settings.scale,
                     26 * Settings.scale,
                     Settings.CREAM_COLOR
             );
 
-            float y = Settings.HEIGHT - 206 * Settings.scale;
+            float y = Settings.HEIGHT - (Y_POS + 36) * Settings.scale;
             for (AbstractMelody melody : MelodyManager.getAllMelodies()) {
                 Color color = Settings.CREAM_COLOR;
                 if (melody.fuzzyMatchesNotes(notes)) {
