@@ -34,5 +34,9 @@
   "${ModID}:InspireLarge": {
     "NAME": "Inspire (L)",
     "DESCRIPTION": "Gain 2 Inspiration 100."
+  },
+  "${ModID}:DamageSmall": {
+    "NAME": "Damage (S)",
+    "DESCRIPTION": "Deal 10 damage to ALL enemies."
   }
 }

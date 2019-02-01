@@ -1,5 +1,6 @@
 package com.evacipated.cardcrawl.mod.bard.melodies;
 
+import com.evacipated.cardcrawl.mod.bard.BardMod;
 import com.evacipated.cardcrawl.mod.bard.notes.AttackNote;
 import com.evacipated.cardcrawl.mod.bard.notes.DebuffNote;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -10,9 +11,11 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 public class DamageSmallMelody extends AbstractMelody
 {
+    public static final String ID = BardMod.makeID("DamageSmall");
+
     public DamageSmallMelody()
     {
-        super("Damage (S)", "Deal 10 damage to ALL enemies.", AbstractCard.CardTarget.ALL_ENEMY);
+        super(ID, AbstractCard.CardTarget.ALL_ENEMY);
 
         notes.add(new AttackNote());
         notes.add(new DebuffNote());
