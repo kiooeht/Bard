@@ -38,5 +38,9 @@
   "${ModID}:DamageSmall": {
     "NAME": "Damage (S)",
     "DESCRIPTION": "Deal 10 damage to ALL enemies."
+  },
+  "${ModID}:DamageLarge": {
+    "NAME": "Damage (L)",
+    "DESCRIPTION": "Deal 18 damage to ALL enemies."
   }
 }
