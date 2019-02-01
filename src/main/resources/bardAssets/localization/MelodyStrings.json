@@ -59,7 +59,7 @@
     "NAME": "Inspire (L)",
     "DESCRIPTION": "Gain 2 Inspiration 100.",
     "NOTES": [
-      "A", "U", "U", "B"
+      "B", "A", "U", "U"
     ]
   },
   "${ModID}:DamageSmall": {
