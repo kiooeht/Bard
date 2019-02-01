@@ -26,5 +26,9 @@
   "${ModID}:VulnerabilitySmall": {
     "NAME": "Vulnerability (S)",
     "DESCRIPTION": "Apply 1 Vulnerable to ALL enemies."
+  },
+  "${ModID}:InspireSmall": {
+    "NAME": "Inspire (S)",
+    "DESCRIPTION": "Gain 2 Inspiration 50."
   }
 }
