@@ -1,5 +1,6 @@
 package com.evacipated.cardcrawl.mod.bard.melodies;
 
+import com.evacipated.cardcrawl.mod.bard.BardMod;
 import com.evacipated.cardcrawl.mod.bard.notes.BlockNote;
 import com.evacipated.cardcrawl.mod.bard.notes.DebuffNote;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -9,9 +10,11 @@ import com.megacrit.cardcrawl.powers.ArtifactPower;
 
 public class ArtifactMelody extends AbstractMelody
 {
+    public static final String ID = BardMod.makeID("Artifact");
+
     public ArtifactMelody()
     {
-        super("Artifact", "Gain 1 Artifact.", AbstractCard.CardTarget.SELF);
+        super(ID, AbstractCard.CardTarget.SELF);
 
         notes.add(new BlockNote());
         notes.add(new DebuffNote());

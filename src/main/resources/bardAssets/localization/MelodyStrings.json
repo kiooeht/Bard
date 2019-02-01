@@ -14,5 +14,9 @@
   "${ModID}:Draw": {
     "NAME": "Draw",
     "DESCRIPTION": "Draw 3 cards."
+  },
+  "${ModID}:Artifact": {
+    "NAME": "Artifact",
+    "DESCRIPTION": "Gain 1 Artifact."
   }
 }
