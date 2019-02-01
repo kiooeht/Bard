@@ -1,5 +1,6 @@
 package com.evacipated.cardcrawl.mod.bard.melodies;
 
+import com.evacipated.cardcrawl.mod.bard.BardMod;
 import com.evacipated.cardcrawl.mod.bard.notes.AttackNote;
 import com.evacipated.cardcrawl.mod.bard.notes.BuffNote;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -9,9 +10,11 @@ import com.megacrit.cardcrawl.powers.StrengthPower;
 
 public class AttackUpSmallMelody extends AbstractMelody
 {
+    public static final String ID = BardMod.makeID("AttackUpSmall");
+
     public AttackUpSmallMelody()
     {
-        super("Attack Up (S)", "Gain 1 Strength.", AbstractCard.CardTarget.SELF);
+        super(ID, AbstractCard.CardTarget.SELF);
 
         notes.add(new BuffNote());
         notes.add(new AttackNote());
