@@ -2,5 +2,9 @@
   "${ModID}:AttackUpSmall": {
     "NAME": "Attack Up (S)",
     "DESCRIPTION": "Gain 1 Strength."
+  },
+  "${ModID}:DefenseUpSmall": {
+    "NAME": "Defense Up (S)",
+    "DESCRIPTION": "Gain 1 Dexterity."
   }
 }

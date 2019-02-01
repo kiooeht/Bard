@@ -1,5 +1,6 @@
 package com.evacipated.cardcrawl.mod.bard.melodies;
 
+import com.evacipated.cardcrawl.mod.bard.BardMod;
 import com.evacipated.cardcrawl.mod.bard.notes.BlockNote;
 import com.evacipated.cardcrawl.mod.bard.notes.BuffNote;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -9,9 +10,11 @@ import com.megacrit.cardcrawl.powers.DexterityPower;
 
 public class DefenseUpSmallMelody extends AbstractMelody
 {
+    public static final String ID = BardMod.makeID("DefenseUpSmall");
+
     public DefenseUpSmallMelody()
     {
-        super("Defense Up (S)", "Gain 1 Dexterity.", AbstractCard.CardTarget.SELF);
+        super(ID, AbstractCard.CardTarget.SELF);
 
         notes.add(new BuffNote());
         notes.add(new BlockNote());
