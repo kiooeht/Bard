@@ -6,5 +6,9 @@
   "${ModID}:DefenseUpSmall": {
     "NAME": "Defense Up (S)",
     "DESCRIPTION": "Gain 1 Dexterity."
+  },
+  "${ModID}:DivineProtection": {
+    "NAME": "Divine Protection",
+    "DESCRIPTION": "Gain 10 Temporary_HP."
   }
 }

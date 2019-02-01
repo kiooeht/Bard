@@ -1,5 +1,6 @@
 package com.evacipated.cardcrawl.mod.bard.melodies;
 
+import com.evacipated.cardcrawl.mod.bard.BardMod;
 import com.evacipated.cardcrawl.mod.bard.notes.BlockNote;
 import com.evacipated.cardcrawl.mod.bard.notes.BuffNote;
 import com.evacipated.cardcrawl.mod.stslib.actions.tempHp.AddTemporaryHPAction;
@@ -8,9 +9,11 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 public class DivineProtectionMelody extends AbstractMelody
 {
+    public static final String ID = BardMod.makeID("DivineProtection");
+
     public DivineProtectionMelody()
     {
-        super("Divine Protection", "Gain 10 Temporary_HP.", AbstractCard.CardTarget.SELF);
+        super(ID, AbstractCard.CardTarget.SELF);
 
         notes.add(new BlockNote());
         notes.add(new BuffNote());
