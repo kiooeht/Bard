@@ -22,5 +22,9 @@
   "${ModID}:WeakenSmall": {
     "NAME": "Weaken (S)",
     "DESCRIPTION": "Apply 1 Weak to ALL enemies."
+  },
+  "${ModID}:VulnerabilitySmall": {
+    "NAME": "Vulnerability (S)",
+    "DESCRIPTION": "Apply 1 Vulnerable to ALL enemies."
   }
 }
