@@ -133,5 +133,12 @@
       " #yMelodies.",
       " NL At the end of your turn, clear your Note Queue."
     ]
+  },
+  "${ModID}:DeathMetal": {
+    "NAME": "Death Metal",
+    "DESCRIPTIONS": [
+      "You can no longer #yQueue #yNotes. NL Whenever you would #yQueue a #yNote, deal #b",
+      " damage to ALL enemies instead."
+    ]
   }
 }

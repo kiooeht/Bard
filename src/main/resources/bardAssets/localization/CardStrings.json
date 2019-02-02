@@ -277,5 +277,9 @@
   "${ModID}:Improv": {
     "NAME": "Improv",
     "DESCRIPTION": "This turn, for every !M! ${ModID}:Notes you ${ModID}:Queue, perform any ${ModID}:Melody regardless of your Note Queue. NL At the end of this turn, clear your Note Queue."
+  },
+  "${ModID}:DeathMetal": {
+    "NAME": "Death Metal",
+    "DESCRIPTION": "You can no longer ${ModID}:Queue ${ModID}:Notes. NL Whenever you would ${ModID}:Queue a ${ModID}:Note, deal !M! damage to ALL enemies instead."
   }
 }
