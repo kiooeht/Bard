@@ -281,5 +281,9 @@
   "${ModID}:DeathMetal": {
     "NAME": "Death Metal",
     "DESCRIPTION": "You can no longer ${ModID}:Queue ${ModID}:Notes. NL Whenever you would ${ModID}:Queue a ${ModID}:Note, deal !M! damage to ALL enemies instead."
+  },
+  "${ModID}:Flourish": {
+    "NAME": "Flourish",
+    "DESCRIPTION": "Deal !D! damage. NL Choose a ${ModID}:Note to ${ModID}:Queue."
   }
 }
