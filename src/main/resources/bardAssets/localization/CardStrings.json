@@ -203,7 +203,7 @@
   },
   "${ModID}:GlyphOfWarding": {
     "NAME": "Glyph of Warding",
-    "DESCRIPTION": "Whenever your Block is broken, deal !M! damage to ALL enemies."
+    "DESCRIPTION": "Whenever you lose Block or Temporary_HP, deal !M! damage to ALL enemies."
   },
   "${ModID}:Wish": {
     "NAME": "Wish",

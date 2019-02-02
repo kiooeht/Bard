@@ -95,9 +95,9 @@
   "${ModID}:GlyphOfWarding": {
     "NAME": "Glyph of Warding",
     "DESCRIPTIONS": [
-      "Whenever your #yBlock is broken, deal #b",
+      "Whenever you lose #yBlock or #yTemporary #yHP, deal #b",
       " damage to ALL enemies.",
-      "Whenever its #yBlock is broken, deals #b",
+      "Whenever it loses #yBlock or #yTemporary #yHP, deals #b",
       " damage to you."
     ]
   },

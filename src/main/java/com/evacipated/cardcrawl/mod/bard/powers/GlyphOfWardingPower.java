@@ -1,7 +1,8 @@
 package com.evacipated.cardcrawl.mod.bard.powers;
 
 import com.evacipated.cardcrawl.mod.bard.BardMod;
-import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.OnMyBlockBrokenPower;
+import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.OnLoseBlockPower;
+import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.OnLoseTempHpPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
@@ -13,7 +14,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-public class GlyphOfWardingPower extends AbstractPower implements OnMyBlockBrokenPower
+public class GlyphOfWardingPower extends AbstractPower implements OnLoseBlockPower, OnLoseTempHpPower
 {
     public static final String POWER_ID = BardMod.makeID("GlyphOfWarding");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -43,7 +44,13 @@ public class GlyphOfWardingPower extends AbstractPower implements OnMyBlockBroke
     }
 
     @Override
-    public void onMyBlockBroken()
+    public int onLoseBlock(DamageInfo info, int damageAmount)
+    {
+        return onLoseTempHp(info, damageAmount);
+    }
+
+    @Override
+    public int onLoseTempHp(DamageInfo info, int damageAmount)
     {
         flash();
         AbstractDungeon.actionManager.addToBottom(new SFXAction("ATTACK_HEAVY"));
@@ -65,5 +72,7 @@ public class GlyphOfWardingPower extends AbstractPower implements OnMyBlockBroke
                     )
             );
         }
+
+        return damageAmount;
     }
 }
