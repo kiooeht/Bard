@@ -12,6 +12,11 @@ public abstract class AbstractNote
     public abstract String name();
     public abstract String ascii();
 
+    public boolean isFloaty()
+    {
+        return true;
+    }
+
     public abstract TextureAtlas.AtlasRegion getTexture();
 
     public TextureAtlas.AtlasRegion getQueuedTexture()

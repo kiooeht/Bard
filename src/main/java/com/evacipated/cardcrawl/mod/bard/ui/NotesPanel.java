@@ -162,7 +162,7 @@ public class NotesPanel
             // Notes
             int i = 0;
             for (AbstractNote note : notes) {
-                offset = 3 * (float) Math.sin(noteFloatTimer + i*1.2);
+                offset = note.isFloaty() ? 3 * (float) Math.sin(noteFloatTimer + i*1.2) : 0;
                 note.render(
                         sb,
                         player.drawX - (NOTE_SPACING * 2 * Settings.scale) + (i * NOTE_SPACING * Settings.scale),

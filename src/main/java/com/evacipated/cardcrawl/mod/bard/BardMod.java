@@ -11,10 +11,7 @@ import com.evacipated.cardcrawl.mod.bard.cards.variables.MagicNumber2;
 import com.evacipated.cardcrawl.mod.bard.characters.Bard;
 import com.evacipated.cardcrawl.mod.bard.helpers.MelodyManager;
 import com.evacipated.cardcrawl.mod.bard.melodies.*;
-import com.evacipated.cardcrawl.mod.bard.notes.AttackNote;
-import com.evacipated.cardcrawl.mod.bard.notes.BlockNote;
-import com.evacipated.cardcrawl.mod.bard.notes.BuffNote;
-import com.evacipated.cardcrawl.mod.bard.notes.DebuffNote;
+import com.evacipated.cardcrawl.mod.bard.notes.*;
 import com.evacipated.cardcrawl.mod.bard.relics.AbstractBardRelic;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.Loader;
@@ -94,6 +91,7 @@ public class BardMod implements
         MelodyManager.addNote(new BlockNote());
         MelodyManager.addNote(new BuffNote());
         MelodyManager.addNote(new DebuffNote());
+        MelodyManager.addNote(new RestNote());
     }
 
     public static String makeID(String id)

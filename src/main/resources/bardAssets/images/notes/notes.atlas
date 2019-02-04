@@ -34,7 +34,7 @@ block
   index: -1
 buff
   rotate: false
-  xy: 100, 67
+  xy: 70, 2
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
@@ -55,7 +55,7 @@ clefTrebleGlow
   index: -1
 debuff
   rotate: false
-  xy: 70, 2
+  xy: 88, 38
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
@@ -67,9 +67,16 @@ queuedDebuff
   orig: 16, 19
   offset: 0, 0
   index: -1
+rest
+  rotate: false
+  xy: 100, 67
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
 toggleOff
   rotate: false
-  xy: 88, 38
+  xy: 88, 20
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
