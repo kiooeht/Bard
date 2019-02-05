@@ -31,6 +31,6 @@
       "rest",
       "rests"
     ],
-    "DESCRIPTION": "Rests ( [RestNote] ) are dead #yNotes that fill your #yNote #yQueue. NL Rests are never used in #yMelodies."
+    "DESCRIPTION": "Rests ( [RestNote] ) can be #yQueued like #yNotes but do not count as #yNotes for other effects."
   }
 ]
