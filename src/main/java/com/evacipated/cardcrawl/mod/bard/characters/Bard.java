@@ -138,7 +138,9 @@ public class Bard extends CustomPlayer implements HitboxListener
 
     public int noteQueueSize()
     {
-        return notes.size();
+        return (int) notes.stream()
+                .filter(AbstractNote::countsAsNote)
+                .count();
     }
 
     public int noteQueueCount(Class<? extends AbstractNote> type)

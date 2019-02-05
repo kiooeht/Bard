@@ -17,6 +17,11 @@ public abstract class AbstractNote
         return true;
     }
 
+    public boolean countsAsNote()
+    {
+        return true;
+    }
+
     public abstract TextureAtlas.AtlasRegion getTexture();
 
     public TextureAtlas.AtlasRegion getQueuedTexture()
