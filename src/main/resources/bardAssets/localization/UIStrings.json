@@ -9,7 +9,7 @@
     "TEXT": [
       "Note Queue",
       "Can hold up to #b",
-      " #yNotes. NL Click to #yPerform a #yMelody based on your #yNote #yQueue. #yPerforming a #yMelody consumes its #yNotes.",
+      " #yNotes. NL Click to perform a #yMelody based on your #yNote #yQueue. Performing a #yMelody consumes its #yNotes.",
       "Toggle Melodies Panel"
     ]
   }
