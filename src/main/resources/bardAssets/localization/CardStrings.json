@@ -289,5 +289,9 @@
   "${ModID}:Fermata": {
     "NAME": "Fermata",
     "DESCRIPTION": "Gain !B! Block. NL ${ModID}:Queue a ${ModID}:Rest."
+  },
+  "${ModID}:OffKey": {
+    "NAME": "Off-Key",
+    "DESCRIPTION": "Gain !B! Block. NL Deal !D! damage. NL ${ModID}:Queue !M! ${ModID}:Rests."
   }
 }
