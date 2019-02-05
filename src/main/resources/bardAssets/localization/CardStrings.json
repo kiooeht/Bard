@@ -293,5 +293,13 @@
   "${ModID}:OffKey": {
     "NAME": "Off-Key",
     "DESCRIPTION": "Gain !B! Block. NL Deal !D! damage. NL ${ModID}:Queue !M! ${ModID}:Rests."
+  },
+  "${ModID}:Rest": {
+    "NAME": "Rest",
+    "DESCRIPTION": "Remove all ${ModID}:Rests from your Note Queue. NL Heal !M! HP for each ${ModID}:Rest removed. NL Exhaust.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (",
+      " {Rest Note} ${ModID}:Queued)"
+    ]
   }
 }

@@ -36,6 +36,7 @@ import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 
 import java.util.*;
+import java.util.function.Predicate;
 
 public class Bard extends CustomPlayer implements HitboxListener
 {
@@ -134,6 +135,11 @@ public class Bard extends CustomPlayer implements HitboxListener
             ++i;
         }
         return false;
+    }
+
+    public boolean removeNotesFromQueueIf(Predicate<? super AbstractNote> pred)
+    {
+        return notes.removeIf(pred);
     }
 
     public int noteQueueSize()
