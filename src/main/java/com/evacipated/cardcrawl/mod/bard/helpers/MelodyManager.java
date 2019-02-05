@@ -45,7 +45,9 @@ public class MelodyManager
 
     public static List<AbstractNote> getAllNotes()
     {
-        return new ArrayList<>(allNotes);
+        List<AbstractNote> ret = new ArrayList<>(allNotes);
+        ret.removeIf(n -> !n.countsAsNote());
+        return ret;
     }
 
     public static void addMelody(AbstractMelody melody)
