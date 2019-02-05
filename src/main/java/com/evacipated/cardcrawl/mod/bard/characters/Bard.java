@@ -166,20 +166,22 @@ public class Bard extends CustomPlayer implements HitboxListener
 
     public void queueNote(AbstractNote note)
     {
-        for (AbstractPower power : AbstractDungeon.player.powers) {
-            if (power instanceof OnNoteQueuedHook) {
-                note = ((OnNoteQueuedHook) power).onNoteQueued(note);
-                if (note == null) {
-                    break;
-                }
-            }
-        }
-        if (note != null) {
-            for (AbstractRelic relic : AbstractDungeon.player.relics) {
-                if (relic instanceof OnNoteQueuedHook) {
-                    note = ((OnNoteQueuedHook) relic).onNoteQueued(note);
+        if (note.countsAsNote()) {
+            for (AbstractPower power : AbstractDungeon.player.powers) {
+                if (power instanceof OnNoteQueuedHook) {
+                    note = ((OnNoteQueuedHook) power).onNoteQueued(note);
                     if (note == null) {
                         break;
+                    }
+                }
+            }
+            if (note != null) {
+                for (AbstractRelic relic : AbstractDungeon.player.relics) {
+                    if (relic instanceof OnNoteQueuedHook) {
+                        note = ((OnNoteQueuedHook) relic).onNoteQueued(note);
+                        if (note == null) {
+                            break;
+                        }
                     }
                 }
             }
