@@ -25,5 +25,12 @@
       "melodies"
     ],
     "DESCRIPTION": "Sequences of Notes. Performing one gives you beneficial effects."
+  },
+  {
+    "NAMES": [
+      "rest",
+      "rests"
+    ],
+    "DESCRIPTION": "Rests ( [RestNote] ) are dead #yNotes that fill your #yNote #yQueue. NL Rests are never used in #yMelodies."
   }
 ]
