@@ -140,5 +140,13 @@
       "You can no longer #yQueue #yNotes. NL Whenever you would #yQueue a #yNote, deal #b",
       " damage to ALL enemies instead."
     ]
+  },
+  "${ModID}:Encore": {
+    "NAME": "Encore",
+    "DESCRIPTIONS": [
+      "Your next #yMelody is performed twice.",
+      "Your next ",
+      " #yMelodies are performed twice."
+    ]
   }
 }

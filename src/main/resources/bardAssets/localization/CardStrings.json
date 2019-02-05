@@ -301,5 +301,10 @@
       " NL (",
       " {Rest Note} ${ModID}:Queued)"
     ]
+  },
+  "${ModID}:Encore": {
+    "NAME": "Encore",
+    "DESCRIPTION": "Your next ${ModID}:Melody is performed twice.",
+    "UPGRADE_DESCRIPTION": "Your next !M! ${ModID}:Melodies are performed twice."
   }
 }
