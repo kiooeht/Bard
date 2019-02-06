@@ -306,5 +306,9 @@
     "NAME": "Encore",
     "DESCRIPTION": "Your next ${ModID}:Melody is performed twice.",
     "UPGRADE_DESCRIPTION": "Your next !M! ${ModID}:Melodies are performed twice."
+  },
+  "${ModID}:MagnumOpus": {
+    "NAME": "Magnum Opus",
+    "DESCRIPTION": "Gain ${ModID}:Inspiration !${ModID}:In!. NL Permanently increase this card's ${ModID}:Inspiration by !${ModID}:M2!. NL Exhaust."
   }
 }
