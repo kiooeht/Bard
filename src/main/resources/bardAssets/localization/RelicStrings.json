@@ -3,14 +3,14 @@
     "NAME": "Lute",
     "FLAVOR": "Your trusty instrument.",
     "DESCRIPTIONS": [
-      "Each card you play may also queue #yNotes. The #yNotes queued depend on the type of the card played and are shown in the card's tooltips."
+      "Each card you play may also #y${ModID}:Queue #y${ModID}:Notes. The #y${ModID}:Notes #y${ModID}:Queued depend on the type of the card played and are shown in the card's tooltips."
     ]
   },
   "${ModID}:PitchPipe": {
     "NAME": "Pitch Pipe",
     "FLAVOR": "Stay in tune.",
     "DESCRIPTIONS": [
-      "Start each combat with a random #yNote queued."
+      "Start each combat with a random #y${ModID}:Note #y${ModID}:Queued."
     ]
   },
   "${ModID}:SelfPlayingFlute": {
@@ -18,7 +18,7 @@
     "FLAVOR": "A magical flute, enchanted to play songs on its own.",
     "DESCRIPTIONS": [
       "Replaces ",
-      ".[] NL Queued Notes are carried over between combats."
+      ".[] NL #y${ModID}:Queued #y${ModID}:Notes are carried over between combats."
     ]
   },
   "${ModID}:StrangeHarp": {
@@ -33,7 +33,7 @@
     "FLAVOR": "",
     "DESCRIPTIONS": [
       "Every #b",
-      " #yMelody you perform is performed twice."
+      " #y${ModID}:Melody you perform is performed twice."
     ]
   }
 }
