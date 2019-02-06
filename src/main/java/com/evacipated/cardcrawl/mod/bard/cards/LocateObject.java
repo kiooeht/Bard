@@ -1,9 +1,11 @@
 package com.evacipated.cardcrawl.mod.bard.cards;
 
 import com.evacipated.cardcrawl.mod.bard.BardMod;
-import com.evacipated.cardcrawl.mod.bard.actions.unique.LocateObjectAction;
+import com.evacipated.cardcrawl.mod.bard.actions.common.QueueNoteAction;
 import com.evacipated.cardcrawl.mod.bard.characters.Bard;
 import com.evacipated.cardcrawl.mod.bard.notes.AbstractNote;
+import com.evacipated.cardcrawl.mod.bard.notes.RestNote;
+import com.evacipated.cardcrawl.mod.stslib.actions.common.FetchAction;
 import com.evacipated.cardcrawl.mod.stslib.variables.ExhaustiveVariable;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -38,7 +40,8 @@ public class LocateObject extends AbstractBardCard
     @Override
     public void use(AbstractPlayer p, AbstractMonster m)
     {
-        addToBottom(new LocateObjectAction(magicNumber));
+        addToBottom(new FetchAction(p.drawPile, magicNumber).sort(true));
+        addToBottom(new QueueNoteAction(new RestNote()));
     }
 
     @Override
