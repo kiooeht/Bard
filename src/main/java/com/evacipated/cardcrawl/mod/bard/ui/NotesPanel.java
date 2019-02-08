@@ -5,9 +5,11 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.evacipated.cardcrawl.mod.bard.BardMod;
+import com.evacipated.cardcrawl.mod.bard.actions.common.PerformAllMelodiesAction;
 import com.evacipated.cardcrawl.mod.bard.actions.common.SelectMelodyAction;
 import com.evacipated.cardcrawl.mod.bard.characters.Bard;
 import com.evacipated.cardcrawl.mod.bard.notes.AbstractNote;
+import com.evacipated.cardcrawl.mod.bard.powers.SonataPower;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -66,7 +68,11 @@ public class NotesPanel
             public void clicked(Hitbox hitbox)
             {
                 if (player.canPlayMelody()) {
-                    AbstractDungeon.actionManager.addToBottom(new SelectMelodyAction());
+                    if (player.hasPower(SonataPower.POWER_ID)) {
+                        AbstractDungeon.actionManager.addToBottom(new PerformAllMelodiesAction());
+                    } else {
+                        AbstractDungeon.actionManager.addToBottom(new SelectMelodyAction());
+                    }
                 }
             }
         });

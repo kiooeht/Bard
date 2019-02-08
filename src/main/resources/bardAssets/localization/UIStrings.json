@@ -12,5 +12,11 @@
       " #yNotes. NL Click to perform a #yMelody based on your #yNote #yQueue. Performing a #yMelody consumes its #yNotes.",
       "Toggle Melodies Panel"
     ]
+  },
+  "${ModID}:PerformAllMelodiesAction": {
+    "TEXT": [
+      "Perform This Melody?",
+      "Perform ALL of These Melodies?"
+    ]
   }
 }

@@ -148,5 +148,11 @@
       "Your next ",
       " #yMelodies are performed twice."
     ]
+  },
+  "${ModID}:Sonata": {
+    "NAME": "Sonata",
+    "DESCRIPTIONS": [
+      "You can play every possible #yMelody in your Note Queue."
+    ]
   }
 }

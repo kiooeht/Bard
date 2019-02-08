@@ -310,5 +310,10 @@
   "${ModID}:MagnumOpus": {
     "NAME": "Magnum Opus",
     "DESCRIPTION": "Gain ${ModID}:Inspiration !${ModID}:In!. NL Permanently increase this card's ${ModID}:Inspiration by !${ModID}:M2!. NL Exhaust."
+  },
+  "${ModID}:Sonata": {
+    "NAME": "Sonata",
+    "DESCRIPTION": "You can play every possible ${ModID}:Melody in your Note Queue at once.",
+    "UPGRADE_DESCRIPTION": "Innate. NL "
   }
 }
