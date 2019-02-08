@@ -1,16 +1,18 @@
 package com.evacipated.cardcrawl.mod.bard.actions.unique;
 
+import com.evacipated.cardcrawl.mod.bard.cards.MnemonicVestments;
 import com.evacipated.cardcrawl.mod.bard.vfx.cardManip.ShowThisCardAndAddToDrawPileEffect;
 import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.ExhaustiveField;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.defect.DiscardPileToHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 public class MnemonicVestmentsAction extends AbstractGameAction
 {
-    private boolean exhaustive = false;
+    private boolean exhaustive;
 
     public MnemonicVestmentsAction(boolean exhaustive, int exhaustiveAmount)
     {
@@ -24,7 +26,7 @@ public class MnemonicVestmentsAction extends AbstractGameAction
     public void update()
     {
         if (duration == Settings.ACTION_DUR_MED) {
-            AbstractDungeon.gridSelectScreen.open(AbstractDungeon.player.masterDeck, 1, DiscardPileToHandAction.TEXT[0], false);
+            AbstractDungeon.gridSelectScreen.open(getCards(), 1, DiscardPileToHandAction.TEXT[0], false);
             tickDuration();
             return;
         }
@@ -48,6 +50,17 @@ public class MnemonicVestmentsAction extends AbstractGameAction
             isDone = true;
         }
         tickDuration();
+    }
+
+    private CardGroup getCards()
+    {
+        CardGroup group = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
+        for (AbstractCard card : AbstractDungeon.player.masterDeck.group) {
+            if (!card.cardID.equals(MnemonicVestments.ID)) {
+                group.addToTop(card);
+            }
+        }
+        return group;
     }
 
     private AbstractCard makeAlteredCopy(AbstractCard card)
