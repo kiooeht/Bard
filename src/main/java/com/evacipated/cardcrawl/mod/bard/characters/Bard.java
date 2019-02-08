@@ -7,7 +7,6 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.mod.bard.BardMod;
-import com.evacipated.cardcrawl.mod.bard.actions.common.SelectMelodyAction;
 import com.evacipated.cardcrawl.mod.bard.cards.Defend_Bard;
 import com.evacipated.cardcrawl.mod.bard.cards.Inspire;
 import com.evacipated.cardcrawl.mod.bard.cards.Riposte;
@@ -29,7 +28,9 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.helpers.*;
+import com.megacrit.cardcrawl.helpers.CardLibrary;
+import com.megacrit.cardcrawl.helpers.FontHelper;
+import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
@@ -38,7 +39,7 @@ import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import java.util.*;
 import java.util.function.Predicate;
 
-public class Bard extends CustomPlayer implements HitboxListener
+public class Bard extends CustomPlayer
 {
     private static final int START_HP = 70;
     private static final int ENERGY_PER_TURN = 3;
@@ -230,26 +231,6 @@ public class Bard extends CustomPlayer implements HitboxListener
 
         notesPanel.update(this);
         melodiesPanel.update(this);
-    }
-
-    @Override
-    public void hoverStarted(Hitbox hitbox)
-    {
-
-    }
-
-    @Override
-    public void startClicking(Hitbox hitbox)
-    {
-
-    }
-
-    @Override
-    public void clicked(Hitbox hitbox)
-    {
-        if (canPlayMelody()) {
-            AbstractDungeon.actionManager.addToBottom(new SelectMelodyAction());
-        }
     }
 
     @Override
