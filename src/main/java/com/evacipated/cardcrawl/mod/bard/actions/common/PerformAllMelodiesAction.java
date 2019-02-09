@@ -68,7 +68,6 @@ public class PerformAllMelodiesAction extends AbstractGameAction
 
                 for (AbstractCard c : cardGroup.group) {
                     MelodyCard select = (MelodyCard) c;
-                    // TODO: Overlapping melodies consume extra notes
                     select.consumeNotes = consumeNotes;
                     select.use(AbstractDungeon.player, null);
                 }

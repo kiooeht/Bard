@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.mod.bard.BardMod;
+import com.evacipated.cardcrawl.mod.bard.actions.common.RemoveNoteFromQueueAction;
 import com.evacipated.cardcrawl.mod.bard.cards.Defend_Bard;
 import com.evacipated.cardcrawl.mod.bard.cards.Inspire;
 import com.evacipated.cardcrawl.mod.bard.cards.Riposte;
@@ -131,6 +132,11 @@ public class Bard extends CustomPlayer
             iter.next();
             if (i == index) {
                 iter.remove();
+                for (AbstractGameAction action : AbstractDungeon.actionManager.actions) {
+                    if (action instanceof RemoveNoteFromQueueAction) {
+                        ((RemoveNoteFromQueueAction) action).removed(index);
+                    }
+                }
                 return true;
             }
             ++i;
