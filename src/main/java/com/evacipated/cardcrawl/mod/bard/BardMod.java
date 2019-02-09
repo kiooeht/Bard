@@ -77,8 +77,6 @@ public class BardMod implements
     {
         BaseMod.subscribe(new BardMod());
 
-        System.out.println(Color.ROYAL.toString());
-
         BaseMod.addColor(Bard.Enums.COLOR,
                 COLOR,
                 assetPath("images/cardui/512/bg_attack_royal.png"), assetPath("images/cardui/512/bg_skill_royal.png"),
