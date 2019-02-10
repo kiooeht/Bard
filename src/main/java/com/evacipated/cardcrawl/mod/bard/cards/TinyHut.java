@@ -4,11 +4,11 @@ import com.evacipated.cardcrawl.mod.bard.BardMod;
 import com.evacipated.cardcrawl.mod.bard.characters.Bard;
 import com.evacipated.cardcrawl.mod.bard.notes.AbstractNote;
 import com.evacipated.cardcrawl.mod.bard.notes.BlockNote;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import java.util.Collections;
@@ -21,12 +21,14 @@ public class TinyHut extends AbstractBardCard
     private static final int COST = 1;
     private static final int BLOCK = 5;
     private static final int UPGRADE_BLOCK = 3;
+    private static final int DRAW = 1;
 
     public TinyHut()
     {
         super(ID, IMG, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.COMMON, CardTarget.SELF);
 
         baseBlock = BLOCK;
+        magicNumber = baseMagicNumber = DRAW;
     }
 
     @Override
@@ -39,34 +41,21 @@ public class TinyHut extends AbstractBardCard
     public void use(AbstractPlayer p, AbstractMonster m)
     {
         addToBottom(new GainBlockAction(p, p, block));
-        if (p instanceof Bard) {
-            int count = ((Bard) p).noteQueueCount(BlockNote.class);
-            if (count > 0) {
-                addToBottom(new DrawCardAction(p, count));
+        addToBottom(new AbstractGameAction()
+        {
+            @Override
+            public void update()
+            {
+                if (p instanceof Bard) {
+                    int count = ((Bard) p).noteQueueUniqueCount();
+                    if (count > 0) {
+                        addToTop(new DrawCardAction(p, count));
+                    }
+                }
+                isDone = true;
             }
-        }
+        });
 
-        rawDescription = DESCRIPTION;
-        initializeDescription();
-    }
-
-    @Override
-    public void applyPowers()
-    {
-        super.applyPowers();
-
-        int count = 0;
-        if (AbstractDungeon.player instanceof Bard) {
-            count = ((Bard) AbstractDungeon.player).noteQueueCount(BlockNote.class);
-        }
-        rawDescription = DESCRIPTION;
-        rawDescription += EXTENDED_DESCRIPTION[0] + count + EXTENDED_DESCRIPTION[1];
-        initializeDescription();
-    }
-
-    @Override
-    public void onMoveToDiscard()
-    {
         rawDescription = DESCRIPTION;
         initializeDescription();
     }

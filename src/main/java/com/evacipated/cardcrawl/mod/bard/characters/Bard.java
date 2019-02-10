@@ -167,6 +167,17 @@ public class Bard extends CustomPlayer
         return count;
     }
 
+    public int noteQueueUniqueCount()
+    {
+        Set<String> noteSet = new HashSet<>();
+        for (AbstractNote note : notes) {
+            if (note.countsAsNote()) {
+                noteSet.add(note.ascii());
+            }
+        }
+        return noteSet.size();
+    }
+
     public int noteQueueMelodyPosition(AbstractMelody melody)
     {
         int endIndex = melody.endIndexOf(new ArrayList<>(notes));

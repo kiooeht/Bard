@@ -58,11 +58,7 @@
   },
   "${ModID}:TinyHut": {
     "NAME": "Tiny Hut",
-    "DESCRIPTION": "Gain !B! Block. NL Draw 1 card for each {Block Note} you have ${ModID}:Queued.",
-    "EXTENDED_DESCRIPTION": [
-      " NL (",
-      " {Block Note} ${ModID}:Queued)"
-    ]
+    "DESCRIPTION": "Gain !B! Block. NL Draw !M! card for each unique ${ModID}:Note you have ${ModID}:Queued."
   },
   "${ModID}:Gamble": {
     "NAME": "Gamble",
