@@ -25,7 +25,6 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.localization.RelicStrings;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
-import javassist.CannotCompileException;
 import javassist.CtClass;
 import javassist.NotFoundException;
 import org.apache.logging.log4j.LogManager;
@@ -154,7 +153,7 @@ public class BardMod implements
     {
         try {
             autoAddRelics();
-        } catch (URISyntaxException | IllegalAccessException | InstantiationException | NotFoundException | CannotCompileException e) {
+        } catch (URISyntaxException | IllegalAccessException | InstantiationException | NotFoundException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
     }
@@ -232,7 +231,7 @@ public class BardMod implements
     }
 
     private static void autoAddRelics()
-            throws URISyntaxException, IllegalAccessException, InstantiationException, NotFoundException, CannotCompileException
+            throws URISyntaxException, IllegalAccessException, InstantiationException, NotFoundException, ClassNotFoundException
     {
         ClassFinder finder = new ClassFinder();
         URL url = BardMod.class.getProtectionDomain().getCodeSource().getLocation();
@@ -269,7 +268,7 @@ public class BardMod implements
                 continue;
             }
             System.out.println(classInfo.getClassName());
-            AbstractBardRelic relic = (AbstractBardRelic) Loader.getClassPool().toClass(cls).newInstance();
+            AbstractBardRelic relic = (AbstractBardRelic) Loader.getClassPool().getClassLoader().loadClass(cls.getName()).newInstance();
             if (relic.color == null) {
                 BaseMod.addRelic(relic, RelicType.SHARED);
             } else {
