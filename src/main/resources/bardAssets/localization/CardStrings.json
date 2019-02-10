@@ -319,5 +319,13 @@
     "EXTENDED_DESCRIPTION": [
       " NL (Deals !D! damage.)"
     ]
+  },
+  "${ModID}:FalseLife": {
+    "NAME": "False Life",
+    "DESCRIPTION": "Gain !M! Temporary_HP. NL Gain !${ModID}:M2! additional Temporary_HP for each {Block Note} you have ${ModID}:Queued.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (",
+      " {Block Note} ${ModID}:Queued)"
+    ]
   }
 }
