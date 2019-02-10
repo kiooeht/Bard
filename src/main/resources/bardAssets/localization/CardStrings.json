@@ -327,5 +327,12 @@
       " NL (",
       " {Block Note} ${ModID}:Queued)"
     ]
+  },
+  "${ModID}:Solo": {
+    "NAME": "Solo",
+    "DESCRIPTION": "If your Note Queue contains no ${ModID}:Notes, perform any ${ModID}:Melody.",
+    "EXTENDED_DESCRIPTION": [
+      "My Note Queue contains Notes!"
+    ]
   }
 }
