@@ -312,8 +312,8 @@
     "DESCRIPTION": "You can play every possible ${ModID}:Melody in your Note Queue at once.",
     "UPGRADE_DESCRIPTION": "Innate. NL "
   },
-  "${ModID}:FalseLife": {
-    "NAME": "False Life",
+  "${ModID}:FingerOfDeath": {
+    "NAME": "Finger of Death",
     "DESCRIPTION": "Deal damage equal to twice your Temporary_HP.",
     "UPGRADE_DESCRIPTION": "Deal damage equal to twice your Temporary_HP to ALL enemies.",
     "EXTENDED_DESCRIPTION": [

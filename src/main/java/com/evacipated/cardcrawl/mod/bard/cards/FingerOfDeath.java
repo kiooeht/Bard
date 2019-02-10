@@ -18,13 +18,13 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-public class FalseLife extends AbstractBardCard
+public class FingerOfDeath extends AbstractBardCard
 {
-    public static final String ID = BardMod.makeID("FalseLife");
+    public static final String ID = BardMod.makeID("FingerOfDeath");
     public static final String IMG = null;
     private static final int COST = 1;
 
-    public FalseLife()
+    public FingerOfDeath()
     {
         super(ID, IMG, COST, CardType.ATTACK, Bard.Enums.COLOR, CardRarity.RARE, CardTarget.ENEMY);
     }
@@ -95,6 +95,6 @@ public class FalseLife extends AbstractBardCard
     @Override
     public AbstractCard makeCopy()
     {
-        return new FalseLife();
+        return new FingerOfDeath();
     }
 }
