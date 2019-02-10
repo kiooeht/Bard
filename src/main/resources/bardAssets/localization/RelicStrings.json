@@ -35,5 +35,12 @@
       "Every #b",
       " #y${ModID}:Melody you perform is performed twice."
     ]
+  },
+  "${ModID}:DeepVero": {
+    "NAME": "Deep Vero",
+    "FLAVOR": "",
+    "DESCRIPTIONS": [
+      "Gain [E] at the start of each turn. Clear your Note Queue at the end of each turn."
+    ]
   }
 }
