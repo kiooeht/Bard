@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.WeakPower;
 
@@ -46,17 +47,31 @@ public class PhantasmalForce extends AbstractBardCard
     public void use(AbstractPlayer p, AbstractMonster m)
     {
         addToBottom(new AddTemporaryHPAction(p, p, magicNumber));
-        addToBottom(new AbstractGameAction()
-        {
-            @Override
-            public void update()
-            {
-                if (m.hasPower(WeakPower.POWER_ID)) {
-                    addToTop(new DamageAction(m, new DamageInfo(p, TempHPField.tempHp.get(p), damageTypeForTurn), AttackEffect.POISON));
-                }
-                isDone = true;
-            }
-        });
+        if (damage >= 0) {
+            addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.POISON));
+        }
+    }
+
+    private void setBaseDamage()
+    {
+        damage = baseDamage = TempHPField.tempHp.get(AbstractDungeon.player) + magicNumber;
+    }
+
+    @Override
+    public void applyPowers()
+    {
+        setBaseDamage();
+        super.applyPowers();
+    }
+
+    @Override
+    public void calculateCardDamage(AbstractMonster mo)
+    {
+        setBaseDamage();
+        super.calculateCardDamage(mo);
+        if (!mo.hasPower(WeakPower.POWER_ID)) {
+            damage = baseDamage = -1;
+        }
     }
 
     @Override
