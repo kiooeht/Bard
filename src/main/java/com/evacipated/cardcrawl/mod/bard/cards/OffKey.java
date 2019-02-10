@@ -23,6 +23,7 @@ public class OffKey extends AbstractBardCard
     private static final int COST = 1;
     private static final int DAMAGE = 10;
     private static final int BLOCK = 10;
+    private static final int UPGRADE = 3;
     private static final int REST = 2;
 
     public OffKey()
@@ -55,7 +56,8 @@ public class OffKey extends AbstractBardCard
     {
         if (!upgraded) {
             upgradeName();
-            // TODO
+            upgradeDamage(UPGRADE);
+            upgradeBlock(UPGRADE);
         }
     }
 
