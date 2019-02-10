@@ -36,8 +36,6 @@ public class Improv extends AbstractBardCard
     @Override
     public void use(AbstractPlayer p, AbstractMonster m)
     {
-        // TODO make melody not consume notes
-        //addToBottom(new SelectMelodyAction(MelodyManager.getAllMelodies()));
         addToBottom(new ApplyPowerAction(p, p, new ImprovisationPower(p, magicNumber, 1), 1));
     }
 
