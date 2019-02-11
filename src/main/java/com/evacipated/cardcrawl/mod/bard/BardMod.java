@@ -12,6 +12,7 @@ import com.evacipated.cardcrawl.mod.bard.characters.Bard;
 import com.evacipated.cardcrawl.mod.bard.helpers.MelodyManager;
 import com.evacipated.cardcrawl.mod.bard.melodies.*;
 import com.evacipated.cardcrawl.mod.bard.notes.*;
+import com.evacipated.cardcrawl.mod.bard.potions.InspiredBrew;
 import com.evacipated.cardcrawl.mod.bard.relics.AbstractBardRelic;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.Loader;
@@ -20,10 +21,7 @@ import com.google.gson.Gson;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.helpers.CardHelper;
-import com.megacrit.cardcrawl.localization.CardStrings;
-import com.megacrit.cardcrawl.localization.PowerStrings;
-import com.megacrit.cardcrawl.localization.RelicStrings;
-import com.megacrit.cardcrawl.localization.UIStrings;
+import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import javassist.CtClass;
 import javassist.NotFoundException;
@@ -122,6 +120,8 @@ public class BardMod implements
         MelodyManager.addMelody(new InspireLargeMelody());
         MelodyManager.addMelody(new DamageSmallMelody());
         MelodyManager.addMelody(new DamageLargeMelody());
+
+        BaseMod.addPotion(InspiredBrew.class, Color.ROYAL.cpy(), Color.ROYAL.cpy(), Color.ROYAL.cpy(), InspiredBrew.POTION_ID, Bard.Enums.BARD);
     }
 
     @Override
@@ -164,6 +164,7 @@ public class BardMod implements
         MelodyManager.loadMelodyStrings(assetPath("localization/MelodyStrings.json"));
         BaseMod.loadCustomStringsFile(CardStrings.class, assetPath("localization/CardStrings.json"));
         BaseMod.loadCustomStringsFile(RelicStrings.class, assetPath("localization/RelicStrings.json"));
+        BaseMod.loadCustomStringsFile(PotionStrings.class, assetPath("localization/PotionStrings.json"));
         BaseMod.loadCustomStringsFile(PowerStrings.class, assetPath("localization/PowerStrings.json"));
         BaseMod.loadCustomStringsFile(UIStrings.class, assetPath("localization/UIStrings.json"));
     }
