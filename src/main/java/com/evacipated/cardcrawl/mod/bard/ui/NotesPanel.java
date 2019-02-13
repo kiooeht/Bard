@@ -18,6 +18,7 @@ import com.megacrit.cardcrawl.helpers.Hitbox;
 import com.megacrit.cardcrawl.helpers.HitboxListener;
 import com.megacrit.cardcrawl.helpers.TipHelper;
 import com.megacrit.cardcrawl.localization.UIStrings;
+import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.rooms.MonsterRoom;
 
@@ -27,6 +28,9 @@ public class NotesPanel
 {
     static final UIStrings performStrings = CardCrawlGame.languagePack.getUIString(BardMod.makeID("Perform"));
     static final float NOTE_SPACING = 32;
+
+    private static final float DEFAULT_Y_OFFSET = 146;
+    float yOffset = DEFAULT_Y_OFFSET;
 
     private float noteFloatTimer = 0;
 
@@ -45,9 +49,23 @@ public class NotesPanel
                         + 32 * Settings.scale * player.getMaxNotes(),
                 64 * Settings.scale
         );
+
+        yOffset = DEFAULT_Y_OFFSET;
+        if (!player.orbs.isEmpty()) {
+            float yPos = yOffset * Settings.scale + player.drawY + player.hb_h / 2.0f;
+            for (AbstractOrb orb : player.orbs) {
+                if (orb.cY + orb.hb.height / 2f > yPos) {
+                    yPos = orb.cY + orb.hb.height / 2f;
+                }
+            }
+            yPos -= player.drawY + player.hb_h / 2.0f;
+            yPos /= Settings.scale;
+            yOffset = yPos;
+        }
+
         notesHb.translate(
                 player.drawX - (NOTE_SPACING * 3 * Settings.scale),
-                (146) * Settings.scale + player.drawY + player.hb_h / 2.0f
+                yOffset * Settings.scale + player.drawY + player.hb_h / 2.0f
         );
 
         notesHb.encapsulatedUpdate(new HitboxListener()
@@ -94,7 +112,7 @@ public class NotesPanel
             sb.draw(
                     tex.getTexture(),
                     player.drawX - (NOTE_SPACING * 3 * Settings.scale),
-                    (146) * Settings.scale + player.drawY + player.hb_h / 2.0f,
+                    (yOffset) * Settings.scale + player.drawY + player.hb_h / 2.0f,
                     0,
                     0,
                     32,
@@ -113,7 +131,7 @@ public class NotesPanel
             sb.draw(
                     tex.getTexture(),
                     player.drawX - (NOTE_SPACING * 3 * Settings.scale) + (64 * Settings.scale),
-                    (146) * Settings.scale + player.drawY + player.hb_h / 2.0f,
+                    (yOffset) * Settings.scale + player.drawY + player.hb_h / 2.0f,
                     0,
                     0,
                     32,
@@ -132,7 +150,7 @@ public class NotesPanel
             sb.draw(
                     tex.getTexture(),
                     player.drawX - (NOTE_SPACING * 3 * Settings.scale) + (64 * Settings.scale) + (32 * (2 + (player.getMaxNotes() - Bard.MAX_NOTES)) * Settings.scale),
-                    (146) * Settings.scale + player.drawY + player.hb_h / 2.0f,
+                    (yOffset) * Settings.scale + player.drawY + player.hb_h / 2.0f,
                     0,
                     0,
                     32,
@@ -155,7 +173,7 @@ public class NotesPanel
             sb.draw(
                     tex,
                     player.drawX - (NOTE_SPACING * 3 * Settings.scale) - 16 * Settings.scale,
-                    (offset + 146) * Settings.scale + player.drawY + player.hb_h / 2.0f - 16 * Settings.scale,
+                    (offset + yOffset) * Settings.scale + player.drawY + player.hb_h / 2.0f - 16 * Settings.scale,
                     0,
                     0,
                     tex.getRegionWidth(),
@@ -172,7 +190,7 @@ public class NotesPanel
                 note.render(
                         sb,
                         player.drawX - (NOTE_SPACING * 2 * Settings.scale) + (i * NOTE_SPACING * Settings.scale),
-                        (offset + 158) * Settings.scale + player.drawY + player.hb_h / 2.0f
+                        (offset + yOffset + 12) * Settings.scale + player.drawY + player.hb_h / 2.0f
                 );
                 ++i;
             }
