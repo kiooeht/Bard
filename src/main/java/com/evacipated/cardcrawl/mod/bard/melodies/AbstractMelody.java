@@ -182,7 +182,7 @@ public abstract class AbstractMelody
 
         if (consumeNotes) {
             if (AbstractDungeon.player instanceof Bard) {
-                int startIndex = ((Bard) AbstractDungeon.player).noteQueueMelodyPosition(this);
+                int startIndex = ((Bard) AbstractDungeon.player).noteQueue.melodyPosition(this);
                 addToBottom(new RemoveNoteFromQueueAction(startIndex, notes.size()));
             }
         }

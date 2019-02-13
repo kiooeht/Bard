@@ -7,7 +7,6 @@ import com.evacipated.cardcrawl.mod.bard.BardMod;
 import com.evacipated.cardcrawl.mod.bard.characters.Bard;
 import com.evacipated.cardcrawl.mod.bard.helpers.MelodyManager;
 import com.evacipated.cardcrawl.mod.bard.melodies.AbstractMelody;
-import com.evacipated.cardcrawl.mod.bard.notes.AbstractNote;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.FontHelper;
@@ -15,8 +14,6 @@ import com.megacrit.cardcrawl.helpers.Hitbox;
 import com.megacrit.cardcrawl.helpers.HitboxListener;
 import com.megacrit.cardcrawl.helpers.TipHelper;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
-
-import java.util.List;
 
 public class MelodiesPanel
 {
@@ -70,7 +67,7 @@ public class MelodiesPanel
         });
     }
 
-    public void preRender(SpriteBatch sb, Bard player, List<AbstractNote> notes)
+    public void preRender(SpriteBatch sb, Bard player)
     {
         if (AbstractDungeon.getCurrMapNode() != null
                 && AbstractDungeon.getCurrRoom() != null
@@ -126,7 +123,7 @@ public class MelodiesPanel
             float y = Settings.HEIGHT - (Y_POS + 36) * Settings.scale;
             for (AbstractMelody melody : MelodyManager.getAllMelodies()) {
                 Color color = Settings.CREAM_COLOR;
-                if (melody.fuzzyMatchesNotes(notes)) {
+                if (player.noteQueue.canPlayMelody()) {
                     color = Settings.GOLD_COLOR;
                 }
                 FontHelper.renderFontRightAligned(

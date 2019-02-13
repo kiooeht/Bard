@@ -21,7 +21,7 @@ public class QueueNoteAction extends AbstractGameAction
     {
         if (duration == Settings.ACTION_DUR_FAST) {
             if (AbstractDungeon.player instanceof Bard) {
-                ((Bard) AbstractDungeon.player).queueNote(note);
+                ((Bard) AbstractDungeon.player).noteQueue.queue(note);
             }
             if (Settings.FAST_MODE) {
                 isDone = true;

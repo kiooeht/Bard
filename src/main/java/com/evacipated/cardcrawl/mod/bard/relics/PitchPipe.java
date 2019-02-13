@@ -1,6 +1,7 @@
 package com.evacipated.cardcrawl.mod.bard.relics;
 
 import com.evacipated.cardcrawl.mod.bard.BardMod;
+import com.evacipated.cardcrawl.mod.bard.actions.common.QueueNoteAction;
 import com.evacipated.cardcrawl.mod.bard.characters.Bard;
 import com.evacipated.cardcrawl.mod.bard.notes.*;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -43,7 +44,7 @@ public class PitchPipe extends AbstractBardRelic
                 default:
                     note = new AttackNote();
             }
-            ((Bard) AbstractDungeon.player).queueNote(note);
+            ((Bard) AbstractDungeon.player).noteQueue.queue(note);
         }
     }
 

@@ -40,7 +40,7 @@ public class RemoveNoteFromQueueAction extends AbstractGameAction
         if (count > 0 && AbstractDungeon.player instanceof Bard) {
             currentlyRemoving = true;
             for (int i=0; i<count; ++i) {
-                ((Bard) AbstractDungeon.player).removeNoteFromQueue(startIndex);
+                ((Bard) AbstractDungeon.player).noteQueue.removeNote(startIndex);
             }
             currentlyRemoving = false;
 

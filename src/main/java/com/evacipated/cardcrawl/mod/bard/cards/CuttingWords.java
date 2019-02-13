@@ -40,7 +40,7 @@ public class CuttingWords extends AbstractBardCard
     public void use(AbstractPlayer p, AbstractMonster m)
     {
         if (p instanceof Bard) {
-            int count = ((Bard) p).noteQueueCount(DebuffNote.class);
+            int count = ((Bard) p).noteQueue.count(DebuffNote.class);
             if (count > 0) {
                 for (int i=0; i<count; ++i) {
                     AbstractMonster mo = AbstractDungeon.getRandomMonster();
@@ -61,7 +61,7 @@ public class CuttingWords extends AbstractBardCard
 
         int count = 0;
         if (AbstractDungeon.player instanceof Bard) {
-            count = ((Bard) AbstractDungeon.player).noteQueueCount(DebuffNote.class);
+            count = ((Bard) AbstractDungeon.player).noteQueue.count(DebuffNote.class);
         }
         rawDescription = DESCRIPTION;
         rawDescription += EXTENDED_DESCRIPTION[0] + count + EXTENDED_DESCRIPTION[1];

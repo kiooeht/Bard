@@ -42,7 +42,7 @@ public class Solo extends AbstractBardCard
             public void update()
             {
                 if (p instanceof Bard) {
-                    if (((Bard) p).noteQueueSize() == 0) {
+                    if (((Bard) p).noteQueue.size() == 0) {
                         addToTop(new SelectMelodyAction(MelodyManager.getAllMelodies(), false));
                     } else {
                         AbstractDungeon.effectList.add(new ThoughtBubble(p.dialogX, p.dialogY, 3.0f, EXTENDED_DESCRIPTION[0], true));

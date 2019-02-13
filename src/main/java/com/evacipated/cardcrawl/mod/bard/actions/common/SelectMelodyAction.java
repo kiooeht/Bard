@@ -42,7 +42,7 @@ public class SelectMelodyAction extends AbstractGameAction
         if (duration == Settings.ACTION_DUR_MED) {
             if (melodies == null) {
                 if (AbstractDungeon.player instanceof Bard) {
-                    melodies = ((Bard) AbstractDungeon.player).getPlayableMelodies();
+                    melodies = ((Bard) AbstractDungeon.player).noteQueue.getPlayableMelodies();
                 }
                 if (melodies == null || melodies.isEmpty()) {
                     isDone = true;

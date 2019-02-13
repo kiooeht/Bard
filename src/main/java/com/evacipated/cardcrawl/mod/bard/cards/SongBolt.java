@@ -39,7 +39,7 @@ public class SongBolt extends AbstractBardCard
     public void use(AbstractPlayer p, AbstractMonster m)
     {
         if (p instanceof Bard) {
-            int noteCount = ((Bard) p).noteQueueSize();
+            int noteCount = ((Bard) p).noteQueue.size();
             for (int i=0; i<noteCount; ++i) {
                 addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT, true));
             }

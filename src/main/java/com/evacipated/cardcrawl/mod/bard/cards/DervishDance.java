@@ -46,7 +46,7 @@ public class DervishDance extends AbstractBardCard
     public void use(AbstractPlayer p, AbstractMonster m)
     {
         if (p instanceof Bard) {
-            int count = ((Bard) p).noteQueueCount(AttackNote.class);
+            int count = ((Bard) p).noteQueue.count(AttackNote.class);
             for (int i=0; i<count; ++i) {
                 if (i == 0) {
                     addToBottom(new SFXAction("ATTACK_WHIRLWIND"));
@@ -68,7 +68,7 @@ public class DervishDance extends AbstractBardCard
 
         int count = 0;
         if (AbstractDungeon.player instanceof Bard) {
-            count = ((Bard) AbstractDungeon.player).noteQueueCount(AttackNote.class);
+            count = ((Bard) AbstractDungeon.player).noteQueue.count(AttackNote.class);
         }
         rawDescription = DESCRIPTION;
         rawDescription += EXTENDED_DESCRIPTION[0] + count + EXTENDED_DESCRIPTION[1];

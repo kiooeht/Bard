@@ -39,7 +39,7 @@ public class InspiringSong extends AbstractBardCard
     public void use(AbstractPlayer p, AbstractMonster m)
     {
         if (p instanceof Bard) {
-            int count = ((Bard) p).noteQueueCount(BuffNote.class);
+            int count = ((Bard) p).noteQueue.count(BuffNote.class);
             if (count > 0) {
                 addToBottom(new ApplyPowerAction(p, p, new InspirationPower(p, count, inspiration), count));
             }
@@ -56,7 +56,7 @@ public class InspiringSong extends AbstractBardCard
 
         int count = 0;
         if (AbstractDungeon.player instanceof Bard) {
-            count = ((Bard) AbstractDungeon.player).noteQueueCount(BuffNote.class);
+            count = ((Bard) AbstractDungeon.player).noteQueue.count(BuffNote.class);
         }
         rawDescription = DESCRIPTION;
         rawDescription += EXTENDED_DESCRIPTION[0] + count + EXTENDED_DESCRIPTION[1];

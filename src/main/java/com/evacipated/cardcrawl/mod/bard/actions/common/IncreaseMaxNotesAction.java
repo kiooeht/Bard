@@ -21,7 +21,7 @@ public class IncreaseMaxNotesAction extends AbstractGameAction
         if (duration == Settings.ACTION_DUR_FAST) {
             AbstractPlayer p = AbstractDungeon.player;
             if (p instanceof Bard) {
-                ((Bard) p).increaseMaxNotes(amount);
+                ((Bard) p).noteQueue.increaseMaxNotes(amount);
             }
         }
         tickDuration();

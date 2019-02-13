@@ -6,19 +6,12 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
-import com.evacipated.cardcrawl.mod.bard.BardMod;
-import com.evacipated.cardcrawl.mod.bard.actions.common.RemoveNoteFromQueueAction;
 import com.evacipated.cardcrawl.mod.bard.cards.Defend_Bard;
 import com.evacipated.cardcrawl.mod.bard.cards.Inspire;
 import com.evacipated.cardcrawl.mod.bard.cards.Riposte;
 import com.evacipated.cardcrawl.mod.bard.cards.Strike_Bard;
-import com.evacipated.cardcrawl.mod.bard.helpers.MelodyManager;
-import com.evacipated.cardcrawl.mod.bard.hooks.OnNoteQueuedHook;
-import com.evacipated.cardcrawl.mod.bard.melodies.AbstractMelody;
-import com.evacipated.cardcrawl.mod.bard.notes.AbstractNote;
 import com.evacipated.cardcrawl.mod.bard.relics.Lute;
 import com.evacipated.cardcrawl.mod.bard.relics.PitchPipe;
-import com.evacipated.cardcrawl.mod.bard.relics.SelfPlayingFlute;
 import com.evacipated.cardcrawl.mod.bard.ui.MelodiesPanel;
 import com.evacipated.cardcrawl.mod.bard.ui.NotesPanel;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
@@ -28,17 +21,13 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.core.Settings;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
-import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 
-import java.util.*;
-import java.util.function.Predicate;
+import java.util.ArrayList;
 
 public class Bard extends CustomPlayer
 {
@@ -46,10 +35,7 @@ public class Bard extends CustomPlayer
     private static final int ENERGY_PER_TURN = 3;
     private static final int START_ORBS = 0;
 
-    public static final int MAX_NOTES = 4;
-
-    private int maxNotes = MAX_NOTES;
-    private Deque<AbstractNote> notes = new ArrayDeque<>();
+    public NoteQueue noteQueue;
 
     private NotesPanel notesPanel;
     private MelodiesPanel melodiesPanel;
@@ -75,6 +61,8 @@ public class Bard extends CustomPlayer
         initializeClass(null, "images/characters/theSilent/shoulder2.png", "images/characters/theSilent/shoulder.png", "images/characters/theSilent/corpse.png",
                 getLoadout(), 0.0F, -20.0F, 240.0F, 240.0F, new EnergyManager(ENERGY_PER_TURN));
 
+        noteQueue = new NoteQueue();
+
         notesPanel = new NotesPanel();
         melodiesPanel = new MelodiesPanel();
     }
@@ -89,165 +77,10 @@ public class Bard extends CustomPlayer
         return melodiesPanel;
     }
 
-    public int getMaxNotes()
-    {
-        return maxNotes;
-    }
-
-    public void increaseMaxNotes(int amount)
-    {
-        maxNotes += amount;
-    }
-
-    public List<String> getNotesForSaving()
-    {
-        List<String> noteNames = new ArrayList<>();
-        for (AbstractNote note : notes) {
-            noteNames.add(note.name() + " Note");
-        }
-        return noteNames;
-    }
-
-    public void loadNotes(List<String> noteNames)
-    {
-        if (noteNames == null) {
-            return;
-        }
-
-        notes.clear();
-        for (String noteName : noteNames) {
-            AbstractNote note = MelodyManager.getNote(noteName);
-            if (note != null) {
-                notes.addLast(note);
-            } else {
-                BardMod.logger.warn("Failed to find note: " + noteName);
-            }
-        }
-    }
-
-    public void clearNoteQueue()
-    {
-        notes.clear();
-    }
-
-    public boolean removeNoteFromQueue(int index)
-    {
-        if (index < 0 || index >= notes.size()) {
-            return false;
-        }
-
-        Iterator<AbstractNote> iter = notes.iterator();
-        int i = 0;
-        while (iter.hasNext()) {
-            iter.next();
-            if (i == index) {
-                iter.remove();
-                for (AbstractGameAction action : AbstractDungeon.actionManager.actions) {
-                    if (action instanceof RemoveNoteFromQueueAction) {
-                        ((RemoveNoteFromQueueAction) action).removed(index);
-                    }
-                }
-                return true;
-            }
-            ++i;
-        }
-        return false;
-    }
-
-    public boolean removeNotesFromQueueIf(Predicate<? super AbstractNote> pred)
-    {
-        return notes.removeIf(pred);
-    }
-
-    public int noteQueueSize()
-    {
-        return (int) notes.stream()
-                .filter(AbstractNote::countsAsNote)
-                .count();
-    }
-
-    public int noteQueueCount(Class<? extends AbstractNote> type)
-    {
-        int count = 0;
-        for (AbstractNote note : notes) {
-            if (type.isInstance(note)) {
-                ++count;
-            }
-        }
-        return count;
-    }
-
-    public int noteQueueUniqueCount()
-    {
-        Set<String> noteSet = new HashSet<>();
-        for (AbstractNote note : notes) {
-            if (note.countsAsNote()) {
-                noteSet.add(note.ascii());
-            }
-        }
-        return noteSet.size();
-    }
-
-    public int noteQueueMelodyPosition(AbstractMelody melody)
-    {
-        int endIndex = melody.endIndexOf(new ArrayList<>(notes));
-        if (endIndex < 0) {
-            return -1;
-        }
-        endIndex -= melody.length();
-        return endIndex;
-    }
-
-    public void queueNote(AbstractNote note)
-    {
-        if (note.countsAsNote()) {
-            for (AbstractPower power : AbstractDungeon.player.powers) {
-                if (power instanceof OnNoteQueuedHook) {
-                    note = ((OnNoteQueuedHook) power).onNoteQueued(note);
-                    if (note == null) {
-                        break;
-                    }
-                }
-            }
-            if (note != null) {
-                for (AbstractRelic relic : AbstractDungeon.player.relics) {
-                    if (relic instanceof OnNoteQueuedHook) {
-                        note = ((OnNoteQueuedHook) relic).onNoteQueued(note);
-                        if (note == null) {
-                            break;
-                        }
-                    }
-                }
-            }
-        }
-        if (note != null) {
-            notes.addLast(note);
-            while (notes.size() > maxNotes) {
-                notes.removeFirst();
-            }
-        }
-    }
-
-    public boolean canPlayMelody()
-    {
-        return !getPlayableMelodies().isEmpty();
-    }
-
-    public List<AbstractMelody> getPlayableMelodies()
-    {
-        return MelodyManager.getAllMelodiesFromNotes(new ArrayList<>(notes));
-    }
-
     @Override
     public void preBattlePrep()
     {
-        if (!hasRelic(SelfPlayingFlute.ID)) {
-            clearNoteQueue();
-        }
-        maxNotes = MAX_NOTES;
-        while (notes.size() > maxNotes) {
-            notes.pollFirst();
-        }
+        noteQueue.reset();
         super.preBattlePrep();
     }
 
@@ -263,11 +96,11 @@ public class Bard extends CustomPlayer
     @Override
     public void render(SpriteBatch sb)
     {
-        notesPanel.preRender(sb, this, notes);
+        notesPanel.preRender(sb, this);
 
         super.render(sb);
 
-        melodiesPanel.preRender(sb, this, new ArrayList<>(notes));
+        melodiesPanel.preRender(sb, this);
 
         notesPanel.postRender(sb, this);
         melodiesPanel.postRender(sb, this);

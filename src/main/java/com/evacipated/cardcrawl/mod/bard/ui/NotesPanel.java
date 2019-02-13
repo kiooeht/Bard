@@ -8,6 +8,7 @@ import com.evacipated.cardcrawl.mod.bard.BardMod;
 import com.evacipated.cardcrawl.mod.bard.actions.common.PerformAllMelodiesAction;
 import com.evacipated.cardcrawl.mod.bard.actions.common.SelectMelodyAction;
 import com.evacipated.cardcrawl.mod.bard.characters.Bard;
+import com.evacipated.cardcrawl.mod.bard.characters.NoteQueue;
 import com.evacipated.cardcrawl.mod.bard.notes.AbstractNote;
 import com.evacipated.cardcrawl.mod.bard.powers.SonataPower;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -22,7 +23,7 @@ import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.rooms.MonsterRoom;
 
-import java.util.Collection;
+import java.util.Iterator;
 
 public class NotesPanel
 {
@@ -47,7 +48,7 @@ public class NotesPanel
     {
         notesHb.resize(
                 64 * Settings.scale
-                        + 32 * Settings.scale * player.getMaxNotes(),
+                        + 32 * Settings.scale * player.noteQueue.getMaxNotes(),
                 64 * Settings.scale
         );
 
@@ -86,7 +87,7 @@ public class NotesPanel
             @Override
             public void clicked(Hitbox hitbox)
             {
-                if (player.canPlayMelody()) {
+                if (player.noteQueue.canPlayMelody()) {
                     if (player.hasPower(SonataPower.POWER_ID)) {
                         AbstractDungeon.actionManager.addToBottom(new PerformAllMelodiesAction());
                     } else {
@@ -97,7 +98,7 @@ public class NotesPanel
         });
     }
 
-    public void preRender(SpriteBatch sb, Bard player, Collection<AbstractNote> notes)
+    public void preRender(SpriteBatch sb, Bard player)
     {
         if ((AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT
                 || AbstractDungeon.getCurrRoom() instanceof MonsterRoom)
@@ -105,7 +106,7 @@ public class NotesPanel
         ) {
             noteFloatTimer += Gdx.graphics.getDeltaTime() * 2;
 
-            boolean canPlay = player.canPlayMelody();
+            boolean canPlay = player.noteQueue.canPlayMelody();
 
             sb.setColor(Color.WHITE);
             TextureAtlas.AtlasRegion tex = BardMod.noteAtlas.findRegion(canPlay ? "barsGlow" : "bars");
@@ -137,7 +138,7 @@ public class NotesPanel
                     0,
                     32,
                     32,
-                    Settings.scale * (2 + (player.getMaxNotes() - Bard.MAX_NOTES)),
+                    Settings.scale * (2 + (player.noteQueue.getMaxNotes() - NoteQueue.MAX_NOTES)),
                     Settings.scale * 2,
                     0,
                     tex.getRegionX() + 32,
@@ -150,7 +151,7 @@ public class NotesPanel
             // Right section of bars
             sb.draw(
                     tex.getTexture(),
-                    player.drawX - (NOTE_SPACING * 3 * Settings.scale) + (64 * Settings.scale) + (32 * (2 + (player.getMaxNotes() - Bard.MAX_NOTES)) * Settings.scale),
+                    player.drawX - (NOTE_SPACING * 3 * Settings.scale) + (64 * Settings.scale) + (32 * (2 + (player.noteQueue.getMaxNotes() - NoteQueue.MAX_NOTES)) * Settings.scale),
                     (yOffset) * Settings.scale + player.drawY + player.hb_h / 2.0f,
                     0,
                     0,
@@ -186,7 +187,9 @@ public class NotesPanel
 
             // Notes
             int i = 0;
-            for (AbstractNote note : notes) {
+            Iterator<AbstractNote> iter = player.noteQueue.iterator();
+            while (iter.hasNext()) {
+                AbstractNote note = iter.next();
                 offset = note.isFloaty() ? 3 * (float) Math.sin(noteFloatTimer + i*1.2) : 0;
                 note.render(
                         sb,
@@ -201,7 +204,7 @@ public class NotesPanel
     public void postRender(SpriteBatch sb, Bard player)
     {
         if (notesHb.hovered && !AbstractDungeon.isScreenUp) {
-            String body = performStrings.TEXT[1] + player.getMaxNotes() + performStrings.TEXT[2];
+            String body = performStrings.TEXT[1] + player.noteQueue.getMaxNotes() + performStrings.TEXT[2];
 
             float height = -FontHelper.getSmartHeight(FontHelper.tipBodyFont, body, 280.0F * Settings.scale, 26.0F * Settings.scale);
             height += 74 * Settings.scale; // accounts for header height, box border, and a bit of spacing

@@ -47,7 +47,7 @@ public class TinyHut extends AbstractBardCard
             public void update()
             {
                 if (p instanceof Bard) {
-                    int count = ((Bard) p).noteQueueUniqueCount();
+                    int count = ((Bard) p).noteQueue.uniqueCount();
                     if (count > 0) {
                         addToTop(new DrawCardAction(p, count));
                     }

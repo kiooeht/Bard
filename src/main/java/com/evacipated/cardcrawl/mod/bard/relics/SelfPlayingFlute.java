@@ -23,7 +23,7 @@ public class SelfPlayingFlute extends AbstractBardRelic implements CustomSavable
     public List<String> onSave()
     {
         if (AbstractDungeon.player instanceof Bard) {
-            return ((Bard) AbstractDungeon.player).getNotesForSaving();
+            return ((Bard) AbstractDungeon.player).noteQueue.getNotesForSaving();
         }
         return null;
     }
@@ -32,7 +32,7 @@ public class SelfPlayingFlute extends AbstractBardRelic implements CustomSavable
     public void onLoad(List<String> strings)
     {
         if (AbstractDungeon.player instanceof Bard) {
-            ((Bard) AbstractDungeon.player).loadNotes(strings);
+            ((Bard) AbstractDungeon.player).noteQueue.loadNotes(strings);
         }
     }
 

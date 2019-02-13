@@ -18,7 +18,7 @@ public class ClearNoteQueueAction extends AbstractGameAction
     {
         if (duration == Settings.ACTION_DUR_XFAST) {
             if (AbstractDungeon.player instanceof Bard) {
-                ((Bard) AbstractDungeon.player).clearNoteQueue();
+                ((Bard) AbstractDungeon.player).noteQueue.clear();
             }
             isDone = true;
         }
