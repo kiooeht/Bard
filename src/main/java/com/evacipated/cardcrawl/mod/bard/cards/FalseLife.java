@@ -45,11 +45,8 @@ public class FalseLife extends AbstractBardCard
             @Override
             public void update()
             {
-                int bonusTempHP = 0;
-                if (p instanceof Bard) {
-                    int count = ((Bard) p).noteQueue.count(BlockNote.class);
-                    bonusTempHP = count * magicNumber2;
-                }
+                int count = BardMod.getNoteQueue(p).count(BlockNote.class);
+                int bonusTempHP = count * magicNumber2;
                 addToTop(new AddTemporaryHPAction(p, p, magicNumber + bonusTempHP));
                 isDone = true;
             }
@@ -64,10 +61,7 @@ public class FalseLife extends AbstractBardCard
     {
         super.applyPowers();
 
-        int count = 0;
-        if (AbstractDungeon.player instanceof Bard) {
-            count = ((Bard) AbstractDungeon.player).noteQueue.count(BlockNote.class);
-        }
+        int count = BardMod.getNoteQueue(AbstractDungeon.player).count(BlockNote.class);
         rawDescription = DESCRIPTION;
         rawDescription += EXTENDED_DESCRIPTION[0] + count + EXTENDED_DESCRIPTION[1];
         initializeDescription();

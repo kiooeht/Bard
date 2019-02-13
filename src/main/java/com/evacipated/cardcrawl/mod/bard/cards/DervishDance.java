@@ -45,16 +45,14 @@ public class DervishDance extends AbstractBardCard
     @Override
     public void use(AbstractPlayer p, AbstractMonster m)
     {
-        if (p instanceof Bard) {
-            int count = ((Bard) p).noteQueue.count(AttackNote.class);
-            for (int i=0; i<count; ++i) {
-                if (i == 0) {
-                    addToBottom(new SFXAction("ATTACK_WHIRLWIND"));
-                }
-                addToBottom(new SFXAction("ATTACK_HEAVY"));
-                addToBottom(new VFXAction(p, new CleaveEffect(), 0));
-                addToBottom(new DamageAllEnemiesAction(p, multiDamage, damageTypeForTurn, AbstractGameAction.AttackEffect.NONE, true));
+        int count = BardMod.getNoteQueue(p).count(AttackNote.class);
+        for (int i=0; i<count; ++i) {
+            if (i == 0) {
+                addToBottom(new SFXAction("ATTACK_WHIRLWIND"));
             }
+            addToBottom(new SFXAction("ATTACK_HEAVY"));
+            addToBottom(new VFXAction(p, new CleaveEffect(), 0));
+            addToBottom(new DamageAllEnemiesAction(p, multiDamage, damageTypeForTurn, AbstractGameAction.AttackEffect.NONE, true));
         }
 
         rawDescription = DESCRIPTION;
@@ -66,10 +64,7 @@ public class DervishDance extends AbstractBardCard
     {
         super.applyPowers();
 
-        int count = 0;
-        if (AbstractDungeon.player instanceof Bard) {
-            count = ((Bard) AbstractDungeon.player).noteQueue.count(AttackNote.class);
-        }
+        int count = BardMod.getNoteQueue(AbstractDungeon.player).count(AttackNote.class);
         rawDescription = DESCRIPTION;
         rawDescription += EXTENDED_DESCRIPTION[0] + count + EXTENDED_DESCRIPTION[1];
         initializeDescription();

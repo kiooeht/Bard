@@ -38,11 +38,9 @@ public class InspiringSong extends AbstractBardCard
     @Override
     public void use(AbstractPlayer p, AbstractMonster m)
     {
-        if (p instanceof Bard) {
-            int count = ((Bard) p).noteQueue.count(BuffNote.class);
-            if (count > 0) {
-                addToBottom(new ApplyPowerAction(p, p, new InspirationPower(p, count, inspiration), count));
-            }
+        int count = BardMod.getNoteQueue(AbstractDungeon.player).count(BuffNote.class);
+        if (count > 0) {
+            addToBottom(new ApplyPowerAction(p, p, new InspirationPower(p, count, inspiration), count));
         }
 
         rawDescription = DESCRIPTION;
@@ -54,10 +52,7 @@ public class InspiringSong extends AbstractBardCard
     {
         super.applyPowers();
 
-        int count = 0;
-        if (AbstractDungeon.player instanceof Bard) {
-            count = ((Bard) AbstractDungeon.player).noteQueue.count(BuffNote.class);
-        }
+        int count = BardMod.getNoteQueue(AbstractDungeon.player).count(BuffNote.class);
         rawDescription = DESCRIPTION;
         rawDescription += EXTENDED_DESCRIPTION[0] + count + EXTENDED_DESCRIPTION[1];
         initializeDescription();

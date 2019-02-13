@@ -5,21 +5,28 @@ import basemod.helpers.RelicType;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.evacipated.cardcrawl.mod.bard.cards.variables.InspirationVariable;
 import com.evacipated.cardcrawl.mod.bard.cards.variables.MagicNumber2;
 import com.evacipated.cardcrawl.mod.bard.characters.Bard;
+import com.evacipated.cardcrawl.mod.bard.characters.NoteQueue;
 import com.evacipated.cardcrawl.mod.bard.helpers.MelodyManager;
 import com.evacipated.cardcrawl.mod.bard.melodies.*;
 import com.evacipated.cardcrawl.mod.bard.notes.*;
+import com.evacipated.cardcrawl.mod.bard.patches.PlayerNoteQueuePatches;
 import com.evacipated.cardcrawl.mod.bard.potions.InspiredBrew;
 import com.evacipated.cardcrawl.mod.bard.relics.AbstractBardRelic;
+import com.evacipated.cardcrawl.mod.bard.ui.MelodiesPanel;
+import com.evacipated.cardcrawl.mod.bard.ui.NotesPanel;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.Loader;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
@@ -46,7 +53,8 @@ public class BardMod implements
         EditCardsSubscriber,
         EditRelicsSubscriber,
         EditStringsSubscriber,
-        EditKeywordsSubscriber
+        EditKeywordsSubscriber,
+        PostPlayerUpdateSubscriber
 {
     public static final Logger logger = LogManager.getLogger(BardMod.class.getSimpleName());
 
@@ -56,6 +64,9 @@ public class BardMod implements
 
     public static TextureAtlas noteAtlas;
     public static TextureAtlas powerAtlas;
+
+    public static NotesPanel notesPanel;
+    public static MelodiesPanel melodiesPanel;
 
     static
     {
@@ -99,6 +110,11 @@ public class BardMod implements
         return "bardAssets/" + path;
     }
 
+    public static NoteQueue getNoteQueue(AbstractPlayer player)
+    {
+        return PlayerNoteQueuePatches.NoteQueueField.noteQueue.get(player);
+    }
+
     @Override
     public void receivePostInitialize()
     {
@@ -122,6 +138,9 @@ public class BardMod implements
         MelodyManager.addMelody(new DamageLargeMelody());
 
         BaseMod.addPotion(InspiredBrew.class, Color.ROYAL.cpy(), Color.ROYAL.cpy(), Color.ROYAL.cpy(), InspiredBrew.POTION_ID, Bard.Enums.BARD);
+
+        notesPanel = new NotesPanel();
+        melodiesPanel = new MelodiesPanel();
     }
 
     @Override
@@ -279,5 +298,18 @@ public class BardMod implements
                 UnlockTracker.markRelicAsSeen(relic.relicId);
             }
         }
+    }
+
+    @Override
+    public void receivePostPlayerUpdate()
+    {
+        notesPanel.update(AbstractDungeon.player);
+        melodiesPanel.update(AbstractDungeon.player);
+    }
+
+    public static void renderNoteQueue(SpriteBatch sb, AbstractPlayer player)
+    {
+        notesPanel.render(sb, player);
+        melodiesPanel.render(sb, player);
     }
 }

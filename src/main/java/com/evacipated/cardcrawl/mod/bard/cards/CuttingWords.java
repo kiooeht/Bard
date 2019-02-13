@@ -39,14 +39,12 @@ public class CuttingWords extends AbstractBardCard
     @Override
     public void use(AbstractPlayer p, AbstractMonster m)
     {
-        if (p instanceof Bard) {
-            int count = ((Bard) p).noteQueue.count(DebuffNote.class);
-            if (count > 0) {
-                for (int i=0; i<count; ++i) {
-                    AbstractMonster mo = AbstractDungeon.getRandomMonster();
-                    addToBottom(new ApplyPowerAction(mo, p, new WeakPower(mo, magicNumber, false), magicNumber, true));
-                    addToBottom(new ApplyPowerAction(mo, p, new VulnerablePower(mo, magicNumber, false), magicNumber, true));
-                }
+        int count = BardMod.getNoteQueue(p).count(DebuffNote.class);
+        if (count > 0) {
+            for (int i=0; i<count; ++i) {
+                AbstractMonster mo = AbstractDungeon.getRandomMonster();
+                addToBottom(new ApplyPowerAction(mo, p, new WeakPower(mo, magicNumber, false), magicNumber, true));
+                addToBottom(new ApplyPowerAction(mo, p, new VulnerablePower(mo, magicNumber, false), magicNumber, true));
             }
         }
 
@@ -59,10 +57,7 @@ public class CuttingWords extends AbstractBardCard
     {
         super.applyPowers();
 
-        int count = 0;
-        if (AbstractDungeon.player instanceof Bard) {
-            count = ((Bard) AbstractDungeon.player).noteQueue.count(DebuffNote.class);
-        }
+        int count = BardMod.getNoteQueue(AbstractDungeon.player).count(DebuffNote.class);
         rawDescription = DESCRIPTION;
         rawDescription += EXTENDED_DESCRIPTION[0] + count + EXTENDED_DESCRIPTION[1];
         initializeDescription();

@@ -38,13 +38,11 @@ public class Rest extends AbstractBardCard
     @Override
     public void use(AbstractPlayer p, AbstractMonster m)
     {
-        if (p instanceof Bard) {
-            int count = ((Bard) p).noteQueue.count(RestNote.class);
-            for (int i=0; i<count; ++i) {
-                addToBottom(new HealAction(p, p, magicNumber));
-            }
-            ((Bard) p).noteQueue.removeNotesIf(n -> n instanceof RestNote);
+        int count = BardMod.getNoteQueue(p).count(RestNote.class);
+        for (int i=0; i<count; ++i) {
+            addToBottom(new HealAction(p, p, magicNumber));
         }
+        BardMod.getNoteQueue(p).removeNotesIf(n -> n instanceof RestNote);
 
         rawDescription = DESCRIPTION;
         initializeDescription();
@@ -55,10 +53,7 @@ public class Rest extends AbstractBardCard
     {
         super.applyPowers();
 
-        int count = 0;
-        if (AbstractDungeon.player instanceof Bard) {
-            count = ((Bard) AbstractDungeon.player).noteQueue.count(RestNote.class);
-        }
+        int count = BardMod.getNoteQueue(AbstractDungeon.player).count(RestNote.class);
         rawDescription = DESCRIPTION;
         rawDescription += EXTENDED_DESCRIPTION[0] + count + EXTENDED_DESCRIPTION[1];
         initializeDescription();

@@ -41,12 +41,10 @@ public class Solo extends AbstractBardCard
             @Override
             public void update()
             {
-                if (p instanceof Bard) {
-                    if (((Bard) p).noteQueue.size() == 0) {
-                        addToTop(new SelectMelodyAction(MelodyManager.getAllMelodies(), false));
-                    } else {
-                        AbstractDungeon.effectList.add(new ThoughtBubble(p.dialogX, p.dialogY, 3.0f, EXTENDED_DESCRIPTION[0], true));
-                    }
+                if (BardMod.getNoteQueue(p).size() == 0) {
+                    addToTop(new SelectMelodyAction(MelodyManager.getAllMelodies(), false));
+                } else {
+                    AbstractDungeon.effectList.add(new ThoughtBubble(p.dialogX, p.dialogY, 3.0f, EXTENDED_DESCRIPTION[0], true));
                 }
                 isDone = true;
             }

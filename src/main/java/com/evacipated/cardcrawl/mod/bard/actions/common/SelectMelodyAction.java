@@ -1,7 +1,7 @@
 package com.evacipated.cardcrawl.mod.bard.actions.common;
 
+import com.evacipated.cardcrawl.mod.bard.BardMod;
 import com.evacipated.cardcrawl.mod.bard.cards.MelodyCard;
-import com.evacipated.cardcrawl.mod.bard.characters.Bard;
 import com.evacipated.cardcrawl.mod.bard.melodies.AbstractMelody;
 import com.evacipated.cardcrawl.mod.bard.patches.CenterGridCardSelectScreen;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -41,9 +41,7 @@ public class SelectMelodyAction extends AbstractGameAction
     {
         if (duration == Settings.ACTION_DUR_MED) {
             if (melodies == null) {
-                if (AbstractDungeon.player instanceof Bard) {
-                    melodies = ((Bard) AbstractDungeon.player).noteQueue.getPlayableMelodies();
-                }
+                melodies = BardMod.getNoteQueue(AbstractDungeon.player).getPlayableMelodies();
                 if (melodies == null || melodies.isEmpty()) {
                     isDone = true;
                     return;

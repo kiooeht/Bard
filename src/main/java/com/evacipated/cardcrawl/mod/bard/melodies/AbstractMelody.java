@@ -1,9 +1,9 @@
 package com.evacipated.cardcrawl.mod.bard.melodies;
 
+import com.evacipated.cardcrawl.mod.bard.BardMod;
 import com.evacipated.cardcrawl.mod.bard.MelodyStrings;
 import com.evacipated.cardcrawl.mod.bard.actions.common.RemoveNoteFromQueueAction;
 import com.evacipated.cardcrawl.mod.bard.cards.MelodyCard;
-import com.evacipated.cardcrawl.mod.bard.characters.Bard;
 import com.evacipated.cardcrawl.mod.bard.helpers.MelodyManager;
 import com.evacipated.cardcrawl.mod.bard.hooks.OnMelodyPlayedHook;
 import com.evacipated.cardcrawl.mod.bard.notes.AbstractNote;
@@ -181,10 +181,8 @@ public abstract class AbstractMelody
         play();
 
         if (consumeNotes) {
-            if (AbstractDungeon.player instanceof Bard) {
-                int startIndex = ((Bard) AbstractDungeon.player).noteQueue.melodyPosition(this);
-                addToBottom(new RemoveNoteFromQueueAction(startIndex, notes.size()));
-            }
+            int startIndex = BardMod.getNoteQueue(AbstractDungeon.player).melodyPosition(this);
+            addToBottom(new RemoveNoteFromQueueAction(startIndex, notes.size()));
         }
     }
 

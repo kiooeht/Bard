@@ -4,9 +4,10 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.evacipated.cardcrawl.mod.bard.BardMod;
-import com.evacipated.cardcrawl.mod.bard.characters.Bard;
+import com.evacipated.cardcrawl.mod.bard.characters.NoteQueue;
 import com.evacipated.cardcrawl.mod.bard.helpers.MelodyManager;
 import com.evacipated.cardcrawl.mod.bard.melodies.AbstractMelody;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.FontHelper;
@@ -34,7 +35,7 @@ public class MelodiesPanel
         show = !show;
     }
 
-    public void update(Bard player)
+    public void update(AbstractPlayer player)
     {
         melodiesToggleHb.resize(
                 48 * Settings.scale,
@@ -42,7 +43,7 @@ public class MelodiesPanel
         );
         melodiesToggleHb.translate(
                 player.drawX - (NotesPanel.NOTE_SPACING * 3 * Settings.scale) - 48 * Settings.scale,
-                player.getNotesPanel().yOffset * Settings.scale + player.drawY + player.hb_h / 2.0f
+                BardMod.notesPanel.yOffset * Settings.scale + player.drawY + player.hb_h / 2.0f
         );
 
         melodiesToggleHb.encapsulatedUpdate(new HitboxListener()
@@ -67,19 +68,21 @@ public class MelodiesPanel
         });
     }
 
-    public void preRender(SpriteBatch sb, Bard player)
+    public void render(SpriteBatch sb, AbstractPlayer player)
     {
         if (AbstractDungeon.getCurrMapNode() != null
                 && AbstractDungeon.getCurrRoom() != null
                 && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT
                 && !player.isDead
         ) {
+            NoteQueue noteQueue = BardMod.getNoteQueue(player);
+
             sb.setColor(Color.WHITE);
             TextureAtlas.AtlasRegion tex = BardMod.noteAtlas.findRegion(show ? "toggleOff" : "toggleOn");
             sb.draw(
                     tex,
                     player.drawX - (NotesPanel.NOTE_SPACING * 3 * Settings.scale) - 32 * Settings.scale,
-                    (player.getNotesPanel().yOffset + NotesPanel.EXTRA_OFFSET) * Settings.scale + player.drawY + player.hb_h / 2.0f,
+                    (BardMod.notesPanel.yOffset + NotesPanel.EXTRA_OFFSET) * Settings.scale + player.drawY + player.hb_h / 2.0f,
                     0,
                     0,
                     tex.getRegionWidth(),
@@ -123,7 +126,7 @@ public class MelodiesPanel
             float y = Settings.HEIGHT - (Y_POS + 36) * Settings.scale;
             for (AbstractMelody melody : MelodyManager.getAllMelodies()) {
                 Color color = Settings.CREAM_COLOR;
-                if (player.noteQueue.canPlayMelody()) {
+                if (noteQueue.canPlayMelody()) {
                     color = Settings.GOLD_COLOR;
                 }
                 FontHelper.renderFontRightAligned(
@@ -136,23 +139,21 @@ public class MelodiesPanel
                 );
                 y -= 26 * Settings.scale;
             }
+
+            // Tooltip
+            if (melodiesToggleHb.hovered && !AbstractDungeon.isScreenUp) {
+                float height = -FontHelper.getSmartHeight(FontHelper.tipBodyFont, "", 280.0F * Settings.scale, 26.0F * Settings.scale);
+                height += 74 * Settings.scale; // accounts for header height, box border, and a bit of spacing
+
+                TipHelper.renderGenericTip(
+                        melodiesToggleHb.x,
+                        melodiesToggleHb.y + melodiesToggleHb.height + height,
+                        NotesPanel.performStrings.TEXT[3],
+                        ""
+                );
+            }
+
+            melodiesToggleHb.render(sb);
         }
-    }
-
-    public void postRender(SpriteBatch sb, Bard player)
-    {
-        if (melodiesToggleHb.hovered && !AbstractDungeon.isScreenUp) {
-            float height = -FontHelper.getSmartHeight(FontHelper.tipBodyFont, "", 280.0F * Settings.scale, 26.0F * Settings.scale);
-            height += 74 * Settings.scale; // accounts for header height, box border, and a bit of spacing
-
-            TipHelper.renderGenericTip(
-                    melodiesToggleHb.x,
-                    melodiesToggleHb.y + melodiesToggleHb.height + height,
-                    NotesPanel.performStrings.TEXT[3],
-                    ""
-            );
-        }
-
-        melodiesToggleHb.render(sb);
     }
 }

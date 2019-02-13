@@ -37,12 +37,8 @@ public class GuardPoint extends AbstractBardCard
     public void use(AbstractPlayer p, AbstractMonster m)
     {
         addToBottom(new GainBlockAction(p, p, block));
-        if (p instanceof Bard) {
-            int count = ((Bard) p).noteQueue.count(BlockNote.class);
-            if (count == 0) {
-                addToBottom(new GainBlockAction(p, p, block));
-            }
-        } else {
+        int count = BardMod.getNoteQueue(p).count(BlockNote.class);
+        if (count == 0) {
             addToBottom(new GainBlockAction(p, p, block));
         }
     }

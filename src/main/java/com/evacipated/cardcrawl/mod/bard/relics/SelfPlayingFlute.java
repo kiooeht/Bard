@@ -22,18 +22,13 @@ public class SelfPlayingFlute extends AbstractBardRelic implements CustomSavable
     @Override
     public List<String> onSave()
     {
-        if (AbstractDungeon.player instanceof Bard) {
-            return ((Bard) AbstractDungeon.player).noteQueue.getNotesForSaving();
-        }
-        return null;
+        return BardMod.getNoteQueue(AbstractDungeon.player).getNotesForSaving();
     }
 
     @Override
     public void onLoad(List<String> strings)
     {
-        if (AbstractDungeon.player instanceof Bard) {
-            ((Bard) AbstractDungeon.player).noteQueue.loadNotes(strings);
-        }
+        BardMod.getNoteQueue(AbstractDungeon.player).loadNotes(strings);
     }
 
     @Override

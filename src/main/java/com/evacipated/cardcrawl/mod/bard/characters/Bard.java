@@ -4,7 +4,6 @@ import basemod.abstracts.CustomPlayer;
 import basemod.animations.SpineAnimation;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.mod.bard.cards.Defend_Bard;
 import com.evacipated.cardcrawl.mod.bard.cards.Inspire;
@@ -12,8 +11,6 @@ import com.evacipated.cardcrawl.mod.bard.cards.Riposte;
 import com.evacipated.cardcrawl.mod.bard.cards.Strike_Bard;
 import com.evacipated.cardcrawl.mod.bard.relics.Lute;
 import com.evacipated.cardcrawl.mod.bard.relics.PitchPipe;
-import com.evacipated.cardcrawl.mod.bard.ui.MelodiesPanel;
-import com.evacipated.cardcrawl.mod.bard.ui.NotesPanel;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -35,11 +32,6 @@ public class Bard extends CustomPlayer
     private static final int ENERGY_PER_TURN = 3;
     private static final int START_ORBS = 0;
 
-    public NoteQueue noteQueue;
-
-    private NotesPanel notesPanel;
-    private MelodiesPanel melodiesPanel;
-
     public static class Enums
     {
         @SpireEnum
@@ -60,50 +52,6 @@ public class Bard extends CustomPlayer
 
         initializeClass(null, "images/characters/theSilent/shoulder2.png", "images/characters/theSilent/shoulder.png", "images/characters/theSilent/corpse.png",
                 getLoadout(), 0.0F, -20.0F, 240.0F, 240.0F, new EnergyManager(ENERGY_PER_TURN));
-
-        noteQueue = new NoteQueue();
-
-        notesPanel = new NotesPanel();
-        melodiesPanel = new MelodiesPanel();
-    }
-
-    public NotesPanel getNotesPanel()
-    {
-        return notesPanel;
-    }
-
-    public MelodiesPanel getMelodiesPanel()
-    {
-        return melodiesPanel;
-    }
-
-    @Override
-    public void preBattlePrep()
-    {
-        noteQueue.reset();
-        super.preBattlePrep();
-    }
-
-    @Override
-    public void update()
-    {
-        super.update();
-
-        notesPanel.update(this);
-        melodiesPanel.update(this);
-    }
-
-    @Override
-    public void render(SpriteBatch sb)
-    {
-        notesPanel.preRender(sb, this);
-
-        super.render(sb);
-
-        melodiesPanel.preRender(sb, this);
-
-        notesPanel.postRender(sb, this);
-        melodiesPanel.postRender(sb, this);
     }
 
     @Override

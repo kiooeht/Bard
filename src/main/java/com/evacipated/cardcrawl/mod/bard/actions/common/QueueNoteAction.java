@@ -1,6 +1,6 @@
 package com.evacipated.cardcrawl.mod.bard.actions.common;
 
-import com.evacipated.cardcrawl.mod.bard.characters.Bard;
+import com.evacipated.cardcrawl.mod.bard.BardMod;
 import com.evacipated.cardcrawl.mod.bard.notes.AbstractNote;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.core.Settings;
@@ -20,9 +20,7 @@ public class QueueNoteAction extends AbstractGameAction
     public void update()
     {
         if (duration == Settings.ACTION_DUR_FAST) {
-            if (AbstractDungeon.player instanceof Bard) {
-                ((Bard) AbstractDungeon.player).noteQueue.queue(note);
-            }
+            BardMod.getNoteQueue(AbstractDungeon.player).queue(note);
             if (Settings.FAST_MODE) {
                 isDone = true;
                 return;

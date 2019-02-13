@@ -1,6 +1,6 @@
 package com.evacipated.cardcrawl.mod.bard.actions.common;
 
-import com.evacipated.cardcrawl.mod.bard.characters.Bard;
+import com.evacipated.cardcrawl.mod.bard.BardMod;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -37,10 +37,10 @@ public class RemoveNoteFromQueueAction extends AbstractGameAction
     @Override
     public void update()
     {
-        if (count > 0 && AbstractDungeon.player instanceof Bard) {
+        if (count > 0) {
             currentlyRemoving = true;
             for (int i=0; i<count; ++i) {
-                ((Bard) AbstractDungeon.player).noteQueue.removeNote(startIndex);
+                BardMod.getNoteQueue(AbstractDungeon.player).removeNote(startIndex);
             }
             currentlyRemoving = false;
 
