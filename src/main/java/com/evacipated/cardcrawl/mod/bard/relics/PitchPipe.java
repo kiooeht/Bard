@@ -44,7 +44,7 @@ public class PitchPipe extends AbstractBardRelic
                 default:
                     note = new AttackNote();
             }
-            ((Bard) AbstractDungeon.player).noteQueue.queue(note);
+            addToBottom(new QueueNoteAction(note));
         }
     }
 
