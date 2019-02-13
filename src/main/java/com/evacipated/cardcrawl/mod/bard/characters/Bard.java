@@ -79,6 +79,16 @@ public class Bard extends CustomPlayer
         melodiesPanel = new MelodiesPanel();
     }
 
+    public NotesPanel getNotesPanel()
+    {
+        return notesPanel;
+    }
+
+    public MelodiesPanel getMelodiesPanel()
+    {
+        return melodiesPanel;
+    }
+
     public int getMaxNotes()
     {
         return maxNotes;

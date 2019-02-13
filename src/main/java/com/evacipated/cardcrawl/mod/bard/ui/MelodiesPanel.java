@@ -45,7 +45,7 @@ public class MelodiesPanel
         );
         melodiesToggleHb.translate(
                 player.drawX - (NotesPanel.NOTE_SPACING * 3 * Settings.scale) - 48 * Settings.scale,
-                (146) * Settings.scale + player.drawY + player.hb_h / 2.0f
+                player.getNotesPanel().yOffset * Settings.scale + player.drawY + player.hb_h / 2.0f
         );
 
         melodiesToggleHb.encapsulatedUpdate(new HitboxListener()
@@ -82,7 +82,7 @@ public class MelodiesPanel
             sb.draw(
                     tex,
                     player.drawX - (NotesPanel.NOTE_SPACING * 3 * Settings.scale) - 32 * Settings.scale,
-                    (158) * Settings.scale + player.drawY + player.hb_h / 2.0f,
+                    (player.getNotesPanel().yOffset + NotesPanel.EXTRA_OFFSET) * Settings.scale + player.drawY + player.hb_h / 2.0f,
                     0,
                     0,
                     tex.getRegionWidth(),

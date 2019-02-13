@@ -30,6 +30,7 @@ public class NotesPanel
     static final float NOTE_SPACING = 32;
 
     private static final float DEFAULT_Y_OFFSET = 146;
+    static final float EXTRA_OFFSET = 12;
     float yOffset = DEFAULT_Y_OFFSET;
 
     private float noteFloatTimer = 0;
@@ -190,7 +191,7 @@ public class NotesPanel
                 note.render(
                         sb,
                         player.drawX - (NOTE_SPACING * 2 * Settings.scale) + (i * NOTE_SPACING * Settings.scale),
-                        (offset + yOffset + 12) * Settings.scale + player.drawY + player.hb_h / 2.0f
+                        (offset + yOffset + EXTRA_OFFSET) * Settings.scale + player.drawY + player.hb_h / 2.0f
                 );
                 ++i;
             }
