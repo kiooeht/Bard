@@ -5,6 +5,7 @@ import com.evacipated.cardcrawl.mod.bard.characters.Bard;
 import com.evacipated.cardcrawl.mod.bard.notes.AbstractNote;
 import com.evacipated.cardcrawl.mod.bard.notes.BuffNote;
 import com.evacipated.cardcrawl.mod.bard.powers.InspirationPower;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -38,10 +39,18 @@ public class InspiringSong extends AbstractBardCard
     @Override
     public void use(AbstractPlayer p, AbstractMonster m)
     {
-        int count = BardMod.getNoteQueue(AbstractDungeon.player).count(BuffNote.class);
-        if (count > 0) {
-            addToBottom(new ApplyPowerAction(p, p, new InspirationPower(p, count, inspiration), count));
-        }
+        addToBottom(new AbstractGameAction()
+        {
+            @Override
+            public void update()
+            {
+                int count = BardMod.getNoteQueue(AbstractDungeon.player).count(BuffNote.class);
+                if (count > 0) {
+                    addToBottom(new ApplyPowerAction(p, p, new InspirationPower(p, count, inspiration), count));
+                }
+                isDone = true;
+            }
+        });
 
         rawDescription = DESCRIPTION;
         initializeDescription();
