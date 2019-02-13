@@ -177,9 +177,14 @@ public class NoteQueue
         return endIndex;
     }
 
-    public boolean canPlayMelody()
+    public boolean canPlayAnyMelody()
     {
         return !getPlayableMelodies().isEmpty();
+    }
+
+    public boolean canPlayMelody(AbstractMelody melody)
+    {
+        return melody.fuzzyMatchesNotes(new ArrayList<>(notes));
     }
 
     public List<AbstractMelody> getPlayableMelodies()

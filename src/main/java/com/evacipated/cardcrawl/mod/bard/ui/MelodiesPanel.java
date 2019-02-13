@@ -126,7 +126,7 @@ public class MelodiesPanel
             float y = Settings.HEIGHT - (Y_POS + 36) * Settings.scale;
             for (AbstractMelody melody : MelodyManager.getAllMelodies()) {
                 Color color = Settings.CREAM_COLOR;
-                if (noteQueue.canPlayMelody()) {
+                if (noteQueue.canPlayMelody(melody)) {
                     color = Settings.GOLD_COLOR;
                 }
                 FontHelper.renderFontRightAligned(

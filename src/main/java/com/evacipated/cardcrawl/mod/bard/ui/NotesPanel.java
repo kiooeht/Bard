@@ -89,7 +89,7 @@ public class NotesPanel
             @Override
             public void clicked(Hitbox hitbox)
             {
-                if (noteQueue.canPlayMelody()) {
+                if (noteQueue.canPlayAnyMelody()) {
                     if (player.hasPower(SonataPower.POWER_ID)) {
                         AbstractDungeon.actionManager.addToBottom(new PerformAllMelodiesAction());
                     } else {
@@ -111,7 +111,7 @@ public class NotesPanel
 
             noteFloatTimer += Gdx.graphics.getDeltaTime() * 2;
 
-            boolean canPlay = noteQueue.canPlayMelody();
+            boolean canPlay = noteQueue.canPlayAnyMelody();
 
             sb.setColor(Color.WHITE);
             TextureAtlas.AtlasRegion tex = BardMod.noteAtlas.findRegion(canPlay ? "barsGlow" : "bars");
