@@ -17,9 +17,8 @@ import java.util.function.Predicate;
 
 public class NoteQueue
 {
-    public static final int MAX_NOTES = 4;
-
-    private int maxNotes = MAX_NOTES;
+    private int masterMaxNotes = 0;
+    private int maxNotes = masterMaxNotes;
     private Deque<AbstractNote> notes = new ArrayDeque<>();
 
     public int size()
@@ -39,6 +38,11 @@ public class NoteQueue
         maxNotes += amount;
     }
 
+    public void setMasterMaxNotes(int amount)
+    {
+        masterMaxNotes = amount;
+    }
+
     public Iterator<AbstractNote> iterator()
     {
         return notes.iterator();
@@ -54,7 +58,7 @@ public class NoteQueue
         if (!AbstractDungeon.player.hasRelic(SelfPlayingFlute.ID)) {
             clear();
         }
-        maxNotes = MAX_NOTES;
+        maxNotes = masterMaxNotes;
         while (notes.size() > maxNotes) {
             notes.pollFirst();
         }

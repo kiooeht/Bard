@@ -5,6 +5,7 @@ import basemod.animations.SpineAnimation;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.math.MathUtils;
+import com.evacipated.cardcrawl.mod.bard.BardMod;
 import com.evacipated.cardcrawl.mod.bard.cards.Defend_Bard;
 import com.evacipated.cardcrawl.mod.bard.cards.Inspire;
 import com.evacipated.cardcrawl.mod.bard.cards.Riposte;
@@ -31,6 +32,7 @@ public class Bard extends CustomPlayer
     private static final int START_HP = 70;
     private static final int ENERGY_PER_TURN = 3;
     private static final int START_ORBS = 0;
+    public static final int MAX_NOTES = 4;
 
     public static class Enums
     {
@@ -52,6 +54,8 @@ public class Bard extends CustomPlayer
 
         initializeClass(null, "images/characters/theSilent/shoulder2.png", "images/characters/theSilent/shoulder.png", "images/characters/theSilent/corpse.png",
                 getLoadout(), 0.0F, -20.0F, 240.0F, 240.0F, new EnergyManager(ENERGY_PER_TURN));
+
+        BardMod.getNoteQueue(this).setMasterMaxNotes(MAX_NOTES);
     }
 
     @Override
