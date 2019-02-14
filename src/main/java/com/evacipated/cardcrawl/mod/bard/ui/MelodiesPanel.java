@@ -37,6 +37,11 @@ public class MelodiesPanel
 
     public void update(AbstractPlayer player)
     {
+        NoteQueue noteQueue = BardMod.getNoteQueue(player);
+        if (noteQueue.getMaxNotes() == 0) {
+            return;
+        }
+
         melodiesToggleHb.resize(
                 48 * Settings.scale,
                 64 * Settings.scale
@@ -76,6 +81,9 @@ public class MelodiesPanel
                 && !player.isDead
         ) {
             NoteQueue noteQueue = BardMod.getNoteQueue(player);
+            if (noteQueue.getMaxNotes() == 0) {
+                return;
+            }
 
             sb.setColor(Color.WHITE);
             TextureAtlas.AtlasRegion tex = BardMod.noteAtlas.findRegion(show ? "toggleOff" : "toggleOn");

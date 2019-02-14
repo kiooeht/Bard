@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.evacipated.cardcrawl.mod.bard.BardMod;
 import com.evacipated.cardcrawl.mod.bard.actions.common.PerformAllMelodiesAction;
 import com.evacipated.cardcrawl.mod.bard.actions.common.SelectMelodyAction;
+import com.evacipated.cardcrawl.mod.bard.characters.Bard;
 import com.evacipated.cardcrawl.mod.bard.characters.NoteQueue;
 import com.evacipated.cardcrawl.mod.bard.notes.AbstractNote;
 import com.evacipated.cardcrawl.mod.bard.powers.SonataPower;
@@ -47,6 +48,9 @@ public class NotesPanel
     public void update(AbstractPlayer player)
     {
         NoteQueue noteQueue = BardMod.getNoteQueue(player);
+        if (noteQueue.getMaxNotes() == 0) {
+            return;
+        }
 
         notesHb.resize(
                 64 * Settings.scale
@@ -108,6 +112,9 @@ public class NotesPanel
                 && !player.isDead
         ) {
             NoteQueue noteQueue = BardMod.getNoteQueue(player);
+            if (noteQueue.getMaxNotes() == 0) {
+                return;
+            }
 
             noteFloatTimer += Gdx.graphics.getDeltaTime() * 2;
 
@@ -143,7 +150,7 @@ public class NotesPanel
                     0,
                     32,
                     32,
-                    Settings.scale * (2 + (noteQueue.getMaxNotes() - NoteQueue.MAX_NOTES)),
+                    Settings.scale * (2 + (noteQueue.getMaxNotes() - Bard.MAX_NOTES)),
                     Settings.scale * 2,
                     0,
                     tex.getRegionX() + 32,
@@ -156,7 +163,7 @@ public class NotesPanel
             // Right section of bars
             sb.draw(
                     tex.getTexture(),
-                    player.drawX - (NOTE_SPACING * 3 * Settings.scale) + (64 * Settings.scale) + (32 * (2 + (noteQueue.getMaxNotes() - NoteQueue.MAX_NOTES)) * Settings.scale),
+                    player.drawX - (NOTE_SPACING * 3 * Settings.scale) + (64 * Settings.scale) + (32 * (2 + (noteQueue.getMaxNotes() - Bard.MAX_NOTES)) * Settings.scale),
                     (yOffset) * Settings.scale + player.drawY + player.hb_h / 2.0f,
                     0,
                     0,
