@@ -23,9 +23,8 @@ public class ViciousMockery extends AbstractBardCard
     public static final String IMG = null;
     private static final int COST = 0;
     private static final int DAMAGE = 3;
-    private static final int UPGRADE_DAMAGE = 1;
+    private static final int UPGRADE_DAMAGE = 2;
     private static final int WEAK = 1;
-    private static final int UPGRADE_WEAK = 1;
 
     public ViciousMockery()
     {
@@ -57,7 +56,6 @@ public class ViciousMockery extends AbstractBardCard
         if (!upgraded) {
             upgradeName();
             upgradeDamage(UPGRADE_DAMAGE);
-            upgradeMagicNumber(UPGRADE_WEAK);
         }
     }
 
