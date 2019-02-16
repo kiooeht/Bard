@@ -18,6 +18,7 @@ public class CursedPower extends AbstractPower implements HealthBarRenderPower
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
+    private static final Color barColor = Color.valueOf("a47da4");
 
     private AbstractCreature source;
 
@@ -30,8 +31,8 @@ public class CursedPower extends AbstractPower implements HealthBarRenderPower
         type = PowerType.DEBUFF;
         amount = damage;
         updateDescription();
-        // TODO
-        loadRegion("constricted");
+        region48 = BardMod.powerAtlas.findRegion("48/cursed");
+        region128 = BardMod.powerAtlas.findRegion("128/cursed");
     }
 
     @Override
@@ -64,6 +65,6 @@ public class CursedPower extends AbstractPower implements HealthBarRenderPower
     @Override
     public Color getColor()
     {
-        return Color.PURPLE;
+        return barColor;
     }
 }

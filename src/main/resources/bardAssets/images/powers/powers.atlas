@@ -1,187 +1,201 @@
 
 powers.png
-size: 1024,128
+size: 512,256
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
 128/blink
   rotate: false
-  xy: 403, 12
+  xy: 200, 119
   size: 93, 48
   orig: 128, 128
   offset: 17, 39
   index: -1
 128/covetousAura
   rotate: false
-  xy: 114, 40
+  xy: 200, 169
   size: 89, 85
   orig: 128, 128
   offset: 18, 21
   index: -1
+128/cursed
+  rotate: false
+  xy: 359, 87
+  size: 83, 79
+  orig: 128, 128
+  offset: 21, 25
+  index: -1
 128/deathMetal
   rotate: false
-  xy: 900, 54
+  xy: 93, 4
   size: 55, 71
   orig: 128, 128
   offset: 35, 26
   index: -1
 128/deenergized
   rotate: false
-  xy: 698, 39
+  xy: 379, 168
   size: 84, 86
   orig: 128, 128
   offset: 22, 21
   index: -1
 128/glyphOfWarding
   rotate: false
-  xy: 612, 32
+  xy: 114, 161
   size: 84, 93
   orig: 128, 128
   offset: 20, 17
   index: -1
 128/greaterMagicWeapon
   rotate: false
-  xy: 293, 43
+  xy: 93, 77
   size: 86, 82
   orig: 128, 128
   offset: 21, 23
   index: -1
 128/inspiration
   rotate: false
-  xy: 848, 36
+  xy: 444, 77
   size: 50, 89
   orig: 128, 128
   offset: 38, 20
   index: -1
 128/lingeringEcho
   rotate: false
-  xy: 205, 40
+  xy: 291, 169
   size: 86, 85
   orig: 128, 128
   offset: 22, 24
   index: -1
 128/mantleOfInspiration
   rotate: false
-  xy: 784, 36
+  xy: 295, 78
   size: 62, 89
   orig: 128, 128
   offset: 26, 20
   index: -1
 128/reverseGravity
   rotate: false
-  xy: 458, 64
+  xy: 181, 56
   size: 61, 61
   orig: 128, 128
   offset: 33, 33
   index: -1
 128/silenced
   rotate: false
-  xy: 521, 32
+  xy: 2, 67
   size: 89, 93
   orig: 128, 128
   offset: 21, 18
   index: -1
 128/splendid
   rotate: false
-  xy: 381, 62
+  xy: 2, 2
   size: 75, 63
   orig: 128, 128
   offset: 27, 35
   index: -1
 128/twoAndFour
   rotate: false
-  xy: 2, 33
+  xy: 2, 162
   size: 110, 92
   orig: 128, 128
   offset: 7, 23
   index: -1
 48/blink
   rotate: false
-  xy: 34, 12
+  xy: 312, 57
   size: 36, 19
   orig: 48, 48
   offset: 6, 14
   index: -1
 48/covetousAura
   rotate: false
-  xy: 273, 6
+  xy: 150, 6
   size: 33, 32
   orig: 48, 48
   offset: 7, 8
   index: -1
+48/cursed
+  rotate: false
+  xy: 279, 46
+  size: 31, 30
+  orig: 48, 48
+  offset: 8, 9
+  index: -1
 48/deathMetal
   rotate: false
-  xy: 72, 4
+  xy: 307, 2
   size: 22, 27
   orig: 48, 48
   offset: 12, 9
   index: -1
 48/deenergized
   rotate: false
-  xy: 308, 9
+  xy: 185, 22
   size: 32, 32
   orig: 48, 48
   offset: 8, 8
   index: -1
 48/glyphOfWarding
   rotate: false
-  xy: 204, 2
+  xy: 465, 180
   size: 32, 36
   orig: 48, 48
   offset: 7, 6
   index: -1
 48/greaterMagicWeapon
   rotate: false
-  xy: 342, 10
+  xy: 240, 14
   size: 33, 31
   orig: 48, 48
   offset: 8, 9
   index: -1
 48/inspiration
   rotate: false
-  xy: 498, 28
+  xy: 219, 20
   size: 19, 34
   orig: 48, 48
   offset: 14, 7
   index: -1
 48/lingeringEcho
   rotate: false
-  xy: 238, 6
+  xy: 244, 47
   size: 33, 32
   orig: 48, 48
   offset: 8, 9
   index: -1
 48/mantleOfInspiration
   rotate: false
-  xy: 377, 6
+  xy: 150, 40
   size: 24, 35
   orig: 48, 48
   offset: 9, 7
   index: -1
 48/reverseGravity
   rotate: false
-  xy: 96, 7
+  xy: 312, 31
   size: 24, 24
   orig: 48, 48
   offset: 12, 12
   index: -1
 48/silenced
   rotate: false
-  xy: 167, 2
+  xy: 244, 81
   size: 35, 36
   orig: 48, 48
   offset: 7, 6
   index: -1
 48/splendid
   rotate: false
-  xy: 2, 6
+  xy: 275, 19
   size: 30, 25
   orig: 48, 48
   offset: 9, 12
   index: -1
 48/twoAndFour
   rotate: false
-  xy: 122, 2
+  xy: 465, 218
   size: 43, 36
   orig: 48, 48
   offset: 2, 8
