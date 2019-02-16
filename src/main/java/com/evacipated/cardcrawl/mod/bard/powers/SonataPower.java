@@ -20,8 +20,8 @@ public class SonataPower extends AbstractPower
         this.owner = owner;
         type = PowerType.BUFF;
         updateDescription();
-        region48 = BardMod.powerAtlas.findRegion("48/blink");
-        region128 = BardMod.powerAtlas.findRegion("128/blink");
+        region48 = BardMod.powerAtlas.findRegion("48/sonata");
+        region128 = BardMod.powerAtlas.findRegion("128/sonata");
     }
 
     @Override
