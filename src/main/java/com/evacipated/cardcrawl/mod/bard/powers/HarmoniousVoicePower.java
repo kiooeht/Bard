@@ -27,8 +27,8 @@ public class HarmoniousVoicePower extends AbstractPower implements OnNoteQueuedH
         type = PowerType.BUFF;
         amount = tempHp;
         updateDescription();
-        // TODO
-        loadRegion("penNib");
+        region48 = BardMod.powerAtlas.findRegion("48/harmoniousVoice");
+        region128 = BardMod.powerAtlas.findRegion("128/harmoniousVoice");
     }
 
     @Override
