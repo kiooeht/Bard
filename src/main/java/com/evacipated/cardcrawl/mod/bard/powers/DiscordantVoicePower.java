@@ -29,8 +29,8 @@ public class DiscordantVoicePower extends AbstractPower implements OnNoteQueuedH
         type = PowerType.BUFF;
         amount = damage;
         updateDescription();
-        // TODO
-        loadRegion("penNib");
+        region48 = BardMod.powerAtlas.findRegion("48/discordantVoice");
+        region128 = BardMod.powerAtlas.findRegion("128/discordantVoice");
     }
 
     @Override
