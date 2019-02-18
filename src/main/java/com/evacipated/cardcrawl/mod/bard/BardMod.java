@@ -11,6 +11,7 @@ import com.evacipated.cardcrawl.mod.bard.cards.variables.InspirationVariable;
 import com.evacipated.cardcrawl.mod.bard.cards.variables.MagicNumber2;
 import com.evacipated.cardcrawl.mod.bard.characters.Bard;
 import com.evacipated.cardcrawl.mod.bard.characters.NoteQueue;
+import com.evacipated.cardcrawl.mod.bard.helpers.AssetLoader;
 import com.evacipated.cardcrawl.mod.bard.helpers.MelodyManager;
 import com.evacipated.cardcrawl.mod.bard.melodies.*;
 import com.evacipated.cardcrawl.mod.bard.notes.*;
@@ -62,6 +63,7 @@ public class BardMod implements
 
     public static final Color COLOR = CardHelper.getColor(65, 105, 225);
 
+    public static AssetLoader assets = new AssetLoader();
     public static TextureAtlas noteAtlas;
     public static TextureAtlas powerAtlas;
 
