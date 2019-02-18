@@ -12,7 +12,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-public class LingeringEchoPower extends AbstractPower
+public class LingeringEchoPower extends AbstractBardPower
 {
     public static final String POWER_ID = BardMod.makeID("LingeringEcho");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -30,8 +30,7 @@ public class LingeringEchoPower extends AbstractPower
         amount = 1;
         isTurnBased = true;
         updateDescription();
-        region48 = BardMod.powerAtlas.findRegion("48/lingeringEcho");
-        region128 = BardMod.powerAtlas.findRegion("128/lingeringEcho");
+        loadRegion("lingeringEcho");
     }
 
     @Override

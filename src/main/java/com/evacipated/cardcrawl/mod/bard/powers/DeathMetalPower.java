@@ -12,7 +12,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-public class DeathMetalPower extends AbstractPower implements OnNoteQueuedHook
+public class DeathMetalPower extends AbstractBardPower implements OnNoteQueuedHook
 {
     public static final String POWER_ID = BardMod.makeID("DeathMetal");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -28,8 +28,7 @@ public class DeathMetalPower extends AbstractPower implements OnNoteQueuedHook
         amount = damage;
         updateDescription();
         priority = -99;
-        region48 = BardMod.powerAtlas.findRegion("48/deathMetal");
-        region128 = BardMod.powerAtlas.findRegion("128/deathMetal");
+        loadRegion("deathMetal");
     }
 
     @Override

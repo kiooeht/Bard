@@ -6,7 +6,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-public class SonataPower extends AbstractPower
+public class SonataPower extends AbstractBardPower
 {
     public static final String POWER_ID = BardMod.makeID("Sonata");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -20,8 +20,7 @@ public class SonataPower extends AbstractPower
         this.owner = owner;
         type = PowerType.BUFF;
         updateDescription();
-        region48 = BardMod.powerAtlas.findRegion("48/sonata");
-        region128 = BardMod.powerAtlas.findRegion("128/sonata");
+        loadRegion("sonata");
     }
 
     @Override

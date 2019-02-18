@@ -65,7 +65,6 @@ public class BardMod implements
 
     public static AssetLoader assets = new AssetLoader();
     public static TextureAtlas noteAtlas;
-    public static TextureAtlas powerAtlas;
 
     public static NotesPanel notesPanel;
     public static MelodiesPanel melodiesPanel;
@@ -121,7 +120,6 @@ public class BardMod implements
     public void receivePostInitialize()
     {
         noteAtlas = assets.loadAtlas(assetPath("images/notes/notes.atlas"));
-        powerAtlas = assets.loadAtlas(assetPath("images/powers/powers.atlas"));
 
         MelodyManager.addMelody(new AttackUpSmallMelody());
         //MelodyManager.addMelody(new AttackUpLargeMelody());

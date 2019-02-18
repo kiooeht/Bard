@@ -12,7 +12,7 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 
-public class CursedPower extends AbstractPower implements HealthBarRenderPower
+public class CursedPower extends AbstractBardPower implements HealthBarRenderPower
 {
     public static final String POWER_ID = BardMod.makeID("Cursed");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -31,8 +31,7 @@ public class CursedPower extends AbstractPower implements HealthBarRenderPower
         type = PowerType.DEBUFF;
         amount = damage;
         updateDescription();
-        region48 = BardMod.powerAtlas.findRegion("48/cursed");
-        region128 = BardMod.powerAtlas.findRegion("128/cursed");
+        loadRegion("cursed");
     }
 
     @Override

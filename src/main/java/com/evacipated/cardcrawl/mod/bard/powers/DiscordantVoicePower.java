@@ -12,9 +12,8 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
-import com.megacrit.cardcrawl.powers.AbstractPower;
 
-public class DiscordantVoicePower extends AbstractPower implements OnNoteQueuedHook
+public class DiscordantVoicePower extends AbstractBardPower implements OnNoteQueuedHook
 {
     public static final String POWER_ID = BardMod.makeID("DiscordantVoice");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -29,8 +28,7 @@ public class DiscordantVoicePower extends AbstractPower implements OnNoteQueuedH
         type = PowerType.BUFF;
         amount = damage;
         updateDescription();
-        region48 = BardMod.powerAtlas.findRegion("48/discordantVoice");
-        region128 = BardMod.powerAtlas.findRegion("128/discordantVoice");
+        loadRegion("discordantVoice");
     }
 
     @Override

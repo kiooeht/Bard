@@ -12,7 +12,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import java.util.HashMap;
 import java.util.Map;
 
-public class GreaterMagicWeaponPower extends AbstractPower
+public class GreaterMagicWeaponPower extends AbstractBardPower
 {
     public static final String POWER_ID = BardMod.makeID("GreaterMagicWeapon");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -28,8 +28,7 @@ public class GreaterMagicWeaponPower extends AbstractPower
         this.owner = owner;
         type = PowerType.BUFF;
         updateDescription();
-        region48 = BardMod.powerAtlas.findRegion("48/greaterMagicWeapon");
-        region128 = BardMod.powerAtlas.findRegion("128/greaterMagicWeapon");
+        loadRegion("greaterMagicWeapon");
     }
 
     @Override

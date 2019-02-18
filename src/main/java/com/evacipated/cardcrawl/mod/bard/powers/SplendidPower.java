@@ -1,7 +1,6 @@
 package com.evacipated.cardcrawl.mod.bard.powers;
 
 import com.evacipated.cardcrawl.mod.bard.BardMod;
-import com.evacipated.cardcrawl.mod.stslib.powers.abstracts.TwoAmountPower;
 import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.NonStackablePower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -11,7 +10,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-public class SplendidPower extends TwoAmountPower implements NonStackablePower
+public class SplendidPower extends AbstractBardTwoAmountPower implements NonStackablePower
 {
     public static final String POWER_ID = BardMod.makeID("SplendidForm");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -27,8 +26,7 @@ public class SplendidPower extends TwoAmountPower implements NonStackablePower
         this.amount = amount;
         this.amount2 = inspiration;
         updateDescription();
-        region48 = BardMod.powerAtlas.findRegion("48/splendid");
-        region128 = BardMod.powerAtlas.findRegion("128/splendid");
+        loadRegion("splendid");
     }
 
     @Override

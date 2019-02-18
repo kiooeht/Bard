@@ -6,7 +6,6 @@ import com.evacipated.cardcrawl.mod.bard.actions.common.SelectMelodyAction;
 import com.evacipated.cardcrawl.mod.bard.helpers.MelodyManager;
 import com.evacipated.cardcrawl.mod.bard.hooks.OnNoteQueuedHook;
 import com.evacipated.cardcrawl.mod.bard.notes.AbstractNote;
-import com.evacipated.cardcrawl.mod.stslib.powers.abstracts.TwoAmountPower;
 import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.NonStackablePower;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -15,7 +14,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-public class ImprovisationPower extends TwoAmountPower implements NonStackablePower, OnNoteQueuedHook
+public class ImprovisationPower extends AbstractBardTwoAmountPower implements NonStackablePower, OnNoteQueuedHook
 {
     public static final String POWER_ID = BardMod.makeID("Improvisation");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -34,8 +33,7 @@ public class ImprovisationPower extends TwoAmountPower implements NonStackablePo
         amount2 = origNotes = notes;
         isTurnBased = true;
         updateDescription();
-        region48 = BardMod.powerAtlas.findRegion("48/twoAndFour");
-        region128 = BardMod.powerAtlas.findRegion("128/twoAndFour");
+        loadRegion("twoAndFour");
     }
 
     @Override

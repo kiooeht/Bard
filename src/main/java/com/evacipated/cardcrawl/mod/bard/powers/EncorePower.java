@@ -8,9 +8,8 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
-import com.megacrit.cardcrawl.powers.AbstractPower;
 
-public class EncorePower extends AbstractPower implements OnMelodyPlayedHook
+public class EncorePower extends AbstractBardPower implements OnMelodyPlayedHook
 {
     public static final String POWER_ID = BardMod.makeID("Encore");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -25,8 +24,8 @@ public class EncorePower extends AbstractPower implements OnMelodyPlayedHook
         type = PowerType.BUFF;
         this.amount = amount;
         updateDescription();
-        region48 = BardMod.powerAtlas.findRegion("48/deathMetal");
-        region128 = BardMod.powerAtlas.findRegion("128/deathMetal");
+        // TODO
+        loadRegion("deathMetal");
     }
 
     @Override

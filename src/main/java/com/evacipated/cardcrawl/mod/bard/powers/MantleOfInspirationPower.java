@@ -7,7 +7,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-public class MantleOfInspirationPower extends AbstractPower implements ModifyInspirationPower
+public class MantleOfInspirationPower extends AbstractBardPower implements ModifyInspirationPower
 {
     public static final String POWER_ID = BardMod.makeID("MantleOfInspiration");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -22,8 +22,7 @@ public class MantleOfInspirationPower extends AbstractPower implements ModifyIns
         type = PowerType.BUFF;
         this.amount = amount;
         updateDescription();
-        region48 = BardMod.powerAtlas.findRegion("48/mantleOfInspiration");
-        region128 = BardMod.powerAtlas.findRegion("128/mantleOfInspiration");
+        loadRegion("mantleOfInspiration");
     }
 
     @Override

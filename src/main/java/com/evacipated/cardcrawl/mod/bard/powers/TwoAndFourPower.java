@@ -6,9 +6,8 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
-import com.megacrit.cardcrawl.powers.AbstractPower;
 
-public class TwoAndFourPower extends AbstractPower
+public class TwoAndFourPower extends AbstractBardPower
 {
     public static final String POWER_ID = BardMod.makeID("TwoAndFour");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -23,8 +22,7 @@ public class TwoAndFourPower extends AbstractPower
         type = PowerType.BUFF;
         this.amount = amount;
         updateDescription();
-        region48 = BardMod.powerAtlas.findRegion("48/twoAndFour");
-        region128 = BardMod.powerAtlas.findRegion("128/twoAndFour");
+        loadRegion("twoAndFour");
     }
 
     @Override

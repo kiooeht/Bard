@@ -8,7 +8,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-public class DeEnergizedPower extends AbstractPower
+public class DeEnergizedPower extends AbstractBardPower
 {
     public static final String POWER_ID = BardMod.makeID("DeEnergized");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -23,8 +23,7 @@ public class DeEnergizedPower extends AbstractPower
         type = PowerType.DEBUFF;
         amount = energyAmt;
         updateDescription();
-        region48 = BardMod.powerAtlas.findRegion("48/deenergized");
-        region128 = BardMod.powerAtlas.findRegion("128/deenergized");
+        loadRegion("deenergized");
     }
 
     @Override

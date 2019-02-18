@@ -12,7 +12,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-public class HarmoniousVoicePower extends AbstractPower implements OnNoteQueuedHook
+public class HarmoniousVoicePower extends AbstractBardPower implements OnNoteQueuedHook
 {
     public static final String POWER_ID = BardMod.makeID("HarmoniousVoice");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -27,8 +27,7 @@ public class HarmoniousVoicePower extends AbstractPower implements OnNoteQueuedH
         type = PowerType.BUFF;
         amount = tempHp;
         updateDescription();
-        region48 = BardMod.powerAtlas.findRegion("48/harmoniousVoice");
-        region128 = BardMod.powerAtlas.findRegion("128/harmoniousVoice");
+        loadRegion("harmoniousVoice");
     }
 
     @Override

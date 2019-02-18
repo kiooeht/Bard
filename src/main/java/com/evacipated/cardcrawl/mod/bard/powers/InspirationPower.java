@@ -3,7 +3,6 @@ package com.evacipated.cardcrawl.mod.bard.powers;
 import com.evacipated.cardcrawl.mod.bard.BardMod;
 import com.evacipated.cardcrawl.mod.bard.cards.AbstractBardCard;
 import com.evacipated.cardcrawl.mod.bard.powers.interfaces.ModifyBlockFinalPower;
-import com.evacipated.cardcrawl.mod.stslib.powers.abstracts.TwoAmountPower;
 import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.NonStackablePower;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
@@ -15,7 +14,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-public class InspirationPower extends TwoAmountPower implements NonStackablePower, ModifyBlockFinalPower
+public class InspirationPower extends AbstractBardTwoAmountPower implements NonStackablePower, ModifyBlockFinalPower
 {
     public static final String POWER_ID = BardMod.makeID("Inspiration");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -35,8 +34,7 @@ public class InspirationPower extends TwoAmountPower implements NonStackablePowe
         amount2 = percent;
         priority = 7;
         updateDescription();
-        region48 = BardMod.powerAtlas.findRegion("48/inspiration");
-        region128 = BardMod.powerAtlas.findRegion("128/inspiration");
+        loadRegion("inspiration");
     }
 
     @Override

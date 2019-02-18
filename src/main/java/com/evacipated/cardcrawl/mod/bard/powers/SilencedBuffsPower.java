@@ -8,7 +8,7 @@ import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-public class SilencedBuffsPower extends AbstractPower implements OnReceivePowerPower
+public class SilencedBuffsPower extends AbstractBardPower implements OnReceivePowerPower
 {
     public static final String POWER_ID = BardMod.makeID("SilencedBuffs");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -22,8 +22,7 @@ public class SilencedBuffsPower extends AbstractPower implements OnReceivePowerP
         this.owner = owner;
         type = PowerType.DEBUFF;
         updateDescription();
-        region48 = BardMod.powerAtlas.findRegion("48/silenced");
-        region128 = BardMod.powerAtlas.findRegion("128/silenced");
+        loadRegion("silenced");
     }
 
     @Override

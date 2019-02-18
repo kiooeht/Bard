@@ -14,7 +14,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-public class GlyphOfWardingPower extends AbstractPower implements OnLoseBlockPower, OnLoseTempHpPower
+public class GlyphOfWardingPower extends AbstractBardPower implements OnLoseBlockPower, OnLoseTempHpPower
 {
     public static final String POWER_ID = BardMod.makeID("GlyphOfWarding");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -29,8 +29,7 @@ public class GlyphOfWardingPower extends AbstractPower implements OnLoseBlockPow
         type = PowerType.BUFF;
         this.amount = damage;
         updateDescription();
-        region48 = BardMod.powerAtlas.findRegion("48/glyphOfWarding");
-        region128 = BardMod.powerAtlas.findRegion("128/glyphOfWarding");
+        loadRegion("glyphOfWarding");
     }
 
     @Override
