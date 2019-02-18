@@ -6,7 +6,7 @@ filter: Linear,Linear
 repeat: none
 128/blink
   rotate: false
-  xy: 992, 78
+  xy: 1082, 78
   size: 93, 48
   orig: 128, 128
   offset: 17, 39
@@ -20,31 +20,38 @@ repeat: none
   index: -1
 128/cursed
   rotate: false
-  xy: 907, 47
+  xy: 997, 47
   size: 83, 79
   orig: 128, 128
   offset: 21, 25
   index: -1
 128/deathMetal
   rotate: false
-  xy: 1280, 55
+  xy: 1370, 55
   size: 55, 71
   orig: 128, 128
   offset: 35, 26
   index: -1
 128/deenergized
   rotate: false
-  xy: 564, 40
+  xy: 654, 40
   size: 84, 86
   orig: 128, 128
   offset: 22, 21
   index: -1
 128/discordantVoice
   rotate: false
-  xy: 823, 37
+  xy: 913, 37
   size: 82, 89
   orig: 128, 128
   offset: 22, 17
+  index: -1
+128/encore
+  rotate: false
+  xy: 476, 42
+  size: 88, 84
+  orig: 128, 128
+  offset: 13, 16
   index: -1
 128/glyphOfWarding
   rotate: false
@@ -55,42 +62,42 @@ repeat: none
   index: -1
 128/greaterMagicWeapon
   rotate: false
-  xy: 650, 44
+  xy: 740, 44
   size: 86, 82
   orig: 128, 128
   offset: 21, 23
   index: -1
 128/harmoniousVoice
   rotate: false
-  xy: 738, 44
+  xy: 828, 44
   size: 83, 82
   orig: 128, 128
   offset: 26, 31
   index: -1
 128/inspiration
   rotate: false
-  xy: 1228, 37
+  xy: 1318, 37
   size: 50, 89
   orig: 128, 128
   offset: 38, 20
   index: -1
 128/lingeringEcho
   rotate: false
-  xy: 476, 41
+  xy: 566, 41
   size: 86, 85
   orig: 128, 128
   offset: 22, 24
   index: -1
 128/mantleOfInspiration
   rotate: false
-  xy: 1164, 37
+  xy: 1254, 37
   size: 62, 89
   orig: 128, 128
   offset: 26, 20
   index: -1
 128/reverseGravity
   rotate: false
-  xy: 1337, 65
+  xy: 1427, 65
   size: 61, 61
   orig: 128, 128
   offset: 33, 33
@@ -111,7 +118,7 @@ repeat: none
   index: -1
 128/splendid
   rotate: false
-  xy: 1087, 63
+  xy: 1177, 63
   size: 75, 63
   orig: 128, 128
   offset: 27, 35
@@ -125,14 +132,14 @@ repeat: none
   index: -1
 48/blink
   rotate: false
-  xy: 992, 57
+  xy: 1082, 57
   size: 36, 19
   orig: 48, 48
   offset: 6, 14
   index: -1
 48/covetousAura
   rotate: false
-  xy: 1620, 94
+  xy: 1710, 94
   size: 33, 32
   orig: 48, 48
   offset: 7, 8
@@ -146,63 +153,70 @@ repeat: none
   index: -1
 48/deathMetal
   rotate: false
-  xy: 1804, 99
+  xy: 1929, 99
   size: 22, 27
   orig: 48, 48
   offset: 12, 9
   index: -1
 48/deenergized
   rotate: false
-  xy: 1655, 94
+  xy: 1780, 94
   size: 32, 32
   orig: 48, 48
   offset: 8, 8
   index: -1
 48/discordantVoice
   rotate: false
-  xy: 1552, 91
+  xy: 1642, 91
   size: 31, 35
   orig: 48, 48
   offset: 8, 5
   index: -1
+48/encore
+  rotate: false
+  xy: 1745, 94
+  size: 33, 32
+  orig: 48, 48
+  offset: 4, 6
+  index: -1
 48/glyphOfWarding
   rotate: false
-  xy: 1518, 90
+  xy: 1608, 90
   size: 32, 36
   orig: 48, 48
   offset: 7, 6
   index: -1
 48/greaterMagicWeapon
   rotate: false
-  xy: 1689, 95
+  xy: 1814, 95
   size: 33, 31
   orig: 48, 48
   offset: 8, 9
   index: -1
 48/harmoniousVoice
   rotate: false
-  xy: 1724, 93
+  xy: 1849, 93
   size: 31, 33
   orig: 48, 48
   offset: 9, 11
   index: -1
 48/inspiration
   rotate: false
-  xy: 1783, 92
+  xy: 1908, 92
   size: 19, 34
   orig: 48, 48
   offset: 14, 7
   index: -1
 48/lingeringEcho
   rotate: false
-  xy: 1585, 94
+  xy: 1675, 94
   size: 33, 32
   orig: 48, 48
   offset: 8, 9
   index: -1
 48/mantleOfInspiration
   rotate: false
-  xy: 1757, 91
+  xy: 1882, 91
   size: 24, 35
   orig: 48, 48
   offset: 9, 7
@@ -216,14 +230,14 @@ repeat: none
   index: -1
 48/silenced
   rotate: false
-  xy: 1445, 90
+  xy: 1535, 90
   size: 35, 36
   orig: 48, 48
   offset: 7, 6
   index: -1
 48/sonata
   rotate: false
-  xy: 1482, 88
+  xy: 1572, 88
   size: 34, 38
   orig: 48, 48
   offset: 5, 4
@@ -237,7 +251,7 @@ repeat: none
   index: -1
 48/twoAndFour
   rotate: false
-  xy: 1400, 90
+  xy: 1490, 90
   size: 43, 36
   orig: 48, 48
   offset: 2, 8

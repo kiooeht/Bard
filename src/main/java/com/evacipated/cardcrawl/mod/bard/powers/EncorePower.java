@@ -24,8 +24,7 @@ public class EncorePower extends AbstractBardPower implements OnMelodyPlayedHook
         type = PowerType.BUFF;
         this.amount = amount;
         updateDescription();
-        // TODO
-        loadRegion("deathMetal");
+        loadRegion("encore");
     }
 
     @Override
