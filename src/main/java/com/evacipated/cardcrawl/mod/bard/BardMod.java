@@ -120,8 +120,8 @@ public class BardMod implements
     @Override
     public void receivePostInitialize()
     {
-        noteAtlas = new TextureAtlas(Gdx.files.internal(assetPath("images/notes/notes.atlas")));
-        powerAtlas = new TextureAtlas(Gdx.files.internal(assetPath("images/powers/powers.atlas")));
+        noteAtlas = assets.loadAtlas(assetPath("images/notes/notes.atlas"));
+        powerAtlas = assets.loadAtlas(assetPath("images/powers/powers.atlas"));
 
         MelodyManager.addMelody(new AttackUpSmallMelody());
         //MelodyManager.addMelody(new AttackUpLargeMelody());
