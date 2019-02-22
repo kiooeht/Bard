@@ -13,6 +13,9 @@
         <ModID>bard</ModID>
         <SlayTheSpire.version>11-15-2018</SlayTheSpire.version>
         <ModTheSpire.version>3.6.0</ModTheSpire.version>
+
+        <make.productionAssets>../../../../../../productionAssets/cards</make.productionAssets>
+        <make.resources>${basedir}/src/main/resources/bardAssets/images/cards</make.resources>
     </properties>
 
     <dependencies>
@@ -47,7 +50,7 @@
     </dependencies>
 
     <build>
-        <finalName>${name}</finalName>
+        <finalName>${project.name}</finalName>
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
@@ -56,6 +59,8 @@
                     <exclude>bardAssets/localization/*.json</exclude>
                     <exclude>ModTheSpire.json</exclude>
                     <exclude>META-INF/bard_version.prop</exclude>
+                    <exclude>**/*.swp</exclude>
+                    <exclude>**/Makefile</exclude>
                 </excludes>
             </resource>
             <resource>
@@ -84,10 +89,40 @@
                 <version>1.8</version>
                 <executions>
                     <execution>
+                        <id>card art</id>
+                        <phase>generate-resources</phase>
+                        <configuration>
+                            <target>
+                                <exec dir="${make.resources}" executable="bash" failonerror="true">
+                                    <arg value="-c"/>
+                                    <arg value="make PROD=${make.productionAssets}"/>
+                                </exec>
+                            </target>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>card art clean</id>
+                        <phase>clean</phase>
+                        <configuration>
+                            <target>
+                                <exec dir="${make.resources}" executable="bash" failonerror="true">
+                                    <arg value="-c"/>
+                                    <arg value="make clean"/>
+                                </exec>
+                            </target>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                    <execution>
                         <phase>package</phase>
                         <configuration>
                             <target>
-                                <copy file="target/${name}.jar" tofile="../_ModTheSpire/mods/${name}.jar"/>
+                                <copy file="target/${project.name}.jar" tofile="../_ModTheSpire/mods/${project.name}.jar"/>
                             </target>
                         </configuration>
                         <goals>

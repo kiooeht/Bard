@@ -24,6 +24,9 @@ target/
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 
+# vim
+*.swp
+
 # =========================
 # Operating System Files
 # =========================
@@ -77,3 +80,7 @@ $RECYCLE.BIN/
 
 # Spriter files
 *.autosave.scml
+
+# Card Art
+src/main/resources/bardAssets/images/cards/**
+!src/main/resources/bardAssets/images/cards/Makefile
