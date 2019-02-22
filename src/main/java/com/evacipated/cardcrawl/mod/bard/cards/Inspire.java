@@ -17,7 +17,7 @@ import java.util.List;
 public class Inspire extends AbstractBardCard
 {
     public static final String ID = BardMod.makeID("Inspire");
-    public static final String IMG = null;
+    public static final String IMG = BardMod.assetPath("images/cards/skill/inspire.png");
     private static final int COST = 0;
     private static final int INSPIRATION = 50;
     private static final int UPGRADE_INSPIRATION = 25;
