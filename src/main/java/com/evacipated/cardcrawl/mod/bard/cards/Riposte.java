@@ -20,7 +20,7 @@ import java.util.List;
 public class Riposte extends AbstractBardCard
 {
     public static final String ID = BardMod.makeID("Riposte");
-    public static final String IMG = null;
+    public static final String IMG = BardMod.assetPath("images/cards/attack/riposte.png");
     private static final int COST = 1;
     private static final int DAMAGE = 5;
     private static final int UPGRADE_DAMAGE = 2;
