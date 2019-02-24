@@ -15,7 +15,6 @@ import java.util.List;
 public class Shifting extends AbstractBardCard
 {
     public static final String ID = BardMod.makeID("Shifting");
-    public static final String IMG = null;
     private static final int COST = 3;
     private static final int DAMAGE = 16;
     private static final int UPGRADE_DAMAGE = 5;
@@ -24,7 +23,7 @@ public class Shifting extends AbstractBardCard
 
     public Shifting()
     {
-        super(ID, IMG, COST, CardType.ATTACK, Bard.Enums.COLOR, CardRarity.RARE, CardTarget.ENEMY);
+        super(ID, COST, CardType.ATTACK, Bard.Enums.COLOR, CardRarity.RARE, CardTarget.ENEMY);
 
         baseDamage = DAMAGE;
         baseBlock = BLOCK;

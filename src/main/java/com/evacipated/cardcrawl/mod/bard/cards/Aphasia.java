@@ -17,7 +17,6 @@ import java.util.List;
 public class Aphasia extends AbstractBardCard
 {
     public static final String ID = BardMod.makeID("Aphasia");
-    public static final String IMG = null;
     private static final int COST = 2;
     private static final int STRLOSS_LOW = 1;
     private static final int UPGRADE_STRLOSS_LOW = 1;
@@ -26,7 +25,7 @@ public class Aphasia extends AbstractBardCard
 
     public Aphasia()
     {
-        super(ID, IMG, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.UNCOMMON, CardTarget.ALL_ENEMY);
+        super(ID, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.UNCOMMON, CardTarget.ALL_ENEMY);
 
         exhaust = true;
         magicNumber2 = baseMagicNumber2 = STRLOSS_LOW;

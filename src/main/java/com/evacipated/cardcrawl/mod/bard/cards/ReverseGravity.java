@@ -22,7 +22,6 @@ import java.util.List;
 public class ReverseGravity extends AbstractBardCard
 {
     public static final String ID = BardMod.makeID("ReverseGravity");
-    public static final String IMG = null;
     private static final int COST = 3;
     private static final int UPGRADE_COST = 2;
     private static final int DAMAGE = 15;
@@ -30,7 +29,7 @@ public class ReverseGravity extends AbstractBardCard
 
     public ReverseGravity()
     {
-        super(ID, IMG, COST, CardType.ATTACK, Bard.Enums.COLOR, CardRarity.RARE, CardTarget.ALL_ENEMY);
+        super(ID, COST, CardType.ATTACK, Bard.Enums.COLOR, CardRarity.RARE, CardTarget.ALL_ENEMY);
 
         baseDamage = DAMAGE;
         isMultiDamage = true;

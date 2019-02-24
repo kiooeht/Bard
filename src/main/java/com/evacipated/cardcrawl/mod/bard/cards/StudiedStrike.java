@@ -20,7 +20,6 @@ import java.util.List;
 public class StudiedStrike extends AbstractBardCard
 {
     public static final String ID = BardMod.makeID("StudiedStrike");
-    public static final String IMG = null;
     private static final int COST = 1;
     private static final int DAMAGE = 8;
     private static final int BONUS = 1;
@@ -28,7 +27,7 @@ public class StudiedStrike extends AbstractBardCard
 
     public StudiedStrike()
     {
-        super(ID, IMG, COST, CardType.ATTACK, Bard.Enums.COLOR, CardRarity.COMMON, CardTarget.ENEMY);
+        super(ID, COST, CardType.ATTACK, Bard.Enums.COLOR, CardRarity.COMMON, CardTarget.ENEMY);
 
         tags.add(CardTags.STRIKE);
         baseDamage = DAMAGE;

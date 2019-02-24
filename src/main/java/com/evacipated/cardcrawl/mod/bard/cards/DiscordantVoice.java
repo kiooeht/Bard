@@ -16,14 +16,13 @@ import java.util.List;
 public class DiscordantVoice extends AbstractBardCard
 {
     public static final String ID = BardMod.makeID("DiscordantVoice");
-    public static final String IMG = null;
     private static final int COST = 2;
     private static final int UPGRADE_COST = 1;
     private static final int DAMAGE = 2;
 
     public DiscordantVoice()
     {
-        super(ID, IMG, COST, CardType.POWER, Bard.Enums.COLOR, CardRarity.UNCOMMON, CardTarget.SELF);
+        super(ID, COST, CardType.POWER, Bard.Enums.COLOR, CardRarity.UNCOMMON, CardTarget.SELF);
 
         magicNumber = baseMagicNumber = DAMAGE;
     }

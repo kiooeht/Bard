@@ -15,12 +15,11 @@ import java.util.List;
 public class PrismaticSpray extends AbstractBardCard
 {
     public static final String ID = BardMod.makeID("PrismaticSpray");
-    public static final String IMG = null;
     private static final int COST = -1;
 
     public PrismaticSpray()
     {
-        super(ID, IMG, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.RARE, CardTarget.ALL);
+        super(ID, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.RARE, CardTarget.ALL);
     }
 
     @Override

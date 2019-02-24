@@ -17,7 +17,6 @@ import java.util.List;
 public class TinyHut extends AbstractBardCard
 {
     public static final String ID = BardMod.makeID("TinyHut");
-    public static final String IMG = BardMod.assetPath("images/cards/skill/tinyHut.png");
     private static final int COST = 1;
     private static final int BLOCK = 5;
     private static final int UPGRADE_BLOCK = 3;
@@ -25,7 +24,7 @@ public class TinyHut extends AbstractBardCard
 
     public TinyHut()
     {
-        super(ID, IMG, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.COMMON, CardTarget.SELF);
+        super(ID, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.COMMON, CardTarget.SELF);
 
         baseBlock = BLOCK;
         magicNumber = baseMagicNumber = DRAW;

@@ -20,7 +20,6 @@ import java.util.List;
 public class ViciousMockery extends AbstractBardCard
 {
     public static final String ID = BardMod.makeID("ViciousMockery");
-    public static final String IMG = null;
     private static final int COST = 0;
     private static final int DAMAGE = 3;
     private static final int UPGRADE_DAMAGE = 2;
@@ -28,7 +27,7 @@ public class ViciousMockery extends AbstractBardCard
 
     public ViciousMockery()
     {
-        super(ID, IMG, COST, CardType.ATTACK, Bard.Enums.COLOR, CardRarity.COMMON, CardTarget.ENEMY);
+        super(ID, COST, CardType.ATTACK, Bard.Enums.COLOR, CardRarity.COMMON, CardTarget.ENEMY);
 
         baseDamage = DAMAGE;
         magicNumber = baseMagicNumber = WEAK;

@@ -17,14 +17,13 @@ import java.util.List;
 public class SplendidForm extends AbstractBardCard
 {
     public static final String ID = BardMod.makeID("SplendidForm");
-    public static final String IMG = null;
     private static final int COST = 3;
     private static final int INSPIRATION = 100;
     private static final int UPGRADE_INSPIRATION = 100;
 
     public SplendidForm()
     {
-        super(ID, IMG, COST, CardType.POWER, Bard.Enums.COLOR, CardRarity.RARE, CardTarget.SELF);
+        super(ID, COST, CardType.POWER, Bard.Enums.COLOR, CardRarity.RARE, CardTarget.SELF);
 
         tags.add(BaseModCardTags.FORM);
 

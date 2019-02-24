@@ -15,14 +15,13 @@ import java.util.List;
 public class Improv extends AbstractBardCard
 {
     public static final String ID = BardMod.makeID("Improv");
-    public static final String IMG = null;
     private static final int COST = 0;
     private static final int NOTES_PER_MELODY = 6;
     private static final int UPGRADE_NOTES_PER_MELODY = -1;
 
     public Improv()
     {
-        super(ID, IMG, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.RARE, CardTarget.SELF);
+        super(ID, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.RARE, CardTarget.SELF);
 
         magicNumber = baseMagicNumber = NOTES_PER_MELODY;
     }

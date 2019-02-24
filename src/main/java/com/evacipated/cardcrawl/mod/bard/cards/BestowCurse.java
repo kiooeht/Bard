@@ -17,7 +17,6 @@ import java.util.List;
 public class BestowCurse extends AbstractBardCard
 {
     public static final String ID = BardMod.makeID("BestowCurse");
-    public static final String IMG = null;
     private static final int COST = 2;
     private static final int CURSE_AMT = 4;
     private static final int UPGRADE_CURSE_AMT = 3;
@@ -25,7 +24,7 @@ public class BestowCurse extends AbstractBardCard
 
     public BestowCurse()
     {
-        super(ID, IMG, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.UNCOMMON, CardTarget.ENEMY);
+        super(ID, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.UNCOMMON, CardTarget.ENEMY);
 
         magicNumber = baseMagicNumber = CURSE_AMT;
         ExhaustiveField.ExhaustiveFields.baseExhaustive.set(this, EXHAUSTIVE_USES);

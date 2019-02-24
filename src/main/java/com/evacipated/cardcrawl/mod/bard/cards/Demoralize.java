@@ -15,13 +15,12 @@ import java.util.List;
 public class Demoralize extends AbstractBardCard
 {
     public static final String ID = BardMod.makeID("Demoralize");
-    public static final String IMG = null;
     private static final int COST = 1;
     private static final int UPGRADE_COST = 0;
 
     public Demoralize()
     {
-        super(ID, IMG, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.UNCOMMON, CardTarget.ENEMY);
+        super(ID, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.UNCOMMON, CardTarget.ENEMY);
     }
 
     @Override

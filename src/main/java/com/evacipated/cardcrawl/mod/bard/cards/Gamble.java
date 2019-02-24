@@ -15,13 +15,12 @@ import java.util.List;
 public class Gamble extends AbstractBardCard
 {
     public static final String ID = BardMod.makeID("Gamble");
-    public static final String IMG = null;
     private static final int COST = 1;
     private static final int UPGRADE_COST = 0;
 
     public Gamble()
     {
-        super(ID, IMG, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.COMMON, CardTarget.SELF);
+        super(ID, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.COMMON, CardTarget.SELF);
     }
 
     @Override

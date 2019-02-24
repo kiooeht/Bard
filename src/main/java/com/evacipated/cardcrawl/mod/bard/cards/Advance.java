@@ -20,14 +20,13 @@ import java.util.List;
 public class Advance extends AbstractBardCard
 {
     public static final String ID = BardMod.makeID("Advance");
-    public static final String IMG = null;
     private static final int COST = 0;
     private static final int ENERGY = 1;
     private static final int DRAW = 2;
 
     public Advance()
     {
-        super(ID, IMG, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.UNCOMMON, CardTarget.SELF);
+        super(ID, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.UNCOMMON, CardTarget.SELF);
 
         magicNumber = baseMagicNumber = DRAW;
     }

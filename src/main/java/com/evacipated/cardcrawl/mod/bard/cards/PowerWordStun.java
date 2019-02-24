@@ -17,7 +17,6 @@ import java.util.List;
 public class PowerWordStun extends AbstractBardCard
 {
     public static final String ID = BardMod.makeID("PowerWordStun");
-    public static final String IMG = null;
     private static final int COST = 2;
     private static final int STUN = 1;
     private static final int HP_THRESHOLD = 50;
@@ -25,7 +24,7 @@ public class PowerWordStun extends AbstractBardCard
 
     public PowerWordStun()
     {
-        super(ID, IMG, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.RARE, CardTarget.ENEMY);
+        super(ID, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.RARE, CardTarget.ENEMY);
 
         magicNumber = baseMagicNumber = STUN;
         magicNumber2 = baseMagicNumber2 = HP_THRESHOLD;

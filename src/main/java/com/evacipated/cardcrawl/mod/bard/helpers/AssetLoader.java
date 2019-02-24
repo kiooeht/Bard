@@ -4,6 +4,7 @@ import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.assets.loaders.TextureLoader;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.utils.GdxRuntimeException;
 
 public class AssetLoader
 {
@@ -16,7 +17,11 @@ public class AssetLoader
             param.minFilter = Texture.TextureFilter.Linear;
             param.magFilter = Texture.TextureFilter.Linear;
             assets.load(fileName, Texture.class, param);
-            assets.finishLoadingAsset(fileName);
+            try {
+                assets.finishLoadingAsset(fileName);
+            } catch (GdxRuntimeException e) {
+                return null;
+            }
         }
         return assets.get(fileName, Texture.class);
     }

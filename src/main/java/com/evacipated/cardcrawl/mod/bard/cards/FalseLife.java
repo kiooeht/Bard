@@ -17,7 +17,6 @@ import java.util.List;
 public class FalseLife extends AbstractBardCard
 {
     public static final String ID = BardMod.makeID("FalseLife");
-    public static final String IMG = null;
     private static final int COST = 2;
     private static final int TEMP_HP = 10;
     private static final int BONUS_TEMP_HP = 2;
@@ -25,7 +24,7 @@ public class FalseLife extends AbstractBardCard
 
     public FalseLife()
     {
-        super(ID, IMG, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.UNCOMMON, CardTarget.SELF);
+        super(ID, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.UNCOMMON, CardTarget.SELF);
 
         magicNumber = baseMagicNumber = TEMP_HP;
         magicNumber2 = baseMagicNumber2 = BONUS_TEMP_HP;

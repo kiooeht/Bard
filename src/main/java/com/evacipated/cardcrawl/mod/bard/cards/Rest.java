@@ -16,14 +16,13 @@ import java.util.List;
 public class Rest extends AbstractBardCard
 {
     public static final String ID = BardMod.makeID("Rest");
-    public static final String IMG = null;
     private static final int COST = 0;
     private static final int HEAL = 2;
     private static final int UPGRADE_HEAL = 1;
 
     public Rest()
     {
-        super(ID, IMG, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.UNCOMMON, CardTarget.SELF);
+        super(ID, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.UNCOMMON, CardTarget.SELF);
 
         magicNumber = baseMagicNumber = HEAL;
         exhaust = true;

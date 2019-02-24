@@ -22,14 +22,13 @@ import java.util.List;
 public class PhantasmalForce extends AbstractBardCard
 {
     public static final String ID = BardMod.makeID("PhantasmalForce");
-    public static final String IMG = null;
     private static final int COST = 2;
     private static final int TEMP_HP = 7;
     private static final int UPGRADE_TEMP_HP = 2;
 
     public PhantasmalForce()
     {
-        super(ID, IMG, COST, CardType.ATTACK, Bard.Enums.COLOR, CardRarity.COMMON, CardTarget.ENEMY);
+        super(ID, COST, CardType.ATTACK, Bard.Enums.COLOR, CardRarity.COMMON, CardTarget.ENEMY);
 
         magicNumber = baseMagicNumber = TEMP_HP;
     }

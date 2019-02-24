@@ -19,7 +19,6 @@ import java.util.List;
 public class OffKey extends AbstractBardCard
 {
     public static final String ID = BardMod.makeID("OffKey");
-    public static final String IMG = null;
     private static final int COST = 1;
     private static final int DAMAGE = 10;
     private static final int BLOCK = 10;
@@ -28,7 +27,7 @@ public class OffKey extends AbstractBardCard
 
     public OffKey()
     {
-        super(ID, IMG, COST, CardType.ATTACK, Bard.Enums.COLOR, CardRarity.UNCOMMON, CardTarget.SELF_AND_ENEMY);
+        super(ID, COST, CardType.ATTACK, Bard.Enums.COLOR, CardRarity.UNCOMMON, CardTarget.SELF_AND_ENEMY);
 
         baseDamage = DAMAGE;
         baseBlock = BLOCK;

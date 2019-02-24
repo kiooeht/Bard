@@ -18,14 +18,13 @@ import java.util.List;
 public class InspiringSong extends AbstractBardCard
 {
     public static final String ID = BardMod.makeID("InspiringSong");
-    public static final String IMG = null;
     private static final int COST = 1;
     private static final int INSPIRATION = 50;
     private static final int UPGRADE_INSPIRATION = 25;
 
     public InspiringSong()
     {
-        super(ID, IMG, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.COMMON, CardTarget.SELF);
+        super(ID, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.COMMON, CardTarget.SELF);
 
         inspiration = baseInspiration = INSPIRATION;
     }

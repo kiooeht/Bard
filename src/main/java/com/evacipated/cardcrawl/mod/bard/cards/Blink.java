@@ -16,7 +16,6 @@ import java.util.List;
 public class Blink extends AbstractBardCard
 {
     public static final String ID = BardMod.makeID("Blink");
-    public static final String IMG = null;
     private static final int COST = 1;
     private static final int DAMAGE_REDUCE = 50;
     private static final int TURNS = 1;
@@ -24,7 +23,7 @@ public class Blink extends AbstractBardCard
 
     public Blink()
     {
-        super(ID, IMG, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.UNCOMMON, CardTarget.SELF);
+        super(ID, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.UNCOMMON, CardTarget.SELF);
 
         magicNumber2 = baseMagicNumber2 = DAMAGE_REDUCE;
         magicNumber = baseMagicNumber = TURNS;

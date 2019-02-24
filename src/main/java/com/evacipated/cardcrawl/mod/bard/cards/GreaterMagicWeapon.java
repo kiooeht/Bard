@@ -16,12 +16,11 @@ import java.util.List;
 public class GreaterMagicWeapon extends AbstractBardCard
 {
     public static final String ID = BardMod.makeID("GreaterMagicWeapon");
-    public static final String IMG = null;
     private static final int COST = 1;
 
     public GreaterMagicWeapon()
     {
-        super(ID, IMG, COST, CardType.POWER, Bard.Enums.COLOR, CardRarity.UNCOMMON, CardTarget.SELF);
+        super(ID, COST, CardType.POWER, Bard.Enums.COLOR, CardRarity.UNCOMMON, CardTarget.SELF);
     }
 
     @Override

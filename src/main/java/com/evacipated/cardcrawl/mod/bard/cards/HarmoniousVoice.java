@@ -16,14 +16,13 @@ import java.util.List;
 public class HarmoniousVoice extends AbstractBardCard
 {
     public static final String ID = BardMod.makeID("HarmoniousVoice");
-    public static final String IMG = null;
     private static final int COST = 2;
     private static final int UPGRADE_COST = 1;
     private static final int TEMP_HP_AMT = 1;
 
     public HarmoniousVoice()
     {
-        super(ID, IMG, COST, CardType.POWER, Bard.Enums.COLOR, CardRarity.UNCOMMON, CardTarget.SELF);
+        super(ID, COST, CardType.POWER, Bard.Enums.COLOR, CardRarity.UNCOMMON, CardTarget.SELF);
 
         magicNumber = baseMagicNumber = TEMP_HP_AMT;
     }

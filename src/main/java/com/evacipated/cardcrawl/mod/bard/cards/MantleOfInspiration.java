@@ -16,14 +16,13 @@ import java.util.List;
 public class MantleOfInspiration extends AbstractBardCard
 {
     public static final String ID = BardMod.makeID("MantleOfInspiration");
-    public static final String IMG = null;
     private static final int COST = 1;
     private static final int INSPIRATION_GAIN = 25;
     private static final int UPGRADE_INSPIRATION_GAIN = 25;
 
     public MantleOfInspiration()
     {
-        super(ID, IMG, COST, CardType.POWER, Bard.Enums.COLOR, CardRarity.UNCOMMON, CardTarget.SELF);
+        super(ID, COST, CardType.POWER, Bard.Enums.COLOR, CardRarity.UNCOMMON, CardTarget.SELF);
 
         magicNumber2 = baseMagicNumber2 = INSPIRATION_GAIN;
     }

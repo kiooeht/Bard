@@ -16,14 +16,13 @@ import java.util.List;
 public class Fermata extends AbstractBardCard
 {
     public static final String ID = BardMod.makeID("Fermata");
-    public static final String IMG = null;
     private static final int COST = 1;
     private static final int BLOCK = 11;
     private static final int UPGRADE_BLOCK = 3;
 
     public Fermata()
     {
-        super(ID, IMG, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.COMMON, CardTarget.SELF);
+        super(ID, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.COMMON, CardTarget.SELF);
 
         baseBlock = BLOCK;
     }

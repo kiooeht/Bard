@@ -19,14 +19,13 @@ import java.util.List;
 public class LingeringEcho extends AbstractBardCard
 {
     public static final String ID = BardMod.makeID("LingeringEcho");
-    public static final String IMG = null;
     private static final int COST = 1;
     private static final int DAMAGE = 9;
     private static final int UPGRADE_DAMAGE = 3;
 
     public LingeringEcho()
     {
-        super(ID, IMG, COST, CardType.ATTACK, Bard.Enums.COLOR, CardRarity.COMMON, CardTarget.ENEMY);
+        super(ID, COST, CardType.ATTACK, Bard.Enums.COLOR, CardRarity.COMMON, CardTarget.ENEMY);
 
         baseDamage = DAMAGE;
     }

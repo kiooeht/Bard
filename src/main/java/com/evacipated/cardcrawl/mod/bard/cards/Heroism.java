@@ -18,7 +18,6 @@ import java.util.List;
 public class Heroism extends AbstractBardCard
 {
     public static final String ID = BardMod.makeID("Heroism");
-    public static final String IMG = null;
     private static final int COST = 1;
     private static final int TEMP_HP = 5;
     private static final int UPGRADE_TEMP_HP = 3;
@@ -26,7 +25,7 @@ public class Heroism extends AbstractBardCard
 
     public Heroism()
     {
-        super(ID, IMG, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.UNCOMMON, CardTarget.SELF);
+        super(ID, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.UNCOMMON, CardTarget.SELF);
 
         magicNumber = baseMagicNumber = TEMP_HP;
         inspiration = baseInspiration = INSPIRATION;

@@ -16,14 +16,13 @@ import java.util.List;
 public class GlyphOfWarding extends AbstractBardCard
 {
     public static final String ID = BardMod.makeID("GlyphOfWarding");
-    public static final String IMG = null;
     private static final int COST = 1;
     private static final int DAMAGE = 2;
     private static final int UPGRADE_DAMAGE = 2;
 
     public GlyphOfWarding()
     {
-        super(ID, IMG, COST, CardType.POWER, Bard.Enums.COLOR, CardRarity.UNCOMMON, CardTarget.SELF);
+        super(ID, COST, CardType.POWER, Bard.Enums.COLOR, CardRarity.UNCOMMON, CardTarget.SELF);
 
         magicNumber = baseMagicNumber = DAMAGE;
     }

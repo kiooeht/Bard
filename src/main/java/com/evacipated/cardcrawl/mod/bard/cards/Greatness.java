@@ -16,7 +16,6 @@ import java.util.List;
 public class Greatness extends AbstractBardCard
 {
     public static final String ID = BardMod.makeID("Greatness");
-    public static final String IMG = null;
     private static final int COST = 1;
     private static final int AMT = 1;
     private static final int UPGRADE_AMT = 1;
@@ -24,7 +23,7 @@ public class Greatness extends AbstractBardCard
 
     public Greatness()
     {
-        super(ID, IMG, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.UNCOMMON, CardTarget.SELF);
+        super(ID, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.UNCOMMON, CardTarget.SELF);
 
         magicNumber = baseMagicNumber = AMT;
         inspiration = baseInspiration = INSPIRATION;

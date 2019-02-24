@@ -15,14 +15,13 @@ import java.util.List;
 public class DeathMetal extends AbstractBardCard
 {
     public static final String ID = BardMod.makeID("DeathMetal");
-    public static final String IMG = null;
     private static final int COST = 1;
     private static final int DAMAGE = 2;
     private static final int UPGRADE_DAMAGE = 2;
 
     public DeathMetal()
     {
-        super(ID, IMG, COST, CardType.POWER, Bard.Enums.COLOR, CardRarity.RARE, CardTarget.SELF);
+        super(ID, COST, CardType.POWER, Bard.Enums.COLOR, CardRarity.RARE, CardTarget.SELF);
 
         magicNumber = baseMagicNumber = DAMAGE;
     }

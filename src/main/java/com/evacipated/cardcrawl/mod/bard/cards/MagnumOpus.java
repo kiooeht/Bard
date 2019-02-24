@@ -17,7 +17,6 @@ import java.util.List;
 public class MagnumOpus extends AbstractBardCard
 {
     public static final String ID = BardMod.makeID("MagnumOpus");
-    public static final String IMG = null;
     private static final int COST = 2;
     private static final int UPGRADE_COST = 1;
     private static final int INSPIRATION = 25;
@@ -25,7 +24,7 @@ public class MagnumOpus extends AbstractBardCard
 
     public MagnumOpus()
     {
-        super(ID, IMG, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.RARE, CardTarget.SELF);
+        super(ID, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.RARE, CardTarget.SELF);
 
         misc = inspiration = baseInspiration = INSPIRATION;
         magicNumber2 = baseMagicNumber2 = INCREASE_INSPIRATION;

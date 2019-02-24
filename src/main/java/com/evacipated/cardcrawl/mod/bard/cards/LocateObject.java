@@ -17,7 +17,6 @@ import java.util.List;
 public class LocateObject extends AbstractBardCard
 {
     public static final String ID = BardMod.makeID("LocateObject");
-    public static final String IMG = null;
     private static final int COST = 0;
     private static final int CARD_COUNT = 1;
     private static final int EXHAUSTIVE = 1;
@@ -25,7 +24,7 @@ public class LocateObject extends AbstractBardCard
 
     public LocateObject()
     {
-        super(ID, IMG, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.UNCOMMON, CardTarget.NONE);
+        super(ID, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.UNCOMMON, CardTarget.NONE);
 
         magicNumber = baseMagicNumber = CARD_COUNT;
         exhaust = true;

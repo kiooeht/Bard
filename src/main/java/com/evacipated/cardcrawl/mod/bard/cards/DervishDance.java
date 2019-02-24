@@ -20,14 +20,13 @@ import java.util.List;
 public class DervishDance extends AbstractBardCard
 {
     public static final String ID = BardMod.makeID("DervishDance");
-    public static final String IMG = null;
     private static final int COST = 2;
     private static final int DAMAGE = 7;
     private static final int UPGRADE_DAMAGE = 2;
 
     public DervishDance()
     {
-        super(ID, IMG, COST, CardType.ATTACK, Bard.Enums.COLOR, CardRarity.UNCOMMON, CardTarget.ALL_ENEMY);
+        super(ID, COST, CardType.ATTACK, Bard.Enums.COLOR, CardRarity.UNCOMMON, CardTarget.ALL_ENEMY);
 
         isMultiDamage = true;
         baseDamage = DAMAGE;

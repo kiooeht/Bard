@@ -17,14 +17,13 @@ import java.util.List;
 public class HideousLaughter extends AbstractBardCard
 {
     public static final String ID = BardMod.makeID("HideousLaughter");
-    public static final String IMG = null;
     private static final int COST = 0;
     private static final int DEBUFF_AMT = 1;
     private static final int UPGRADE_DEBUFF_AMT = 1;
 
     public HideousLaughter()
     {
-        super(ID, IMG, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.COMMON, CardTarget.ENEMY);
+        super(ID, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.COMMON, CardTarget.ENEMY);
 
         magicNumber = baseMagicNumber = DEBUFF_AMT;
     }

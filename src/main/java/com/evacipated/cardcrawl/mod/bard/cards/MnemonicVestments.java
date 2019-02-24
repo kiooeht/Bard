@@ -15,13 +15,12 @@ import java.util.List;
 public class MnemonicVestments extends AbstractBardCard implements StartupCard
 {
     public static final String ID = BardMod.makeID("MnemonicVestments");
-    public static final String IMG = null;
     private static final int COST = -2;
     private static final int EXHAUSTIVE = 2;
 
     public MnemonicVestments()
     {
-        super(ID, IMG, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.RARE, CardTarget.NONE);
+        super(ID, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.RARE, CardTarget.NONE);
 
         isEthereal = true;
     }

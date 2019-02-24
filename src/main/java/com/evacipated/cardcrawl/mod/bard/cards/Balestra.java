@@ -22,7 +22,6 @@ import java.util.Random;
 public class Balestra extends AbstractBardCard
 {
     public static final String ID = BardMod.makeID("Balestra");
-    public static final String IMG = null;
     private static final int COST = 2;
     private static final int DAMAGE = 5;
     private static final int TIMES = 3;
@@ -30,7 +29,7 @@ public class Balestra extends AbstractBardCard
 
     public Balestra()
     {
-        super(ID, IMG, COST, CardType.ATTACK, Bard.Enums.COLOR, CardRarity.UNCOMMON, CardTarget.ENEMY);
+        super(ID, COST, CardType.ATTACK, Bard.Enums.COLOR, CardRarity.UNCOMMON, CardTarget.ENEMY);
 
         baseDamage = DAMAGE;
         magicNumber = baseMagicNumber = TIMES;

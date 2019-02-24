@@ -18,14 +18,13 @@ import java.util.List;
 public class FaerieFire extends AbstractBardCard
 {
     public static final String ID = BardMod.makeID("FaerieFire");
-    public static final String IMG = null;
     private static final int COST = 0;
     private static final int VUL = 1;
     private static final int UPGRADE_VUL = 1;
 
     public FaerieFire()
     {
-        super(ID, IMG, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.UNCOMMON, CardTarget.ALL_ENEMY);
+        super(ID, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.UNCOMMON, CardTarget.ALL_ENEMY);
 
         magicNumber = baseMagicNumber = VUL;
     }

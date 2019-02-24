@@ -1,6 +1,10 @@
 package com.evacipated.cardcrawl.mod.bard.cards;
 
+import basemod.ReflectionHacks;
 import basemod.abstracts.CustomCard;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.evacipated.cardcrawl.mod.bard.BardMod;
 import com.evacipated.cardcrawl.mod.bard.notes.*;
 import com.evacipated.cardcrawl.modthespire.Loader;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -14,7 +18,10 @@ import javassist.expr.ExprEditor;
 import javassist.expr.FieldAccess;
 import javassist.expr.NewExpr;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public abstract class AbstractBardCard extends CustomCard
 {
@@ -36,9 +43,11 @@ public abstract class AbstractBardCard extends CustomCard
     public boolean isInspirationModified = false;
     public boolean upgradedInspiration = false;
 
-    public AbstractBardCard(String id, String img, int cost, CardType type, CardColor color, CardRarity rarity, CardTarget target)
+    public AbstractBardCard(String id, int cost, CardType type, CardColor color, CardRarity rarity, CardTarget target)
     {
-        super(id, "FAKE TITLE", img, cost, "FAKE DESCRIPTION", type, color, rarity, target);
+        super(id, "FAKE TITLE", null, cost, "FAKE DESCRIPTION", type, color, rarity, target);
+
+        loadCardImage(getImage(id, type));
 
         cardStrings = CardCrawlGame.languagePack.getCardStrings(id);
         name = NAME = cardStrings.NAME;
@@ -47,6 +56,29 @@ public abstract class AbstractBardCard extends CustomCard
         EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
         initializeTitle();
         initializeDescription();
+    }
+
+    private static String getImage(String id, CardType type)
+    {
+        id = id.replaceFirst("^" + BardMod.makeID(""), "");
+        char c[] = id.toCharArray();
+        c[0] = Character.toLowerCase(c[0]);
+        id = new String(c);
+        return BardMod.assetPath(String.format("images/cards/%s/%s.png", type.name().toLowerCase(), id));
+    }
+
+    @Override
+    public void loadCardImage(String img)
+    {
+        Texture cardTexture = BardMod.assets.loadImage(img);
+        if (cardTexture != null) {
+            textureImg = img;
+            cardTexture.setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
+            int tw = cardTexture.getWidth();
+            int th = cardTexture.getHeight();
+            TextureAtlas.AtlasRegion cardImg = new TextureAtlas.AtlasRegion(cardTexture, 0, 0, tw, th);
+            ReflectionHacks.setPrivateInherited(this, CustomCard.class, "portrait", cardImg);
+        }
     }
 
     protected void upgradeMagicNumber2(int amount)

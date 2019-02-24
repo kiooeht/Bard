@@ -15,14 +15,13 @@ import java.util.List;
 public class GuardPoint extends AbstractBardCard
 {
     public static final String ID = BardMod.makeID("GuardPoint");
-    public static final String IMG = null;
     private static final int COST = 1;
     private static final int BLOCK = 7;
     private static final int UPGRADE_BLOCK = 2;
 
     public GuardPoint()
     {
-        super(ID, IMG, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.UNCOMMON, CardTarget.SELF);
+        super(ID, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.UNCOMMON, CardTarget.SELF);
 
         baseBlock = BLOCK;
     }

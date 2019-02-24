@@ -20,14 +20,13 @@ import java.util.List;
 public class FirstStrike extends AbstractBardCard implements StartupCard
 {
     public static final String ID = BardMod.makeID("FirstStrike");
-    public static final String IMG = null;
     private static final int COST = 1;
     private static final int DAMAGE = 8;
     private static final int UPGRADE_DAMAGE = 3;
 
     public FirstStrike()
     {
-        super(ID, IMG, COST, CardType.ATTACK, Bard.Enums.COLOR, CardRarity.UNCOMMON, CardTarget.ENEMY);
+        super(ID, COST, CardType.ATTACK, Bard.Enums.COLOR, CardRarity.UNCOMMON, CardTarget.ENEMY);
 
         baseDamage = DAMAGE;
         magicNumber = baseMagicNumber = DAMAGE;

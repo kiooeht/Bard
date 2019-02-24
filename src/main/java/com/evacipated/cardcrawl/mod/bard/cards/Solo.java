@@ -18,13 +18,12 @@ import java.util.List;
 public class Solo extends AbstractBardCard
 {
     public static final String ID = BardMod.makeID("Solo");
-    public static final String IMG = null;
     private static final int COST = 1;
     private static final int UPGRADE_COST = 0;
 
     public Solo()
     {
-        super(ID, IMG, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.UNCOMMON, CardTarget.SELF);
+        super(ID, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.UNCOMMON, CardTarget.SELF);
     }
 
     @Override

@@ -14,13 +14,12 @@ import java.util.List;
 public class Wish extends AbstractBardCard
 {
     public static final String ID = BardMod.makeID("Wish");
-    public static final String IMG = null;
     private static final int COST = -2;
     private static final int UPGRADE_COST = 0;
 
     public Wish()
     {
-        super(ID, IMG, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.RARE, CardTarget.NONE);
+        super(ID, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.RARE, CardTarget.NONE);
 
         purgeOnUse = true;
     }

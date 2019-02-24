@@ -18,14 +18,13 @@ import java.util.List;
 public class Flourish extends AbstractBardCard
 {
     public static final String ID = BardMod.makeID("Flourish");
-    public static final String IMG = null;
     private static final int COST = 1;
     private static final int DAMAGE = 10;
     private static final int UPGRADE_DAMAGE = 3;
 
     public Flourish()
     {
-        super(ID, IMG, COST, CardType.ATTACK, Bard.Enums.COLOR, CardRarity.UNCOMMON, CardTarget.ENEMY);
+        super(ID, COST, CardType.ATTACK, Bard.Enums.COLOR, CardRarity.UNCOMMON, CardTarget.ENEMY);
 
         baseDamage = DAMAGE;
     }

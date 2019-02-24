@@ -21,12 +21,11 @@ import java.util.List;
 public class FingerOfDeath extends AbstractBardCard
 {
     public static final String ID = BardMod.makeID("FingerOfDeath");
-    public static final String IMG = null;
     private static final int COST = 1;
 
     public FingerOfDeath()
     {
-        super(ID, IMG, COST, CardType.ATTACK, Bard.Enums.COLOR, CardRarity.RARE, CardTarget.ENEMY);
+        super(ID, COST, CardType.ATTACK, Bard.Enums.COLOR, CardRarity.RARE, CardTarget.ENEMY);
     }
 
     @Override

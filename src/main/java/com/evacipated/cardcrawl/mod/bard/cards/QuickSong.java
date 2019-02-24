@@ -15,14 +15,13 @@ import java.util.List;
 public class QuickSong extends AbstractBardCard
 {
     public static final String ID = BardMod.makeID("QuickSong");
-    public static final String IMG = null;
     private static final int COST = 1;
     private static final int BLOCK = 8;
     private static final int UPGRADE_COST = 0;
 
     public QuickSong()
     {
-        super(ID, IMG, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.COMMON, CardTarget.SELF);
+        super(ID, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.COMMON, CardTarget.SELF);
 
         baseBlock = BLOCK;
     }

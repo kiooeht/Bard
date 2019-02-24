@@ -18,7 +18,6 @@ import java.util.List;
 public class Parry extends AbstractBardCard
 {
     public static final String ID = BardMod.makeID("Parry");
-    public static final String IMG = null;
     private static final int COST = 1;
     private static final int BLOCK = 7;
     private static final int TIMES = 3;
@@ -26,7 +25,7 @@ public class Parry extends AbstractBardCard
 
     public Parry()
     {
-        super(ID, IMG, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.COMMON, CardTarget.SELF);
+        super(ID, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.COMMON, CardTarget.SELF);
 
         baseBlock = BLOCK;
         magicNumber = baseMagicNumber = TIMES;

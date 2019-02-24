@@ -17,7 +17,6 @@ import java.util.List;
 public class EchoEcho extends AbstractBardCard
 {
     public static final String ID = BardMod.makeID("EchoEcho");
-    public static final String IMG = null;
     private static final int COST = 1;
     private static final int DAMAGE = 3;
     private static final int UPGRADE_DAMAGE = 2;
@@ -25,7 +24,7 @@ public class EchoEcho extends AbstractBardCard
 
     public EchoEcho()
     {
-        super(ID, IMG, COST, CardType.ATTACK, Bard.Enums.COLOR, CardRarity.COMMON, CardTarget.ENEMY);
+        super(ID, COST, CardType.ATTACK, Bard.Enums.COLOR, CardRarity.COMMON, CardTarget.ENEMY);
 
         baseDamage = DAMAGE;
         magicNumber2 = baseMagicNumber2 = DAMAGE + INITIAL_DAMAGE_BONUS;

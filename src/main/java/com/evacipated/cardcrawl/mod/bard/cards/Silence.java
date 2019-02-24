@@ -17,12 +17,11 @@ import java.util.List;
 public class Silence extends AbstractBardCard
 {
     public static final String ID = BardMod.makeID("Silence");
-    public static final String IMG = null;
     private static final int COST = 1;
 
     public Silence()
     {
-        super(ID, IMG, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.UNCOMMON, CardTarget.ENEMY);
+        super(ID, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.UNCOMMON, CardTarget.ENEMY);
 
         exhaust = true;
     }

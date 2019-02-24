@@ -16,13 +16,12 @@ import java.util.List;
 public class Haste extends AbstractBardCard
 {
     public static final String ID = BardMod.makeID("Haste");
-    public static final String IMG = null;
     private static final int COST = 1;
     private static final int EXHAUSTIVE_USES = 3;
 
     public Haste()
     {
-        super(ID, IMG, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.RARE, CardTarget.SELF);
+        super(ID, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.RARE, CardTarget.SELF);
 
         exhaust = true;
     }

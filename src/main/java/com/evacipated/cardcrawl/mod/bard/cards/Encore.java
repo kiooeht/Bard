@@ -15,14 +15,13 @@ import java.util.List;
 public class Encore extends AbstractBardCard
 {
     public static final String ID = BardMod.makeID("Encore");
-    public static final String IMG = null;
     private static final int COST = 1;
     private static final int AMT = 1;
     private static final int UPGRADE_AMT = 1;
 
     public Encore()
     {
-        super(ID, IMG, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.RARE, CardTarget.SELF);
+        super(ID, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.RARE, CardTarget.SELF);
 
         magicNumber = baseMagicNumber = AMT;
     }

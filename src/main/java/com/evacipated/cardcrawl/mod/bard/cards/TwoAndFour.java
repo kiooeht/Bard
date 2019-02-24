@@ -18,12 +18,11 @@ import java.util.List;
 public class TwoAndFour extends AbstractBardCard
 {
     public static final String ID = BardMod.makeID("TwoAndFour");
-    public static final String IMG = null;
     private static final int COST = 2;
 
     public TwoAndFour()
     {
-        super(ID, IMG, COST, CardType.POWER, Bard.Enums.COLOR, CardRarity.RARE, CardTarget.SELF);
+        super(ID, COST, CardType.POWER, Bard.Enums.COLOR, CardRarity.RARE, CardTarget.SELF);
     }
 
     @Override

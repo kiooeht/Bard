@@ -15,12 +15,11 @@ import java.util.List;
 public class Sonata extends AbstractBardCard
 {
     public static final String ID = BardMod.makeID("Sonata");
-    public static final String IMG = null;
     private static final int COST = 1;
 
     public Sonata()
     {
-        super(ID, IMG, COST, CardType.POWER, Bard.Enums.COLOR, CardRarity.RARE, CardTarget.SELF);
+        super(ID, COST, CardType.POWER, Bard.Enums.COLOR, CardRarity.RARE, CardTarget.SELF);
     }
 
     @Override

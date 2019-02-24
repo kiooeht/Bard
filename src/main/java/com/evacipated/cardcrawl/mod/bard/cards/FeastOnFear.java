@@ -19,14 +19,13 @@ import java.util.List;
 public class FeastOnFear extends AbstractBardCard
 {
     public static final String ID = BardMod.makeID("FeastOnFear");
-    public static final String IMG = null;
     private static final int COST = 1;
     private static final int BLOCK = 6;
     private static final int UPGRADE_BLOCK = 2;
 
     public FeastOnFear()
     {
-        super(ID, IMG, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.COMMON, CardTarget.SELF_AND_ENEMY);
+        super(ID, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.COMMON, CardTarget.SELF_AND_ENEMY);
 
         magicNumber = baseMagicNumber = BLOCK;
         baseBlock = BLOCK;

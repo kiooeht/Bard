@@ -18,14 +18,13 @@ import java.util.List;
 public class CuttingWords extends AbstractBardCard
 {
     public static final String ID = BardMod.makeID("CuttingWords");
-    public static final String IMG = BardMod.assetPath("images/cards/skill/cuttingWords.png");
     private static final int COST = 1;
     private static final int DEBUFF = 1;
     private static final int UPGRADE_DEBUFF = 1;
 
     public CuttingWords()
     {
-        super(ID, IMG, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.COMMON, CardTarget.ALL_ENEMY);
+        super(ID, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.COMMON, CardTarget.ALL_ENEMY);
 
         magicNumber = baseMagicNumber = DEBUFF;
     }

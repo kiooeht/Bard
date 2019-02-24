@@ -15,7 +15,6 @@ import java.util.List;
 public class Pluck extends AbstractBardCard
 {
     public static final String ID = BardMod.makeID("Pluck");
-    public static final String IMG = null;
     private static final int COST = 1;
     private static final int NOTES = 1;
     private static final int UPGRADE_NOTES = 1;
@@ -23,7 +22,7 @@ public class Pluck extends AbstractBardCard
 
     public Pluck()
     {
-        super(ID, IMG, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.COMMON, CardTarget.NONE);
+        super(ID, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.COMMON, CardTarget.NONE);
 
         magicNumber = baseMagicNumber = NOTES;
     }

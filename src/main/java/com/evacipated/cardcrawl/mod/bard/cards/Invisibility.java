@@ -17,7 +17,6 @@ import java.util.List;
 public class Invisibility extends AbstractBardCard
 {
     public static final String ID = BardMod.makeID("Invisibility");
-    public static final String IMG = null;
     private static final int COST = 2;
     private static final int INTANGIBLE = 1;
     private static final int DRAW = 1;
@@ -25,7 +24,7 @@ public class Invisibility extends AbstractBardCard
 
     public Invisibility()
     {
-        super(ID, IMG, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.RARE, CardTarget.SELF);
+        super(ID, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.RARE, CardTarget.SELF);
 
         magicNumber2 = baseMagicNumber2 = INTANGIBLE;
         magicNumber = baseMagicNumber = DRAW;

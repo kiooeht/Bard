@@ -23,7 +23,6 @@ import java.util.List;
 public class Thunderwave extends AbstractBardCard
 {
     public static final String ID = BardMod.makeID("Thunderwave");
-    public static final String IMG = null;
     private static final int COST = 1;
     private static final int DAMAGE = 4;
     private static final int UPGRADE_DAMAGE = 3;
@@ -31,7 +30,7 @@ public class Thunderwave extends AbstractBardCard
 
     public Thunderwave()
     {
-        super(ID, IMG, COST, CardType.ATTACK, Bard.Enums.COLOR, CardRarity.COMMON, CardTarget.ALL_ENEMY);
+        super(ID, COST, CardType.ATTACK, Bard.Enums.COLOR, CardRarity.COMMON, CardTarget.ALL_ENEMY);
 
         isMultiDamage = true;
         baseDamage = DAMAGE;

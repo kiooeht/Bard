@@ -18,7 +18,6 @@ import java.util.List;
 public class BucklerBash extends AbstractBardCard
 {
     public static final String ID = BardMod.makeID("BucklerBash");
-    public static final String IMG = null;
     private static final int COST = 1;
     private static final int BLOCK_LOSS = 5;
     private static final int UPGRADE_BLOCK_LOSS = 3;
@@ -27,7 +26,7 @@ public class BucklerBash extends AbstractBardCard
 
     public BucklerBash()
     {
-        super(ID, IMG, COST, CardType.ATTACK, Bard.Enums.COLOR, CardRarity.COMMON, CardTarget.SELF_AND_ENEMY);
+        super(ID, COST, CardType.ATTACK, Bard.Enums.COLOR, CardRarity.COMMON, CardTarget.SELF_AND_ENEMY);
 
         baseDamage = DAMAGE;
         magicNumber = baseMagicNumber = BLOCK_LOSS;

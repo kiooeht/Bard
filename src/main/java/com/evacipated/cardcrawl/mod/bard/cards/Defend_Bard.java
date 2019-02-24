@@ -17,14 +17,13 @@ import java.util.List;
 public class Defend_Bard extends AbstractBardCard
 {
     public static final String ID = BardMod.makeID("Defend");
-    public static final String IMG = BardMod.assetPath("images/cards/skill/defend.png");
     private static final int COST = 1;
     private static final int BLOCK = 5;
     private static final int UPGRADE_BLOCK = 2;
 
     public Defend_Bard()
     {
-        super(ID, IMG, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.BASIC, CardTarget.SELF);
+        super(ID, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.BASIC, CardTarget.SELF);
 
         baseBlock = BLOCK;
         tags.add(BaseModCardTags.BASIC_DEFEND);

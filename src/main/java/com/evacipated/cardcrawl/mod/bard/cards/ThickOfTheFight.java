@@ -17,14 +17,13 @@ import java.util.List;
 public class ThickOfTheFight extends AbstractBardCard
 {
     public static final String ID = BardMod.makeID("ThickOfTheFight");
-    public static final String IMG = null;
     private static final int COST = 3;
     private static final int DAMAGE = 12;
     private static final int UPGRADE_DAMAGE = 3;
 
     public ThickOfTheFight()
     {
-        super(ID, IMG, COST, CardType.ATTACK, Bard.Enums.COLOR, CardRarity.UNCOMMON, CardTarget.ALL_ENEMY);
+        super(ID, COST, CardType.ATTACK, Bard.Enums.COLOR, CardRarity.UNCOMMON, CardTarget.ALL_ENEMY);
 
         baseDamage = DAMAGE;
     }

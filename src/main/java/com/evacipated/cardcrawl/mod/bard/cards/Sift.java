@@ -18,13 +18,12 @@ import java.util.List;
 public class Sift extends AbstractBardCard
 {
     public static final String ID = BardMod.makeID("Sift");
-    public static final String IMG = null;
     private static final int COST = 1;
     private static final int DRAW = 1;
 
     public Sift()
     {
-        super(ID, IMG, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.COMMON, CardTarget.SELF);
+        super(ID, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.COMMON, CardTarget.SELF);
 
         magicNumber2 = baseMagicNumber2 = DRAW;
     }
