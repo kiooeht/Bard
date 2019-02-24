@@ -28,6 +28,7 @@ public class FirstStrike extends AbstractBardCard implements StartupCard
     {
         super(ID, COST, CardType.ATTACK, Bard.Enums.COLOR, CardRarity.UNCOMMON, CardTarget.ENEMY);
 
+        tags.add(CardTags.STRIKE);
         baseDamage = DAMAGE;
         magicNumber = baseMagicNumber = DAMAGE;
     }
