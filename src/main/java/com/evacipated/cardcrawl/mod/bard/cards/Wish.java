@@ -6,6 +6,7 @@ import com.evacipated.cardcrawl.mod.bard.characters.Bard;
 import com.evacipated.cardcrawl.mod.bard.notes.AbstractNote;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import java.util.Collections;
@@ -16,10 +17,15 @@ public class Wish extends AbstractBardCard
     public static final String ID = BardMod.makeID("Wish");
     private static final int COST = -2;
     private static final int UPGRADE_COST = 0;
+    private static final String ___ = new String(new byte[]{0x52, 0x65, 0x69, 0x6e, 0x61});
 
     public Wish()
     {
         super(ID, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.RARE, CardTarget.NONE);
+
+        if (CardCrawlGame.playerName.equals(___)) {
+            loadCardImage(getImage(ID + "2", type));
+        }
 
         purgeOnUse = true;
     }
