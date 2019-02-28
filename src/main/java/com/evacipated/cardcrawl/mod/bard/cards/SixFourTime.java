@@ -46,6 +46,7 @@ public class SixFourTime extends AbstractBardCard
             name = EXTENDED_DESCRIPTION[0];
             initializeTitle();
             upgradeMagicNumber(UPGRADE_NOTES);
+            loadCardImage(getImage(ID + "2", type));
         }
     }
 
