@@ -2,8 +2,11 @@ package com.evacipated.cardcrawl.mod.bard.cards;
 
 import basemod.ReflectionHacks;
 import basemod.abstracts.CustomCard;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.utils.Array;
 import com.evacipated.cardcrawl.mod.bard.BardMod;
 import com.evacipated.cardcrawl.mod.bard.notes.*;
 import com.evacipated.cardcrawl.modthespire.Loader;
@@ -43,6 +46,9 @@ public abstract class AbstractBardCard extends CustomCard
     public boolean isInspirationModified = false;
     public boolean upgradedInspiration = false;
 
+    protected Animation<Texture> animation;
+    protected float animationTimer = 0;
+
     public AbstractBardCard(String id, int cost, CardType type, CardColor color, CardRarity rarity, CardTarget target)
     {
         super(id, "FAKE TITLE", null, cost, "FAKE DESCRIPTION", type, color, rarity, target);
@@ -78,6 +84,47 @@ public abstract class AbstractBardCard extends CustomCard
             int th = cardTexture.getHeight();
             TextureAtlas.AtlasRegion cardImg = new TextureAtlas.AtlasRegion(cardTexture, 0, 0, tw, th);
             ReflectionHacks.setPrivateInherited(this, CustomCard.class, "portrait", cardImg);
+        }
+    }
+
+    protected void loadAnimationByID(String id, float frameDuration)
+    {
+        Array<Texture> arr = new Array<>();
+        int i = 0;
+        while (true) {
+            Texture tex = BardMod.assets.loadImage(getImage(id + i, type));
+            if (tex == null) {
+                break;
+            }
+            arr.add(tex);
+            ++i;
+        }
+        if (arr.size > 0) {
+            animation = new Animation<>(frameDuration, arr, Animation.PlayMode.LOOP);
+        }
+    }
+
+    protected void setCardImage(Texture cardTexture)
+    {
+        int tw = cardTexture.getWidth();
+        int th = cardTexture.getHeight();
+        TextureAtlas.AtlasRegion cardImg = new TextureAtlas.AtlasRegion(cardTexture, 0, 0, tw, th);
+        ReflectionHacks.setPrivateInherited(this, CustomCard.class, "portrait", cardImg);
+    }
+
+    protected Texture getCurrentFrame()
+    {
+        return animation.getKeyFrame(animationTimer);
+    }
+
+    @Override
+    public void update()
+    {
+        super.update();
+
+        if (animation != null) {
+            animationTimer += Gdx.graphics.getDeltaTime();
+            setCardImage(animation.getKeyFrame(animationTimer));
         }
     }
 
