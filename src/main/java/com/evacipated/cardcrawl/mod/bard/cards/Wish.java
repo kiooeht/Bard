@@ -24,7 +24,10 @@ public class Wish extends AbstractBardCard
         super(ID, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.RARE, CardTarget.NONE);
 
         if (CardCrawlGame.playerName.equals(___)) {
-            loadCardImage(getImage(ID + "2", type));
+            loadAnimationByID(ID + "r", 0.2f);
+
+            textureImg = getImage(ID + "r0", type);
+            setCardImage(getCurrentFrame());
         }
 
         purgeOnUse = true;
