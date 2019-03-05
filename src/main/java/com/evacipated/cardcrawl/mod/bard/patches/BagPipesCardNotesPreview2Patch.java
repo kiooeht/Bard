@@ -7,7 +7,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.evacipated.cardcrawl.mod.bard.BardMod;
 import com.evacipated.cardcrawl.mod.bard.cards.AbstractBardCard;
 import com.evacipated.cardcrawl.mod.bard.notes.AbstractNote;
-import com.evacipated.cardcrawl.mod.bard.relics.Lute;
+import com.evacipated.cardcrawl.mod.bard.relics.BagPipes;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
@@ -21,19 +21,19 @@ import java.util.List;
         clz=AbstractCard.class,
         method="renderImage"
 )
-public class LuteCardNotesPreview2Patch
+public class BagPipesCardNotesPreview2Patch
 {
     private static final float NOTE_SPACING = 32;
-    private static Texture LUTE_BG;
+    private static Texture BAGPIPES_BG;
 
     public static void Prefix(AbstractCard __instance, SpriteBatch sb, boolean hovered, boolean selected)
     {
-        if (AbstractDungeon.player == null || !AbstractDungeon.player.hasRelic(Lute.ID)) {
+        if (AbstractDungeon.player == null || !AbstractDungeon.player.hasRelic(BagPipes.ID)) {
             return;
         }
 
-        if (LUTE_BG == null) {
-            LUTE_BG = ImageMaster.loadImage(BardMod.assetPath("images/cardui/512/card_royal_lute.png"));
+        if (BAGPIPES_BG == null) {
+            BAGPIPES_BG = ImageMaster.loadImage(BardMod.assetPath("images/cardui/512/card_royal_bagpipes.png"));
         }
 
         List<AbstractNote> notes = AbstractBardCard.determineNoteTypes(__instance);
@@ -45,7 +45,7 @@ public class LuteCardNotesPreview2Patch
             } catch (IllegalAccessException | NoSuchFieldException ignored) {
             }
             sb.draw(
-                    LUTE_BG,
+                    BAGPIPES_BG,
                     __instance.current_x - 256,
                     __instance.current_y - 256,
                     256, 256,

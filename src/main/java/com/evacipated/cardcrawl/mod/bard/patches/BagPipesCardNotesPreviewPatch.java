@@ -5,7 +5,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.mod.bard.cards.AbstractBardCard;
 import com.evacipated.cardcrawl.mod.bard.notes.AbstractNote;
-import com.evacipated.cardcrawl.mod.bard.relics.Lute;
+import com.evacipated.cardcrawl.mod.bard.relics.BagPipes;
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
@@ -23,7 +23,7 @@ import java.util.List;
         clz=FakeKeywords.class,
         method="Insert"
 )
-public class LuteCardNotesPreviewPatch
+public class BagPipesCardNotesPreviewPatch
 {
     private static float BODY_TEXT_WIDTH = 0;
     private static float TIP_DESC_LINE_SPACING = 0;
@@ -43,7 +43,7 @@ public class LuteCardNotesPreviewPatch
     )
     public static void Insert1(float x, float _y, SpriteBatch sb, ArrayList<String> keywords, float[] y, AbstractCard acard, @ByRef float[] sumTooltipHeight)
     {
-        if (AbstractDungeon.player == null || !AbstractDungeon.player.hasRelic(Lute.ID)) {
+        if (AbstractDungeon.player == null || !AbstractDungeon.player.hasRelic(BagPipes.ID)) {
             return;
         }
 
@@ -66,7 +66,7 @@ public class LuteCardNotesPreviewPatch
     )
     public static void Insert2(float x, float _y, SpriteBatch sb, ArrayList<String> keywords, float[] y, AbstractCard acard, float sumTooltipHeight)
     {
-        if (AbstractDungeon.player == null || !AbstractDungeon.player.hasRelic(Lute.ID)) {
+        if (AbstractDungeon.player == null || !AbstractDungeon.player.hasRelic(BagPipes.ID)) {
             return;
         }
 
@@ -121,7 +121,7 @@ public class LuteCardNotesPreviewPatch
         FontHelper.renderFontLeftTopAligned(
                 sb,
                 FontHelper.tipHeaderFont,
-                Lute.NAME,
+                BagPipes.NAME,
                 x + TEXT_OFFSET_X,
                 y + HEADER_OFFSET_Y,
                 Settings.GOLD_COLOR

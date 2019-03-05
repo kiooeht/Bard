@@ -10,7 +10,7 @@ import com.evacipated.cardcrawl.mod.bard.cards.Defend_Bard;
 import com.evacipated.cardcrawl.mod.bard.cards.Inspire;
 import com.evacipated.cardcrawl.mod.bard.cards.Riposte;
 import com.evacipated.cardcrawl.mod.bard.cards.Strike_Bard;
-import com.evacipated.cardcrawl.mod.bard.relics.Lute;
+import com.evacipated.cardcrawl.mod.bard.relics.BagPipes;
 import com.evacipated.cardcrawl.mod.bard.relics.PitchPipe;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -88,8 +88,8 @@ public class Bard extends CustomPlayer
         ArrayList<String> ret = new ArrayList<>();
         ret.add(PitchPipe.ID);
         UnlockTracker.markRelicAsSeen(PitchPipe.ID);
-        ret.add(Lute.ID);
-        UnlockTracker.markRelicAsSeen(Lute.ID);
+        ret.add(BagPipes.ID);
+        UnlockTracker.markRelicAsSeen(BagPipes.ID);
         return ret;
     }
 

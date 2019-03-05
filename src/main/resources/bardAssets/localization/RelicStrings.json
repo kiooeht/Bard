@@ -1,7 +1,7 @@
 {
-  "${ModID}:Lute": {
-    "NAME": "Lute",
-    "FLAVOR": "Your trusty instrument.",
+  "${ModID}:BagPipes": {
+    "NAME": "Bag Pipes",
+    "FLAVOR": "Your trusty instrument and weapon.",
     "DESCRIPTIONS": [
       "Each card you play may also #y${ModID}:Queue #y${ModID}:Notes. The #y${ModID}:Notes #y${ModID}:Queued depend on the type of the card played and are shown in the card's tooltips."
     ]

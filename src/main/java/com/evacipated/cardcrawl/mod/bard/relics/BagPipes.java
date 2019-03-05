@@ -11,12 +11,12 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 import java.util.List;
 
-public class Lute extends AbstractBardRelic
+public class BagPipes extends AbstractBardRelic
 {
-    public static final String ID = BardMod.makeID("Lute");
-    public static String NAME = "Lute";
+    public static final String ID = BardMod.makeID("BagPipes");
+    public static String NAME = "BagPipes";
 
-    public Lute()
+    public BagPipes()
     {
         super(ID, "test5.png", RelicTier.STARTER, LandingSound.FLAT, Bard.Enums.COLOR);
 
@@ -41,6 +41,6 @@ public class Lute extends AbstractBardRelic
     @Override
     public AbstractRelic makeCopy()
     {
-        return new Lute();
+        return new BagPipes();
     }
 }
