@@ -49,12 +49,12 @@ public class BagPipesCardNotesPreview2Patch
                     __instance.current_x - 256,
                     __instance.current_y - 256,
                     256, 256,
-                    512, 512,
+                    512, 768,
                     __instance.drawScale * Settings.scale,
                     __instance.drawScale * Settings.scale,
                     __instance.angle,
                     0, 0,
-                    512, 512,
+                    512, 768,
                     false, false
             );
 
