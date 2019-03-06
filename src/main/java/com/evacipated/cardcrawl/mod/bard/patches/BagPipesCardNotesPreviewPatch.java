@@ -3,6 +3,7 @@ package com.evacipated.cardcrawl.mod.bard.patches;
 import basemod.patches.com.megacrit.cardcrawl.helpers.TipHelper.FakeKeywords;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.evacipated.cardcrawl.mod.bard.BardMod;
 import com.evacipated.cardcrawl.mod.bard.cards.AbstractBardCard;
 import com.evacipated.cardcrawl.mod.bard.notes.AbstractNote;
 import com.evacipated.cardcrawl.mod.bard.relics.BagPipes;
@@ -43,7 +44,7 @@ public class BagPipesCardNotesPreviewPatch
     )
     public static void Insert1(float x, float _y, SpriteBatch sb, ArrayList<String> keywords, float[] y, AbstractCard acard, @ByRef float[] sumTooltipHeight)
     {
-        if (AbstractDungeon.player == null || !AbstractDungeon.player.hasRelic(BagPipes.ID)) {
+        if (AbstractDungeon.player == null || !AbstractDungeon.player.hasRelic(BagPipes.ID) || !BardMod.bagPipeNotesTooltip()) {
             return;
         }
 
@@ -66,7 +67,7 @@ public class BagPipesCardNotesPreviewPatch
     )
     public static void Insert2(float x, float _y, SpriteBatch sb, ArrayList<String> keywords, float[] y, AbstractCard acard, float sumTooltipHeight)
     {
-        if (AbstractDungeon.player == null || !AbstractDungeon.player.hasRelic(BagPipes.ID)) {
+        if (AbstractDungeon.player == null || !AbstractDungeon.player.hasRelic(BagPipes.ID) || !BardMod.bagPipeNotesTooltip()) {
             return;
         }
 

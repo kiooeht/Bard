@@ -28,7 +28,7 @@ public class BagPipesCardNotesPreview2Patch
 
     public static void Prefix(AbstractCard __instance, SpriteBatch sb, boolean hovered, boolean selected)
     {
-        if (AbstractDungeon.player == null || !AbstractDungeon.player.hasRelic(BagPipes.ID)) {
+        if (AbstractDungeon.player == null || !AbstractDungeon.player.hasRelic(BagPipes.ID) || !BardMod.bagPipeNotesCardUI()) {
             return;
         }
 

@@ -32,9 +32,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.helpers.CardHelper;
-import com.megacrit.cardcrawl.helpers.FontHelper;
-import com.megacrit.cardcrawl.helpers.ImageMaster;
+import com.megacrit.cardcrawl.helpers.*;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import javassist.CtClass;
@@ -75,6 +73,11 @@ public class BardMod implements
 
     public static NotesPanel notesPanel;
     public static MelodiesPanel melodiesPanel;
+
+    public static Prefs prefs;
+    private static ModLabeledToggleButton bagpipesTooltipBtn;
+    private static ModLabeledToggleButton bagpipesUIBtn;
+    private static ModLabeledToggleButton bagpipesBothBtn;
 
     static
     {
@@ -121,6 +124,36 @@ public class BardMod implements
         return "bardAssets/" + path;
     }
 
+    private static int getBagPipeNotesType()
+    {
+        // Defaults to just the Card UI
+        return prefs.getInteger("bagpipes_ui", 2);
+    }
+
+    public static boolean bagPipeNotesTooltip()
+    {
+        if (prefs == null) {
+            return false;
+        }
+        return getBagPipeNotesType() == 3 || bagPipeNotesBoth();
+    }
+
+    public static boolean bagPipeNotesCardUI()
+    {
+        if (prefs == null) {
+            return true;
+        }
+        return getBagPipeNotesType() == 2 || bagPipeNotesBoth();
+    }
+
+    public static boolean bagPipeNotesBoth()
+    {
+        if (prefs == null) {
+            return true;
+        }
+        return getBagPipeNotesType() == 1;
+    }
+
     public static NoteQueue getNoteQueue(AbstractPlayer player)
     {
         return PlayerNoteQueuePatches.NoteQueueField.noteQueue.get(player);
@@ -129,6 +162,8 @@ public class BardMod implements
     @Override
     public void receivePostInitialize()
     {
+        prefs = SaveHelper.getPrefs("BardPrefs");
+
         ModPanel settingsPanel = new ModPanel();
         settingsPanel.addUIElement(new ModLabel(
                 "Bag Pipes",
@@ -137,20 +172,51 @@ public class BardMod implements
                 settingsPanel,
                 update -> {}
         ));
-        ModLabeledToggleButton bagpipesTooltipBtn = new ModLabeledToggleButton("Tooltip",
-                390, 670, Settings.CREAM_COLOR, FontHelper.charDescFont,
-                true, settingsPanel, l -> {},
+        bagpipesTooltipBtn = new ModLabeledToggleButton("Tooltip",
+                390, 610, Settings.CREAM_COLOR, FontHelper.charDescFont,
+                getBagPipeNotesType() == 3, settingsPanel, l -> {},
                 button ->
                 {
+                    if (prefs != null && button.enabled) {
+                        bagpipesUIBtn.toggle.enabled = false;
+                        bagpipesBothBtn.toggle.enabled = false;
+                        prefs.putInteger("bagpipes_ui", 3);
+                        prefs.flush();
+                    } else if (!button.enabled) {
+                        button.enabled = true;
+                    }
                 });
-        ModLabeledToggleButton bagpipesUIBtn = new ModLabeledToggleButton("Card UI",
+        bagpipesUIBtn = new ModLabeledToggleButton("Card UI",
                 390, 640, Settings.CREAM_COLOR, FontHelper.charDescFont,
-                true, settingsPanel, l -> {},
+                getBagPipeNotesType() == 2, settingsPanel, l -> {},
                 button ->
                 {
+                    if (prefs != null && button.enabled) {
+                        bagpipesTooltipBtn.toggle.enabled = false;
+                        bagpipesBothBtn.toggle.enabled = false;
+                        prefs.putInteger("bagpipes_ui", 2);
+                        prefs.flush();
+                    } else if (!button.enabled) {
+                        button.enabled = true;
+                    }
+                });
+        bagpipesBothBtn = new ModLabeledToggleButton("Both",
+                390, 670, Settings.CREAM_COLOR, FontHelper.charDescFont,
+                getBagPipeNotesType() == 1, settingsPanel, l -> {},
+                button ->
+                {
+                    if (prefs != null && button.enabled) {
+                        bagpipesTooltipBtn.toggle.enabled = false;
+                        bagpipesUIBtn.toggle.enabled = false;
+                        prefs.putInteger("bagpipes_ui", 1);
+                        prefs.flush();
+                    } else if (!button.enabled) {
+                        button.enabled = true;
+                    }
                 });
         settingsPanel.addUIElement(bagpipesTooltipBtn);
         settingsPanel.addUIElement(bagpipesUIBtn);
+        settingsPanel.addUIElement(bagpipesBothBtn);
 
         BaseMod.registerModBadge(ImageMaster.loadImage(assetPath("images/modBadge.png")), NAME, "kiooeht", "TODO", settingsPanel);
 
