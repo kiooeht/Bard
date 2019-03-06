@@ -60,19 +60,19 @@ public class BagPipesCardNotesPreview2Patch
 
             float offsetX = -(NOTE_SPACING * notes.size() / 2f);
             for (AbstractNote note : notes) {
-                Vector2 offset = new Vector2(offsetX, 215);
+                Vector2 offset = new Vector2(offsetX, 212);
                 offset.rotate(__instance.angle);
                 offset.scl(__instance.drawScale * Settings.scale);
                 sb.draw(
                         note.getTexture(),
                         __instance.current_x + offset.x,
                         __instance.current_y + offset.y,
-                        note.getTexture().packedWidth / 2f,
-                        note.getTexture().packedHeight / 2f,
-                        note.getTexture().packedWidth,
-                        note.getTexture().packedHeight,
-                        __instance.drawScale * Settings.scale * 1.5f,
-                        __instance.drawScale * Settings.scale * 1.5f,
+                        0,
+                        0,
+                        note.getTexture().originalWidth,
+                        note.getTexture().originalHeight,
+                        __instance.drawScale * Settings.scale * 1.1f,
+                        __instance.drawScale * Settings.scale * 1.1f,
                         __instance.angle
                 );
                 offsetX += NOTE_SPACING;
