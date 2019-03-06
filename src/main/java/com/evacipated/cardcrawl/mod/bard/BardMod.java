@@ -1,6 +1,9 @@
 package com.evacipated.cardcrawl.mod.bard;
 
 import basemod.BaseMod;
+import basemod.ModLabel;
+import basemod.ModLabeledToggleButton;
+import basemod.ModPanel;
 import basemod.helpers.RelicType;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
@@ -27,8 +30,11 @@ import com.google.gson.Gson;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardHelper;
+import com.megacrit.cardcrawl.helpers.FontHelper;
+import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import javassist.CtClass;
@@ -60,6 +66,7 @@ public class BardMod implements
     public static final Logger logger = LogManager.getLogger(BardMod.class.getSimpleName());
 
     public static final String ID;
+    public static final String NAME;
 
     public static final Color COLOR = CardHelper.getColor(65, 105, 225);
 
@@ -72,14 +79,17 @@ public class BardMod implements
     static
     {
         String tmpID = "bard";
+        String tmpNAME = "Bard";
         try {
             Properties properties = new Properties();
             properties.load(BardMod.class.getResourceAsStream("/META-INF/bard_version.prop"));
             tmpID = properties.getProperty("id");
+            tmpNAME = properties.getProperty("name");
         } catch (IOException e) {
             e.printStackTrace();
         }
         ID = tmpID;
+        NAME = tmpNAME;
     }
 
     public static void initialize()
@@ -119,6 +129,31 @@ public class BardMod implements
     @Override
     public void receivePostInitialize()
     {
+        ModPanel settingsPanel = new ModPanel();
+        settingsPanel.addUIElement(new ModLabel(
+                "Bag Pipes",
+                380, 720,
+                Settings.GOLD_COLOR, FontHelper.charTitleFont,
+                settingsPanel,
+                update -> {}
+        ));
+        ModLabeledToggleButton bagpipesTooltipBtn = new ModLabeledToggleButton("Tooltip",
+                390, 670, Settings.CREAM_COLOR, FontHelper.charDescFont,
+                true, settingsPanel, l -> {},
+                button ->
+                {
+                });
+        ModLabeledToggleButton bagpipesUIBtn = new ModLabeledToggleButton("Card UI",
+                390, 640, Settings.CREAM_COLOR, FontHelper.charDescFont,
+                true, settingsPanel, l -> {},
+                button ->
+                {
+                });
+        settingsPanel.addUIElement(bagpipesTooltipBtn);
+        settingsPanel.addUIElement(bagpipesUIBtn);
+
+        BaseMod.registerModBadge(ImageMaster.loadImage(assetPath("images/modBadge.png")), NAME, "kiooeht", "TODO", settingsPanel);
+
         noteAtlas = assets.loadAtlas(assetPath("images/notes/notes.atlas"));
 
         MelodyManager.addMelody(new AttackUpSmallMelody());
