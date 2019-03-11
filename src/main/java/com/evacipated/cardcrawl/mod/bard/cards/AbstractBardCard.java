@@ -298,7 +298,7 @@ public abstract class AbstractBardCard extends CustomCard
                                             break;
                                     }
                                 }
-                                otherCardBuffDebuff.put(card.cardID, buffType[0]);
+                                otherCardBuffDebuff.compute(card.cardID, (k,v) -> (v == null ? 0 : v) | buffType[0]);
                             }
                         }
                     } catch (NotFoundException | CannotCompileException ignored) {
