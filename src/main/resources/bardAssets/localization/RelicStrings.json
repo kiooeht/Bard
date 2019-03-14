@@ -42,5 +42,13 @@
     "DESCRIPTIONS": [
       "Gain [E] at the start of each turn. Clear your Note Queue at the end of each turn."
     ]
+  },
+  "${ModID}:ConductorsBaton": {
+    "NAME": "Conductor's Baton",
+    "FLAVOR": "",
+    "DESCRIPTIONS": [
+      "Your Note Queue can hold #b",
+      " additional #y${ModID}:Notes."
+    ]
   }
 }
