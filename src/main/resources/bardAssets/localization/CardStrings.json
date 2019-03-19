@@ -229,8 +229,8 @@
   },
   "${ModID}:Pluck": {
     "NAME": "Pluck",
-    "DESCRIPTION": "Choose a ${ModID}:Note to ${ModID}:Queue. NL Draw a card.",
-    "UPGRADE_DESCRIPTION": "Choose !M! ${ModID}:Notes to ${ModID}:Queue. NL Draw a card."
+    "DESCRIPTION": "Choose a ${ModID}:Note to ${ModID}:Queue.",
+    "UPGRADE_DESCRIPTION": "Choose !M! ${ModID}:Notes to ${ModID}:Queue."
   },
   "${ModID}:PhantasmalForce": {
     "NAME": "Phantasmal Force",
