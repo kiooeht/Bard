@@ -36,11 +36,7 @@ public class Pluck extends AbstractBardCard
     @Override
     public void use(AbstractPlayer p, AbstractMonster m)
     {
-        if (upgraded) {
-            for (int i=0; i<magicNumber; ++i) {
-                addToBottom(new SelectNoteAction());
-            }
-        } else {
+        for (int i=0; i<magicNumber; ++i) {
             addToBottom(new SelectNoteAction());
         }
         addToBottom(new DrawCardAction(p, DRAW));
