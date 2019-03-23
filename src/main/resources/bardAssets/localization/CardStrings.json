@@ -93,8 +93,8 @@
       "Greater Invisibility"
     ]
   },
-  "${ModID}:Advance": {
-    "NAME": "Advance",
+  "${ModID}:Accelerando": {
+    "NAME": "Accelerando",
     "DESCRIPTION": "Gain [E]. NL Draw !M! cards. NL Lose [E] next turn.",
     "UPGRADE_DESCRIPTION": "Retain. NL "
   },

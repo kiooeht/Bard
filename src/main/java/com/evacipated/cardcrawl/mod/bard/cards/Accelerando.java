@@ -17,14 +17,14 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import java.util.Arrays;
 import java.util.List;
 
-public class Advance extends AbstractBardCard
+public class Accelerando extends AbstractBardCard
 {
-    public static final String ID = BardMod.makeID("Advance");
+    public static final String ID = BardMod.makeID("Accelerando");
     private static final int COST = 0;
     private static final int ENERGY = 1;
     private static final int DRAW = 2;
 
-    public Advance()
+    public Accelerando()
     {
         super(ID, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.UNCOMMON, CardTarget.SELF);
 
@@ -62,6 +62,6 @@ public class Advance extends AbstractBardCard
     @Override
     public AbstractCard makeCopy()
     {
-        return new Advance();
+        return new Accelerando();
     }
 }
