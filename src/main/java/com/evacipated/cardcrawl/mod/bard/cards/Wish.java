@@ -30,6 +30,7 @@ public class Wish extends AbstractBardCard
             setCardImage(getCurrentFrame());
         }
 
+        isEthereal = true;
         purgeOnUse = true;
     }
 
@@ -63,6 +64,7 @@ public class Wish extends AbstractBardCard
         if (!upgraded) {
             upgradeName();
             upgradeBaseCost(UPGRADE_COST);
+            isEthereal = false;
             rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
         }
