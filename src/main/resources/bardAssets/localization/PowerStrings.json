@@ -67,7 +67,7 @@
   "${ModID}:Blink": {
     "NAME": "Blink",
     "DESCRIPTIONS": [
-      "Receive 50% less damage for #b",
+      "Receive #b50% less damage for #b",
       " turn.",
       " turns."
     ]
