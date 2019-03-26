@@ -11,14 +11,14 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import java.util.Collections;
 import java.util.List;
 
-public class Pluck extends AbstractBardCard
+public class Doot extends AbstractBardCard
 {
-    public static final String ID = BardMod.makeID("Pluck");
+    public static final String ID = BardMod.makeID("Doot");
     private static final int COST = 0;
     private static final int NOTES = 1;
     private static final int UPGRADE_NOTES = 1;
 
-    public Pluck()
+    public Doot()
     {
         super(ID, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.COMMON, CardTarget.NONE);
 
@@ -53,6 +53,6 @@ public class Pluck extends AbstractBardCard
     @Override
     public AbstractCard makeCopy()
     {
-        return new Pluck();
+        return new Doot();
     }
 }
