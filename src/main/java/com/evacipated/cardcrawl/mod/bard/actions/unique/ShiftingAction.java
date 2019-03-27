@@ -2,7 +2,11 @@ package com.evacipated.cardcrawl.mod.bard.actions.unique;
 
 import com.evacipated.cardcrawl.mod.bard.BardMod;
 import com.evacipated.cardcrawl.mod.bard.CardIgnore;
+import com.evacipated.cardcrawl.mod.bard.cards.AbstractBardCard;
 import com.evacipated.cardcrawl.mod.bard.characters.Bard;
+import com.evacipated.cardcrawl.mod.bard.notes.AbstractNote;
+import com.evacipated.cardcrawl.mod.bard.notes.AttackNote;
+import com.evacipated.cardcrawl.mod.bard.notes.BlockNote;
 import com.evacipated.cardcrawl.mod.bard.patches.CenterGridCardSelectScreen;
 import com.evacipated.cardcrawl.mod.bard.relics.BagPipes;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -16,6 +20,9 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+
+import java.util.Arrays;
+import java.util.List;
 
 public class ShiftingAction extends AbstractGameAction
 {
@@ -41,10 +48,8 @@ public class ShiftingAction extends AbstractGameAction
         if (duration == Settings.ACTION_DUR_XFAST) {
             pickCard = true;
             CardGroup group = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
-            group.addToTop(new ShiftingChoiceCard("Attack", "Deal !D! damage.", AbstractCard.CardType.ATTACK, damage, -1));
-            group.addToTop(new ShiftingChoiceCard("Block", "Gain !B! Block.", AbstractCard.CardType.SKILL, -1, block));
-            group.group.get(0).color = AbstractCard.CardColor.RED;
-            group.group.get(1).color = AbstractCard.CardColor.GREEN;
+            group.addToTop(new ShiftingChoiceCard("Attack", AbstractCard.CardType.ATTACK, damage, -1, new AttackNote()));
+            group.addToTop(new ShiftingChoiceCard("Block", AbstractCard.CardType.SKILL, -1, block, new BlockNote()));
 
             CenterGridCardSelectScreen.centerGridSelect = true;
             AbstractDungeon.gridSelectScreen.open(group, 1, "Choose an Action", false);
@@ -72,18 +77,33 @@ public class ShiftingAction extends AbstractGameAction
     }
 
     @CardIgnore
-    private static class ShiftingChoiceCard extends AbstractCard
+    private static class ShiftingChoiceCard extends AbstractBardCard
     {
-        public static final String ID = BardMod.makeID("ShiftingChoiceCard");
-        public static final String IMG = null;
         private static final int COST = -2;
+        private String baseID;
+        private List<AbstractNote> notes;
 
-        public ShiftingChoiceCard(String name, String description, CardType type, int damageAmt, int blockAmt)
+        ShiftingChoiceCard(String id, CardType type, int damageAmt, int blockAmt, AbstractNote... notes)
         {
-            super(ID, name, IMG, COST, description, type, Bard.Enums.COLOR, CardRarity.SPECIAL, CardTarget.NONE);
+            super(makeID(id), COST, type, Bard.Enums.COLOR, CardRarity.SPECIAL, CardTarget.NONE);
+
+            baseID = id;
 
             baseDamage = damageAmt;
             baseBlock = blockAmt;
+
+            this.notes = Arrays.asList(notes);
+        }
+
+        private static String makeID(String id)
+        {
+            return BardMod.makeID("Shifting" + id);
+        }
+
+        @Override
+        public List<AbstractNote> getNotes()
+        {
+            return notes;
         }
 
         @Override
@@ -101,7 +121,7 @@ public class ShiftingAction extends AbstractGameAction
         @Override
         public AbstractCard makeCopy()
         {
-            return new ShiftingChoiceCard(name, rawDescription, type, baseDamage, baseBlock);
+            return new ShiftingChoiceCard(baseID, type, baseDamage, baseBlock, notes.toArray(new AbstractNote[0]));
         }
     }
 }

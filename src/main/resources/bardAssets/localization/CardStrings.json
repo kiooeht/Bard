@@ -213,6 +213,14 @@
     "NAME": "Shifting",
     "DESCRIPTION": "Deal !D! damage or NL gain !B! Block. NL Deal !D! damage or NL gain !B! Block."
   },
+  "${ModID}:ShiftingAttack": {
+    "NAME": "Attack",
+    "DESCRIPTION": "Deal !D! damage."
+  },
+  "${ModID}:ShiftingBlock": {
+    "NAME": "Block",
+    "DESCRIPTION": "Gain !B! Block."
+  },
   "${ModID}:MantleOfInspiration": {
     "NAME": "Mantle of Inspiration",
     "DESCRIPTION": "Increase all ${ModID}:Inspiration you gain from cards by !${ModID}:M2!."
