@@ -63,7 +63,7 @@ public abstract class AbstractBardCard extends CustomCard
         initializeDescription();
     }
 
-    private static String getBaseImagePath(String id, CardType type)
+    protected static String getBaseImagePath(String id, CardType type)
     {
         id = id.replaceFirst("^" + BardMod.makeID(""), "");
         char c[] = id.toCharArray();

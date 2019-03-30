@@ -1,5 +1,6 @@
 package com.evacipated.cardcrawl.mod.bard.cards;
 
+import com.badlogic.gdx.graphics.Texture;
 import com.evacipated.cardcrawl.mod.bard.BardMod;
 import com.evacipated.cardcrawl.mod.bard.actions.unique.WishAction;
 import com.evacipated.cardcrawl.mod.bard.characters.Bard;
@@ -7,6 +8,7 @@ import com.evacipated.cardcrawl.mod.bard.notes.AbstractNote;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import java.util.Collections;
@@ -30,6 +32,15 @@ public class Wish extends AbstractBardCard
 
         isEthereal = true;
         purgeOnUse = true;
+    }
+
+    @Override
+    protected Texture getPortraitImage()
+    {
+        if (CardCrawlGame.playerName.equals(___)) {
+            return ImageMaster.loadImage(BardMod.assetPath(String.format("images/1024Portraits/%sr0.png", getBaseImagePath(cardID, type))));
+        }
+        return super.getPortraitImage();
     }
 
     @Override
