@@ -83,4 +83,4 @@ $RECYCLE.BIN/
 
 # Card Art
 src/main/resources/bardAssets/images/cards/**
-!src/main/resources/bardAssets/images/cards/Makefile
+src/main/resources/bardAssets/images/1024Portraits/**

@@ -14,8 +14,9 @@
         <SlayTheSpire.version>11-15-2018</SlayTheSpire.version>
         <ModTheSpire.version>3.6.0</ModTheSpire.version>
 
-        <make.productionAssets>../../../../../../productionAssets/cards</make.productionAssets>
-        <make.resources>${basedir}/src/main/resources/bardAssets/images/cards</make.resources>
+        <make.productionAssets>../productionAssets/cards</make.productionAssets>
+        <make.portraits>../src/main/resources/bardAssets/images/1024Portraits</make.portraits>
+        <make.target>../target/cards</make.target>
     </properties>
 
     <dependencies>
@@ -93,9 +94,9 @@
                         <phase>generate-resources</phase>
                         <configuration>
                             <target>
-                                <exec dir="${make.resources}" executable="bash" failonerror="true">
+                                <exec dir="tools" executable="bash" failonerror="true">
                                     <arg value="-c"/>
-                                    <arg value="make PROD=${make.productionAssets}"/>
+                                    <arg value="make PROD=${make.productionAssets} PORTRAITS=${make.portraits} TARGET=${make.target}"/>
                                 </exec>
                             </target>
                         </configuration>
@@ -108,9 +109,9 @@
                         <phase>clean</phase>
                         <configuration>
                             <target>
-                                <exec dir="${make.resources}" executable="bash" failonerror="true">
+                                <exec dir="tools" executable="bash" failonerror="true">
                                     <arg value="-c"/>
-                                    <arg value="make clean"/>
+                                    <arg value="make PORTRAITS=${make.portraits} TARGET=${make.target} clean"/>
                                 </exec>
                             </target>
                         </configuration>
@@ -128,6 +129,29 @@
                         <goals>
                             <goal>run</goal>
                         </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>com.github.junkdog</groupId>
+                <artifactId>libgdx-packer-maven-plugin</artifactId>
+                <version>0.1.0-SNAPSHOT</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>pack</goal>
+                        </goals>
+                        <configuration>
+                            <assetFolder>tools/${make.target}</assetFolder>
+                            <packName>bardAssets/images/cards/cards</packName>
+                            <packer>
+                                <maxWidth>2048</maxWidth>
+                                <maxHeight>2048</maxHeight>
+                                <filterMin>Linear</filterMin>
+                                <filterMag>Linear</filterMag>
+                                <combineSubdirectories>true</combineSubdirectories>
+                            </packer>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>

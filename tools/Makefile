@@ -1,7 +1,10 @@
-PROD?=../../../../../../productionAssets/cards
+PROD?=../productionAssets/cards
+PORTRAITS?=../src/main/resources/bardAssets/images/1024Portraits
+TARGET?=../target/cards
+
 ORIG_IMAGES:=$(shell find $(PROD) -type f -name '*.png')
-IMAGES:=$(patsubst $(PROD)/%.png, %.png, $(ORIG_IMAGES))
-BIG_IMAGES:=$(patsubst $(PROD)/%.png, %_p.png, $(ORIG_IMAGES))
+IMAGES:=$(patsubst $(PROD)/%.png, $(TARGET)/%.png, $(ORIG_IMAGES))
+BIG_IMAGES:=$(patsubst $(PROD)/%.png, $(PORTRAITS)/%.png, $(ORIG_IMAGES))
 
 define mask_p
 	convert $(1) "$(PROD)/../cardMasks/$(3).png" -alpha Off -compose CopyOpacity -composite $(2)
@@ -14,27 +17,27 @@ endef
 
 all: $(BIG_IMAGES) $(IMAGES)
 
-attack/%_p.png: $(PROD)/attack/%.png
+$(PORTRAITS)/attack/%.png: $(PROD)/attack/%.png
 	@mkdir -p $(@D)
 	$(call mask_p,$<,$@,attack)
 
-skill/%_p.png: $(PROD)/skill/%.png
+$(PORTRAITS)/skill/%.png: $(PROD)/skill/%.png
 	@mkdir -p $(@D)
 	$(call mask_p,$<,$@,skill)
 
-power/%_p.png: $(PROD)/power/%.png
+$(PORTRAITS)/power/%.png: $(PROD)/power/%.png
 	@mkdir -p $(@D)
 	$(call mask_p,$<,$@,power)
 
-attack/%.png: $(PROD)/attack/%.png
+$(TARGET)/attack/%.png: $(PROD)/attack/%.png
 	@mkdir -p $(@D)
 	$(call mask,$<,$@,attack)
 
-skill/%.png: $(PROD)/skill/%.png
+$(TARGET)/skill/%.png: $(PROD)/skill/%.png
 	@mkdir -p $(@D)
 	$(call mask,$<,$@,skill)
 
-power/%.png: $(PROD)/power/%.png
+$(TARGET)/power/%.png: $(PROD)/power/%.png
 	@mkdir -p $(@D)
 	$(call mask,$<,$@,power)
 
@@ -44,6 +47,5 @@ verify:
 	@echo $(BIG_IMAGES)
 
 clean:
-	-@rm -r attack
-	-@rm -r skill
-	-@rm -r power
+	-@rm -r $(PORTRAITS)
+	#-@rm -r $(TARGET) target is cleaned by maven before this
