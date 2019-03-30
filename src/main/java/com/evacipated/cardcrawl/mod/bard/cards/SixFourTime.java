@@ -1,11 +1,13 @@
 package com.evacipated.cardcrawl.mod.bard.cards;
 
+import com.badlogic.gdx.graphics.Texture;
 import com.evacipated.cardcrawl.mod.bard.BardMod;
 import com.evacipated.cardcrawl.mod.bard.actions.common.IncreaseMaxNotesAction;
 import com.evacipated.cardcrawl.mod.bard.characters.Bard;
 import com.evacipated.cardcrawl.mod.bard.notes.AbstractNote;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import java.util.Collections;
@@ -23,6 +25,15 @@ public class SixFourTime extends AbstractBardCard
         super(ID, COST, CardType.POWER, Bard.Enums.COLOR, CardRarity.UNCOMMON, CardTarget.SELF);
 
         magicNumber = baseMagicNumber = NOTES;
+    }
+
+    @Override
+    protected Texture getPortraitImage()
+    {
+        if (upgraded) {
+            return ImageMaster.loadImage(BardMod.assetPath(String.format("images/1024Portraits/%s2.png", getBaseImagePath(cardID, type))));
+        }
+        return super.getPortraitImage();
     }
 
     @Override
