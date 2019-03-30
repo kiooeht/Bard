@@ -14,6 +14,7 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import javassist.*;
@@ -46,14 +47,12 @@ public abstract class AbstractBardCard extends CustomCard
     public boolean isInspirationModified = false;
     public boolean upgradedInspiration = false;
 
-    protected Animation<Texture> animation;
+    protected Animation<TextureAtlas.AtlasRegion> animation;
     protected float animationTimer = 0;
 
     public AbstractBardCard(String id, int cost, CardType type, CardColor color, CardRarity rarity, CardTarget target)
     {
-        super(id, "FAKE TITLE", null, cost, "FAKE DESCRIPTION", type, color, rarity, target);
-
-        loadCardImage(getImage(id, type));
+        super(id, "FAKE TITLE", getRegionName(id, type), cost, "FAKE DESCRIPTION", type, color, rarity, target);
 
         cardStrings = CardCrawlGame.languagePack.getCardStrings(id);
         name = NAME = cardStrings.NAME;
@@ -64,35 +63,41 @@ public abstract class AbstractBardCard extends CustomCard
         initializeDescription();
     }
 
-    protected static String getImage(String id, CardType type)
+    private static String getBaseImagePath(String id, CardType type)
     {
         id = id.replaceFirst("^" + BardMod.makeID(""), "");
         char c[] = id.toCharArray();
         c[0] = Character.toLowerCase(c[0]);
         id = new String(c);
-        return BardMod.assetPath(String.format("images/cards/%s/%s.png", type.name().toLowerCase(), id));
+        return String.format("%s/%s", type.name().toLowerCase(), id);
+    }
+
+    protected static CustomCard.RegionName getRegionName(String id, CardType type)
+    {
+        return new RegionName(String.format("%s/%s", BardMod.ID, getBaseImagePath(id, type)));
     }
 
     @Override
     public void loadCardImage(String img)
     {
-        Texture cardTexture = BardMod.assets.loadImage(img);
-        if (cardTexture != null) {
-            textureImg = img;
-            cardTexture.setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
-            int tw = cardTexture.getWidth();
-            int th = cardTexture.getHeight();
-            TextureAtlas.AtlasRegion cardImg = new TextureAtlas.AtlasRegion(cardTexture, 0, 0, tw, th);
-            ReflectionHacks.setPrivateInherited(this, CustomCard.class, "portrait", cardImg);
-        }
+        TextureAtlas cardAtlas = (TextureAtlas) ReflectionHacks.getPrivateStatic(AbstractCard.class, "cardAtlas");
+        portrait = cardAtlas.findRegion(img);
+    }
+
+    @Override
+    protected Texture getPortraitImage()
+    {
+        return ImageMaster.loadImage(BardMod.assetPath(String.format("images/1024Portraits/%s.png", getBaseImagePath(cardID, type))));
     }
 
     protected void loadAnimationByID(String id, float frameDuration)
     {
-        Array<Texture> arr = new Array<>();
+        TextureAtlas cardAtlas = (TextureAtlas) ReflectionHacks.getPrivateStatic(AbstractCard.class, "cardAtlas");
+
+        Array<TextureAtlas.AtlasRegion> arr = new Array<>();
         int i = 0;
         while (true) {
-            Texture tex = BardMod.assets.loadImage(getImage(id + i, type));
+            TextureAtlas.AtlasRegion tex = cardAtlas.findRegion(getRegionName(id + i, type).name);
             if (tex == null) {
                 break;
             }
@@ -104,15 +109,12 @@ public abstract class AbstractBardCard extends CustomCard
         }
     }
 
-    protected void setCardImage(Texture cardTexture)
+    protected void setCardImage(TextureAtlas.AtlasRegion cardTexture)
     {
-        int tw = cardTexture.getWidth();
-        int th = cardTexture.getHeight();
-        TextureAtlas.AtlasRegion cardImg = new TextureAtlas.AtlasRegion(cardTexture, 0, 0, tw, th);
-        ReflectionHacks.setPrivateInherited(this, CustomCard.class, "portrait", cardImg);
+        portrait = cardTexture;
     }
 
-    protected Texture getCurrentFrame()
+    protected TextureAtlas.AtlasRegion getCurrentFrame()
     {
         return animation.getKeyFrame(animationTimer);
     }

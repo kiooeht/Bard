@@ -1,9 +1,6 @@
 package com.evacipated.cardcrawl.mod.bard;
 
-import basemod.BaseMod;
-import basemod.ModLabel;
-import basemod.ModLabeledToggleButton;
-import basemod.ModPanel;
+import basemod.*;
 import basemod.helpers.RelicType;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
@@ -260,6 +257,13 @@ public class BardMod implements
     {
         BaseMod.addDynamicVariable(new MagicNumber2());
         BaseMod.addDynamicVariable(new InspirationVariable());
+
+        TextureAtlas cardAtlas = (TextureAtlas) ReflectionHacks.getPrivateStatic(AbstractCard.class, "cardAtlas");
+
+        TextureAtlas myCardAtlas = assets.loadAtlas(assetPath("images/cards/cards.atlas"));
+        for (TextureAtlas.AtlasRegion region : myCardAtlas.getRegions()) {
+            cardAtlas.addRegion(ID + "/" + region.name, region);
+        }
 
         try {
             autoAddCards();

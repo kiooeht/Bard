@@ -25,8 +25,6 @@ public class Wish extends AbstractBardCard
 
         if (CardCrawlGame.playerName.equals(___)) {
             loadAnimationByID(ID + "r", 0.2f);
-
-            textureImg = getImage(ID + "r0", type);
             setCardImage(getCurrentFrame());
         }
 
