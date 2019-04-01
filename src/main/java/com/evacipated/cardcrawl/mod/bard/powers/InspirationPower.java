@@ -1,5 +1,6 @@
 package com.evacipated.cardcrawl.mod.bard.powers;
 
+import basemod.interfaces.CloneablePowerInterface;
 import com.evacipated.cardcrawl.mod.bard.BardMod;
 import com.evacipated.cardcrawl.mod.bard.cards.AbstractBardCard;
 import com.evacipated.cardcrawl.mod.bard.powers.interfaces.ModifyBlockFinalPower;
@@ -14,7 +15,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-public class InspirationPower extends AbstractBardTwoAmountPower implements NonStackablePower, ModifyBlockFinalPower
+public class InspirationPower extends AbstractBardTwoAmountPower implements NonStackablePower, ModifyBlockFinalPower, CloneablePowerInterface
 {
     public static final String POWER_ID = BardMod.makeID("Inspiration");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -117,5 +118,11 @@ public class InspirationPower extends AbstractBardTwoAmountPower implements NonS
     public void stackPower(int stackAmount)
     {
         super.stackPower(stackAmount);
+    }
+
+    @Override
+    public AbstractPower makeCopy()
+    {
+        return new InspirationPower(owner, amount, amount2);
     }
 }
