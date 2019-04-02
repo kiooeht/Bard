@@ -24,6 +24,12 @@ public class GreaterMagicWeapon extends AbstractBardCard
     }
 
     @Override
+    public float getTitleFontSize()
+    {
+        return 20;
+    }
+
+    @Override
     public List<AbstractNote> getNotes()
     {
         return Collections.singletonList(new BuffNote());
