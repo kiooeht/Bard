@@ -342,5 +342,9 @@
     "EXTENDED_DESCRIPTION": [
       "My Note Queue contains Notes!"
     ]
+  },
+  "${ModID}:LingeringPerformance": {
+    "NAME": "Lingering Performance",
+    "DESCRIPTION": "All ${ModID}:Inspiration you currently have affect !M! additional card. NL Exhaustive !stslib:ex!."
   }
 }
