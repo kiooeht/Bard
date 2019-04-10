@@ -13,7 +13,7 @@ public class PitchPipe extends AbstractBardRelic
 
     public PitchPipe()
     {
-        super(ID, "test5.png", RelicTier.STARTER, LandingSound.CLINK, Bard.Enums.COLOR);
+        super(ID, RelicTier.STARTER, LandingSound.CLINK, Bard.Enums.COLOR);
     }
 
     @Override

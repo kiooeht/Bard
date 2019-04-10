@@ -17,7 +17,7 @@ public class CoralOrchestra extends AbstractBardRelic implements OnMelodyPlayedH
 
     public CoralOrchestra()
     {
-        super(ID, "test5.png", RelicTier.RARE, LandingSound.HEAVY, Bard.Enums.COLOR);
+        super(ID, RelicTier.RARE, LandingSound.HEAVY, Bard.Enums.COLOR);
 
         setCounter(0);
     }

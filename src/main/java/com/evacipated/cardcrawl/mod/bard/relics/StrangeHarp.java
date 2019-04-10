@@ -16,7 +16,7 @@ public class StrangeHarp extends AbstractBardRelic
 
     public StrangeHarp()
     {
-        super(ID, "strangeHarp.png", RelicTier.UNCOMMON, LandingSound.CLINK, Bard.Enums.COLOR);
+        super(ID, RelicTier.UNCOMMON, LandingSound.CLINK, Bard.Enums.COLOR);
     }
 
     @Override

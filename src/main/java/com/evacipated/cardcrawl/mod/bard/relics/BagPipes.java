@@ -18,7 +18,7 @@ public class BagPipes extends AbstractBardRelic
 
     public BagPipes()
     {
-        super(ID, "test5.png", RelicTier.STARTER, LandingSound.FLAT, Bard.Enums.COLOR);
+        super(ID, RelicTier.STARTER, LandingSound.FLAT, Bard.Enums.COLOR);
 
         NAME = name;
     }

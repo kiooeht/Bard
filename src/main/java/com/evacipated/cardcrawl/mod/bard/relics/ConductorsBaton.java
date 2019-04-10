@@ -14,7 +14,7 @@ public class ConductorsBaton extends AbstractBardRelic
 
     public ConductorsBaton()
     {
-        super(ID, "test5.png", RelicTier.SHOP, LandingSound.FLAT, Bard.Enums.COLOR);
+        super(ID, RelicTier.SHOP, LandingSound.FLAT, Bard.Enums.COLOR);
     }
 
     @Override

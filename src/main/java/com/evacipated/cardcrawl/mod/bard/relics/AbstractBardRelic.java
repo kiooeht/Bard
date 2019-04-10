@@ -11,27 +11,42 @@ public abstract class AbstractBardRelic extends AbstractRelic
 {
     public AbstractCard.CardColor color;
 
-    public AbstractBardRelic(String setId, String imgName, AbstractRelic.RelicTier tier, AbstractRelic.LandingSound sfx)
+    public AbstractBardRelic(String setId, AbstractRelic.RelicTier tier, AbstractRelic.LandingSound sfx)
     {
-        this(setId, imgName, tier, sfx, null);
+        this(setId, tier, sfx, null);
     }
 
-    public AbstractBardRelic(String setId, String imgName, AbstractRelic.RelicTier tier, AbstractRelic.LandingSound sfx, AbstractCard.CardColor color)
+    public AbstractBardRelic(String setId, AbstractRelic.RelicTier tier, AbstractRelic.LandingSound sfx, AbstractCard.CardColor color)
     {
         super(setId, "", tier, sfx);
 
         this.color = color;
 
-        if (imgName.startsWith("test")) {
-            img = ImageMaster.loadImage("images/relics/" + imgName);
-            largeImg = ImageMaster.loadImage("images/largeRelics/" + imgName);
-            outlineImg = ImageMaster.loadImage("images/relics/outline/" + imgName);
+        String imgName = getBaseImagePath();
+
+        loadImages(BardMod.assetPath(""), imgName);
+        if (img == null || outlineImg == null) {
+            loadImages("", imgName);
         }
         if (img == null || outlineImg == null) {
-            img = ImageMaster.loadImage(BardMod.assetPath("images/relics/" + imgName));
-            largeImg = ImageMaster.loadImage(BardMod.assetPath("images/largeRelics/" + imgName));
-            outlineImg = ImageMaster.loadImage(BardMod.assetPath("images/relics/outline/" + imgName));
+            loadImages("", "test5.png");
         }
+    }
+
+    protected void loadImages(String basePath, String imgName)
+    {
+        img = ImageMaster.loadImage(basePath +"images/relics/" + imgName);
+        largeImg = ImageMaster.loadImage(basePath +"images/largeRelics/" + imgName);
+        outlineImg = ImageMaster.loadImage(basePath + "images/relics/outline/" + imgName);
+    }
+
+    protected String getBaseImagePath()
+    {
+        String id = relicId.replaceFirst("^" + BardMod.makeID(""), "");
+        char c[] = id.toCharArray();
+        c[0] = Character.toLowerCase(c[0]);
+        id = new String(c);
+        return id + ".png";
     }
 
     @Override

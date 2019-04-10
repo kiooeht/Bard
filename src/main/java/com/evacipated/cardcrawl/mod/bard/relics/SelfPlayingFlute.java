@@ -16,7 +16,7 @@ public class SelfPlayingFlute extends AbstractBardRelic implements CustomSavable
 
     public SelfPlayingFlute()
     {
-        super(ID, "test6.png", RelicTier.BOSS, LandingSound.MAGICAL, Bard.Enums.COLOR);
+        super(ID, RelicTier.BOSS, LandingSound.MAGICAL, Bard.Enums.COLOR);
     }
 
     @Override

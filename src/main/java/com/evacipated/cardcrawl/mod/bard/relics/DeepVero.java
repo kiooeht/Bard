@@ -13,7 +13,7 @@ public class DeepVero extends AbstractBardRelic
 
     public DeepVero()
     {
-        super(ID, "test5.png", RelicTier.BOSS, LandingSound.HEAVY, Bard.Enums.COLOR);
+        super(ID, RelicTier.BOSS, LandingSound.HEAVY, Bard.Enums.COLOR);
     }
 
     @Override
