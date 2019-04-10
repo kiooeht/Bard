@@ -1,5 +1,8 @@
 package com.evacipated.cardcrawl.mod.bard.relics;
 
+import com.badlogic.gdx.files.FileHandle;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.glutils.FileTextureData;
 import com.evacipated.cardcrawl.mod.bard.BardMod;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -60,6 +63,15 @@ public abstract class AbstractBardRelic extends AbstractRelic
                 largeImg = ImageMaster.loadImage(BardMod.assetPath("images/largeRelics/" + imgUrl));
             }
         }
+    }
+
+    public Texture getLargeImgForSingleView()
+    {
+        if (largeImg != null && largeImg.getTextureData() instanceof FileTextureData) {
+            FileHandle file = ((FileTextureData) largeImg.getTextureData()).getFileHandle();
+            return ImageMaster.loadImage(file.path());
+        }
+        return null;
     }
 
     protected void addToTop(AbstractGameAction action)
