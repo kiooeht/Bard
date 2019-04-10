@@ -1,0 +1,44 @@
+PROD?=../productionAssets/relics
+LARGE?=../src/main/resources/bardAssets/images/largeRelics
+TARGET?=../src/main/resources/bardAssets/images/relics
+PROD_OUTLINE=$(PROD)/outline
+OUTLINE=$(TARGET)/outline
+
+ORIG_IMAGES:=$(shell find $(PROD) -maxdepth 1 -type f -name '*.png')
+IMAGES:=$(patsubst $(PROD)/%.png, $(TARGET)/%.png, $(ORIG_IMAGES))
+BIG_IMAGES:=$(patsubst $(PROD)/%.png, $(LARGE)/%.png, $(ORIG_IMAGES))
+
+ORIG_OUTLINES:=$(shell find $(PROD_OUTLINE) -type f -name '*.png')
+OUTLINES:=$(patsubst $(PROD_OUTLINE)/%.png, $(OUTLINE)/%.png, $(ORIG_OUTLINES))
+
+define resize
+	convert $(1) -resize 50% $(2)
+endef
+
+.PHONY: all verify clean outlines
+
+all: $(BIG_IMAGES) $(IMAGES) outlines
+
+outlines: $(OUTLINES)
+
+$(LARGE)/%.png: $(PROD)/%.png
+	@mkdir -p $(@D)
+	cp $< $@
+
+$(TARGET)/%.png: $(PROD)/%.png
+	@mkdir -p $(@D)
+	$(call resize,$<,$@)
+
+$(OUTLINE)/%.png: $(PROD_OUTLINE)/%.png
+	@mkdir -p $(@D)
+	$(call resize,$<,$@)
+
+verify:
+	@echo $(ORIG_IMAGES)
+	@echo $(IMAGES)
+	@echo $(BIG_IMAGES)
+	@echo $(ORIG_OUTLINES)
+	@echo $(OUTLINES)
+clean:
+	-@rm -r $(LARGE)
+	-@rm -r $(TARGET)

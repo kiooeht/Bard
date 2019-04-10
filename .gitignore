@@ -84,3 +84,7 @@ $RECYCLE.BIN/
 # Card Art
 src/main/resources/bardAssets/images/cards/**
 src/main/resources/bardAssets/images/1024Portraits/**
+
+# Relic Art
+src/main/resources/bardAssets/images/relics/**
+src/main/resources/bardAssets/images/largeRelics/**

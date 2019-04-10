@@ -14,9 +14,13 @@
         <SlayTheSpire.version>11-15-2018</SlayTheSpire.version>
         <ModTheSpire.version>3.6.0</ModTheSpire.version>
 
-        <make.productionAssets>../productionAssets/cards</make.productionAssets>
-        <make.portraits>../src/main/resources/bardAssets/images/1024Portraits</make.portraits>
-        <make.target>../target/cards</make.target>
+        <make.cards.productionAssets>../productionAssets/cards</make.cards.productionAssets>
+        <make.cards.portraits>../src/main/resources/bardAssets/images/1024Portraits</make.cards.portraits>
+        <make.cards.target>../target/cards</make.cards.target>
+
+        <make.relics.productionAssets>../productionAssets/relics</make.relics.productionAssets>
+        <make.relics.portraits>../src/main/resources/bardAssets/images/largeRelics</make.relics.portraits>
+        <make.relics.target>../src/main/resources/bardAssets/images/relics</make.relics.target>
     </properties>
 
     <dependencies>
@@ -96,7 +100,7 @@
                             <target>
                                 <exec dir="tools" executable="bash" failonerror="true">
                                     <arg value="-c"/>
-                                    <arg value="make PROD=${make.productionAssets} PORTRAITS=${make.portraits} TARGET=${make.target}"/>
+                                    <arg value="make -f Makefile_cards PROD=${make.cards.productionAssets} PORTRAITS=${make.cards.portraits} TARGET=${make.cards.target}"/>
                                 </exec>
                             </target>
                         </configuration>
@@ -111,7 +115,37 @@
                             <target>
                                 <exec dir="tools" executable="bash" failonerror="true">
                                     <arg value="-c"/>
-                                    <arg value="make PORTRAITS=${make.portraits} TARGET=${make.target} clean"/>
+                                    <arg value="make -f Makefile_cards PORTRAITS=${make.cards.portraits} TARGET=${make.cards.target} clean"/>
+                                </exec>
+                            </target>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>relic art</id>
+                        <phase>generate-resources</phase>
+                        <configuration>
+                            <target>
+                                <exec dir="tools" executable="bash" failonerror="true">
+                                    <arg value="-c"/>
+                                    <arg value="make -f Makefile_relics PROD=${make.relics.productionAssets} PORTRAITS=${make.relics.portraits} TARGET=${make.relics.target}"/>
+                                </exec>
+                            </target>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>relic art clean</id>
+                        <phase>clean</phase>
+                        <configuration>
+                            <target>
+                                <exec dir="tools" executable="bash" failonerror="true">
+                                    <arg value="-c"/>
+                                    <arg value="make -f Makefile_relics PORTRAITS=${make.relics.portraits} TARGET=${make.relics.target} clean"/>
                                 </exec>
                             </target>
                         </configuration>
