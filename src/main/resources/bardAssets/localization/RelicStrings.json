@@ -45,7 +45,7 @@
   },
   "${ModID}:ConductorsBaton": {
     "NAME": "Conductor's Baton",
-    "FLAVOR": "",
+    "FLAVOR": "Beatings will continue until the music improves.",
     "DESCRIPTIONS": [
       "Your Note Queue can hold #b",
       " additional #y${ModID}:Notes."
