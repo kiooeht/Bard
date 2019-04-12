@@ -1,0 +1,30 @@
+PROD?=../productionAssets/powers/128
+TARGET?=../target/powers
+
+ORIG_IMAGES:=$(shell find $(PROD) -type f -name '*.png')
+IMAGES128:=$(patsubst $(PROD)/%.png, $(TARGET)/128/%.png, $(ORIG_IMAGES))
+IMAGES48:=$(patsubst $(PROD)/%.png, $(TARGET)/48/%.png, $(ORIG_IMAGES))
+
+define resize
+	convert $(1) -filter Catrom -resize 48x48 $(2)
+endef
+
+.PHONY: all verify clean
+
+all: $(IMAGES128) $(IMAGES48)
+
+$(TARGET)/128/%.png: $(PROD)/%.png
+	@mkdir -p $(@D)
+	cp $< $@
+
+$(TARGET)/48/%.png: $(PROD)/%.png
+	@mkdir -p $(@D)
+	$(call resize,$<,$@)
+
+verify:
+	@echo $(ORIG_IMAGES)
+	@echo $(IMAGES128)
+	@echo $(IMAGES48)
+
+clean:
+	#-@rm -r $(TARGET) target is cleaned by maven before this

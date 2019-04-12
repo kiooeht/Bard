@@ -21,6 +21,9 @@
         <make.relics.productionAssets>../productionAssets/relics</make.relics.productionAssets>
         <make.relics.portraits>../src/main/resources/bardAssets/images/largeRelics</make.relics.portraits>
         <make.relics.target>../src/main/resources/bardAssets/images/relics</make.relics.target>
+
+        <make.powers.productionAssets>../productionAssets/powers/128</make.powers.productionAssets>
+        <make.powers.target>../target/powers</make.powers.target>
     </properties>
 
     <dependencies>
@@ -154,6 +157,36 @@
                         </goals>
                     </execution>
                     <execution>
+                        <id>power art</id>
+                        <phase>generate-resources</phase>
+                        <configuration>
+                            <target>
+                                <exec dir="tools" executable="bash" failonerror="true">
+                                    <arg value="-c"/>
+                                    <arg value="make -f Makefile_powers PROD=${make.powers.productionAssets} TARGET=${make.powers.target}"/>
+                                </exec>
+                            </target>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>power art clean</id>
+                        <phase>clean</phase>
+                        <configuration>
+                            <target>
+                                <exec dir="tools" executable="bash" failonerror="true">
+                                    <arg value="-c"/>
+                                    <arg value="make -f Makefile_powers TARGET=${make.powers.target} clean"/>
+                                </exec>
+                            </target>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                    <execution>
                         <phase>package</phase>
                         <configuration>
                             <target>
@@ -172,6 +205,7 @@
                 <version>0.1.0-SNAPSHOT</version>
                 <executions>
                     <execution>
+                        <id>pack cards</id>
                         <goals>
                             <goal>pack</goal>
                         </goals>
@@ -183,6 +217,25 @@
                                 <maxHeight>2048</maxHeight>
                                 <filterMin>Linear</filterMin>
                                 <filterMag>Linear</filterMag>
+                                <combineSubdirectories>true</combineSubdirectories>
+                            </packer>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>pack powers</id>
+                        <goals>
+                            <goal>pack</goal>
+                        </goals>
+                        <configuration>
+                            <assetFolder>tools/${make.powers.target}</assetFolder>
+                            <packName>bardAssets/images/powers/powers</packName>
+                            <packer>
+                                <maxWidth>2048</maxWidth>
+                                <maxHeight>2048</maxHeight>
+                                <filterMin>Linear</filterMin>
+                                <filterMag>Linear</filterMag>
+                                <stripWhitespaceX>true</stripWhitespaceX>
+                                <stripWhitespaceY>true</stripWhitespaceY>
                                 <combineSubdirectories>true</combineSubdirectories>
                             </packer>
                         </configuration>
