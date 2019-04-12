@@ -22,7 +22,7 @@ public class BuffNote extends AbstractNote
     @Override
     public TextureAtlas.AtlasRegion getTexture()
     {
-        return BardMod.noteAtlas.findRegion("buff");
+        return BardMod.noteAtlas.findRegion("noteBuff");
     }
 
     @Override

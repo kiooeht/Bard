@@ -34,7 +34,7 @@ public class RestNote extends AbstractNote
     @Override
     public TextureAtlas.AtlasRegion getTexture()
     {
-        return BardMod.noteAtlas.findRegion("rest");
+        return BardMod.noteAtlas.findRegion("noteRest");
     }
 
     @Override

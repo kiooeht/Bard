@@ -24,6 +24,9 @@
 
         <make.powers.productionAssets>../productionAssets/powers/128</make.powers.productionAssets>
         <make.powers.target>../target/powers</make.powers.target>
+
+        <make.notes.productionAssets>../productionAssets/notes</make.notes.productionAssets>
+        <make.notes.target>../target/notes</make.notes.target>
     </properties>
 
     <dependencies>
@@ -187,6 +190,36 @@
                         </goals>
                     </execution>
                     <execution>
+                        <id>note art</id>
+                        <phase>generate-resources</phase>
+                        <configuration>
+                            <target>
+                                <exec dir="tools" executable="bash" failonerror="true">
+                                    <arg value="-c"/>
+                                    <arg value="make -f Makefile_notes PROD=${make.notes.productionAssets} TARGET=${make.notes.target}"/>
+                                </exec>
+                            </target>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>note art clean</id>
+                        <phase>clean</phase>
+                        <configuration>
+                            <target>
+                                <exec dir="tools" executable="bash" failonerror="true">
+                                    <arg value="-c"/>
+                                    <arg value="make -f Makefile_notes TARGET=${make.notes.target} clean"/>
+                                </exec>
+                            </target>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                    <execution>
                         <phase>package</phase>
                         <configuration>
                             <target>
@@ -236,6 +269,23 @@
                                 <filterMag>Linear</filterMag>
                                 <stripWhitespaceX>true</stripWhitespaceX>
                                 <stripWhitespaceY>true</stripWhitespaceY>
+                                <combineSubdirectories>true</combineSubdirectories>
+                            </packer>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>pack notes</id>
+                        <goals>
+                            <goal>pack</goal>
+                        </goals>
+                        <configuration>
+                            <assetFolder>tools/${make.notes.target}</assetFolder>
+                            <packName>bardAssets/images/notes/notes</packName>
+                            <packer>
+                                <maxWidth>1024</maxWidth>
+                                <maxHeight>1024</maxHeight>
+                                <filterMin>Nearest</filterMin>
+                                <filterMag>Nearest</filterMag>
                                 <combineSubdirectories>true</combineSubdirectories>
                             </packer>
                         </configuration>

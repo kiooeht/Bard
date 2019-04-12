@@ -22,7 +22,7 @@ public class AttackNote extends AbstractNote
     @Override
     public TextureAtlas.AtlasRegion getTexture()
     {
-        return BardMod.noteAtlas.findRegion("attack");
+        return BardMod.noteAtlas.findRegion("noteAttack");
     }
 
     @Override

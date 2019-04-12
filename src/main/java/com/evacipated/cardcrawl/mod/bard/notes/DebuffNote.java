@@ -22,7 +22,7 @@ public class DebuffNote extends AbstractNote
     @Override
     public TextureAtlas.AtlasRegion getTexture()
     {
-        return BardMod.noteAtlas.findRegion("debuff");
+        return BardMod.noteAtlas.findRegion("noteDebuff");
     }
 
     @Override

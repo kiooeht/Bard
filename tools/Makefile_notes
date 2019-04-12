@@ -1,0 +1,20 @@
+PROD?=../productionAssets/notes
+TARGET?=../target/notes
+
+ORIG_IMAGES:=$(shell find $(PROD) -type f -name '*.png')
+IMAGES:=$(patsubst $(PROD)/%.png, $(TARGET)/%.png, $(ORIG_IMAGES))
+
+.PHONY: all verify clean
+
+all: $(IMAGES)
+
+$(TARGET)/%.png: $(PROD)/%.png
+	@mkdir -p $(@D)
+	cp $< $@
+
+verify:
+	@echo $(ORIG_IMAGES)
+	@echo $(IMAGES)
+
+clean:
+	#-@rm -r $(TARGET) target is cleaned by maven before this

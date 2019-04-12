@@ -20,6 +20,6 @@ public class BlockNote extends AbstractNote
     @Override
     public TextureAtlas.AtlasRegion getTexture()
     {
-        return BardMod.noteAtlas.findRegion("block");
+        return BardMod.noteAtlas.findRegion("noteBlock");
     }
 }
