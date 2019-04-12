@@ -176,7 +176,7 @@
                             <goal>pack</goal>
                         </goals>
                         <configuration>
-                            <assetFolder>tools/${make.target}</assetFolder>
+                            <assetFolder>tools/${make.cards.target}</assetFolder>
                             <packName>bardAssets/images/cards/cards</packName>
                             <packer>
                                 <maxWidth>2048</maxWidth>
