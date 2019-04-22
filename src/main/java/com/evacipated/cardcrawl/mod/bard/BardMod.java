@@ -247,7 +247,7 @@ public class BardMod implements
         BaseMod.addCharacter(
                 new Bard(CardCrawlGame.playerName),
                 assetPath("images/ui/charSelect/bardButton.png"),
-                "images/ui/charSelect/silentPortrait.jpg",
+                assetPath("images/ui/charSelect/bardPortrait.jpg"),
                 Bard.Enums.BARD
         );
     }
