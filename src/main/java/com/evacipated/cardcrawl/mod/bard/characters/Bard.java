@@ -52,7 +52,11 @@ public class Bard extends CustomPlayer
         dialogX = drawX + 0 * Settings.scale;
         dialogY = drawY + 170 * Settings.scale;
 
-        initializeClass(null, "images/characters/theSilent/shoulder2.png", "images/characters/theSilent/shoulder.png", "images/characters/theSilent/corpse.png",
+        initializeClass(
+                null,
+                BardMod.assetPath("images/characters/bard/shoulder2.png"),
+                BardMod.assetPath("images/characters/bard/shoulder.png"),
+                "images/characters/theSilent/corpse.png",
                 getLoadout(), 0.0F, -20.0F, 240.0F, 240.0F, new EnergyManager(ENERGY_PER_TURN));
 
         BardMod.getNoteQueue(this).setMasterMaxNotes(MAX_NOTES);
