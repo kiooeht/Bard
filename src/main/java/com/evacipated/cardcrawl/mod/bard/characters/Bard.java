@@ -191,21 +191,26 @@ public class Bard extends CustomPlayer
     @Override
     public Color getSlashAttackColor()
     {
-        // TODO
         return Color.ROYAL;
     }
 
     @Override
     public AbstractGameAction.AttackEffect[] getSpireHeartSlashEffect()
     {
-        // TODO
         return new AbstractGameAction.AttackEffect[] {
-                AbstractGameAction.AttackEffect.SLASH_HEAVY,
-                AbstractGameAction.AttackEffect.POISON,
-                AbstractGameAction.AttackEffect.SLASH_DIAGONAL,
-                AbstractGameAction.AttackEffect.SLASH_HEAVY,
-                AbstractGameAction.AttackEffect.POISON,
-                AbstractGameAction.AttackEffect.SLASH_DIAGONAL
+                AbstractGameAction.AttackEffect.SLASH_HORIZONTAL,
+                AbstractGameAction.AttackEffect.BLUNT_LIGHT,
+                AbstractGameAction.AttackEffect.SLASH_VERTICAL,
+                AbstractGameAction.AttackEffect.BLUNT_HEAVY,
+                AbstractGameAction.AttackEffect.BLUNT_LIGHT,
+                AbstractGameAction.AttackEffect.BLUNT_HEAVY,
+                AbstractGameAction.AttackEffect.SLASH_VERTICAL,
+                AbstractGameAction.AttackEffect.BLUNT_LIGHT,
+                AbstractGameAction.AttackEffect.SLASH_HORIZONTAL,
+                AbstractGameAction.AttackEffect.SLASH_HORIZONTAL,
+                AbstractGameAction.AttackEffect.BLUNT_LIGHT,
+                AbstractGameAction.AttackEffect.BLUNT_HEAVY,
+                AbstractGameAction.AttackEffect.BLUNT_HEAVY,
         };
     }
 
