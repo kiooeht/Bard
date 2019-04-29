@@ -291,6 +291,7 @@ public class BardMod implements
         BaseMod.loadCustomStringsFile(PotionStrings.class, assetPath("localization/PotionStrings.json"));
         BaseMod.loadCustomStringsFile(PowerStrings.class, assetPath("localization/PowerStrings.json"));
         BaseMod.loadCustomStringsFile(UIStrings.class, assetPath("localization/UIStrings.json"));
+        BaseMod.loadCustomStringsFile(CharacterStrings.class, assetPath("localization/CharacterStrings.json"));
     }
 
     @Override

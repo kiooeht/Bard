@@ -22,6 +22,7 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
+import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 
@@ -29,6 +30,7 @@ import java.util.ArrayList;
 
 public class Bard extends CustomPlayer
 {
+    private static final CharacterStrings characterStrings = CardCrawlGame.languagePack.getCharacterString(BardMod.makeID("Bard"));
     private static final int START_HP = 70;
     private static final int ENERGY_PER_TURN = 3;
     private static final int START_ORBS = 0;
@@ -105,14 +107,14 @@ public class Bard extends CustomPlayer
     @Override
     public CharSelectInfo getLoadout()
     {
-        return new CharSelectInfo("Bard", "M U S I C", START_HP, START_HP, START_ORBS, 99, 5,
+        return new CharSelectInfo(characterStrings.NAMES[0], characterStrings.TEXT[0], START_HP, START_HP, START_ORBS, 99, 5,
                 this, getStartingRelics(), getStartingDeck(), false);
     }
 
     @Override
     public String getTitle(PlayerClass playerClass)
     {
-        return "the Bard";
+        return characterStrings.NAMES[1];
     }
 
     @Override
@@ -171,7 +173,7 @@ public class Bard extends CustomPlayer
     @Override
     public String getLocalizedCharacterName()
     {
-        return "A Bard";
+        return characterStrings.NAMES[0];
     }
 
     @Override

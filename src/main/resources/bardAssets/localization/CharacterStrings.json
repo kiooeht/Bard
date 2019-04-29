@@ -1,0 +1,11 @@
+{
+  "${ModID}:Bard": {
+    "NAMES": [
+      "The Bard",
+      "the Bard"
+    ],
+    "TEXT": [
+      "M U S I C A L"
+    ]
+  }
+}
