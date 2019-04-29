@@ -1,0 +1,1 @@
+{"skeleton":{"width":471,"height":304,"fps":24,"hash":" ","name":"Armature"},"bones":[{"name":"root"}],"slots":[{"name":"bard","bone":"root","attachment":"bard"}],"skins":{"default":{"bard":{"bard":{"name":"bard","width":471,"height":304,"x":-43,"y":111}}}}}

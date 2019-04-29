@@ -47,7 +47,12 @@ public class Bard extends CustomPlayer
     public Bard(String name)
     {
         super(name, Enums.BARD, null, null,
-                new SpineAnimation("images/characters/theSilent/idle/skeleton.atlas", "images/characters/theSilent/idle/skeleton.json", 1.0F));
+                new SpineAnimation(
+                        BardMod.assetPath("images/characters/bard/idle/skeleton.atlas"),
+                        BardMod.assetPath("images/characters/bard/idle/skeleton.json"),
+                        1.0F
+                )
+        );
 
         dialogX = drawX + 0 * Settings.scale;
         dialogY = drawY + 170 * Settings.scale;
@@ -57,7 +62,7 @@ public class Bard extends CustomPlayer
                 BardMod.assetPath("images/characters/bard/shoulder2.png"),
                 BardMod.assetPath("images/characters/bard/shoulder.png"),
                 "images/characters/theSilent/corpse.png",
-                getLoadout(), 0.0F, -20.0F, 240.0F, 240.0F, new EnergyManager(ENERGY_PER_TURN));
+                getLoadout(), 0.0F, -10.0F, 240.0F, 260.0F, new EnergyManager(ENERGY_PER_TURN));
 
         BardMod.getNoteQueue(this).setMasterMaxNotes(MAX_NOTES);
     }
