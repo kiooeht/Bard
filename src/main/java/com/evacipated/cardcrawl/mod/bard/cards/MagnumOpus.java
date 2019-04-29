@@ -1,12 +1,12 @@
 package com.evacipated.cardcrawl.mod.bard.cards;
 
 import com.evacipated.cardcrawl.mod.bard.BardMod;
+import com.evacipated.cardcrawl.mod.bard.actions.unique.MagnumOpusAction;
 import com.evacipated.cardcrawl.mod.bard.characters.Bard;
 import com.evacipated.cardcrawl.mod.bard.notes.AbstractNote;
 import com.evacipated.cardcrawl.mod.bard.notes.BuffNote;
 import com.evacipated.cardcrawl.mod.bard.powers.InspirationPower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.defect.IncreaseMiscAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -40,7 +40,7 @@ public class MagnumOpus extends AbstractBardCard
     @Override
     public void use(AbstractPlayer p, AbstractMonster m)
     {
-        addToBottom(new IncreaseMiscAction(uuid, misc, magicNumber2));
+        addToBottom(new MagnumOpusAction(uuid, misc, magicNumber2));
         addToBottom(new ApplyPowerAction(p, p, new InspirationPower(p, 1, inspiration), 1));
     }
 
