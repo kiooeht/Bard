@@ -185,8 +185,7 @@ public class Bard extends CustomPlayer
     @Override
     public String getSpireHeartText()
     {
-        // TODO
-        return com.megacrit.cardcrawl.events.beyond.SpireHeart.DESCRIPTIONS[9];
+        return characterStrings.TEXT[1];
     }
 
     @Override
@@ -213,7 +212,6 @@ public class Bard extends CustomPlayer
     @Override
     public String getVampireText()
     {
-        // TODO
-        return com.megacrit.cardcrawl.events.city.Vampires.DESCRIPTIONS[1];
+        return characterStrings.TEXT[2];
     }
 }
