@@ -78,7 +78,7 @@
   },
   "${ModID}:Balestra": {
     "NAME": "Balestra",
-    "DESCRIPTION": "Deal !D! damage !M! times. NL This card's damage is affected by Dexterity instead of Strength."
+    "DESCRIPTION": "Deal !D! damage !M! times. NL This card's damage is affected by Dexterity in addition to Strength."
   },
   "${ModID}:Greatness": {
     "NAME": "Greatness",
