@@ -21,6 +21,8 @@ public class ThickOfTheFight extends AbstractBardCard
     private static final int DAMAGE = 12;
     private static final int UPGRADE_DAMAGE = 3;
 
+    private int currentMonsterCount = 0;
+
     public ThickOfTheFight()
     {
         super(ID, COST, CardType.ATTACK, Bard.Enums.COLOR, CardRarity.UNCOMMON, CardTarget.ALL_ENEMY);
@@ -35,6 +37,12 @@ public class ThickOfTheFight extends AbstractBardCard
                 new AttackNote(),
                 new AttackNote()
         );
+    }
+
+    public void monstersChanged(int monsterCount)
+    {
+        updateCost(currentMonsterCount - monsterCount);
+        currentMonsterCount = monsterCount;
     }
 
     @Override
@@ -55,32 +63,6 @@ public class ThickOfTheFight extends AbstractBardCard
     }
 
     @Override
-    public void applyPowers()
-    {
-        super.applyPowers();
-
-        // TODO deal with other sources of cost change
-        int diff = cost - costForTurn;
-        int newCost = COST;
-        for (AbstractMonster m : AbstractDungeon.getMonsters().monsters) {
-            if (!m.isDeadOrEscaped()) {
-                --newCost;
-            }
-        }
-        if (newCost < 0) {
-            newCost = 0;
-        }
-        if (newCost != cost) {
-            isCostModified = true;
-            cost = newCost;
-            costForTurn = cost - diff;
-            if (costForTurn < 0) {
-                costForTurn = 0;
-            }
-        }
-    }
-
-    @Override
     public void upgrade()
     {
         if (!upgraded) {
@@ -93,5 +75,13 @@ public class ThickOfTheFight extends AbstractBardCard
     public AbstractCard makeCopy()
     {
         return new ThickOfTheFight();
+    }
+
+    @Override
+    public AbstractCard makeStatEquivalentCopy()
+    {
+        ThickOfTheFight tmp = (ThickOfTheFight) super.makeStatEquivalentCopy();
+        tmp.currentMonsterCount = currentMonsterCount;
+        return tmp;
     }
 }
