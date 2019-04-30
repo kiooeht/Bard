@@ -56,6 +56,7 @@ public class BardMod implements
         EditRelicsSubscriber,
         EditStringsSubscriber,
         EditKeywordsSubscriber,
+        AddAudioSubscriber,
         PostPlayerUpdateSubscriber
 {
     public static final Logger logger = LogManager.getLogger(BardMod.class.getSimpleName());
@@ -306,6 +307,12 @@ public class BardMod implements
                 BaseMod.addKeyword(ID, keyword.PROPER_NAME, keyword.NAMES, keyword.DESCRIPTION);
             }
         }
+    }
+
+    @Override
+    public void receiveAddAudio()
+    {
+        BaseMod.addAudio(makeID("ATTACK_HORN_1"), assetPath("audio/sound/SFX_Horn1.ogg"));
     }
 
     private static void autoAddCards()

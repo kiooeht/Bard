@@ -158,16 +158,14 @@ public class Bard extends CustomPlayer
     @Override
     public void doCharSelectScreenSelectEffect()
     {
-        // TODO
-        CardCrawlGame.sound.playA("ATTACK_DAGGER_2", MathUtils.random(-0.2F, 0.2F));
-        CardCrawlGame.screenShake.shake(ScreenShake.ShakeIntensity.MED, ScreenShake.ShakeDur.SHORT, false);
+        CardCrawlGame.sound.playA(BardMod.makeID("ATTACK_HORN_1"), MathUtils.random(-0.2F, 0.2F));
+        CardCrawlGame.screenShake.shake(ScreenShake.ShakeIntensity.MED, ScreenShake.ShakeDur.SHORT, true);
     }
 
     @Override
     public String getCustomModeCharacterButtonSoundKey()
     {
-        // TODO
-        return "ATTACK_DAGGER_2";
+        return BardMod.makeID("ATTACK_HORN_1");
     }
 
     @Override
