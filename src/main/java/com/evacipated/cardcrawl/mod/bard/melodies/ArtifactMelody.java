@@ -1,5 +1,6 @@
 package com.evacipated.cardcrawl.mod.bard.melodies;
 
+import basemod.abstracts.CustomCard;
 import com.evacipated.cardcrawl.mod.bard.BardMod;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -13,6 +14,13 @@ public class ArtifactMelody extends AbstractMelody
     public ArtifactMelody()
     {
         super(ID, AbstractCard.CardTarget.SELF);
+        type = AbstractCard.CardType.SKILL;
+    }
+
+    @Override
+    protected CustomCard.RegionName getRegionName()
+    {
+        return new CustomCard.RegionName("colorless/skill/panacea");
     }
 
     @Override
