@@ -1,5 +1,6 @@
 package com.evacipated.cardcrawl.mod.bard.melodies;
 
+import basemod.abstracts.CustomCard;
 import com.evacipated.cardcrawl.mod.bard.BardMod;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
@@ -15,6 +16,12 @@ public class DamageSmallMelody extends AbstractMelody
     {
         super(ID, AbstractCard.CardTarget.ALL_ENEMY);
         type = AbstractCard.CardType.ATTACK;
+    }
+
+    @Override
+    protected CustomCard.RegionName getRegionName()
+    {
+        return new CustomCard.RegionName("red/attack/cleave");
     }
 
     @Override
