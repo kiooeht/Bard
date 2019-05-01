@@ -14,6 +14,7 @@ public class DamageSmallMelody extends AbstractMelody
     public DamageSmallMelody()
     {
         super(ID, AbstractCard.CardTarget.ALL_ENEMY);
+        type = AbstractCard.CardType.ATTACK;
     }
 
     @Override
@@ -25,14 +26,6 @@ public class DamageSmallMelody extends AbstractMelody
                 DamageInfo.DamageType.THORNS,
                 AbstractGameAction.AttackEffect.BLUNT_LIGHT
         ));
-    }
-
-    @Override
-    public AbstractCard makeChoiceCard()
-    {
-        AbstractCard ret = super.makeChoiceCard();
-        ret.type = AbstractCard.CardType.ATTACK;
-        return ret;
     }
 
     @Override
