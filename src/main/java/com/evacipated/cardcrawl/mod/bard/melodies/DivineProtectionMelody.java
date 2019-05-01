@@ -12,6 +12,7 @@ public class DivineProtectionMelody extends AbstractMelody
     public DivineProtectionMelody()
     {
         super(ID, AbstractCard.CardTarget.SELF);
+        type = AbstractCard.CardType.SKILL;
     }
 
     @Override
