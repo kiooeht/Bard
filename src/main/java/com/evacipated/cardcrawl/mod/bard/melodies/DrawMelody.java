@@ -1,5 +1,6 @@
 package com.evacipated.cardcrawl.mod.bard.melodies;
 
+import basemod.abstracts.CustomCard;
 import com.evacipated.cardcrawl.mod.bard.BardMod;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -12,6 +13,13 @@ public class DrawMelody extends AbstractMelody
     public DrawMelody()
     {
         super(ID, AbstractCard.CardTarget.SELF);
+        type = AbstractCard.CardType.SKILL;
+    }
+
+    @Override
+    protected CustomCard.RegionName getRegionName()
+    {
+        return new CustomCard.RegionName("blue/skill/skim");
     }
 
     @Override
