@@ -1,5 +1,6 @@
 package com.evacipated.cardcrawl.mod.bard.melodies;
 
+import basemod.abstracts.CustomCard;
 import com.evacipated.cardcrawl.mod.bard.BardMod;
 import com.evacipated.cardcrawl.mod.bard.MelodyStrings;
 import com.evacipated.cardcrawl.mod.bard.actions.common.RemoveNoteFromQueueAction;
@@ -18,6 +19,7 @@ import java.util.List;
 
 public abstract class AbstractMelody
 {
+    protected final String id;
     protected String name;
     protected String rawDescription;
     protected AbstractCard.CardTarget target;
@@ -25,6 +27,7 @@ public abstract class AbstractMelody
 
     public AbstractMelody(String ID, AbstractCard.CardTarget target)
     {
+        id = ID;
         MelodyStrings melodyStrings = MelodyManager.getMelodyStrings(ID);
         name = melodyStrings.NAME;
         rawDescription = melodyStrings.DESCRIPTION;
@@ -44,6 +47,8 @@ public abstract class AbstractMelody
 
     public AbstractMelody(String name, String rawDescription, AbstractCard.CardTarget target)
     {
+        // TODO: this ctor shouldn't be used
+        id = null;
         this.name = name;
         this.rawDescription = rawDescription;
         this.target = target;
@@ -78,7 +83,13 @@ public abstract class AbstractMelody
 
     public AbstractCard makeChoiceCard()
     {
-        return new MelodyCard(name, rawDescription, new ArrayList<>(notes), target, this::doPlay);
+        // Remove `modid:`
+        // ex: `bard:Artifact` -> `Artifact`
+        String id2 = id.replaceFirst("^" + BardMod.makeID(""), "");
+
+        CustomCard.RegionName img = new CustomCard.RegionName(String.format("%s/%s/melody%s", BardMod.ID, AbstractCard.CardType.POWER.name().toLowerCase(), id2));
+
+        return new MelodyCard(name, img, rawDescription, new ArrayList<>(notes), target, this::doPlay);
     }
 
     public int length()

@@ -16,7 +16,6 @@ import java.util.function.Consumer;
 public class MelodyCard extends CustomCard
 {
     public static final String ID = BardMod.makeID("MelodyCard");
-    public static final String IMG = null;
     private static final int COST = -2;
 
     public List<AbstractNote> notes;
@@ -25,17 +24,17 @@ public class MelodyCard extends CustomCard
 
     public MelodyCard(String name, String description, List<AbstractNote> notes, CardType type)
     {
-        this(name, description, notes, type, CardTarget.NONE, null);
+        this(name, null, description, notes, type, CardTarget.NONE, null);
     }
 
-    public MelodyCard(String name, String description, List<AbstractNote> notes, CardTarget target, Consumer<Boolean> playCallback)
+    public MelodyCard(String name, RegionName img, String description, List<AbstractNote> notes, CardTarget target, Consumer<Boolean> playCallback)
     {
-        this(name, description, notes, CardType.POWER, target, playCallback);
+        this(name, img, description, notes, CardType.POWER, target, playCallback);
     }
 
-    public MelodyCard(String name, String description, List<AbstractNote> notes, CardType type, CardTarget target, Consumer<Boolean> playCallback)
+    public MelodyCard(String name, RegionName img, String description, List<AbstractNote> notes, CardType type, CardTarget target, Consumer<Boolean> playCallback)
     {
-        super(ID, name, IMG, COST, description, type, Bard.Enums.COLOR, CardRarity.SPECIAL, target);
+        super(ID, name, img, COST, description, type, Bard.Enums.COLOR, CardRarity.SPECIAL, target);
 
         this.notes = notes;
         this.playCallback = playCallback;
@@ -63,6 +62,6 @@ public class MelodyCard extends CustomCard
     @Override
     public AbstractCard makeCopy()
     {
-        return new MelodyCard(name, rawDescription, notes, target, playCallback);
+        return new MelodyCard(name, new RegionName(assetUrl), rawDescription, notes, target, playCallback);
     }
 }
