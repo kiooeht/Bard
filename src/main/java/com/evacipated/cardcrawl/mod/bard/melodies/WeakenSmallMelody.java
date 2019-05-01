@@ -1,5 +1,6 @@
 package com.evacipated.cardcrawl.mod.bard.melodies;
 
+import basemod.abstracts.CustomCard;
 import com.evacipated.cardcrawl.mod.bard.BardMod;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -14,6 +15,13 @@ public class WeakenSmallMelody extends AbstractMelody
     public WeakenSmallMelody()
     {
         super(ID, AbstractCard.CardTarget.ALL_ENEMY);
+        type = AbstractCard.CardType.SKILL;
+    }
+
+    @Override
+    protected CustomCard.RegionName getRegionName()
+    {
+        return new CustomCard.RegionName("colorless/skill/blind");
     }
 
     @Override
@@ -22,14 +30,6 @@ public class WeakenSmallMelody extends AbstractMelody
         for (AbstractMonster m : AbstractDungeon.getMonsters().monsters) {
             addToBottom(new ApplyPowerAction(m, AbstractDungeon.player, new WeakPower(m, 1, false), 1, true));
         }
-    }
-
-    @Override
-    public AbstractCard makeChoiceCard()
-    {
-        AbstractCard ret = super.makeChoiceCard();
-        ret.type = AbstractCard.CardType.SKILL;
-        return ret;
     }
 
     @Override
