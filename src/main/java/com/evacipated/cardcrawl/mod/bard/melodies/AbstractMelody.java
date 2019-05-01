@@ -22,6 +22,7 @@ public abstract class AbstractMelody
     protected final String id;
     protected String name;
     protected String rawDescription;
+    protected AbstractCard.CardType type;
     protected AbstractCard.CardTarget target;
     protected List<AbstractNote> notes = new ArrayList<>();
 
@@ -32,6 +33,7 @@ public abstract class AbstractMelody
         name = melodyStrings.NAME;
         rawDescription = melodyStrings.DESCRIPTION;
         this.target = target;
+        type = AbstractCard.CardType.POWER;
 
         if (melodyStrings.NOTES != null) {
             for (String noteStr : melodyStrings.NOTES) {
@@ -87,9 +89,11 @@ public abstract class AbstractMelody
         // ex: `bard:Artifact` -> `Artifact`
         String id2 = id.replaceFirst("^" + BardMod.makeID(""), "");
 
-        CustomCard.RegionName img = new CustomCard.RegionName(String.format("%s/%s/melody%s", BardMod.ID, AbstractCard.CardType.POWER.name().toLowerCase(), id2));
+        CustomCard.RegionName img = new CustomCard.RegionName(String.format("%s/%s/melody%s", BardMod.ID, type.name().toLowerCase(), id2));
 
-        return new MelodyCard(name, img, rawDescription, new ArrayList<>(notes), target, this::doPlay);
+        AbstractCard ret = new MelodyCard(name, img, rawDescription, new ArrayList<>(notes), target, this::doPlay);
+        ret.type = type;
+        return ret;
     }
 
     public int length()
