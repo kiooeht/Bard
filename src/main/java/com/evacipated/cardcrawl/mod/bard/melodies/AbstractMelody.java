@@ -83,15 +83,19 @@ public abstract class AbstractMelody
         return builder.toString();
     }
 
-    public AbstractCard makeChoiceCard()
+    protected CustomCard.RegionName getRegionName()
     {
         // Remove `modid:`
         // ex: `bard:Artifact` -> `Artifact`
         String id2 = id.replaceFirst("^" + BardMod.makeID(""), "");
 
-        CustomCard.RegionName img = new CustomCard.RegionName(String.format("%s/%s/melody%s", BardMod.ID, type.name().toLowerCase(), id2));
+        return new CustomCard.RegionName(String.format("%s/%s/melody%s", BardMod.ID, type.name().toLowerCase(), id2));
+    }
 
-        AbstractCard ret = new MelodyCard(name, img, rawDescription, new ArrayList<>(notes), target, this::doPlay);
+    public AbstractCard makeChoiceCard()
+    {
+
+        AbstractCard ret = new MelodyCard(name, getRegionName(), rawDescription, new ArrayList<>(notes), target, this::doPlay);
         ret.type = type;
         return ret;
     }
