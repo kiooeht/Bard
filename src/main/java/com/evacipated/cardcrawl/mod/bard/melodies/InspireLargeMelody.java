@@ -1,5 +1,6 @@
 package com.evacipated.cardcrawl.mod.bard.melodies;
 
+import basemod.abstracts.CustomCard;
 import com.evacipated.cardcrawl.mod.bard.BardMod;
 import com.evacipated.cardcrawl.mod.bard.powers.InspirationPower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -13,6 +14,12 @@ public class InspireLargeMelody extends AbstractMelody
     public InspireLargeMelody()
     {
         super(ID, AbstractCard.CardTarget.SELF);
+    }
+
+    @Override
+    protected CustomCard.RegionName getRegionName()
+    {
+        return new CustomCard.RegionName(BardMod.ID + "/power/splendidForm");
     }
 
     @Override
