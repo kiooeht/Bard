@@ -64,7 +64,7 @@ public class Bard extends CustomPlayer
                 BardMod.assetPath("images/characters/bard/shoulder2.png"),
                 BardMod.assetPath("images/characters/bard/shoulder.png"),
                 "images/characters/theSilent/corpse.png",
-                getLoadout(), 0.0F, -10.0F, 240.0F, 260.0F, new EnergyManager(ENERGY_PER_TURN));
+                getLoadout(), 0.0F, 0.0F, 240.0F, 280.0F, new EnergyManager(ENERGY_PER_TURN));
 
         BardMod.getNoteQueue(this).setMasterMaxNotes(MAX_NOTES);
     }
