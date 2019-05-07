@@ -1,13 +1,76 @@
 
 skeleton.png
-size: 512,512
+size: 1024,512
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
-bard
+bag_pipes
   rotate: false
   xy: 1, 1
-  size: 458, 322
-  orig: 565, 365
-  offset: 25, 34
+  size: 763, 296
+  orig: 763, 296
+  offset: 0, 0
+  index: -1
+waist
+  rotate: false
+  xy: 1, 397
+  size: 113, 64
+  orig: 113, 64
+  offset: 0, 0
+  index: -1
+front_leg
+  rotate: false
+  xy: 766, 213
+  size: 150, 123
+  orig: 150, 123
+  offset: 0, 0
+  index: -1
+front_foot
+  rotate: false
+  xy: 918, 134
+  size: 97, 135
+  orig: 97, 135
+  offset: 0, 0
+  index: -1
+back_leg
+  rotate: false
+  xy: 896, 1
+  size: 104, 131
+  orig: 104, 131
+  offset: 0, 0
+  index: -1
+back_foot
+  rotate: false
+  xy: 173, 299
+  size: 112, 119
+  orig: 112, 119
+  offset: 0, 0
+  index: -1
+body
+  rotate: false
+  xy: 766, 1
+  size: 128, 210
+  orig: 128, 210
+  offset: 0, 0
+  index: -1
+head
+  rotate: false
+  xy: 918, 271
+  size: 82, 77
+  orig: 82, 77
+  offset: 0, 0
+  index: -1
+front_arm
+  rotate: false
+  xy: 1, 299
+  size: 170, 96
+  orig: 170, 96
+  offset: 0, 0
+  index: -1
+feathers
+  rotate: false
+  xy: 1, 463
+  size: 67, 40
+  orig: 67, 40
+  offset: 0, 0
   index: -1

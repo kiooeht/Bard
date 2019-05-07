@@ -5,6 +5,7 @@ import basemod.animations.SpineAnimation;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.math.MathUtils;
+import com.esotericsoftware.spine.AnimationState;
 import com.evacipated.cardcrawl.mod.bard.BardMod;
 import com.evacipated.cardcrawl.mod.bard.cards.Defend_Bard;
 import com.evacipated.cardcrawl.mod.bard.cards.Inspire;
@@ -15,6 +16,7 @@ import com.evacipated.cardcrawl.mod.bard.relics.PitchPipe;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
@@ -52,7 +54,7 @@ public class Bard extends CustomPlayer
                 new SpineAnimation(
                         BardMod.assetPath("images/characters/bard/idle/skeleton.atlas"),
                         BardMod.assetPath("images/characters/bard/idle/skeleton.json"),
-                        1.0F
+                        1.6F
                 )
         );
 
@@ -65,6 +67,10 @@ public class Bard extends CustomPlayer
                 BardMod.assetPath("images/characters/bard/shoulder.png"),
                 "images/characters/theSilent/corpse.png",
                 getLoadout(), 0.0F, 0.0F, 240.0F, 280.0F, new EnergyManager(ENERGY_PER_TURN));
+
+        AnimationState.TrackEntry e = state.setAnimation(0, "Idle", true);
+        stateData.setMix("Hit", "Idle", 0.1f);
+        e.setTimeScale(1f);
 
         BardMod.getNoteQueue(this).setMasterMaxNotes(MAX_NOTES);
     }
@@ -178,6 +184,17 @@ public class Bard extends CustomPlayer
     public AbstractPlayer newInstance()
     {
         return new Bard(name);
+    }
+
+    @Override
+    public void damage(DamageInfo info)
+    {
+        if (info.owner != null && info.type != DamageInfo.DamageType.THORNS && info.output > currentBlock) {
+            AnimationState.TrackEntry e = state.setAnimation(0, "Hit", false);
+            state.addAnimation(0,"Idle", true, 0.0f);
+            e.setTimeScale(1f);
+        }
+        super.damage(info);
     }
 
     @Override
