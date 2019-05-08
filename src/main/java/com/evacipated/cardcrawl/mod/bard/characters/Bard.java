@@ -13,6 +13,7 @@ import com.evacipated.cardcrawl.mod.bard.cards.Riposte;
 import com.evacipated.cardcrawl.mod.bard.cards.Strike_Bard;
 import com.evacipated.cardcrawl.mod.bard.relics.BagPipes;
 import com.evacipated.cardcrawl.mod.bard.relics.PitchPipe;
+import com.evacipated.cardcrawl.mod.bard.ui.EnergyOrbBard;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -50,7 +51,8 @@ public class Bard extends CustomPlayer
 
     public Bard(String name)
     {
-        super(name, Enums.BARD, null, null,
+        super(name, Enums.BARD,
+                new EnergyOrbBard(),
                 new SpineAnimation(
                         BardMod.assetPath("images/characters/bard/idle/skeleton.atlas"),
                         BardMod.assetPath("images/characters/bard/idle/skeleton.json"),
@@ -158,7 +160,7 @@ public class Bard extends CustomPlayer
     @Override
     public BitmapFont getEnergyNumFont()
     {
-        return FontHelper.energyNumFontGreen;
+        return FontHelper.energyNumFontBlue;
     }
 
     @Override
