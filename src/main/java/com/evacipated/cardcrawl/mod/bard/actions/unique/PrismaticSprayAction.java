@@ -38,22 +38,14 @@ public class PrismaticSprayAction extends AbstractGameAction
             effect += 2;
             AbstractDungeon.player.getRelic(ChemicalX.ID).flash();
         }
-        if (upgraded) {
-            ++effect;
-        }
 
         for (int i=0; i<effect; ++i) {
             AbstractCard card = getRandomAttackCard().makeCopy();
-            card.modifyCostForCombat(-999);
-            if (!card.isEthereal) {
-                card.rawDescription = "Ethereal. NL " + card.rawDescription;
+            if (upgraded) {
+                card.modifyCostForCombat(-999);
+            } else {
+                card.modifyCostForTurn(-999);
             }
-            if (!card.exhaust) {
-                card.rawDescription += " NL Exhaust.";
-            }
-            card.initializeDescription();
-            card.isEthereal = true;
-            card.exhaustOnUseOnce = card.exhaust = true;
             AbstractDungeon.actionManager.addToBottom(new PutCardInHand(card, false));
         }
         if (!freeToPlayOnce) {

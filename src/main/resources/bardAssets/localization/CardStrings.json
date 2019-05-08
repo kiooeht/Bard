@@ -138,8 +138,8 @@
   },
   "${ModID}:PrismaticSpray": {
     "NAME": "Prismatic Spray",
-    "DESCRIPTION": "Add X random Attacks of any color into your hand. NL They are Ethereal, Exhaust, and cost 0.",
-    "UPGRADE_DESCRIPTION": "Add X+1 random Attacks of any color into your hand. NL They are Ethereal, Exhaust, and cost 0."
+    "DESCRIPTION": "Add X random Attacks of any color into your hand. They cost 0 this turn. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Add X random Attacks of any color into your hand. They cost 0 this combat. NL Exhaust."
   },
   "${ModID}:LifeDrain": {
     "NAME": "Life Drain",
