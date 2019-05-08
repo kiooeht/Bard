@@ -103,7 +103,7 @@ public class BardMod implements
                 assetPath("images/cardui/512/bg_power_royal.png"), assetPath("images/cardui/512/card_royal_orb.png"),
                 assetPath("images/cardui/1024/bg_attack_royal.png"), assetPath("images/cardui/1024/bg_skill_royal.png"),
                         assetPath("images/cardui/1024/bg_power_royal.png"), assetPath("images/cardui/1024/card_royal_orb.png"),
-                null);
+                assetPath("images/cardui/orb.png"));
 
         MelodyManager.addNote(new AttackNote());
         MelodyManager.addNote(new BlockNote());
