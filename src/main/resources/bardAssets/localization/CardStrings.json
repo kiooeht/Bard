@@ -154,8 +154,8 @@
   },
   "${ModID}:MnemonicVestments": {
     "NAME": "Mnemonic Vestments",
-    "DESCRIPTION": "Unplayable. Ethereal. NL Startup: Choose any card in your deck and shuffle a 0-cost, Exhaust copy of that card into your draw pile.",
-    "UPGRADE_DESCRIPTION": "Unplayable. Ethereal. NL Startup: Choose any card in your deck and shuffle a 0-cost, Exhaustive 2 copy of that card into your draw pile.",
+    "DESCRIPTION": "Unplayable. NL Startup: Choose any card in your deck and shuffle a copy of that card into your draw pile. It costs 0 until played.",
+    "UPGRADE_DESCRIPTION": "Unplayable. Ethereal. NL Startup: Choose any card in your deck and shuffle a copy of that card into your draw pile. It costs 0 until played.",
     "EXTENDED_DESCRIPTION": [
       "I can't play this card."
     ]

@@ -46,6 +46,7 @@ public class MnemonicVestmentsAction extends AbstractGameAction
                         false
                 ));
             }
+            AbstractDungeon.gridSelectScreen.selectedCards.clear();
 
             isDone = true;
         }
