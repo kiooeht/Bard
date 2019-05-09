@@ -11,8 +11,8 @@
 
     <properties>
         <ModID>bard</ModID>
-        <SlayTheSpire.version>11-15-2018</SlayTheSpire.version>
-        <ModTheSpire.version>3.6.0</ModTheSpire.version>
+        <SlayTheSpire.version>01-23-2019</SlayTheSpire.version>
+        <ModTheSpire.version>3.10.0</ModTheSpire.version>
 
         <make.cards.productionAssets>../productionAssets/cards</make.cards.productionAssets>
         <make.cards.portraits>../src/main/resources/bardAssets/images/1024Portraits</make.cards.portraits>
