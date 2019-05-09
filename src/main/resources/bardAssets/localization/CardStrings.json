@@ -346,5 +346,9 @@
   "${ModID}:LingeringPerformance": {
     "NAME": "Lingering Performance",
     "DESCRIPTION": "All ${ModID}:Inspiration you currently have affect !M! additional card. NL Exhaustive !stslib:ex!."
+  },
+  "${ModID}:Focused": {
+    "NAME": "Focused",
+    "DESCRIPTION": "Gain ${ModID}:Inspiration X00%s. NL Refund !stslib:refund!."
   }
 }
