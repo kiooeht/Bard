@@ -7,6 +7,7 @@ import com.evacipated.cardcrawl.mod.stslib.actions.common.FetchAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.EmptyDeckShuffleAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
+import com.megacrit.cardcrawl.actions.defect.DoubleEnergyAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -48,6 +49,9 @@ public class Sift extends AbstractBardCard
                             for (AbstractCard c : cards) {
                                 if (c.costForTurn > 0) {
                                     addToTop(new GainEnergyAction(c.costForTurn));
+                                } else if (c.costForTurn == -1) {
+                                    // X-cost
+                                    addToTop(new DoubleEnergyAction());
                                 }
                             }
                             AbstractDungeon.player.hand.refreshHandLayout();
