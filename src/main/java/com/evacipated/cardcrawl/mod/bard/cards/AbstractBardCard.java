@@ -56,6 +56,7 @@ public abstract class AbstractBardCard extends CustomCard
 
         cardStrings = CardCrawlGame.languagePack.getCardStrings(id);
         name = NAME = cardStrings.NAME;
+        originalName = NAME;
         rawDescription = DESCRIPTION = cardStrings.DESCRIPTION;
         UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
         EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
