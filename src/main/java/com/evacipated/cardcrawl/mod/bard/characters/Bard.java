@@ -67,7 +67,7 @@ public class Bard extends CustomPlayer
                 null,
                 BardMod.assetPath("images/characters/bard/shoulder2.png"),
                 BardMod.assetPath("images/characters/bard/shoulder.png"),
-                "images/characters/theSilent/corpse.png",
+                BardMod.assetPath("images/characters/bard/corpse.png"),
                 getLoadout(), 0.0F, 0.0F, 240.0F, 280.0F, new EnergyManager(ENERGY_PER_TURN));
 
         AnimationState.TrackEntry e = state.setAnimation(0, "Idle", true);
