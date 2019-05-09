@@ -16,13 +16,10 @@ public class MnemonicVestments extends AbstractBardCard implements StartupCard
 {
     public static final String ID = BardMod.makeID("MnemonicVestments");
     private static final int COST = -2;
-    private static final int EXHAUSTIVE = 2;
 
     public MnemonicVestments()
     {
         super(ID, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.RARE, CardTarget.NONE);
-
-        isEthereal = true;
     }
 
     @Override
@@ -34,7 +31,7 @@ public class MnemonicVestments extends AbstractBardCard implements StartupCard
     @Override
     public boolean atBattleStartPreDraw()
     {
-        addToBottom(new MnemonicVestmentsAction(upgraded, EXHAUSTIVE));
+        addToBottom(new MnemonicVestmentsAction());
         return true;
     }
 
@@ -55,6 +52,7 @@ public class MnemonicVestments extends AbstractBardCard implements StartupCard
     {
         if (!upgraded) {
             upgradeName();
+            isEthereal = true;
             rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
         }

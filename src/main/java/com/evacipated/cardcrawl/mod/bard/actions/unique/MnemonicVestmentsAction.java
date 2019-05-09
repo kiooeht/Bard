@@ -2,7 +2,6 @@ package com.evacipated.cardcrawl.mod.bard.actions.unique;
 
 import com.evacipated.cardcrawl.mod.bard.cards.MnemonicVestments;
 import com.evacipated.cardcrawl.mod.bard.vfx.cardManip.ShowThisCardAndAddToDrawPileEffect;
-import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.ExhaustiveField;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.defect.DiscardPileToHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -12,12 +11,8 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 public class MnemonicVestmentsAction extends AbstractGameAction
 {
-    private boolean exhaustive;
-
-    public MnemonicVestmentsAction(boolean exhaustive, int exhaustiveAmount)
+    public MnemonicVestmentsAction()
     {
-        this.exhaustive = exhaustive;
-        amount = exhaustiveAmount;
         actionType = ActionType.CARD_MANIPULATION;
         duration = Settings.ACTION_DUR_MED;
     }
@@ -67,21 +62,10 @@ public class MnemonicVestmentsAction extends AbstractGameAction
     private AbstractCard makeAlteredCopy(AbstractCard card)
     {
         AbstractCard copy = card.makeSameInstanceOf();
-        copy.modifyCostForCombat(-999);
-        if (exhaustive) {
-            if (ExhaustiveField.ExhaustiveFields.baseExhaustive.get(copy) <= 0) {
-                copy.rawDescription += " NL Exhaustive !stslib:ex!.";
-            }
-            ExhaustiveField.ExhaustiveFields.baseExhaustive.set(copy, amount);
-            ExhaustiveField.ExhaustiveFields.exhaustive.set(copy, amount);
-            copy.exhaust = false;
-        } else {
-            if (!copy.exhaust) {
-                copy.rawDescription += " NL Exhaust.";
-            }
-            copy.exhaustOnUseOnce = copy.exhaust = true;
+
+        if (copy.cost > 0) {
+            copy.freeToPlayOnce = true;
         }
-        copy.initializeDescription();
 
         return copy;
     }
