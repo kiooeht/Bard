@@ -204,7 +204,7 @@
   "${ModID}:Wish": {
     "NAME": "Wish",
     "DESCRIPTION": "Unplayable. NL Ethereal.",
-    "UPGRADE_DESCRIPTION": "Choose any non-rare card. Permanently replace this card with the chosen card. NL Purge.",
+    "UPGRADE_DESCRIPTION": "Choose any non-rare Bard card. Permanently replace this card with the chosen card. NL Purge.",
     "EXTENDED_DESCRIPTION": [
       "I can't play this card."
     ]
