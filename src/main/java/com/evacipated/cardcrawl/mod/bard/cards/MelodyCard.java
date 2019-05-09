@@ -24,7 +24,7 @@ public class MelodyCard extends CustomCard
 
     public MelodyCard(String name, String description, List<AbstractNote> notes, CardType type)
     {
-        this(name, null, description, notes, type, CardTarget.NONE, null);
+        this(name, new RegionName(null), description, notes, type, CardTarget.NONE, null);
     }
 
     public MelodyCard(String name, RegionName img, String description, List<AbstractNote> notes, CardTarget target, Consumer<Boolean> playCallback)
