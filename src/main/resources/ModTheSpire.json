@@ -4,6 +4,7 @@
   "author_list": ["kiooeht"],
   "description": "~Music~",
   "version": "${project.version}",
+  "credits": "Grem: Moral support",
   "sts_version": "${SlayTheSpire.version}",
   "mts_version": "${ModTheSpire.version}",
   "dependencies": ["basemod", "stslib"]
