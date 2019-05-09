@@ -105,7 +105,7 @@
   },
   "${ModID}:Heroism": {
     "NAME": "Heroism",
-    "DESCRIPTION": "Gain !M! Temporary_HP and ${ModID}:Inspiration !${ModID}:In!."
+    "DESCRIPTION": "Gain !M! Temporary_HP. NL Gain ${ModID}:Inspiration !${ModID}:In!."
   },
   "${ModID}:GuardPoint": {
     "NAME": "Guard Point",
