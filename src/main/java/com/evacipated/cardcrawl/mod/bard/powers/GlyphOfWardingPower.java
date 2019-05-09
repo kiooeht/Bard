@@ -12,7 +12,6 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
-import com.megacrit.cardcrawl.powers.AbstractPower;
 
 public class GlyphOfWardingPower extends AbstractBardPower implements OnLoseBlockPower, OnLoseTempHpPower
 {
@@ -51,25 +50,27 @@ public class GlyphOfWardingPower extends AbstractBardPower implements OnLoseBloc
     @Override
     public int onLoseTempHp(DamageInfo info, int damageAmount)
     {
-        flash();
-        AbstractDungeon.actionManager.addToBottom(new SFXAction("ATTACK_HEAVY"));
-        if (owner == null || owner.isPlayer) {
-            AbstractDungeon.actionManager.addToBottom(
-                    new DamageAllEnemiesAction(
-                            owner,
-                            DamageInfo.createDamageMatrix(amount, true),
-                            DamageInfo.DamageType.THORNS,
-                            AbstractGameAction.AttackEffect.FIRE
-                    )
-            );
-        } else {
-            AbstractDungeon.actionManager.addToBottom(
-                    new DamageAction(
-                            AbstractDungeon.player,
-                            new DamageInfo(owner, amount, DamageInfo.DamageType.THORNS),
-                            AbstractGameAction.AttackEffect.FIRE
-                    )
-            );
+        if (damageAmount > 0) {
+            flash();
+            AbstractDungeon.actionManager.addToBottom(new SFXAction("ATTACK_HEAVY"));
+            if (owner == null || owner.isPlayer) {
+                AbstractDungeon.actionManager.addToBottom(
+                        new DamageAllEnemiesAction(
+                                owner,
+                                DamageInfo.createDamageMatrix(amount, true),
+                                DamageInfo.DamageType.THORNS,
+                                AbstractGameAction.AttackEffect.FIRE
+                        )
+                );
+            } else {
+                AbstractDungeon.actionManager.addToBottom(
+                        new DamageAction(
+                                AbstractDungeon.player,
+                                new DamageInfo(owner, amount, DamageInfo.DamageType.THORNS),
+                                AbstractGameAction.AttackEffect.FIRE
+                        )
+                );
+            }
         }
 
         return damageAmount;
