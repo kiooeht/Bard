@@ -26,7 +26,7 @@ public class BardAttachPoints
                         "head",
                         "images/relics/merchantMask.png",
                         0.6f, 0.6f,
-                        15, 12,
+                        18, 14,
                         -40
                 )
         );
@@ -36,7 +36,7 @@ public class BardAttachPoints
                         "waist",
                         "images/relics/lantern.png",
                         0.7f, 0.7f,
-                        -35, 0,
+                        -42, 0,
                         -20
                 )
         );
@@ -62,8 +62,8 @@ public class BardAttachPoints
         attachment.setRegion(region);
         attachment.setWidth(tex.getWidth());
         attachment.setHeight(tex.getHeight());
-        attachment.setX(attachPoint.x);
-        attachment.setY(attachPoint.y);
+        attachment.setX(attachPoint.x * Settings.scale);
+        attachment.setY(attachPoint.y * Settings.scale);
         attachment.setScaleX(attachPoint.scaleX * Settings.scale);
         attachment.setScaleY(attachPoint.scaleY * Settings.scale);
         attachment.setRotation(attachPoint.angle);
@@ -86,7 +86,12 @@ public class BardAttachPoints
         final float y;
         final float angle;
 
-        public AttachPoint(String id, String attachName, String img, float scaleX, float scaleY, float x, float y, float angle)
+        public AttachPoint(
+                String id, String attachName, String img,
+                float scaleX, float scaleY,
+                float x, float y,
+                float angle
+        )
         {
             ID = id;
             this.attachName = attachName;
