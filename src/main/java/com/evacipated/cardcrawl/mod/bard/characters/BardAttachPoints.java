@@ -7,6 +7,7 @@ import com.esotericsoftware.spine.Skin;
 import com.esotericsoftware.spine.attachments.RegionAttachment;
 import com.evacipated.cardcrawl.mod.bard.BardMod;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.relics.Lantern;
 import com.megacrit.cardcrawl.relics.SmilingMask;
 
 import java.util.HashMap;
@@ -27,6 +28,16 @@ public class BardAttachPoints
                         0.6f, 0.6f,
                         15, 12,
                         -40
+                )
+        );
+        map.put(Lantern.ID,
+                new AttachPoint(
+                        Lantern.ID,
+                        "waist",
+                        "images/relics/lantern.png",
+                        0.7f, 0.7f,
+                        -35, 0,
+                        -20
                 )
         );
     }
