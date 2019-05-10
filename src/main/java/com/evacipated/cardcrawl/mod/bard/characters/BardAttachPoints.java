@@ -22,21 +22,21 @@ public class BardAttachPoints
         map.put(SmilingMask.ID,
                 new AttachPoint(
                         SmilingMask.ID,
-                        "head",
+                        "head_side",
                         "images/relics/merchantMask.png",
                         0.6f, 0.6f,
-                        18, 14,
-                        -40
+                        0, 0,
+                        30
                 )
         );
         map.put(BustedCrown.ID,
                 new AttachPoint(
                         BustedCrown.ID,
-                        "head",
+                        "head_top",
                         "images/relics/crown.png",
                         0.4f, 0.4f,
-                        50, -5,
-                        -80
+                        0, 5,
+                        0
                 )
         );
         map.put(Lantern.ID,
