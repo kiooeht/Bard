@@ -26,6 +26,7 @@ import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 
@@ -75,6 +76,11 @@ public class Bard extends CustomPlayer
         e.setTimeScale(1f);
 
         BardMod.getNoteQueue(this).setMasterMaxNotes(MAX_NOTES);
+    }
+
+    public void attachRelic(AbstractRelic relic)
+    {
+        BardAttachPoints.attachRelic(skeleton, relic.relicId);
     }
 
     @Override

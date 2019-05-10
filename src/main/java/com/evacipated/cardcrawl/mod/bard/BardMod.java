@@ -31,6 +31,7 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.*;
 import com.megacrit.cardcrawl.localization.*;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import javassist.CtClass;
 import javassist.NotFoundException;
@@ -57,7 +58,8 @@ public class BardMod implements
         EditStringsSubscriber,
         EditKeywordsSubscriber,
         AddAudioSubscriber,
-        PostPlayerUpdateSubscriber
+        PostPlayerUpdateSubscriber,
+        RelicGetSubscriber
 {
     public static final Logger logger = LogManager.getLogger(BardMod.class.getSimpleName());
 
@@ -418,6 +420,14 @@ public class BardMod implements
     {
         notesPanel.update(AbstractDungeon.player);
         melodiesPanel.update(AbstractDungeon.player);
+    }
+
+    @Override
+    public void receiveRelicGet(AbstractRelic relic)
+    {
+        if (AbstractDungeon.player instanceof Bard) {
+            ((Bard) AbstractDungeon.player).attachRelic(relic);
+        }
     }
 
     public static void renderNoteQueue(SpriteBatch sb, AbstractPlayer player)
