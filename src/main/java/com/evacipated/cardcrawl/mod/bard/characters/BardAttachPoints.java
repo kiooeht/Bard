@@ -18,6 +18,16 @@ public class BardAttachPoints
     static
     {
         map = new HashMap<>();
+        map.put(SmilingMask.ID,
+                new AttachPoint(
+                        SmilingMask.ID,
+                        "head",
+                        "images/relics/merchantMask.png",
+                        0.5f, 0.5f,
+                        15, 12,
+                        -40
+                )
+        );
     }
 
     public static void attachRelic(Skeleton skeleton, String relicID)
