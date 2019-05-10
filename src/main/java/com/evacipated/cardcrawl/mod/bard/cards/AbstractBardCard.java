@@ -227,7 +227,14 @@ public abstract class AbstractBardCard extends CustomCard
             ClassPool pool = Loader.getClassPool();
             CtClass ctClass = pool.get(card.getClass().getName());
             ctClass.defrost();
-            CtMethod useMethod = ctClass.getDeclaredMethod("use");
+            CtMethod useMethod;
+            try {
+                useMethod = ctClass.getDeclaredMethod("use");
+            } catch (NotFoundException ignore) {
+                // This card doesn't have a `use` method, skip it
+                // I blame Infinite Spire
+                return;
+            }
 
             final CardTarget[] targetType = {CardTarget.NONE};
             for (CtConstructor ctor : ctClass.getConstructors()) {
