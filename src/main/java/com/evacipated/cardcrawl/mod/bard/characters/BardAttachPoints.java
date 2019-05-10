@@ -7,6 +7,7 @@ import com.esotericsoftware.spine.Skin;
 import com.esotericsoftware.spine.attachments.RegionAttachment;
 import com.evacipated.cardcrawl.mod.bard.BardMod;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.relics.Anchor;
 import com.megacrit.cardcrawl.relics.Lantern;
 import com.megacrit.cardcrawl.relics.SmilingMask;
 import com.megacrit.cardcrawl.relics.Toolbox;
@@ -49,6 +50,16 @@ public class BardAttachPoints
                         -0.9f, 0.9f,
                         110, 30,
                         0
+                )
+        );
+        map.put(Anchor.ID,
+                new AttachPoint(
+                        Anchor.ID,
+                        "bag_pipes_handle",
+                        "images/relics/anchor.png",
+                        1, 1,
+                        30, -5,
+                        120
                 )
         );
     }
