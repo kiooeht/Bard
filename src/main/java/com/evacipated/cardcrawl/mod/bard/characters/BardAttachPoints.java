@@ -6,6 +6,7 @@ import com.esotericsoftware.spine.Skeleton;
 import com.esotericsoftware.spine.Skin;
 import com.esotericsoftware.spine.attachments.RegionAttachment;
 import com.evacipated.cardcrawl.mod.bard.BardMod;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.relics.SmilingMask;
 
 import java.util.HashMap;
@@ -23,7 +24,7 @@ public class BardAttachPoints
                         SmilingMask.ID,
                         "head",
                         "images/relics/merchantMask.png",
-                        0.5f, 0.5f,
+                        0.6f, 0.6f,
                         15, 12,
                         -40
                 )
@@ -52,8 +53,8 @@ public class BardAttachPoints
         attachment.setHeight(tex.getHeight());
         attachment.setX(attachPoint.x);
         attachment.setY(attachPoint.y);
-        attachment.setScaleX(attachPoint.scaleX);
-        attachment.setScaleY(attachPoint.scaleY);
+        attachment.setScaleX(attachPoint.scaleX * Settings.scale);
+        attachment.setScaleY(attachPoint.scaleY * Settings.scale);
         attachment.setRotation(attachPoint.angle);
         attachment.updateOffset();
 
