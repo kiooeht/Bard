@@ -4,6 +4,7 @@ import basemod.abstracts.CustomPlayer;
 import basemod.animations.SpineAnimation;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
 import com.esotericsoftware.spine.AnimationState;
 import com.evacipated.cardcrawl.mod.bard.BardMod;
@@ -81,6 +82,14 @@ public class Bard extends CustomPlayer
     public void attachRelic(AbstractRelic relic)
     {
         BardAttachPoints.attachRelic(skeleton, relic.relicId);
+    }
+
+    @Override
+    public void renderPlayerImage(SpriteBatch sb)
+    {
+        sr.setPremultipliedAlpha(false);
+        super.renderPlayerImage(sb);
+        sr.setPremultipliedAlpha(true);
     }
 
     @Override
