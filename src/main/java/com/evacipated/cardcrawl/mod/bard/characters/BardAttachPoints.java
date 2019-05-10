@@ -38,7 +38,7 @@ public class BardAttachPoints
                         "waist",
                         "images/relics/lantern.png",
                         0.7f, 0.7f,
-                        -42, 0,
+                        -10, -10,
                         -20
                 )
         );
