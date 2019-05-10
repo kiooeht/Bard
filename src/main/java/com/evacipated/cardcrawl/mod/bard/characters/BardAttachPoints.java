@@ -9,6 +9,7 @@ import com.evacipated.cardcrawl.mod.bard.BardMod;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.relics.Lantern;
 import com.megacrit.cardcrawl.relics.SmilingMask;
+import com.megacrit.cardcrawl.relics.Toolbox;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -38,6 +39,16 @@ public class BardAttachPoints
                         0.7f, 0.7f,
                         -42, 0,
                         -20
+                )
+        );
+        map.put(Toolbox.ID,
+                new AttachPoint(
+                        Toolbox.ID,
+                        "ground",
+                        "images/relics/toolbox.png",
+                        -0.9f, 0.9f,
+                        110, 30,
+                        0
                 )
         );
     }
