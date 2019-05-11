@@ -55,7 +55,7 @@ public class BardAttachPoints
         map.put(Toolbox.ID,
                 new AttachPoint(
                         Toolbox.ID,
-                        "ground1",
+                        "ground3",
                         "images/relics/toolbox.png",
                         -0.9f, 0.9f,
                         110, 30,
@@ -69,6 +69,16 @@ public class BardAttachPoints
                         "images/largeRelics/bird_urn.png",
                         -0.7f, 0.7f,
                         -93, 55,
+                        0
+                )
+        );
+        map.put(AncientTeaSet.ID,
+                new AttachPoint(
+                        AncientTeaSet.ID,
+                        "ground1",
+                        "images/largeRelics/tea_set.png",
+                       0.7f, 0.7f,
+                        150, 20,
                         0
                 )
         );
