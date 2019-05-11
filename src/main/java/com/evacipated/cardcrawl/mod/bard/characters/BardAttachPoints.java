@@ -118,6 +118,16 @@ public class BardAttachPoints
                         0
                 )
         );
+        map.put(Waffle.ID,
+                new AttachPoint(
+                        Waffle.ID,
+                        "ground5",
+                        "images/relics/waffle.png",
+                        -0.75f, 0.75f,
+                        185, 5,
+                        0
+                )
+        );
         // Bag pipes
         map.put(Anchor.ID,
                 new AttachPoint(
