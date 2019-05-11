@@ -14,7 +14,11 @@ import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.Hitbox;
 import com.megacrit.cardcrawl.helpers.HitboxListener;
 import com.megacrit.cardcrawl.helpers.TipHelper;
+import com.megacrit.cardcrawl.helpers.input.InputHelper;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MelodiesPanel
 {
@@ -24,6 +28,7 @@ public class MelodiesPanel
 
     private Hitbox melodiesToggleHb;
     private MelodiesHitboxListener melodiesToggleHbListener;
+    private List<Hitbox> melodyHbs;
 
     public MelodiesPanel()
     {
@@ -31,6 +36,16 @@ public class MelodiesPanel
         melodiesToggleHb = new Hitbox(32, 32);
 
         melodiesToggleHbListener = new MelodiesHitboxListener();
+
+        melodyHbs = new ArrayList<>();
+        float y = Settings.HEIGHT - (Y_POS + 52) * Settings.scale;
+        for (int i=0; i<MelodyManager.getAllMelodies().size(); ++i) {
+            Hitbox hb = new Hitbox(310 * Settings.scale, 26 * Settings.scale);
+            hb.translate(0, y);
+            melodyHbs.add(hb);
+
+            y -= 26 * Settings.scale;
+        }
     }
 
     public void toggleShow()
@@ -55,6 +70,10 @@ public class MelodiesPanel
         );
 
         melodiesToggleHb.encapsulatedUpdate(melodiesToggleHbListener);
+
+        for (Hitbox hb : melodyHbs) {
+            hb.update();
+        }
     }
 
     public void render(SpriteBatch sb, AbstractPlayer player)
@@ -144,6 +163,23 @@ public class MelodiesPanel
             }
 
             melodiesToggleHb.render(sb);
+
+            if (show) {
+                List<AbstractMelody> allMelodies = MelodyManager.getAllMelodies();
+                for (int i=0; i<melodyHbs.size(); ++i) {
+                    Hitbox hb = melodyHbs.get(i);
+                    if (hb.hovered && !AbstractDungeon.isScreenUp) {
+                        TipHelper.renderGenericTip(
+                                hb.x + hb.width,
+                                InputHelper.mY,
+                                allMelodies.get(i).getName(),
+                                allMelodies.get(i).makeNotesUIString() + " NL " + allMelodies.get(i).getDescription()
+                        );
+                    }
+
+                    hb.render(sb);
+                }
+            }
         }
     }
 

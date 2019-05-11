@@ -10,6 +10,7 @@ import com.evacipated.cardcrawl.mod.bard.hooks.OnMelodyPlayedHook;
 import com.evacipated.cardcrawl.mod.bard.notes.AbstractNote;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DescriptionLine;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
@@ -22,6 +23,7 @@ public abstract class AbstractMelody
     protected final String id;
     protected String name;
     protected String rawDescription;
+    private String description = null;
     protected AbstractCard.CardType type;
     protected AbstractCard.CardTarget target;
     protected List<AbstractNote> notes = new ArrayList<>();
@@ -72,6 +74,23 @@ public abstract class AbstractMelody
     public String getName()
     {
         return name;
+    }
+
+    public String getDescription()
+    {
+        if (description == null) {
+            StringBuilder builder = new StringBuilder();
+            AbstractCard card = makeChoiceCard();
+            for (DescriptionLine line : card.description) {
+                builder.append(line.text).append(" ");
+            }
+            builder.setLength(builder.length() - 1);
+            description = builder.toString();
+
+            description = description.replaceAll("\\*", "#y");
+            description = description.replaceAll("Inspiration", "#yInspiration");
+        }
+        return description;
     }
 
     public String makeNotesUIString()
