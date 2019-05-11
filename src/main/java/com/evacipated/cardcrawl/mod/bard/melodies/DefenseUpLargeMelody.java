@@ -14,10 +14,10 @@ public class DefenseUpLargeMelody extends AbstractMelody
     {
         super("Defense Up (L)", "Gain 3 Dexterity.", AbstractCard.CardTarget.SELF);
 
-        notes.add(new BlockNote());
-        notes.add(new BuffNote());
-        notes.add(new BlockNote());
-        notes.add(new AttackNote());
+        notes.add(BlockNote.get());
+        notes.add(BuffNote.get());
+        notes.add(BlockNote.get());
+        notes.add(AttackNote.get());
     }
 
     @Override

@@ -13,10 +13,10 @@ public class DrawUpMelody extends AbstractMelody
     {
         super("Draw Up", "Draw 1 additional card per turn.", AbstractCard.CardTarget.SELF);
 
-        notes.add(new BuffNote());
-        notes.add(new BlockNote());
-        notes.add(new BuffNote());
-        notes.add(new BuffNote());
+        notes.add(BuffNote.get());
+        notes.add(BlockNote.get());
+        notes.add(BuffNote.get());
+        notes.add(BuffNote.get());
     }
 
     @Override

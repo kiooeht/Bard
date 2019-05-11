@@ -7,6 +7,16 @@ import com.megacrit.cardcrawl.core.Settings;
 
 public class BuffNote extends AbstractNote
 {
+    private static BuffNote singleton;
+
+    public static BuffNote get()
+    {
+        if (singleton == null) {
+            singleton = new BuffNote();
+        }
+        return singleton;
+    }
+
     @Override
     public String name()
     {

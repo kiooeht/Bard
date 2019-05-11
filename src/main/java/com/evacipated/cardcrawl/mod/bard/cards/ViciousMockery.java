@@ -37,8 +37,8 @@ public class ViciousMockery extends AbstractBardCard
     public List<AbstractNote> getNotes()
     {
         return Arrays.asList(
-                new DebuffNote(),
-                new AttackNote()
+                DebuffNote.get(),
+                AttackNote.get()
         );
     }
 

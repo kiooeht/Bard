@@ -38,7 +38,7 @@ public class Balestra extends AbstractBardCard
     @Override
     public List<AbstractNote> getNotes()
     {
-        return Collections.singletonList(new AttackNote());
+        return Collections.singletonList(AttackNote.get());
     }
 
     @Override

@@ -107,11 +107,11 @@ public class BardMod implements
                         assetPath("images/cardui/1024/bg_power_royal.png"), assetPath("images/cardui/1024/card_royal_orb.png"),
                 assetPath("images/cardui/orb.png"));
 
-        MelodyManager.addNote(new AttackNote());
-        MelodyManager.addNote(new BlockNote());
-        MelodyManager.addNote(new BuffNote());
-        MelodyManager.addNote(new DebuffNote());
-        MelodyManager.addNote(new RestNote());
+        MelodyManager.addNote(AttackNote.get());
+        MelodyManager.addNote(BlockNote.get());
+        MelodyManager.addNote(BuffNote.get());
+        MelodyManager.addNote(DebuffNote.get());
+        MelodyManager.addNote(RestNote.get());
     }
 
     public static String makeID(String id)

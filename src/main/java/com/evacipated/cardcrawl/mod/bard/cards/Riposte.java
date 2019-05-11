@@ -38,8 +38,8 @@ public class Riposte extends AbstractBardCard
     public List<AbstractNote> getNotes()
     {
         return Arrays.asList(
-                new AttackNote(),
-                new BlockNote()
+                AttackNote.get(),
+                BlockNote.get()
         );
     }
 

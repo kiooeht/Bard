@@ -11,10 +11,10 @@ public class EnergyMelody extends AbstractMelody
     {
         super("Energy", "Gain [E] [E].", AbstractCard.CardTarget.SELF);
 
-        notes.add(new BuffNote());
-        notes.add(new BuffNote());
-        notes.add(new AttackNote());
-        notes.add(new AttackNote());
+        notes.add(BuffNote.get());
+        notes.add(BuffNote.get());
+        notes.add(AttackNote.get());
+        notes.add(AttackNote.get());
     }
 
     @Override

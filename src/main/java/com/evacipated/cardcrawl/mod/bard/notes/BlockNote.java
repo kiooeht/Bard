@@ -5,6 +5,16 @@ import com.evacipated.cardcrawl.mod.bard.BardMod;
 
 public class BlockNote extends AbstractNote
 {
+    private static BlockNote singleton;
+
+    public static BlockNote get()
+    {
+        if (singleton == null) {
+            singleton = new BlockNote();
+        }
+        return singleton;
+    }
+
     @Override
     public String name()
     {

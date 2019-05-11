@@ -37,7 +37,7 @@ public class Fermata extends AbstractBardCard
     public void use(AbstractPlayer p, AbstractMonster m)
     {
         addToBottom(new GainBlockAction(p, p, block));
-        addToBottom(new QueueNoteAction(new RestNote()));
+        addToBottom(new QueueNoteAction(RestNote.get()));
     }
 
     @Override

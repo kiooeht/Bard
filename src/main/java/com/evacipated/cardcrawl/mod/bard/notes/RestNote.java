@@ -7,6 +7,16 @@ import com.megacrit.cardcrawl.core.Settings;
 
 public class RestNote extends AbstractNote
 {
+    private static RestNote singleton;
+
+    public static RestNote get()
+    {
+        if (singleton == null) {
+            singleton = new RestNote();
+        }
+        return singleton;
+    }
+
     @Override
     public String name()
     {

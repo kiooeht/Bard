@@ -14,10 +14,10 @@ public class AttackUpLargeMelody extends AbstractMelody
     {
         super("Attack Up (L)", "Gain 3 Strength.", AbstractCard.CardTarget.SELF);
 
-        notes.add(new BlockNote());
-        notes.add(new AttackNote());
-        notes.add(new BuffNote());
-        notes.add(new AttackNote());
+        notes.add(BlockNote.get());
+        notes.add(AttackNote.get());
+        notes.add(BuffNote.get());
+        notes.add(AttackNote.get());
     }
 
     @Override

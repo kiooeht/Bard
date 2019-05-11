@@ -33,7 +33,7 @@ public class FalseLife extends AbstractBardCard
     @Override
     public List<AbstractNote> getNotes()
     {
-        return Collections.singletonList(new BlockNote());
+        return Collections.singletonList(BlockNote.get());
     }
 
     @Override

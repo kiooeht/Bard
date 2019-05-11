@@ -7,6 +7,18 @@ import com.megacrit.cardcrawl.core.Settings;
 
 public class AttackNote extends AbstractNote
 {
+    private static AttackNote singleton;
+
+    public static AttackNote get()
+    {
+        if (singleton == null) {
+            singleton = new AttackNote();
+        }
+        return singleton;
+    }
+
+    private AttackNote() {}
+
     @Override
     public String name()
     {

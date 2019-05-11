@@ -35,8 +35,8 @@ public class Accelerando extends AbstractBardCard
     public List<AbstractNote> getNotes()
     {
         return Arrays.asList(
-                new BuffNote(),
-                new DebuffNote()
+                BuffNote.get(),
+                DebuffNote.get()
         );
     }
 

@@ -46,7 +46,7 @@ public class OffKey extends AbstractBardCard
         addToBottom(new GainBlockAction(p, p, block));
         addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SHIELD));
         for (int i=0; i<magicNumber; ++i) {
-            addToBottom(new QueueNoteAction(new RestNote()));
+            addToBottom(new QueueNoteAction(RestNote.get()));
         }
     }
 

@@ -7,6 +7,16 @@ import com.megacrit.cardcrawl.core.Settings;
 
 public class DebuffNote extends AbstractNote
 {
+    private static DebuffNote singleton;
+
+    public static DebuffNote get()
+    {
+        if (singleton == null) {
+            singleton = new DebuffNote();
+        }
+        return singleton;
+    }
+
     @Override
     public String name()
     {

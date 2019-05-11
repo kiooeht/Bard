@@ -48,8 +48,8 @@ public class ShiftingAction extends AbstractGameAction
         if (duration == Settings.ACTION_DUR_XFAST) {
             pickCard = true;
             CardGroup group = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
-            group.addToTop(new ShiftingChoiceCard("Attack", AbstractCard.CardType.ATTACK, damage, -1, new AttackNote()));
-            group.addToTop(new ShiftingChoiceCard("Block", AbstractCard.CardType.SKILL, -1, block, new BlockNote()));
+            group.addToTop(new ShiftingChoiceCard("Attack", AbstractCard.CardType.ATTACK, damage, -1, AttackNote.get()));
+            group.addToTop(new ShiftingChoiceCard("Block", AbstractCard.CardType.SKILL, -1, block, BlockNote.get()));
 
             CenterGridCardSelectScreen.centerGridSelect = true;
             AbstractDungeon.gridSelectScreen.open(group, 1, "Choose an Action", false);

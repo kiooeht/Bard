@@ -31,7 +31,7 @@ public class HideousLaughter extends AbstractBardCard
     @Override
     public List<AbstractNote> getNotes()
     {
-        return Collections.singletonList(new DebuffNote());
+        return Collections.singletonList(DebuffNote.get());
     }
 
     @Override

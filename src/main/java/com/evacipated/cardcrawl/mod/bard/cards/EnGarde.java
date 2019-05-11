@@ -42,8 +42,8 @@ public class EnGarde extends AbstractBardCard
     public List<AbstractNote> getNotes()
     {
         return Arrays.asList(
-                new BlockNote(),
-                new AttackNote()
+                BlockNote.get(),
+                AttackNote.get()
         );
     }
 

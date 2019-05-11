@@ -36,8 +36,8 @@ public class Shout extends AbstractBardCard
     public List<AbstractNote> getNotes()
     {
         return Arrays.asList(
-                new AttackNote(),
-                new DebuffNote()
+                AttackNote.get(),
+                DebuffNote.get()
         );
     }
 

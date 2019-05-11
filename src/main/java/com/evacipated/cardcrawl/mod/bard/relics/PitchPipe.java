@@ -26,7 +26,7 @@ public class PitchPipe extends AbstractBardRelic
     public void atPreBattle()
     {
         if (AbstractDungeon.player instanceof Bard) {
-            addToBottom(new QueueNoteAction(new BuffNote()));
+            addToBottom(new QueueNoteAction(BuffNote.get()));
         }
     }
 

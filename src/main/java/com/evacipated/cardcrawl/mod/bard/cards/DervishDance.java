@@ -36,8 +36,8 @@ public class DervishDance extends AbstractBardCard
     public List<AbstractNote> getNotes()
     {
         return Arrays.asList(
-                new AttackNote(),
-                new AttackNote()
+                AttackNote.get(),
+                AttackNote.get()
         );
     }
 

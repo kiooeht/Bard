@@ -32,9 +32,9 @@ public class FingerOfDeath extends AbstractBardCard
     public List<AbstractNote> getNotes()
     {
         if (!upgraded) {
-            return Collections.singletonList(new AttackNote());
+            return Collections.singletonList(AttackNote.get());
         }
-        return Arrays.asList(new AttackNote(), new AttackNote());
+        return Arrays.asList(AttackNote.get(), AttackNote.get());
     }
 
     @Override

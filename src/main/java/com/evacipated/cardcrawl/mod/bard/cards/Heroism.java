@@ -35,8 +35,8 @@ public class Heroism extends AbstractBardCard
     public List<AbstractNote> getNotes()
     {
         return Arrays.asList(
-                new BlockNote(),
-                new BuffNote()
+                BlockNote.get(),
+                BuffNote.get()
         );
     }
 

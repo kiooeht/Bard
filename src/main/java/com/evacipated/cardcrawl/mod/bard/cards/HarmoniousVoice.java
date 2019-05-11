@@ -30,7 +30,7 @@ public class HarmoniousVoice extends AbstractBardCard
     @Override
     public List<AbstractNote> getNotes()
     {
-        return Collections.singletonList(new BuffNote());
+        return Collections.singletonList(BuffNote.get());
     }
 
     @Override

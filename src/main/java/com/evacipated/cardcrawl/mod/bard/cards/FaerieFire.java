@@ -33,8 +33,8 @@ public class FaerieFire extends AbstractBardCard
     public List<AbstractNote> getNotes()
     {
         return Arrays.asList(
-                new DebuffNote(),
-                new DebuffNote()
+                DebuffNote.get(),
+                DebuffNote.get()
         );
     }
 

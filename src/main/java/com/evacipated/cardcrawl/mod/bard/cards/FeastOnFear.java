@@ -35,8 +35,8 @@ public class FeastOnFear extends AbstractBardCard
     public List<AbstractNote> getNotes()
     {
         return Arrays.asList(
-                new DebuffNote(),
-                new BlockNote()
+                DebuffNote.get(),
+                BlockNote.get()
         );
     }
 

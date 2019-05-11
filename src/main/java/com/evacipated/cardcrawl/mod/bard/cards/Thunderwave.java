@@ -41,9 +41,9 @@ public class Thunderwave extends AbstractBardCard
     public List<AbstractNote> getNotes()
     {
         return Arrays.asList(
-                new AttackNote(),
-                new AttackNote(),
-                new DebuffNote()
+                AttackNote.get(),
+                AttackNote.get(),
+                DebuffNote.get()
         );
     }
 

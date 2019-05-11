@@ -35,8 +35,8 @@ public class Invisibility extends AbstractBardCard
     public List<AbstractNote> getNotes()
     {
         return Arrays.asList(
-                new BuffNote(),
-                new BuffNote()
+                BuffNote.get(),
+                BuffNote.get()
         );
     }
 

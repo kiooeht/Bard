@@ -40,7 +40,7 @@ public class LocateObject extends AbstractBardCard
     public void use(AbstractPlayer p, AbstractMonster m)
     {
         addToBottom(new FetchAction(p.drawPile, magicNumber).sort(true));
-        addToBottom(new QueueNoteAction(new RestNote()));
+        addToBottom(new QueueNoteAction(RestNote.get()));
     }
 
     @Override

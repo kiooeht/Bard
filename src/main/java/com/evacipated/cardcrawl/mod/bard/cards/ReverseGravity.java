@@ -41,9 +41,9 @@ public class ReverseGravity extends AbstractBardCard
     public List<AbstractNote> getNotes()
     {
         return Arrays.asList(
-                new AttackNote(),
-                new DebuffNote(),
-                new AttackNote()
+                AttackNote.get(),
+                DebuffNote.get(),
+                AttackNote.get()
         );
     }
 

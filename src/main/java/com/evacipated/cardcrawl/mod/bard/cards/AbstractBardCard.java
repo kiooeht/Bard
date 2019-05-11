@@ -165,16 +165,16 @@ public abstract class AbstractBardCard extends CustomCard
 
         List<AbstractNote> notes = new ArrayList<>();
         if (isBlockGainingCard(card)) {
-            notes.add(new BlockNote());
+            notes.add(BlockNote.get());
         }
         if (isDamageDealingCard(card)) {
-            notes.add(new AttackNote());
+            notes.add(AttackNote.get());
         }
         if (isBuffCard(card)) {
-            notes.add(new BuffNote());
+            notes.add(BuffNote.get());
         }
         if (isDebuffCard(card)) {
-            notes.add(new DebuffNote());
+            notes.add(DebuffNote.get());
         }
         return notes;
     }

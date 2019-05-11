@@ -36,7 +36,7 @@ public class FirstStrike extends AbstractBardCard implements StartupCard
     @Override
     public List<AbstractNote> getNotes()
     {
-        return Collections.singletonList(new AttackNote());
+        return Collections.singletonList(AttackNote.get());
     }
 
     @Override
