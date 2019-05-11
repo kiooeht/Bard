@@ -108,6 +108,16 @@ public class BardAttachPoints
                         0
                 )
         );
+        map.put(CoffeeDripper.ID,
+                new AttachPoint(
+                        CoffeeDripper.ID,
+                        "ground4",
+                        "images/relics/coffeeDripper.png",
+                        0.6f, 0.6f,
+                        128, 23,
+                        0
+                )
+        );
         // Bag pipes
         map.put(Anchor.ID,
                 new AttachPoint(
