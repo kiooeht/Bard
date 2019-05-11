@@ -129,6 +129,16 @@ public class BardAttachPoints
                         50
                 )
         );
+        map.put(HappyFlower.ID,
+                new AttachPoint(
+                        HappyFlower.ID,
+                        "bag_pipes_head1",
+                        "images/relics/sunflower.png",
+                        1, 1,
+                        0, 30,
+                        0
+                )
+        );
         // Float
         map.put(SelfPlayingFlute.ID,
                 new AttachPoint(
