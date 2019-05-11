@@ -7,6 +7,7 @@ import com.esotericsoftware.spine.Skin;
 import com.esotericsoftware.spine.attachments.RegionAttachment;
 import com.evacipated.cardcrawl.mod.bard.BardMod;
 import com.evacipated.cardcrawl.mod.bard.relics.ConductorsBaton;
+import com.evacipated.cardcrawl.mod.bard.relics.CoralOrchestra;
 import com.evacipated.cardcrawl.mod.bard.relics.SelfPlayingFlute;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.relics.*;
@@ -99,11 +100,21 @@ public class BardAttachPoints
         map.put(Anchor.ID,
                 new AttachPoint(
                         Anchor.ID,
-                        "bag_pipes_handle",
+                        "bag_pipes_handle_swing",
                         "images/relics/anchor.png",
                         1, 1,
                         30, -5,
                         120
+                )
+        );
+        map.put(CoralOrchestra.ID,
+                new AttachPoint(
+                        CoralOrchestra.ID,
+                        "bag_pipes_handle",
+                        BardMod.assetPath("images/largeRelics/coralOrchestra.png"),
+                        0.6f, 0.6f,
+                        0, 0,
+                        50
                 )
         );
         // Float
