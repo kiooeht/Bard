@@ -6,6 +6,7 @@ import com.esotericsoftware.spine.Skeleton;
 import com.esotericsoftware.spine.Skin;
 import com.esotericsoftware.spine.attachments.RegionAttachment;
 import com.evacipated.cardcrawl.mod.bard.BardMod;
+import com.evacipated.cardcrawl.mod.bard.relics.ConductorsBaton;
 import com.evacipated.cardcrawl.mod.bard.relics.SelfPlayingFlute;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.relics.*;
@@ -50,6 +51,17 @@ public class BardAttachPoints
                         0.7f, 0.7f,
                         -10, -10,
                         -20
+                )
+        );
+        // Hand
+        map.put(ConductorsBaton.ID,
+                new AttachPoint(
+                        ConductorsBaton.ID,
+                        "hand",
+                        BardMod.assetPath("images/relics/conductorsBaton.png"),
+                        1, 1,
+                        -15, 15,
+                        -90
                 )
         );
         // Ground
