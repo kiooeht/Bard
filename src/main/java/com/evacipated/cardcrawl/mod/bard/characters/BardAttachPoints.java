@@ -139,6 +139,16 @@ public class BardAttachPoints
                         0
                 )
         );
+        map.put(RegalPillow.ID,
+                new AttachPoint(
+                        RegalPillow.ID,
+                        "bag_pipes_head2",
+                        "images/relics/regal_pillow.png",
+                        1, 1,
+                        0, 2,
+                        0
+                )
+        );
         // Float
         map.put(SelfPlayingFlute.ID,
                 new AttachPoint(
