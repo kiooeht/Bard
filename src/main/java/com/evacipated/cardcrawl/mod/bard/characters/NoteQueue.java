@@ -183,7 +183,12 @@ public class NoteQueue
 
     public boolean canPlayAnyMelody()
     {
-        return !getPlayableMelodies().isEmpty();
+        for (AbstractMelody melody : MelodyManager.getAllMelodies()) {
+            if (canPlayMelody(melody)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public boolean canPlayMelody(AbstractMelody melody)
