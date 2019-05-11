@@ -9,6 +9,7 @@ import com.evacipated.cardcrawl.mod.bard.BardMod;
 import com.evacipated.cardcrawl.mod.bard.relics.ConductorsBaton;
 import com.evacipated.cardcrawl.mod.bard.relics.CoralOrchestra;
 import com.evacipated.cardcrawl.mod.bard.relics.SelfPlayingFlute;
+import com.evacipated.cardcrawl.mod.bard.relics.StrangeHarp;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.relics.*;
 
@@ -51,6 +52,17 @@ public class BardAttachPoints
                         "images/relics/lantern.png",
                         0.7f, 0.7f,
                         -10, -10,
+                        -20
+                )
+        );
+        // Front leg
+        map.put(StrangeHarp.ID,
+                new AttachPoint(
+                        StrangeHarp.ID,
+                        "front_leg",
+                        BardMod.assetPath("images/relics/strangeHarp.png"),
+                        0.6f, 0.6f,
+                        0, 0,
                         -20
                 )
         );
