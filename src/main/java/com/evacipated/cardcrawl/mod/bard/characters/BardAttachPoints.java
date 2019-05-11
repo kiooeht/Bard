@@ -19,6 +19,7 @@ public class BardAttachPoints
     static
     {
         map = new HashMap<>();
+        // Head
         map.put(SmilingMask.ID,
                 new AttachPoint(
                         SmilingMask.ID,
@@ -39,6 +40,7 @@ public class BardAttachPoints
                         0
                 )
         );
+        // Waist
         map.put(Lantern.ID,
                 new AttachPoint(
                         Lantern.ID,
@@ -49,16 +51,28 @@ public class BardAttachPoints
                         -20
                 )
         );
+        // Ground
         map.put(Toolbox.ID,
                 new AttachPoint(
                         Toolbox.ID,
-                        "ground",
+                        "ground1",
                         "images/relics/toolbox.png",
                         -0.9f, 0.9f,
                         110, 30,
                         0
                 )
         );
+        map.put(BirdFacedUrn.ID,
+                new AttachPoint(
+                        BirdFacedUrn.ID,
+                        "ground2",
+                        "images/largeRelics/bird_urn.png",
+                        -0.7f, 0.7f,
+                        -93, 55,
+                        0
+                )
+        );
+        // Bag pipes
         map.put(Anchor.ID,
                 new AttachPoint(
                         Anchor.ID,
