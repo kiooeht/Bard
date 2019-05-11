@@ -1,16 +1,17 @@
 package com.evacipated.cardcrawl.mod.bard.powers;
 
 import com.evacipated.cardcrawl.mod.bard.BardMod;
-import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.VulnerablePower;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
 
 public class GreaterMagicWeaponPower extends AbstractBardPower
 {
@@ -19,13 +20,14 @@ public class GreaterMagicWeaponPower extends AbstractBardPower
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    private Map<AbstractMonster, Integer> monsterArmor = new HashMap<>();
+    private boolean usedThisTurn = false;
 
-    public GreaterMagicWeaponPower(AbstractCreature owner)
+    public GreaterMagicWeaponPower(AbstractCreature owner, int amount)
     {
         name = NAME;
         ID = POWER_ID;
         this.owner = owner;
+        this.amount = amount;
         type = PowerType.BUFF;
         updateDescription();
         loadRegion("greaterMagicWeapon");
@@ -34,28 +36,44 @@ public class GreaterMagicWeaponPower extends AbstractBardPower
     @Override
     public void updateDescription()
     {
-        description = DESCRIPTIONS[0];
+        description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
     }
 
-    public void beforeUse(DamageInfo info)
+    @Override
+    public void onPlayCard(AbstractCard card, AbstractMonster m)
     {
-        if (info.type == DamageInfo.DamageType.NORMAL) {
-            for (AbstractMonster m : AbstractDungeon.getMonsters().monsters) {
-                monsterArmor.put(m, m.currentBlock);
-                m.currentBlock = 0;
+        if (!usedThisTurn && card.type == AbstractCard.CardType.ATTACK) {
+            usedThisTurn = true;
+            ArrayList<AbstractMonster> monsters;
+            if (m != null) {
+                monsters = new ArrayList<>();
+                monsters.add(m);
+            } else {
+                monsters = AbstractDungeon.getMonsters().monsters;
+            }
+            int a = amount;
+            for (AbstractMonster mon : monsters) {
+                // Delays the vulnerable until after the card's effects
+                AbstractDungeon.actionManager.addToBottom(
+                        new AbstractGameAction()
+                        {
+                            @Override
+                            public void update()
+                            {
+                                AbstractDungeon.actionManager.addToBottom(
+                                        new ApplyPowerAction(mon, AbstractDungeon.player, new VulnerablePower(mon, a, false), a)
+                                );
+                                isDone = true;
+                            }
+                        }
+                );
             }
         }
     }
 
-    public void afterUse(DamageInfo info)
+    @Override
+    public void atStartOfTurn()
     {
-        if (info.type == DamageInfo.DamageType.NORMAL) {
-            for (AbstractMonster m : AbstractDungeon.getMonsters().monsters) {
-                if (monsterArmor.containsKey(m)) {
-                    m.currentBlock = monsterArmor.get(m);
-                    monsterArmor.remove(m);
-                }
-            }
-        }
+        usedThisTurn = false;
     }
 }

@@ -17,10 +17,13 @@ public class GreaterMagicWeapon extends AbstractBardCard
 {
     public static final String ID = BardMod.makeID("GreaterMagicWeapon");
     private static final int COST = 1;
+    private static final int VULNERABLE = 1;
 
     public GreaterMagicWeapon()
     {
         super(ID, COST, CardType.POWER, Bard.Enums.COLOR, CardRarity.UNCOMMON, CardTarget.SELF);
+
+        magicNumber = baseMagicNumber = VULNERABLE;
     }
 
     @Override
@@ -38,7 +41,7 @@ public class GreaterMagicWeapon extends AbstractBardCard
     @Override
     public void use(AbstractPlayer p, AbstractMonster m)
     {
-        addToBottom(new ApplyPowerAction(p, p, new GreaterMagicWeaponPower(p)));
+        addToBottom(new ApplyPowerAction(p, p, new GreaterMagicWeaponPower(p, magicNumber), magicNumber));
     }
 
     @Override

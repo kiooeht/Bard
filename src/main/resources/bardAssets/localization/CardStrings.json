@@ -232,7 +232,7 @@
   },
   "${ModID}:GreaterMagicWeapon": {
     "NAME": "Greater Magic Weapon",
-    "DESCRIPTION": "Your attacks ignore Block.",
+    "DESCRIPTION": "The first Attack card you play each turn also applies !M! Vulnerable.",
     "UPGRADE_DESCRIPTION": "Innate. NL "
   },
   "${ModID}:Doot": {

@@ -111,7 +111,8 @@
   "${ModID}:GreaterMagicWeapon": {
     "NAME": "Greater Magic Weapon",
     "DESCRIPTIONS": [
-      "Your #yAttacks ignore #yBlock."
+      "The first Attack card you play each turn also applies #b",
+      " #yVulnerable."
     ]
   },
   "${ModID}:TwoAndFour": {
