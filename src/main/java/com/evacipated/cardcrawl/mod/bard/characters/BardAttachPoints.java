@@ -103,8 +103,8 @@ public class BardAttachPoints
                         AncientTeaSet.ID,
                         "ground1",
                         "images/largeRelics/tea_set.png",
-                       0.7f, 0.7f,
-                        150, 20,
+                       0.6f, 0.6f,
+                        157, 28,
                         0
                 )
         );
