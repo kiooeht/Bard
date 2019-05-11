@@ -23,11 +23,14 @@ public class MelodiesPanel
     private boolean show = true;
 
     private Hitbox melodiesToggleHb;
+    private MelodiesHitboxListener melodiesToggleHbListener;
 
     public MelodiesPanel()
     {
         // This size doesn't matter, it's updated in update()
         melodiesToggleHb = new Hitbox(32, 32);
+
+        melodiesToggleHbListener = new MelodiesHitboxListener();
     }
 
     public void toggleShow()
@@ -51,26 +54,7 @@ public class MelodiesPanel
                 BardMod.notesPanel.yOffset * Settings.scale + player.drawY + player.hb_h / 2.0f
         );
 
-        melodiesToggleHb.encapsulatedUpdate(new HitboxListener()
-        {
-            @Override
-            public void hoverStarted(Hitbox hitbox)
-            {
-
-            }
-
-            @Override
-            public void startClicking(Hitbox hitbox)
-            {
-
-            }
-
-            @Override
-            public void clicked(Hitbox hitbox)
-            {
-                toggleShow();
-            }
-        });
+        melodiesToggleHb.encapsulatedUpdate(melodiesToggleHbListener);
     }
 
     public void render(SpriteBatch sb, AbstractPlayer player)
@@ -162,6 +146,27 @@ public class MelodiesPanel
             }
 
             melodiesToggleHb.render(sb);
+        }
+    }
+
+    private class MelodiesHitboxListener implements HitboxListener
+    {
+        @Override
+        public void hoverStarted(Hitbox hitbox)
+        {
+
+        }
+
+        @Override
+        public void startClicking(Hitbox hitbox)
+        {
+
+        }
+
+        @Override
+        public void clicked(Hitbox hitbox)
+        {
+            toggleShow();
         }
     }
 }
