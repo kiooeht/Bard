@@ -38,11 +38,14 @@ public class NotesPanel
     private float noteFloatTimer = 0;
 
     private Hitbox notesHb;
+    private NotesHitboxListener notesHbListener;
 
     public NotesPanel()
     {
         // This size doesn't matter, it's updated in update()
         notesHb = new Hitbox(32, 32);
+
+        notesHbListener = new NotesHitboxListener();
     }
 
     public void update(AbstractPlayer player)
@@ -76,32 +79,9 @@ public class NotesPanel
                 yOffset * Settings.scale + player.drawY + player.hb_h / 2.0f
         );
 
-        notesHb.encapsulatedUpdate(new HitboxListener()
-        {
-            @Override
-            public void hoverStarted(Hitbox hitbox)
-            {
-
-            }
-
-            @Override
-            public void startClicking(Hitbox hitbox)
-            {
-
-            }
-
-            @Override
-            public void clicked(Hitbox hitbox)
-            {
-                if (noteQueue.canPlayAnyMelody()) {
-                    if (player.hasPower(SonataPower.POWER_ID)) {
-                        AbstractDungeon.actionManager.addToBottom(new PerformAllMelodiesAction());
-                    } else {
-                        AbstractDungeon.actionManager.addToBottom(new SelectMelodyAction());
-                    }
-                }
-            }
-        });
+        notesHbListener.player = player;
+        notesHbListener.noteQueue = noteQueue;
+        notesHb.encapsulatedUpdate(notesHbListener);
     }
 
     public void render(SpriteBatch sb, AbstractPlayer player)
@@ -227,6 +207,36 @@ public class NotesPanel
             }
 
             notesHb.render(sb);
+        }
+    }
+
+    private static class NotesHitboxListener implements HitboxListener
+    {
+        private NoteQueue noteQueue;
+        private AbstractPlayer player;
+
+        @Override
+        public void hoverStarted(Hitbox hitbox)
+        {
+
+        }
+
+        @Override
+        public void startClicking(Hitbox hitbox)
+        {
+
+        }
+
+        @Override
+        public void clicked(Hitbox hitbox)
+        {
+            if (noteQueue.canPlayAnyMelody()) {
+                if (player.hasPower(SonataPower.POWER_ID)) {
+                    AbstractDungeon.actionManager.addToBottom(new PerformAllMelodiesAction());
+                } else {
+                    AbstractDungeon.actionManager.addToBottom(new SelectMelodyAction());
+                }
+            }
         }
     }
 }
