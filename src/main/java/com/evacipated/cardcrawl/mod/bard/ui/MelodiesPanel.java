@@ -84,52 +84,50 @@ public class MelodiesPanel
                     0
             );
 
-            if (!show) {
-                return;
-            }
+            if (show) {
+                FontHelper.renderFontLeftTopAligned(
+                        sb,
+                        FontHelper.tipHeaderFont,
+                        "Melodies",
+                        10 * Settings.scale,
+                        Settings.HEIGHT - Y_POS * Settings.scale,
+                        Settings.GOLD_COLOR
+                );
 
-            FontHelper.renderFontLeftTopAligned(
-                    sb,
-                    FontHelper.tipHeaderFont,
-                    "Melodies",
-                    10 * Settings.scale,
-                    Settings.HEIGHT - Y_POS * Settings.scale,
-                    Settings.GOLD_COLOR
-            );
-
-            StringBuilder body = new StringBuilder();
-            for (AbstractMelody melody : MelodyManager.getAllMelodies()) {
-                body.append(melody.makeNotesUIString());
-                body.append(" NL ");
-            }
-            body.setLength(body.length() - 4);
-
-            FontHelper.renderSmartText(
-                    sb,
-                    FontHelper.tipBodyFont,
-                    body.toString(),
-                    10 * Settings.scale,
-                    Settings.HEIGHT - (Y_POS + 30) * Settings.scale,
-                    280 * Settings.scale,
-                    26 * Settings.scale,
-                    Settings.CREAM_COLOR
-            );
-
-            float y = Settings.HEIGHT - (Y_POS + 36) * Settings.scale;
-            for (AbstractMelody melody : MelodyManager.getAllMelodies()) {
-                Color color = Settings.CREAM_COLOR;
-                if (noteQueue.canPlayMelody(melody)) {
-                    color = Settings.GOLD_COLOR;
+                StringBuilder body = new StringBuilder();
+                for (AbstractMelody melody : MelodyManager.getAllMelodies()) {
+                    body.append(melody.makeNotesUIString());
+                    body.append(" NL ");
                 }
-                FontHelper.renderFontRightAligned(
+                body.setLength(body.length() - 4);
+
+                FontHelper.renderSmartText(
                         sb,
                         FontHelper.tipBodyFont,
-                        melody.getName(),
-                        300 * Settings.scale,
-                        y,
-                        color
+                        body.toString(),
+                        10 * Settings.scale,
+                        Settings.HEIGHT - (Y_POS + 30) * Settings.scale,
+                        280 * Settings.scale,
+                        26 * Settings.scale,
+                        Settings.CREAM_COLOR
                 );
-                y -= 26 * Settings.scale;
+
+                float y = Settings.HEIGHT - (Y_POS + 36) * Settings.scale;
+                for (AbstractMelody melody : MelodyManager.getAllMelodies()) {
+                    Color color = Settings.CREAM_COLOR;
+                    if (noteQueue.canPlayMelody(melody)) {
+                        color = Settings.GOLD_COLOR;
+                    }
+                    FontHelper.renderFontRightAligned(
+                            sb,
+                            FontHelper.tipBodyFont,
+                            melody.getName(),
+                            300 * Settings.scale,
+                            y,
+                            color
+                    );
+                    y -= 26 * Settings.scale;
+                }
             }
 
             // Tooltip
