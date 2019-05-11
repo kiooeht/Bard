@@ -77,6 +77,17 @@ public class BardAttachPoints
                         -90
                 )
         );
+        // Body
+        map.put(Ectoplasm.ID,
+                new AttachPoint(
+                        Ectoplasm.ID,
+                        "pocket",
+                        "images/relics/ectoplasm.png",
+                        0.6f, 0.6f,
+                        -2, 3,
+                        62
+                )
+        );
         // Ground
         map.put(Toolbox.ID,
                 new AttachPoint(
