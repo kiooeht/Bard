@@ -10,7 +10,7 @@
     "NAME": "Pitch Pipe",
     "FLAVOR": "Stay in tune.",
     "DESCRIPTIONS": [
-      "At the start of each combat, #y${ModID}:Queue a random #y${ModID}:Note."
+      "At the start of each combat, #y${ModID}:Queue a [BuffNote] [REMOVE_SPACE]."
     ]
   },
   "${ModID}:SelfPlayingFlute": {

@@ -26,25 +26,7 @@ public class PitchPipe extends AbstractBardRelic
     public void atPreBattle()
     {
         if (AbstractDungeon.player instanceof Bard) {
-            int r = AbstractDungeon.relicRng.random(0, 3);
-            AbstractNote note;
-            switch (r) {
-                case 0:
-                    note = new AttackNote();
-                    break;
-                case 1:
-                    note = new BlockNote();
-                    break;
-                case 2:
-                    note = new BuffNote();
-                    break;
-                case 3:
-                    note = new DebuffNote();
-                    break;
-                default:
-                    note = new AttackNote();
-            }
-            addToBottom(new QueueNoteAction(note));
+            addToBottom(new QueueNoteAction(new BuffNote()));
         }
     }
 
