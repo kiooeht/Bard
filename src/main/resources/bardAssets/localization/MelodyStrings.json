@@ -75,5 +75,19 @@
     "NOTES": [
       "A", "D", "U", "A"
     ]
+  },
+  "${ModID}:BlockSmall": {
+    "NAME": "Block (S)",
+    "DESCRIPTION": "Gain 10 Block.",
+    "NOTES": [
+      "B", "U", "B"
+    ]
+  },
+  "${ModID}:BlockLarge": {
+    "NAME": "Block (L)",
+    "DESCRIPTION": "Gain 16 Block.",
+    "NOTES": [
+      "B", "U", "D", "B"
+    ]
   }
 }

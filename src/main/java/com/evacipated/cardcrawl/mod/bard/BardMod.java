@@ -237,6 +237,8 @@ public class BardMod implements
         MelodyManager.addMelody(new InspireLargeMelody());
         MelodyManager.addMelody(new DamageSmallMelody());
         MelodyManager.addMelody(new DamageLargeMelody());
+        MelodyManager.addMelody(new BlockSmallMelody());
+        MelodyManager.addMelody(new BlockLargeMelody());
 
         BaseMod.addPotion(InspiredBrew.class, Color.ROYAL.cpy(), Color.ROYAL.cpy(), Color.ROYAL.cpy(), InspiredBrew.POTION_ID, Bard.Enums.BARD);
 
