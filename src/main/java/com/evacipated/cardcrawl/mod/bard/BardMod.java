@@ -222,23 +222,23 @@ public class BardMod implements
 
         noteAtlas = assets.loadAtlas(assetPath("images/notes/notes.atlas"));
 
-        MelodyManager.addMelody(new AttackUpSmallMelody());
-        //MelodyManager.addMelody(new AttackUpLargeMelody());
-        MelodyManager.addMelody(new DefenseUpSmallMelody());
-        //MelodyManager.addMelody(new DefenseUpLargeMelody());
-        MelodyManager.addMelody(new DivineProtectionMelody());
-        MelodyManager.addMelody(new DrawMelody());
-        //MelodyManager.addMelody(new DrawUpMelody());
-        //MelodyManager.addMelody(new EnergyMelody());
-        MelodyManager.addMelody(new ArtifactMelody());
-        MelodyManager.addMelody(new WeakenSmallMelody());
-        MelodyManager.addMelody(new VulnerabilitySmallMelody());
-        MelodyManager.addMelody(new InspireSmallMelody());
-        MelodyManager.addMelody(new InspireLargeMelody());
         MelodyManager.addMelody(new DamageSmallMelody());
         MelodyManager.addMelody(new DamageLargeMelody());
         MelodyManager.addMelody(new BlockSmallMelody());
         MelodyManager.addMelody(new BlockLargeMelody());
+        MelodyManager.addMelody(new AttackUpSmallMelody());
+        //MelodyManager.addMelody(new AttackUpLargeMelody());
+        MelodyManager.addMelody(new DefenseUpSmallMelody());
+        //MelodyManager.addMelody(new DefenseUpLargeMelody());
+        MelodyManager.addMelody(new InspireSmallMelody());
+        MelodyManager.addMelody(new InspireLargeMelody());
+        MelodyManager.addMelody(new WeakenSmallMelody());
+        MelodyManager.addMelody(new VulnerabilitySmallMelody());
+        MelodyManager.addMelody(new DrawMelody());
+        //MelodyManager.addMelody(new DrawUpMelody());
+        //MelodyManager.addMelody(new EnergyMelody());
+        MelodyManager.addMelody(new ArtifactMelody());
+        MelodyManager.addMelody(new DivineProtectionMelody());
 
         BaseMod.addPotion(InspiredBrew.class, Color.ROYAL.cpy(), Color.ROYAL.cpy(), Color.ROYAL.cpy(), InspiredBrew.POTION_ID, Bard.Enums.BARD);
 
