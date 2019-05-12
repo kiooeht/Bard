@@ -113,7 +113,7 @@
   },
   "${ModID}:InspiringSong": {
     "NAME": "Inspiring Song",
-    "DESCRIPTION": "Gain ${ModID}:Inspiration !${ModID}:In!   for each {Buff Note} you have ${ModID}:Queued.",
+    "DESCRIPTION": "Gain ${ModID}:Inspiration !${ModID}:In! NL for each {Buff Note} you have ${ModID}:Queued.",
     "EXTENDED_DESCRIPTION": [
       " NL (",
       " {Buff Note} ${ModID}:Queued)"
