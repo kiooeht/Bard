@@ -43,7 +43,10 @@ public class Doot extends AbstractBardCard
     public void upgrade()
     {
         if (!upgraded) {
-            upgradeName();
+            ++timesUpgraded;
+            upgraded = true;
+            name = EXTENDED_DESCRIPTION[0];
+            initializeTitle();
             upgradeMagicNumber(UPGRADE_NOTES);
             rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();

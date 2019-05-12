@@ -238,7 +238,10 @@
   "${ModID}:Doot": {
     "NAME": "Doot",
     "DESCRIPTION": "Choose a ${ModID}:Note to ${ModID}:Queue.",
-    "UPGRADE_DESCRIPTION": "Choose !M! ${ModID}:Notes to ${ModID}:Queue."
+    "UPGRADE_DESCRIPTION": "Choose !M! ${ModID}:Notes to ${ModID}:Queue.",
+    "EXTENDED_DESCRIPTION": [
+      "Doot Doot"
+    ]
   },
   "${ModID}:PhantasmalForce": {
     "NAME": "Phantasmal Force",
