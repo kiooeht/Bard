@@ -223,6 +223,7 @@ public class BardMod implements
         noteAtlas = assets.loadAtlas(assetPath("images/notes/notes.atlas"));
 
         MelodyManager.addMelody(new DamageSmallMelody());
+        MelodyManager.addMelody(new DamageMediumMelody());
         MelodyManager.addMelody(new DamageLargeMelody());
         MelodyManager.addMelody(new BlockSmallMelody());
         MelodyManager.addMelody(new BlockLargeMelody());

@@ -8,11 +8,11 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
-public class DamageLargeMelody extends AbstractMelody
+public class DamageMediumMelody extends AbstractMelody
 {
-    public static final String ID = BardMod.makeID("DamageLarge");
+    public static final String ID = BardMod.makeID("DamageMedium");
 
-    public DamageLargeMelody()
+    public DamageMediumMelody()
     {
         super(ID, AbstractCard.CardTarget.ALL_ENEMY);
         type = AbstractCard.CardType.ATTACK;
@@ -21,7 +21,7 @@ public class DamageLargeMelody extends AbstractMelody
     @Override
     protected CustomCard.RegionName getRegionName()
     {
-        return new CustomCard.RegionName("red/attack/immolate");
+        return new CustomCard.RegionName("red/attack/whirlwind");
     }
 
     @Override
@@ -29,15 +29,15 @@ public class DamageLargeMelody extends AbstractMelody
     {
         addToBottom(new DamageAllEnemiesAction(
                 AbstractDungeon.player,
-                DamageInfo.createDamageMatrix(18, true),
+                DamageInfo.createDamageMatrix(10, true),
                 DamageInfo.DamageType.THORNS,
-                AbstractGameAction.AttackEffect.BLUNT_HEAVY
+                AbstractGameAction.AttackEffect.BLUNT_LIGHT
         ));
     }
 
     @Override
     public AbstractMelody makeCopy()
     {
-        return new DamageLargeMelody();
+        return new DamageMediumMelody();
     }
 }

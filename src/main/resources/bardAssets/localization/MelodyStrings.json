@@ -64,6 +64,13 @@
   },
   "${ModID}:DamageSmall": {
     "NAME": "Damage (S)",
+    "DESCRIPTION": "Deal 5 damage to ALL enemies.",
+    "NOTES": [
+      "A", "D"
+    ]
+  },
+  "${ModID}:DamageMedium": {
+    "NAME": "Damage (M)",
     "DESCRIPTION": "Deal 10 damage to ALL enemies.",
     "NOTES": [
       "A", "D", "A"
