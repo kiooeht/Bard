@@ -29,7 +29,7 @@ public class DamageSmallMelody extends AbstractMelody
     {
         addToBottom(new DamageAllEnemiesAction(
                 AbstractDungeon.player,
-                DamageInfo.createDamageMatrix(10, true),
+                DamageInfo.createDamageMatrix(5, true),
                 DamageInfo.DamageType.THORNS,
                 AbstractGameAction.AttackEffect.BLUNT_LIGHT
         ));
