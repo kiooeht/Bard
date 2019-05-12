@@ -230,7 +230,7 @@ public class NotesPanel
         @Override
         public void clicked(Hitbox hitbox)
         {
-            if (noteQueue.canPlayAnyMelody()) {
+            if (!AbstractDungeon.actionManager.turnHasEnded && noteQueue.canPlayAnyMelody()) {
                 if (player.hasPower(SonataPower.POWER_ID)) {
                     AbstractDungeon.actionManager.addToBottom(new PerformAllMelodiesAction());
                 } else {
