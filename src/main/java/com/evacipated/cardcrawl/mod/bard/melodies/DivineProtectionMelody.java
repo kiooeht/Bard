@@ -18,7 +18,7 @@ public class DivineProtectionMelody extends AbstractMelody
     @Override
     public void play()
     {
-        addToBottom(new AddTemporaryHPAction(AbstractDungeon.player, AbstractDungeon.player, 10));
+        addToBottom(new AddTemporaryHPAction(AbstractDungeon.player, AbstractDungeon.player, 8));
     }
 
     @Override

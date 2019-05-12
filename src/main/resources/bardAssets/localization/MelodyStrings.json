@@ -15,9 +15,9 @@
   },
   "${ModID}:DivineProtection": {
     "NAME": "Divine Protection",
-    "DESCRIPTION": "Gain 10 Temporary_HP.",
+    "DESCRIPTION": "Gain 8 Temporary_HP.",
     "NOTES": [
-      "B", "U", "B"
+      "B", "U", "U", "B"
     ]
   },
   "${ModID}:Draw": {
