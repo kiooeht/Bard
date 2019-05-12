@@ -44,6 +44,16 @@ public class BardAttachPoints
                         0
                 )
         );
+        map.put(PeacePipe.ID,
+                new AttachPoint(
+                        PeacePipe.ID,
+                        "head_mouth",
+                        "images/relics/peacePipe.png",
+                        -0.6f, 0.6f,
+                        17, -10,
+                        15
+                )
+        );
         // Waist
         map.put(Lantern.ID,
                 new AttachPoint(
