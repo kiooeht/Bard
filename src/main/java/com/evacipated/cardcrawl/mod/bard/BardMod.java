@@ -226,6 +226,7 @@ public class BardMod implements
         MelodyManager.addMelody(new DamageMediumMelody());
         MelodyManager.addMelody(new DamageLargeMelody());
         MelodyManager.addMelody(new BlockSmallMelody());
+        MelodyManager.addMelody(new BlockMediumMelody());
         MelodyManager.addMelody(new BlockLargeMelody());
         MelodyManager.addMelody(new AttackUpSmallMelody());
         MelodyManager.addMelody(new DefenseUpSmallMelody());

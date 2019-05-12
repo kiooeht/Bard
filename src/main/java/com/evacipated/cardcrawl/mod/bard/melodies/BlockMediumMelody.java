@@ -6,11 +6,11 @@ import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
-public class BlockLargeMelody extends AbstractMelody
+public class BlockMediumMelody extends AbstractMelody
 {
-    public static final String ID = BardMod.makeID("BlockLarge");
+    public static final String ID = BardMod.makeID("BlockMedium");
 
-    public BlockLargeMelody()
+    public BlockMediumMelody()
     {
         super(ID, AbstractCard.CardTarget.SELF);
         type = AbstractCard.CardType.SKILL;
@@ -19,18 +19,18 @@ public class BlockLargeMelody extends AbstractMelody
     @Override
     protected CustomCard.RegionName getRegionName()
     {
-        return new CustomCard.RegionName("bard/skill/guardPoint");
+        return new CustomCard.RegionName("bard/skill/defend");
     }
 
     @Override
     public void play()
     {
-        addToBottom(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, 15));
+        addToBottom(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, 8));
     }
 
     @Override
     public AbstractMelody makeCopy()
     {
-        return new BlockLargeMelody();
+        return new BlockMediumMelody();
     }
 }

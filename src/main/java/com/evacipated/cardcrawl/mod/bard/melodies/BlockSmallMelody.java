@@ -25,7 +25,7 @@ public class BlockSmallMelody extends AbstractMelody
     @Override
     public void play()
     {
-        addToBottom(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, 10));
+        addToBottom(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, 4));
     }
 
     @Override
