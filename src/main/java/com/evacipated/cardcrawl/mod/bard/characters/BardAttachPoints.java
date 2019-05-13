@@ -89,6 +89,16 @@ public class BardAttachPoints
                         -20
                 )
         );
+        map.put(StrangeSpoon.ID,
+                new AttachPoint(
+                        StrangeSpoon.ID,
+                        "front_boot_inside", 1,
+                        "images/relics/bigSpoon.png",
+                        0.6f, 0.6f,
+                        0, 0,
+                        0
+                )
+        );
         // Hand
         map.put(ConductorsBaton.ID,
                 new AttachPoint(
