@@ -182,6 +182,16 @@ public class BardAttachPoints
                         3
                 )
         );
+        map.put(Torii.ID,
+                new AttachPoint(
+                        Torii.ID,
+                        "ground_infront", -5,
+                        "images/largeRelics/torii.png",
+                        -0.9f, 0.9f,
+                        255, 35,
+                        0
+                )
+        );
         // Bag pipes
         map.put(Anchor.ID,
                 new AttachPoint(
