@@ -40,7 +40,7 @@ public class BardAttachPoints
         map.put(BustedCrown.ID,
                 new AttachPoint(
                         BustedCrown.ID,
-                        "head_top",
+                        "head_top_front",
                         "images/relics/crown.png",
                         0.4f, 0.4f,
                         0, 5,
@@ -55,6 +55,16 @@ public class BardAttachPoints
                         -0.6f, 0.6f,
                         17, -10,
                         15
+                )
+        );
+        map.put(GremlinHorn.ID,
+                new AttachPoint(
+                        GremlinHorn.ID,
+                        "head_top_behind",
+                        "images/relics/gremlinHorn.png",
+                        0.8f, 0.8f,
+                        0, 10,
+                        0
                 )
         );
         // Waist
