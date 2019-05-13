@@ -152,6 +152,16 @@ public class BardAttachPoints
                         0
                 )
         );
+        map.put(IncenseBurner.ID,
+                new AttachPoint(
+                        IncenseBurner.ID,
+                        "ground_infront", 1,
+                        "images/relics/incenseBurner.png",
+                        1, 1,
+                        47, 22,
+                        0
+                )
+        );
         // Bag pipes
         map.put(Anchor.ID,
                 new AttachPoint(
