@@ -121,6 +121,17 @@ public class BardAttachPoints
                         -90
                 )
         );
+        // Shoulder
+        map.put(BronzeScales.ID,
+                new AttachPoint(
+                        BronzeScales.ID,
+                        "shoulder", 1,
+                        "images/relics/bronzeScales.png",
+                        -0.6f, 0.6f,
+                        -10, 7,
+                        50
+                )
+        );
         // Body
         map.put(Ectoplasm.ID,
                 new AttachPoint(
