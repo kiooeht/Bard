@@ -162,6 +162,16 @@ public class BardAttachPoints
                         0
                 )
         );
+        map.put(TinyChest.ID,
+                new AttachPoint(
+                        TinyChest.ID,
+                        "ground_behind", 5,
+                        "images/relics/tinyChest.png",
+                        -1, 1,
+                        -135, 32,
+                        3
+                )
+        );
         // Bag pipes
         map.put(Anchor.ID,
                 new AttachPoint(
