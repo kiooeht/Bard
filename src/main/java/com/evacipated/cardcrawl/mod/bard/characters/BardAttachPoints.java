@@ -153,6 +153,16 @@ public class BardAttachPoints
                         -13
                 )
         );
+        map.put(Omamori.ID,
+                new AttachPoint(
+                        Omamori.ID,
+                        "pocket", 3,
+                        "images/relics/omamori.png",
+                        -0.4f, 0.4f,
+                        45, -15,
+                        0
+                )
+        );
         // Ground
         map.put(Toolbox.ID,
                 new AttachPoint(
