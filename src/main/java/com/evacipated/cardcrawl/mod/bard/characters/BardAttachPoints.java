@@ -263,6 +263,16 @@ public class BardAttachPoints
                         25
                 )
         );
+        map.put(PenNib.ID,
+                new AttachPoint(
+                        PenNib.ID,
+                        "bag_pipes_head", 3,
+                        "images/largeRelics/penNib.png",
+                        0.7f, 0.7f,
+                        -113, 60,
+                        -80
+                )
+        );
         // Float
         map.put(SelfPlayingFlute.ID,
                 new AttachPoint(
