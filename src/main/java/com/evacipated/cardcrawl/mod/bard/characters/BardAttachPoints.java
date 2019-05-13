@@ -264,6 +264,16 @@ public class BardAttachPoints
                         0
                 )
         );
+        map.put(Courier.ID,
+                new AttachPoint(
+                        Courier.ID,
+                        "bag_pipes_head", 4,
+                        "images/relics/courier.png",
+                        -0.85f, 0.85f,
+                        -40, 2,
+                        0
+                )
+        );
         map.put(Shuriken.ID,
                 new AttachPoint(
                         Shuriken.ID,
