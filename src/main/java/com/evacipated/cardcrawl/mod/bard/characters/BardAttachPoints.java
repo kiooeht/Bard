@@ -99,6 +99,17 @@ public class BardAttachPoints
                         0
                 )
         );
+        // Back leg
+        map.put(CursedKey.ID,
+                new AttachPoint(
+                        CursedKey.ID,
+                        "back_boot_inside", 1,
+                        "images/relics/cursedKey.png",
+                        0.6f, 0.6f,
+                        23, 7,
+                        -70
+                )
+        );
         // Hand
         map.put(ConductorsBaton.ID,
                 new AttachPoint(
