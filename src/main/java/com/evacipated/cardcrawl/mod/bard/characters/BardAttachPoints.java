@@ -233,6 +233,16 @@ public class BardAttachPoints
                         0
                 )
         );
+        map.put(Shuriken.ID,
+                new AttachPoint(
+                        Shuriken.ID,
+                        "bag_pipes_head_behind", 1,
+                        "images/relics/shuriken.png",
+                        0.8f, 0.8f,
+                        -64, -102,
+                        25
+                )
+        );
         // Float
         map.put(SelfPlayingFlute.ID,
                 new AttachPoint(
