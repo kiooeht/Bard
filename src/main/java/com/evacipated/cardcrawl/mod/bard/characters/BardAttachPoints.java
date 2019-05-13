@@ -71,7 +71,7 @@ public class BardAttachPoints
         map.put(Lantern.ID,
                 new AttachPoint(
                         Lantern.ID,
-                        "waist",
+                        "waist", 2,
                         "images/relics/lantern.png",
                         0.7f, 0.7f,
                         -10, -10,
@@ -84,8 +84,8 @@ public class BardAttachPoints
                         StrangeHarp.ID,
                         "front_leg",
                         BardMod.assetPath("images/relics/strangeHarp.png"),
-                        0.6f, 0.6f,
-                        0, 0,
+                        0.5f, 0.5f,
+                        10, 0,
                         -20
                 )
         );
@@ -104,11 +104,21 @@ public class BardAttachPoints
         map.put(Ectoplasm.ID,
                 new AttachPoint(
                         Ectoplasm.ID,
-                        "pocket",
+                        "pocket", 1,
                         "images/relics/ectoplasm.png",
                         0.6f, 0.6f,
                         -2, 3,
                         62
+                )
+        );
+        map.put(ChemicalX.ID,
+                new AttachPoint(
+                        ChemicalX.ID,
+                        "pocket", 2,
+                        "images/relics/chemicalX.png",
+                        0.6f, 0.6f,
+                        -10, -30,
+                        -13
                 )
         );
         // Ground
