@@ -88,7 +88,7 @@ public abstract class AbstractMelody
             description = builder.toString();
 
             description = description.replaceAll("\\*", "#y");
-            description = description.replaceAll("Inspiration", "#yInspiration");
+            description = description.replaceAll("(?<!#y)Inspiration", "#yInspiration");
         }
         return description;
     }
