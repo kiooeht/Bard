@@ -243,6 +243,16 @@ public class BardAttachPoints
                         25
                 )
         );
+        map.put(Kunai.ID,
+                new AttachPoint(
+                        Kunai.ID,
+                        "bag_pipes_head_behind", 2,
+                        "images/relics/kunai.png",
+                        -0.9f, 0.9f,
+                        -73, -55,
+                        25
+                )
+        );
         // Float
         map.put(SelfPlayingFlute.ID,
                 new AttachPoint(
