@@ -244,6 +244,16 @@ public class BardAttachPoints
                         0
                 )
         );
+        map.put(MercuryHourglass.ID,
+                new AttachPoint(
+                        MercuryHourglass.ID,
+                        "float_hourglass",
+                        "images/relics/hourglass.png",
+                        0.85f, 0.85f,
+                        0, 0,
+                        15
+                )
+        );
     }
 
     public static void attachRelic(Skeleton skeleton, String relicID)
