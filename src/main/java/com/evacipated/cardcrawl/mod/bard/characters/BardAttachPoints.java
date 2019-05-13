@@ -2,8 +2,11 @@ package com.evacipated.cardcrawl.mod.bard.characters;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.utils.Array;
 import com.esotericsoftware.spine.Skeleton;
 import com.esotericsoftware.spine.Skin;
+import com.esotericsoftware.spine.Slot;
+import com.esotericsoftware.spine.SlotData;
 import com.esotericsoftware.spine.attachments.RegionAttachment;
 import com.evacipated.cardcrawl.mod.bard.BardMod;
 import com.evacipated.cardcrawl.mod.bard.relics.ConductorsBaton;
@@ -102,7 +105,7 @@ public class BardAttachPoints
         map.put(Toolbox.ID,
                 new AttachPoint(
                         Toolbox.ID,
-                        "ground3",
+                        "ground_behind", 1,
                         "images/relics/toolbox.png",
                         -0.9f, 0.9f,
                         110, 30,
@@ -112,7 +115,7 @@ public class BardAttachPoints
         map.put(BirdFacedUrn.ID,
                 new AttachPoint(
                         BirdFacedUrn.ID,
-                        "ground2",
+                        "ground_behind", -1,
                         "images/largeRelics/bird_urn.png",
                         -0.7f, 0.7f,
                         -93, 55,
@@ -122,7 +125,7 @@ public class BardAttachPoints
         map.put(AncientTeaSet.ID,
                 new AttachPoint(
                         AncientTeaSet.ID,
-                        "ground1",
+                        "ground_behind", 2,
                         "images/largeRelics/tea_set.png",
                        0.6f, 0.6f,
                         157, 28,
@@ -132,7 +135,7 @@ public class BardAttachPoints
         map.put(CoffeeDripper.ID,
                 new AttachPoint(
                         CoffeeDripper.ID,
-                        "ground4",
+                        "ground_behind", 3,
                         "images/relics/coffeeDripper.png",
                         0.6f, 0.6f,
                         128, 23,
@@ -142,7 +145,7 @@ public class BardAttachPoints
         map.put(Waffle.ID,
                 new AttachPoint(
                         Waffle.ID,
-                        "ground5",
+                        "ground_behind", 4,
                         "images/relics/waffle.png",
                         -0.75f, 0.75f,
                         185, 5,
@@ -173,7 +176,7 @@ public class BardAttachPoints
         map.put(HappyFlower.ID,
                 new AttachPoint(
                         HappyFlower.ID,
-                        "bag_pipes_head1",
+                        "bag_pipes_head", 2,
                         "images/relics/sunflower.png",
                         1, 1,
                         0, 30,
@@ -183,7 +186,7 @@ public class BardAttachPoints
         map.put(RegalPillow.ID,
                 new AttachPoint(
                         RegalPillow.ID,
-                        "bag_pipes_head2",
+                        "bag_pipes_head", 1,
                         "images/relics/regal_pillow.png",
                         1, 1,
                         0, 2,
@@ -216,6 +219,47 @@ public class BardAttachPoints
             return;
         }
 
+        if (attachPoint.attachIndex != null) {
+            if (skeleton.findSlotIndex(attachName + attachPoint.attachIndex) < 0) {
+                // Create a new slot for the attachment
+                Slot origSlot = skeleton.findSlot(attachName);
+                Slot slotClone = new Slot(new SlotData(origSlot.getData().getIndex(), attachName + attachPoint.attachIndex, origSlot.getBone().getData()), origSlot.getBone());
+                slotClone.getData().setBlendMode(origSlot.getData().getBlendMode());
+                skeleton.getSlots().insert(slotIndex, slotClone);
+
+                // Add new slot to draw order
+                Array<Slot> drawOrder = skeleton.getDrawOrder();
+                int insertIndex = drawOrder.indexOf(origSlot, true);
+                boolean found = false;
+                for (int i = 0; i < drawOrder.size; ++i) {
+                    Slot slot = drawOrder.get(i);
+                    if (slot.getData().getName().startsWith(attachName)) {
+                        found = true;
+                        String tmp = slot.getData().getName().substring(attachName.length());
+                        if (tmp.isEmpty()) {
+                            tmp = "0";
+                        }
+                        int curIndex;
+                        try {
+                            curIndex = Integer.parseInt(tmp);
+                        } catch (NumberFormatException ignore) {
+                            continue;
+                        }
+                        insertIndex = i;
+                        if (curIndex > attachPoint.attachIndex) {
+                            break;
+                        }
+                    } else if (found) {
+                        insertIndex = i;
+                        break;
+                    }
+                }
+                drawOrder.insert(insertIndex, slotClone);
+                skeleton.setDrawOrder(drawOrder);
+            }
+            attachName = attachName + attachPoint.attachIndex;
+        }
+
         Texture tex = BardMod.assets.loadImage(attachPoint.imgPath);
         tex.setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
         TextureRegion region = new TextureRegion(tex);
@@ -240,6 +284,7 @@ public class BardAttachPoints
     {
         final String ID;
         final String attachName;
+        final Integer attachIndex;
         final String imgPath;
         final float scaleX;
         final float scaleY;
@@ -254,8 +299,19 @@ public class BardAttachPoints
                 float angle
         )
         {
+            this(id, attachName, null, img, scaleX, scaleY, x, y, angle);
+        }
+
+        public AttachPoint(
+                String id, String attachName, Integer attachIndex, String img,
+                float scaleX, float scaleY,
+                float x, float y,
+                float angle
+        )
+        {
             ID = id;
             this.attachName = attachName;
+            this.attachIndex = attachIndex;
             imgPath = img;
             this.scaleX = scaleX;
             this.scaleY = scaleY;
