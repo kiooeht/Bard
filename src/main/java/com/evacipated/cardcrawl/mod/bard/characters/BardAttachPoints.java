@@ -230,7 +230,7 @@ public class BardAttachPoints
                         "ground_infront", 1,
                         "images/relics/incenseBurner.png",
                         1, 1,
-                        47, 22,
+                        47, 18,
                         0
                 )
         );
