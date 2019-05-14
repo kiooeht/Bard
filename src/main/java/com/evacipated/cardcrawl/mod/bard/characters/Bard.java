@@ -32,6 +32,8 @@ import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Bard extends CustomPlayer
 {
@@ -40,6 +42,8 @@ public class Bard extends CustomPlayer
     private static final int ENERGY_PER_TURN = 3;
     private static final int START_ORBS = 0;
     public static final int MAX_NOTES = 4;
+
+    private Set<String> attachedRelics = new HashSet<>();
 
     public static class Enums
     {
@@ -81,7 +85,10 @@ public class Bard extends CustomPlayer
 
     public void attachRelic(AbstractRelic relic)
     {
-        BardAttachPoints.attachRelic(skeleton, relic.relicId);
+        if (!attachedRelics.contains(relic.relicId)) {
+            BardAttachPoints.attachRelic(skeleton, relic.relicId);
+            attachedRelics.add(relic.relicId);
+        }
     }
 
     @Override
