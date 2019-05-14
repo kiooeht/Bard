@@ -320,7 +320,7 @@
   },
   "${ModID}:Sonata": {
     "NAME": "Sonata",
-    "DESCRIPTION": "You can play every possible ${ModID}:Melody in your Note Queue at once.",
+    "DESCRIPTION": "You can perform every possible ${ModID}:Melody in your Note Queue at once.",
     "UPGRADE_DESCRIPTION": "Innate. NL "
   },
   "${ModID}:FingerOfDeath": {
