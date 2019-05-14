@@ -99,6 +99,16 @@ public class BardAttachPoints
                         0
                 )
         );
+        map.put(Boot.ID,
+                new AttachPoint(
+                        Boot.ID,
+                        "front_foot", 1,
+                        BardMod.assetPath("images/relicsAttach/boot.png"),
+                        -1, 1,
+                        0, 5,
+                        15
+                )
+        );
         // Back leg
         map.put(CursedKey.ID,
                 new AttachPoint(
