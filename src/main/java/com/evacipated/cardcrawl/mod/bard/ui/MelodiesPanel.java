@@ -107,7 +107,7 @@ public class MelodiesPanel
                 FontHelper.renderFontLeftTopAligned(
                         sb,
                         FontHelper.tipHeaderFont,
-                        "Melodies",
+                        NotesPanel.performStrings.TEXT[4],
                         10 * Settings.scale,
                         Settings.HEIGHT - Y_POS * Settings.scale,
                         Settings.GOLD_COLOR
