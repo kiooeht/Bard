@@ -4,6 +4,7 @@ import basemod.ReflectionHacks;
 import basemod.abstracts.CustomCard;
 import com.badlogic.gdx.graphics.Texture;
 import com.evacipated.cardcrawl.mod.bard.cards.SixFourTime;
+import com.evacipated.cardcrawl.mod.bard.cards.Wish;
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.screens.SingleCardViewPopup;
@@ -16,7 +17,8 @@ import java.util.List;
 public class CardPortraitUpgradeChange
 {
     private static final List<String> cardIDs = Arrays.asList(
-            SixFourTime.ID
+            SixFourTime.ID,
+            Wish.ID
     );
 
     @SpirePatch(

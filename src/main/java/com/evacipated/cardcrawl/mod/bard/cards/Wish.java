@@ -40,6 +40,9 @@ public class Wish extends AbstractBardCard
         if (CardCrawlGame.playerName.equals(___)) {
             return ImageMaster.loadImage(BardMod.assetPath(String.format("images/1024Portraits/%sr0.png", getBaseImagePath(cardID, type))));
         }
+        if (upgraded) {
+            return ImageMaster.loadImage(BardMod.assetPath(String.format("images/1024Portraits/%s2.png", getBaseImagePath(cardID, type))));
+        }
         return super.getPortraitImage();
     }
 
@@ -76,6 +79,9 @@ public class Wish extends AbstractBardCard
             isEthereal = false;
             rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
+            if (!CardCrawlGame.playerName.equals(___)) {
+                loadCardImage(getRegionName(ID + "2", type).name);
+            }
         }
     }
 
