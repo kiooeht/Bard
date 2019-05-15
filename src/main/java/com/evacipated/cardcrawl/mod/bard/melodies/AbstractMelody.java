@@ -124,6 +124,17 @@ public abstract class AbstractMelody
         return notes.size();
     }
 
+    public int count(Class<? extends AbstractNote> type)
+    {
+        int count = 0;
+        for (AbstractNote note : notes) {
+            if (type.isInstance(note)) {
+                ++count;
+            }
+        }
+        return count;
+    }
+
     public boolean conflictsMelody(AbstractMelody other)
     {
         if (notes.size() == other.notes.size()) {

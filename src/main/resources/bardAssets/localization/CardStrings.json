@@ -353,5 +353,10 @@
   "${ModID}:Focused": {
     "NAME": "Focused",
     "DESCRIPTION": "Gain ${ModID}:Inspiration X00%s. NL Refund !stslib:refund!."
+  },
+  "${ModID}:Rhapsody": {
+    "NAME": "Rhapsody",
+    "DESCRIPTION": "Perform any ${ModID}:Melody you have the ${ModID}:Notes for, regardless of their order.",
+    "UPGRADE_DESCRIPTION": "Choose a ${ModID}:Note to ${ModID}:Queue. NL "
   }
 }

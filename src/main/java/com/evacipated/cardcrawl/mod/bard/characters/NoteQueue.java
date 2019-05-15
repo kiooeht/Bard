@@ -200,6 +200,4 @@ public class NoteQueue
     {
         return MelodyManager.getAllMelodiesFromNotes(new ArrayList<>(notes));
     }
-
-
 }

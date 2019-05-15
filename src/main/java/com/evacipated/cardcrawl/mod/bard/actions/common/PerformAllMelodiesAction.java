@@ -19,7 +19,7 @@ import java.util.List;
 public class PerformAllMelodiesAction extends AbstractGameAction
 {
     private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString(BardMod.makeID("PerformAllMelodiesAction"));
-    private static final String[] TEXT = uiStrings.TEXT;
+    public static final String[] TEXT = uiStrings.TEXT;
     private List<AbstractMelody> melodies;
     private boolean consumeNotes;
 
