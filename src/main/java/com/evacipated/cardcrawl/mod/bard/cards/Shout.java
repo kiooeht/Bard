@@ -14,6 +14,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class Shout extends AbstractBardCard
@@ -35,10 +36,16 @@ public class Shout extends AbstractBardCard
     @Override
     public List<AbstractNote> getNotes()
     {
-        return Arrays.asList(
-                AttackNote.get(),
-                DebuffNote.get()
-        );
+        if (magicNumber > 0) {
+            return Arrays.asList(
+                    AttackNote.get(),
+                    DebuffNote.get()
+            );
+        } else {
+            return Collections.singletonList(
+                    AttackNote.get()
+            );
+        }
     }
 
     @Override
