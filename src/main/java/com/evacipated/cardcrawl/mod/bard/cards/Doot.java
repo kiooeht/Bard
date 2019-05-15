@@ -20,7 +20,7 @@ public class Doot extends AbstractBardCard
 
     public Doot()
     {
-        super(ID, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.COMMON, CardTarget.NONE);
+        super(ID, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.UNCOMMON, CardTarget.NONE);
 
         magicNumber = baseMagicNumber = NOTES;
     }
