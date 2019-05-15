@@ -18,5 +18,10 @@
       "Perform This Melody?",
       "Perform ALL of These Melodies?"
     ]
+  },
+  "${ModID}:SelectMelodyAction": {
+    "TEXT": [
+      "Choose a Melody to Perform"
+    ]
   }
 }

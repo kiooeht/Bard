@@ -6,14 +6,18 @@ import com.evacipated.cardcrawl.mod.bard.melodies.AbstractMelody;
 import com.evacipated.cardcrawl.mod.bard.patches.CenterGridCardSelectScreen;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.CardGroup;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.screens.select.GridCardSelectScreen;
 
 import java.util.List;
 
 public class SelectMelodyAction extends AbstractGameAction
 {
+    private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString(BardMod.makeID("SelectMelodyAction"));
+    public static final String[] TEXT = uiStrings.TEXT;
     private List<AbstractMelody> melodies;
     private boolean consumeNotes;
     private boolean pickCard = false;
@@ -55,7 +59,7 @@ public class SelectMelodyAction extends AbstractGameAction
             }
 
             CenterGridCardSelectScreen.centerGridSelect = true;
-            AbstractDungeon.gridSelectScreen.open(group, 1, "Choose a Melody to Play", false);
+            AbstractDungeon.gridSelectScreen.open(group, 1, TEXT[0], false);
             AbstractDungeon.overlayMenu.cancelButton.show(GridCardSelectScreen.TEXT[1]);
         } else {
             if (pickCard && !AbstractDungeon.gridSelectScreen.selectedCards.isEmpty()) {
