@@ -50,5 +50,12 @@
       "Your Note Queue can hold #b",
       " additional #y${ModID}:Notes."
     ]
+  },
+  "${ModID}:MagicTuningFork": {
+    "NAME": "Magic Tuning Fork",
+    "FLAVOR": "TODO",
+    "DESCRIPTIONS": [
+      "At the start of your turn, #y${ModID}:Queue a [WildNote] [REMOVE_SPACE]."
+    ]
   }
 }
