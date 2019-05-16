@@ -59,7 +59,8 @@ public class BardMod implements
         EditKeywordsSubscriber,
         AddAudioSubscriber,
         PostPlayerUpdateSubscriber,
-        RelicGetSubscriber
+        RelicGetSubscriber,
+        PostUpdateSubscriber
 {
     public static final Logger logger = LogManager.getLogger(BardMod.class.getSimpleName());
 
@@ -112,6 +113,7 @@ public class BardMod implements
         MelodyManager.addNote(BuffNote.get());
         MelodyManager.addNote(DebuffNote.get());
         MelodyManager.addNote(RestNote.get());
+        MelodyManager.addNote(WildCardNote.get());
     }
 
     public static String makeID(String id)
@@ -434,5 +436,11 @@ public class BardMod implements
     {
         notesPanel.render(sb, player);
         melodiesPanel.render(sb, player);
+    }
+
+    @Override
+    public void receivePostUpdate()
+    {
+        WildCardNote.get().update();
     }
 }

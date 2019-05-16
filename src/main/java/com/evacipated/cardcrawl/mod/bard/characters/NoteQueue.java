@@ -127,7 +127,7 @@ public class NoteQueue
     {
         int count = 0;
         for (AbstractNote note : notes) {
-            if (type.isInstance(note)) {
+            if (note.isNoteType(type)) {
                 ++count;
             }
         }

@@ -17,6 +17,15 @@ public abstract class AbstractNote
         return true;
     }
 
+    public float floatFactor()
+    {
+        if (isFloaty()) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+
     public boolean countsAsNote()
     {
         return true;
@@ -50,5 +59,22 @@ public abstract class AbstractNote
     public AbstractCard makeChoiceCard()
     {
         return new NoteCard(name(), "{" + name() + " Note}", this, AbstractCard.CardType.POWER);
+    }
+
+    public boolean isNoteType(Class<? extends AbstractNote> type)
+    {
+        return type.isInstance(this);
+    }
+
+    @Override
+    public boolean equals(Object other)
+    {
+        if (other instanceof AbstractNote) {
+            if (this instanceof WildCardNote || other instanceof WildCardNote) {
+                return true;
+            }
+            return this.getClass().equals(other.getClass());
+        }
+        return super.equals(other);
     }
 }

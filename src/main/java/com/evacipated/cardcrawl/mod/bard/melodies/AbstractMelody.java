@@ -128,7 +128,7 @@ public abstract class AbstractMelody
     {
         int count = 0;
         for (AbstractNote note : notes) {
-            if (type.isInstance(note)) {
+            if (note.isNoteType(type)) {
                 ++count;
             }
         }
@@ -197,7 +197,7 @@ public abstract class AbstractMelody
     private boolean notesMatch(List<AbstractNote> lhs, List<AbstractNote> rhs)
     {
         for (int i=0; i<lhs.size(); ++i) {
-            if (!lhs.get(i).getClass().equals(rhs.get(i).getClass())) {
+            if (!lhs.get(i).equals(rhs.get(i))) {
                 return false;
             }
         }

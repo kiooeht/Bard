@@ -182,7 +182,7 @@ public class NotesPanel
             Iterator<AbstractNote> iter = noteQueue.iterator();
             while (iter.hasNext()) {
                 AbstractNote note = iter.next();
-                offset = note.isFloaty() ? 3 * (float) Math.sin(noteFloatTimer + i*1.2) : 0;
+                offset = note.floatFactor() * 3 * (float) Math.sin(noteFloatTimer + i*1.2);
                 note.render(
                         sb,
                         player.drawX - (NOTE_SPACING * 2 * Settings.scale) + (i * NOTE_SPACING * Settings.scale),

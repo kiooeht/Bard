@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.evacipated.cardcrawl.mod.bard.MelodyStrings;
 import com.evacipated.cardcrawl.mod.bard.melodies.AbstractMelody;
 import com.evacipated.cardcrawl.mod.bard.notes.AbstractNote;
+import com.evacipated.cardcrawl.mod.bard.notes.WildCardNote;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -47,7 +48,19 @@ public class MelodyManager
     {
         List<AbstractNote> ret = new ArrayList<>(allNotes);
         ret.removeIf(n -> !n.countsAsNote());
+        ret.removeIf(n -> n instanceof WildCardNote);
         return ret;
+    }
+
+    public static int getAllNotesCount()
+    {
+        int count = 0;
+        for (AbstractNote note : allNotes) {
+            if (note.countsAsNote() && !(note instanceof WildCardNote)) {
+                ++count;
+            }
+        }
+        return count;
     }
 
     public static void addMelody(AbstractMelody melody)
