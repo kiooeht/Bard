@@ -3,6 +3,7 @@ package com.evacipated.cardcrawl.mod.bard.notes;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.mod.bard.helpers.MelodyManager;
 import com.megacrit.cardcrawl.core.Settings;
 
@@ -28,12 +29,13 @@ public class WildCardNote extends AbstractNote
     public void update()
     {
         timer += Gdx.graphics.getDeltaTime();
-        if (timer > 0.2f) {
-            timer -= 0.2f;
-            ++noteType;
-            if (noteType >= MelodyManager.getAllNotesCount()) {
-                noteType = 0;
+        if (timer > 0.16f) {
+            timer -= 0.16f;
+            int nextNoteType = noteType;
+            while (nextNoteType == noteType) {
+                nextNoteType = MathUtils.random(MelodyManager.getAllNotesCount() - 1);
             }
+            noteType = nextNoteType;
         }
     }
 
