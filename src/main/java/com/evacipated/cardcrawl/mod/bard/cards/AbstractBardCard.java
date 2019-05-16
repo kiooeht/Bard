@@ -233,6 +233,7 @@ public abstract class AbstractBardCard extends CustomCard
             } catch (NotFoundException ignore) {
                 // This card doesn't have a `use` method, skip it
                 // I blame Infinite Spire
+                otherCardBuffDebuff.putIfAbsent(card.cardID, 0);
                 return;
             }
 
@@ -318,5 +319,6 @@ public abstract class AbstractBardCard extends CustomCard
         } catch (NotFoundException | CannotCompileException e) {
             e.printStackTrace();
         }
+        otherCardBuffDebuff.putIfAbsent(card.cardID, 0);
     }
 }
