@@ -11,6 +11,7 @@ import com.evacipated.cardcrawl.mod.bard.cards.variables.InspirationVariable;
 import com.evacipated.cardcrawl.mod.bard.cards.variables.MagicNumber2;
 import com.evacipated.cardcrawl.mod.bard.characters.Bard;
 import com.evacipated.cardcrawl.mod.bard.characters.NoteQueue;
+import com.evacipated.cardcrawl.mod.bard.events.SpireTroupe;
 import com.evacipated.cardcrawl.mod.bard.helpers.AssetLoader;
 import com.evacipated.cardcrawl.mod.bard.helpers.MelodyManager;
 import com.evacipated.cardcrawl.mod.bard.melodies.*;
@@ -29,6 +30,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.dungeons.TheCity;
 import com.megacrit.cardcrawl.helpers.*;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
@@ -222,6 +224,8 @@ public class BardMod implements
 
         BaseMod.registerModBadge(ImageMaster.loadImage(assetPath("images/modBadge.png")), NAME, "kiooeht", "TODO", settingsPanel);
 
+        BaseMod.addEvent(SpireTroupe.ID, SpireTroupe.class, TheCity.ID);
+
         noteAtlas = assets.loadAtlas(assetPath("images/notes/notes.atlas"));
 
         MelodyManager.addMelody(new DamageSmallMelody());
@@ -297,6 +301,7 @@ public class BardMod implements
         BaseMod.loadCustomStringsFile(PowerStrings.class, assetPath("localization/PowerStrings.json"));
         BaseMod.loadCustomStringsFile(UIStrings.class, assetPath("localization/UIStrings.json"));
         BaseMod.loadCustomStringsFile(CharacterStrings.class, assetPath("localization/CharacterStrings.json"));
+        BaseMod.loadCustomStringsFile(EventStrings.class, assetPath("localization/EventStrings.json"));
     }
 
     @Override

@@ -1,0 +1,25 @@
+{
+  "${ModID}:SpireTroupe": {
+    "NAME": "The Spire Troupe",
+    "DESCRIPTIONS": [
+      "\"Come one, come all! See the Spire Troupe's brand new play!\" NL NL Standing at the entrance to an amphitheater you spot a man. Seeing you, he calls out to you with a wide grin on his face. NL NL \"You there! How about it? Care to relax and watch a play?\"",
+      "You thank the man for the offer, but you don't have the time to watch a play.",
+      "You pay the man and enter the amphitheater, taking your seat just as the play begins. NL NL The play is about an ancient civilization that used to control the Spire. Long ago one of these Ancients attempted to take control of the Spire for herself but was betrayed by those close to her. As punishment, she was exiled to the bottom of the Spire. NL NL The play concludes with the Ancient swearing to get her revenge on those who wronged her.",
+      "With the play complete, you get up to leave, feeling refreshed.",
+      " NL NL As you file out of the amphitheater, a hand grabs your shoulder. Turning around, it's one of the actors. NL NL \"That mask... %s is that you?... Where have you been? We've missed you so much. Come with me, come back to the troupe, your familiy.\" NL NL You eye him suspiciously...",
+      "You turn and run. NL NL @How@ @does@ @he@ @know@ @your@ @name?@",
+      "He leads you into a back room where the performers are waiting after their performance. NL NL \"Hey everyone! Look! It's %s! %s is back!\" NL #b\"%s?!\" #p\"%s!\" #y\"%s!\" NL NL \"Welcome home, %s.\" NL NL You explain that you don't know who any of them are, but they don't seem phased. They sit you down and give you some food. All night they regale you with tales of your past. When finally you get to bed, you fall asleep happy. You feel at peace here.",
+      "#r@PAIN@ NL NL You awake to an intense pain, a knife protruding from your side. Looking around you, all the members of your troupe lie around you, #rdead. NL You spot a small object lying next to you, it emits a #b~magical~ #bglow. You quickly pocket it and continue to look around. NL NL #p~\"Hmmm...~ #p~this~ #p~one~ #p~still~ #p~lives.\"~ NL NL The voice chills you to the bone. You flee before the source of the voice can catch you."
+    ],
+    "OPTIONS": [
+      "[Watch Play] #rLose #r%d #rGold. #gHeal #g%d #gHP.",
+      "[Locked] Requires: At least %d Gold.",
+      "[Leave]",
+      "[Continue]",
+      "[Join the Troupe]",
+      "[Flee]",
+      "[Sleep] #gObtain #ga #gspecial #gRelic. #rBecome #rCursed #r- #rPain.",
+      "[Flee!]"
+    ]
+  }
+}
