@@ -73,5 +73,9 @@ public class PerformAllMelodiesAction extends AbstractGameAction
             AbstractDungeon.overlayMenu.cancelButton.show(GridCardSelectScreen.TEXT[1]);
         }
         tickDuration();
+
+        if (isDone) {
+            BardMod.notesPanel.unlock();
+        }
     }
 }

@@ -40,12 +40,19 @@ public class NotesPanel
     private Hitbox notesHb;
     private NotesHitboxListener notesHbListener;
 
+    private boolean locked = false;
+
     public NotesPanel()
     {
         // This size doesn't matter, it's updated in update()
         notesHb = new Hitbox(32, 32);
 
         notesHbListener = new NotesHitboxListener();
+    }
+
+    public void unlock()
+    {
+        locked = false;
     }
 
     public void update(AbstractPlayer player)
@@ -210,7 +217,7 @@ public class NotesPanel
         }
     }
 
-    private static class NotesHitboxListener implements HitboxListener
+    private class NotesHitboxListener implements HitboxListener
     {
         private NoteQueue noteQueue;
         private AbstractPlayer player;
@@ -230,7 +237,8 @@ public class NotesPanel
         @Override
         public void clicked(Hitbox hitbox)
         {
-            if (!AbstractDungeon.actionManager.turnHasEnded && noteQueue.canPlayAnyMelody()) {
+            if (!locked && !AbstractDungeon.actionManager.turnHasEnded && noteQueue.canPlayAnyMelody()) {
+                locked = true;
                 if (player.hasPower(SonataPower.POWER_ID)) {
                     AbstractDungeon.actionManager.addToBottom(new PerformAllMelodiesAction());
                 } else {
