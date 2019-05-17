@@ -67,7 +67,7 @@
                 <directory>src/main/resources</directory>
                 <filtering>false</filtering>
                 <excludes>
-                    <exclude>bardAssets/localization/*.json</exclude>
+                    <exclude>bardAssets/localization/**/*.json</exclude>
                     <exclude>ModTheSpire.json</exclude>
                     <exclude>META-INF/bard_version.prop</exclude>
                     <exclude>**/*.swp</exclude>
@@ -78,7 +78,7 @@
                 <directory>src/main/resources</directory>
                 <filtering>true</filtering>
                 <includes>
-                    <include>bardAssets/localization/*.json</include>
+                    <include>bardAssets/localization/**/*.json</include>
                     <include>ModTheSpire.json</include>
                     <include>META-INF/bard_version.prop</include>
                 </includes>

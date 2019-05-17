@@ -291,24 +291,34 @@ public class BardMod implements
         }
     }
 
+    private static String makeLocPath(String filename)
+    {
+        String ret = "localization/";
+        switch (Settings.language) {
+            default:
+                ret += "eng/";
+        }
+        return assetPath(ret + filename + ".json");
+    }
+
     @Override
     public void receiveEditStrings()
     {
-        MelodyManager.loadMelodyStrings(assetPath("localization/MelodyStrings.json"));
-        BaseMod.loadCustomStringsFile(CardStrings.class, assetPath("localization/CardStrings.json"));
-        BaseMod.loadCustomStringsFile(RelicStrings.class, assetPath("localization/RelicStrings.json"));
-        BaseMod.loadCustomStringsFile(PotionStrings.class, assetPath("localization/PotionStrings.json"));
-        BaseMod.loadCustomStringsFile(PowerStrings.class, assetPath("localization/PowerStrings.json"));
-        BaseMod.loadCustomStringsFile(UIStrings.class, assetPath("localization/UIStrings.json"));
-        BaseMod.loadCustomStringsFile(CharacterStrings.class, assetPath("localization/CharacterStrings.json"));
-        BaseMod.loadCustomStringsFile(EventStrings.class, assetPath("localization/EventStrings.json"));
+        MelodyManager.loadMelodyStrings(makeLocPath("MelodyStrings"));
+        BaseMod.loadCustomStringsFile(CardStrings.class, makeLocPath("CardStrings"));
+        BaseMod.loadCustomStringsFile(RelicStrings.class, makeLocPath("RelicStrings"));
+        BaseMod.loadCustomStringsFile(PotionStrings.class, makeLocPath("PotionStrings"));
+        BaseMod.loadCustomStringsFile(PowerStrings.class, makeLocPath("PowerStrings"));
+        BaseMod.loadCustomStringsFile(UIStrings.class, makeLocPath("UIStrings"));
+        BaseMod.loadCustomStringsFile(CharacterStrings.class, makeLocPath("CharacterStrings"));
+        BaseMod.loadCustomStringsFile(EventStrings.class, makeLocPath("EventStrings"));
     }
 
     @Override
     public void receiveEditKeywords()
     {
         Gson gson = new Gson();
-        String json = Gdx.files.internal(assetPath("localization/Keywords.json")).readString(String.valueOf(StandardCharsets.UTF_8));
+        String json = Gdx.files.internal(makeLocPath("Keywords")).readString(String.valueOf(StandardCharsets.UTF_8));
         Keyword[] keywords = gson.fromJson(json, Keyword[].class);
 
         if (keywords != null) {
