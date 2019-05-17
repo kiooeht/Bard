@@ -69,6 +69,7 @@
                 <excludes>
                     <exclude>bardAssets/localization/**/*.json</exclude>
                     <exclude>ModTheSpire.json</exclude>
+                    <exclude>googly-eye-locations.json</exclude>
                     <exclude>META-INF/bard_version.prop</exclude>
                     <exclude>**/*.swp</exclude>
                     <exclude>**/Makefile</exclude>
@@ -80,6 +81,7 @@
                 <includes>
                     <include>bardAssets/localization/**/*.json</include>
                     <include>ModTheSpire.json</include>
+                    <include>googly-eye-locations.json</include>
                     <include>META-INF/bard_version.prop</include>
                 </includes>
             </resource>
