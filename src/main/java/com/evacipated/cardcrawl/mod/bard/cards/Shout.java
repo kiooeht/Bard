@@ -5,6 +5,7 @@ import com.evacipated.cardcrawl.mod.bard.characters.Bard;
 import com.evacipated.cardcrawl.mod.bard.notes.AbstractNote;
 import com.evacipated.cardcrawl.mod.bard.notes.AttackNote;
 import com.evacipated.cardcrawl.mod.bard.notes.DebuffNote;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -54,8 +55,16 @@ public class Shout extends AbstractBardCard
         addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn)));
         if (magicNumber > 0) {
             addToBottom(new ApplyPowerAction(m, p, new StrengthPower(m, -magicNumber), -magicNumber));
-            --baseMagicNumber;
-            magicNumber = baseMagicNumber;
+            addToBottom(new AbstractGameAction()
+            {
+                @Override
+                public void update()
+                {
+                    --baseMagicNumber;
+                    magicNumber = baseMagicNumber;
+                    isDone = true;
+                }
+            });
         }
     }
 
