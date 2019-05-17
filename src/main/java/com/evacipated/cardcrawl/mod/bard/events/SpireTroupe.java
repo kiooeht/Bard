@@ -48,12 +48,12 @@ public class SpireTroupe extends AbstractImageEvent
 
     private enum CurrentScreen
     {
-        INTRO, PLAY_1, BARD_OFFER, BARD_JOIN_1, BARD_JOIN_2, COMPLETE
+        INTRO, PLAY_1, BARD_OFFER, BARD_JOIN, COMPLETE
     }
 
     public SpireTroupe()
     {
-        super(NAME, INTRO_MSG, null);
+        super(NAME, INTRO_MSG, BardMod.assetPath("images/events/troupeIntro.jpg"));
 
         goldCost = getGoldCost();
         if (goldCost != 0) {
@@ -74,6 +74,7 @@ public class SpireTroupe extends AbstractImageEvent
                         AbstractDungeon.player.loseGold(goldCost);
 
                         curScreen = CurrentScreen.PLAY_1;
+                        imageEventText.loadImage(BardMod.assetPath("images/events/troupePlay.jpg"));
                         imageEventText.updateBodyText(PLAY_1_MSG);
 
                         imageEventText.updateDialogOption(0, OPT_CONTINUE);
@@ -94,6 +95,7 @@ public class SpireTroupe extends AbstractImageEvent
                 imageEventText.clearAllDialogs();
                 if (AbstractDungeon.player.chosenClass == Bard.Enums.BARD) {
                     curScreen = CurrentScreen.BARD_OFFER;
+                    imageEventText.loadImage(BardMod.assetPath("images/events/troupeOffer.jpg"));
                     StringBuilder name = new StringBuilder();
                     for (String word : CardCrawlGame.playerName.split(" ")) {
                         name.append("#y~").append(word).append("~ ");
@@ -103,6 +105,7 @@ public class SpireTroupe extends AbstractImageEvent
                     imageEventText.setDialogOption(OPT_BARD_REFUSE);
                 } else {
                     curScreen = CurrentScreen.COMPLETE;
+                    imageEventText.loadImage(BardMod.assetPath("images/events/troupeComplete.jpg"));
                     imageEventText.updateBodyText(COMPLETE_MSG);
                     imageEventText.setDialogOption(OPT_LEAVE);
                 }
@@ -110,7 +113,8 @@ public class SpireTroupe extends AbstractImageEvent
             case BARD_OFFER:
                 switch (buttonPressed) {
                     case 0: // Join
-                        curScreen = CurrentScreen.BARD_JOIN_1;
+                        curScreen = CurrentScreen.BARD_JOIN;
+                        imageEventText.loadImage(BardMod.assetPath("images/events/troupeJoin.jpg"));
                         String name = CardCrawlGame.playerName;
                         String b_name = FontHelper.colorString(name, "b").substring(2);
                         String p_name = FontHelper.colorString(name, "p").substring(2);
@@ -129,21 +133,15 @@ public class SpireTroupe extends AbstractImageEvent
                         break;
                 }
                 break;
-            case BARD_JOIN_1:
+            case BARD_JOIN:
                 AbstractDungeon.getCurrRoom().spawnRelicAndObtain(Settings.WIDTH / 2f, Settings.HEIGHT / 2f, new MagicTuningFork());
                 AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(new Pain(), Settings.WIDTH / 2f, Settings.HEIGHT / 2f));
 
                 curScreen = CurrentScreen.COMPLETE;
+                imageEventText.loadImage(BardMod.assetPath("images/events/troupeEnd.jpg"));
                 imageEventText.updateBodyText(BARD_JOIN_2_MSG);
 
                 imageEventText.updateDialogOption(0, OPT_BARD_END);
-                imageEventText.clearRemainingOptions();
-                break;
-            case BARD_JOIN_2:
-                curScreen = CurrentScreen.COMPLETE;
-                imageEventText.updateBodyText("");
-
-                imageEventText.updateDialogOption(0, OPT_LEAVE);
                 imageEventText.clearRemainingOptions();
                 break;
             case COMPLETE:
