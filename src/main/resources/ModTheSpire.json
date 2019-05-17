@@ -2,7 +2,7 @@
   "modid": "${project.artifactId}",
   "name": "${project.name}",
   "author_list": ["kiooeht"],
-  "description": "~Music~",
+  "description": "Adds a new playable character: The Bard.",
   "version": "${project.version}",
   "credits": "Testing: Reina, Gremious, Blank The Evil, and Skyson",
   "sts_version": "${SlayTheSpire.version}",
