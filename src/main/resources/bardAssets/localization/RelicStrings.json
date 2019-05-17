@@ -53,7 +53,7 @@
   },
   "${ModID}:MagicTuningFork": {
     "NAME": "Magic Tuning Fork",
-    "FLAVOR": "TODO",
+    "FLAVOR": "A memento of your past life. Rings with the sound of a constantly changing note.",
     "DESCRIPTIONS": [
       "At the start of your turn, #y${ModID}:Queue a [WildNote] [REMOVE_SPACE]."
     ]
