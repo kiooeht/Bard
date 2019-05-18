@@ -24,5 +24,10 @@
     "TEXT": [
       "Choose a Melody to Perform"
     ]
+  },
+  "${ModID}:MnemonicVestmentsAction": {
+    "TEXT": [
+      "Select a Card to Duplicate"
+    ]
   }
 }

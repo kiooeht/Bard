@@ -1,16 +1,21 @@
 package com.evacipated.cardcrawl.mod.bard.actions.unique;
 
+import com.evacipated.cardcrawl.mod.bard.BardMod;
 import com.evacipated.cardcrawl.mod.bard.cards.MnemonicVestments;
 import com.evacipated.cardcrawl.mod.bard.vfx.cardManip.ShowThisCardAndAddToDrawPileEffect;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.defect.DiscardPileToHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.UIStrings;
 
 public class MnemonicVestmentsAction extends AbstractGameAction
 {
+    private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString(BardMod.makeID("MnemonicVestmentsAction"));
+    public static final String[] TEXT = uiStrings.TEXT;
+
     public MnemonicVestmentsAction()
     {
         actionType = ActionType.CARD_MANIPULATION;
@@ -21,7 +26,7 @@ public class MnemonicVestmentsAction extends AbstractGameAction
     public void update()
     {
         if (duration == Settings.ACTION_DUR_MED) {
-            AbstractDungeon.gridSelectScreen.open(getCards(), 1, DiscardPileToHandAction.TEXT[0], false);
+            AbstractDungeon.gridSelectScreen.open(getCards(), 1, TEXT[0], false);
             tickDuration();
             return;
         }
