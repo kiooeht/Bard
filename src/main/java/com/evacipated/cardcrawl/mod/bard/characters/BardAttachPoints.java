@@ -30,7 +30,7 @@ public class BardAttachPoints
         map.put(SmilingMask.ID,
                 new AttachPoint(
                         SmilingMask.ID,
-                        "head_side",
+                        "head_side", 5,
                         "images/relics/merchantMask.png",
                         0.6f, 0.6f,
                         0, 0,
@@ -65,6 +65,16 @@ public class BardAttachPoints
                         0.8f, 0.8f,
                         0, 10,
                         0
+                )
+        );
+        map.put("hubris:DisguiseKit",
+                new AttachPoint(
+                        "hubris:DisguiseKit",
+                        "head_side", 1,
+                        "hubrisAssets/images/relics/disguiseKit.png",
+                        0.6f, 0.6f,
+                        25, 0,
+                        -10
                 )
         );
         // Waist
