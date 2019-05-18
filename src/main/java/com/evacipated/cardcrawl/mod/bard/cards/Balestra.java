@@ -76,9 +76,11 @@ public class Balestra extends AbstractBardCard
         AbstractPower strength = p.getPower(StrengthPower.POWER_ID);
         AbstractPower dexterity = p.getPower(DexterityPower.POWER_ID);
 
+        if (strength != null) {
+            origStr = strength.amount;
+        }
         if (strength != null && dexterity != null) {
             // Add Dex to Str
-            origStr = strength.amount;
             strength.amount += dexterity.amount;
         } else if (strength == null && dexterity != null) {
             // No Str, only Dex
@@ -113,9 +115,11 @@ public class Balestra extends AbstractBardCard
         AbstractPower strength = p.getPower(StrengthPower.POWER_ID);
         AbstractPower dexterity = p.getPower(DexterityPower.POWER_ID);
 
+        if (strength != null) {
+            origStr = strength.amount;
+        }
         if (strength != null && dexterity != null) {
             // Add Dex to Str
-            origStr = strength.amount;
             strength.amount += dexterity.amount;
         } else if (strength == null && dexterity != null) {
             // No Str, only Dex
