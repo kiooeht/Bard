@@ -15,6 +15,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.DexterityPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
@@ -70,6 +71,7 @@ public class Balestra extends AbstractBardCard
 
         int origStr = 0;
         StrengthPower fakeStrength = null;
+        ArrayList<AbstractPower> origPowers = null;
 
         AbstractPower strength = p.getPower(StrengthPower.POWER_ID);
         AbstractPower dexterity = p.getPower(DexterityPower.POWER_ID);
@@ -80,9 +82,12 @@ public class Balestra extends AbstractBardCard
             strength.amount += dexterity.amount;
         } else if (strength == null && dexterity != null) {
             // No Str, only Dex
-            // Add fake Str
+            // Add fake Str, replace the powers list to avoid a ConcurrentModificationException
             fakeStrength = new StrengthPower(p, dexterity.amount);
-            p.powers.add(p.powers.indexOf(dexterity), fakeStrength);
+            ArrayList<AbstractPower> fakePowers = (ArrayList<AbstractPower>) p.powers.clone();
+            fakePowers.add(fakePowers.indexOf(dexterity), fakeStrength);
+            origPowers = p.powers;
+            p.powers = fakePowers;
         }
 
         super.applyPowers();
@@ -91,8 +96,8 @@ public class Balestra extends AbstractBardCard
             // Reset Str
             strength.amount = origStr;
         } else if (fakeStrength != null) {
-            // Remove fake Str
-            p.powers.remove(fakeStrength);
+            // Restore origin powers list, thus removing fake Str
+            p.powers = origPowers;
         }
     }
 
@@ -103,6 +108,7 @@ public class Balestra extends AbstractBardCard
 
         int origStr = 0;
         StrengthPower fakeStrength = null;
+        ArrayList<AbstractPower> origPowers = null;
 
         AbstractPower strength = p.getPower(StrengthPower.POWER_ID);
         AbstractPower dexterity = p.getPower(DexterityPower.POWER_ID);
@@ -115,7 +121,10 @@ public class Balestra extends AbstractBardCard
             // No Str, only Dex
             // Add fake Str
             fakeStrength = new StrengthPower(p, dexterity.amount);
-            p.powers.add(p.powers.indexOf(dexterity), fakeStrength);
+            ArrayList<AbstractPower> fakePowers = (ArrayList<AbstractPower>) p.powers.clone();
+            fakePowers.add(fakePowers.indexOf(dexterity), fakeStrength);
+            origPowers = p.powers;
+            p.powers = fakePowers;
         }
 
         super.calculateCardDamage(mo);
@@ -124,8 +133,8 @@ public class Balestra extends AbstractBardCard
             // Reset Str
             strength.amount = origStr;
         } else if (fakeStrength != null) {
-            // Remove fake Str
-            p.powers.remove(fakeStrength);
+            // Restore origin powers list, thus removing fake Str
+            p.powers = origPowers;
         }
     }
 
