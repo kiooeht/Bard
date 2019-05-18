@@ -3,7 +3,6 @@ package com.evacipated.cardcrawl.mod.bard.powers;
 import basemod.interfaces.CloneablePowerInterface;
 import com.evacipated.cardcrawl.mod.bard.BardMod;
 import com.evacipated.cardcrawl.mod.bard.cards.AbstractBardCard;
-import com.evacipated.cardcrawl.mod.bard.powers.interfaces.ModifyBlockFinalPower;
 import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.NonStackablePower;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
@@ -15,15 +14,12 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-public class InspirationPower extends AbstractBardTwoAmountPower implements NonStackablePower, ModifyBlockFinalPower, CloneablePowerInterface
+public class InspirationPower extends AbstractBardTwoAmountPower implements NonStackablePower, CloneablePowerInterface
 {
     public static final String POWER_ID = BardMod.makeID("Inspiration");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
-
-    private static float additiveDamage = 0;
-    private static float additiveBlock = 0;
 
     public InspirationPower(AbstractCreature owner, int cards, int percent)
     {
@@ -62,7 +58,8 @@ public class InspirationPower extends AbstractBardTwoAmountPower implements NonS
     {
         // Only the first Inspiration alters the damage
         // It collects all the bonuses from another Inspiration and applies them all at once
-        if (additiveDamage == 0 && type == DamageInfo.DamageType.NORMAL) {
+        if (this == owner.getPower(ID) && type == DamageInfo.DamageType.NORMAL) {
+            float additiveDamage = 0;
             for (AbstractPower p : owner.powers) {
                 if (p instanceof InspirationPower) {
                     additiveDamage += damage * (((InspirationPower) p).amount2 / 100.0f);
@@ -74,18 +71,12 @@ public class InspirationPower extends AbstractBardTwoAmountPower implements NonS
     }
 
     @Override
-    public float atDamageFinalGive(float damage, DamageInfo.DamageType type)
-    {
-        additiveDamage = 0;
-        return damage;
-    }
-
-    @Override
     public float modifyBlock(float blockAmount)
     {
         // Only the first Inspiration alters the block
         // It collects all the bonuses from another Inspiration and applies them all at once
-        if (additiveBlock == 0) {
+        if (this == owner.getPower(ID)) {
+            float additiveBlock = 0;
             for (AbstractPower p : owner.powers) {
                 if (p instanceof InspirationPower) {
                     additiveBlock += blockAmount * (((InspirationPower) p).amount2 / 100.0f);
@@ -93,13 +84,6 @@ public class InspirationPower extends AbstractBardTwoAmountPower implements NonS
             }
             return blockAmount + additiveBlock;
         }
-        return blockAmount;
-    }
-
-    @Override
-    public float modifyBlockFinal(float blockAmount)
-    {
-        additiveBlock = 0;
         return blockAmount;
     }
 
