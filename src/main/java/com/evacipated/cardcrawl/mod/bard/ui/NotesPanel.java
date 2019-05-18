@@ -11,6 +11,7 @@ import com.evacipated.cardcrawl.mod.bard.characters.Bard;
 import com.evacipated.cardcrawl.mod.bard.characters.NoteQueue;
 import com.evacipated.cardcrawl.mod.bard.notes.AbstractNote;
 import com.evacipated.cardcrawl.mod.bard.powers.SonataPower;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
@@ -239,11 +240,20 @@ public class NotesPanel
         {
             if (!locked && !AbstractDungeon.actionManager.turnHasEnded && noteQueue.canPlayAnyMelody()) {
                 locked = true;
-                if (player.hasPower(SonataPower.POWER_ID)) {
-                    AbstractDungeon.actionManager.addToBottom(new PerformAllMelodiesAction());
-                } else {
-                    AbstractDungeon.actionManager.addToBottom(new SelectMelodyAction());
-                }
+                AbstractDungeon.actionManager.addToBottom(new AbstractGameAction()
+                {
+                    @Override
+                    public void update()
+                    {
+                        unlock();
+                        if (player.hasPower(SonataPower.POWER_ID)) {
+                            AbstractDungeon.actionManager.addToTop(new PerformAllMelodiesAction());
+                        } else {
+                            AbstractDungeon.actionManager.addToTop(new SelectMelodyAction());
+                        }
+                        isDone = true;
+                    }
+                });
             }
         }
     }

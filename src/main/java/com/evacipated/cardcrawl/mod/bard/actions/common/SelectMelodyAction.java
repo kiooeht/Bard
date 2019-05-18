@@ -74,9 +74,5 @@ public class SelectMelodyAction extends AbstractGameAction
             }
         }
         tickDuration();
-
-        if (isDone) {
-            BardMod.notesPanel.unlock();
-        }
     }
 }
