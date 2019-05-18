@@ -88,6 +88,10 @@ public class NoteQueue
         }
         if (note != null) {
             notes.addLast(note);
+            if (masterMaxNotes == 0 && maxNotes == 0) {
+                setMasterMaxNotes(Bard.MAX_NOTES);
+                increaseMaxNotes(Bard.MAX_NOTES);
+            }
             while (notes.size() > maxNotes) {
                 notes.removeFirst();
             }
