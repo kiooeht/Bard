@@ -47,6 +47,8 @@ public class Blink extends AbstractBardCard
         if (!upgraded) {
             upgradeName();
             upgradeMagicNumber(UPGRADE_TURNS);
+            rawDescription = UPGRADE_DESCRIPTION;
+            initializeDescription();
         }
     }
 
