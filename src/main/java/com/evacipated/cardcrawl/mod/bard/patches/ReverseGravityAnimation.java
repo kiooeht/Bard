@@ -43,7 +43,7 @@ public class ReverseGravityAnimation
                     Field f = AbstractCreature.class.getDeclaredField("vY");
                     f.setAccessible(true);
                     vY = f.getFloat(__instance);
-                    vY -= 17 * Settings.scale;
+                    vY -= 4080 * Gdx.graphics.getDeltaTime() * Settings.scale;
                     f.setFloat(__instance, vY);
                 } catch (IllegalAccessException | NoSuchFieldException e) {
                     e.printStackTrace();
