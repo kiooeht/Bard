@@ -44,8 +44,12 @@ public class StrangeHarp extends AbstractBardRelic
             addToBottom(new RelicAboveCreatureAction(m, this));
             AbstractMonster target = AbstractDungeon.getRandomMonster();
             if (target != null) {
-                addToBottom(new AlwaysApplyPowerAction(target, m, new WeakPower(target, weakAmount, false), weakAmount));
-                addToBottom(new AlwaysApplyPowerAction(target, m, new VulnerablePower(target, vulnAmount, false), vulnAmount));
+                if (weakAmount > 0) {
+                    addToBottom(new AlwaysApplyPowerAction(target, m, new WeakPower(target, weakAmount, false), weakAmount));
+                }
+                if (vulnAmount > 0) {
+                    addToBottom(new AlwaysApplyPowerAction(target, m, new VulnerablePower(target, vulnAmount, false), vulnAmount));
+                }
             }
         }
     }
