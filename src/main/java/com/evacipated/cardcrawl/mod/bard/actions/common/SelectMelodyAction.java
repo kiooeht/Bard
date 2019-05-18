@@ -12,6 +12,8 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.screens.select.GridCardSelectScreen;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.List;
 
 public class SelectMelodyAction extends AbstractGameAction
@@ -60,6 +62,12 @@ public class SelectMelodyAction extends AbstractGameAction
 
             CenterGridCardSelectScreen.centerGridSelect = true;
             AbstractDungeon.gridSelectScreen.open(group, 1, TEXT[0], false);
+            try {
+                Method m = GridCardSelectScreen.class.getDeclaredMethod("updateCardPositionsAndHoverLogic");
+                m.setAccessible(true);
+                m.invoke(AbstractDungeon.gridSelectScreen);
+            } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException ignore) {
+            }
             AbstractDungeon.overlayMenu.cancelButton.show(GridCardSelectScreen.TEXT[1]);
         } else {
             if (pickCard && !AbstractDungeon.gridSelectScreen.selectedCards.isEmpty()) {
