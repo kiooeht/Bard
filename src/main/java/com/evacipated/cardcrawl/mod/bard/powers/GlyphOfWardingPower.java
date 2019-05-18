@@ -52,9 +52,8 @@ public class GlyphOfWardingPower extends AbstractBardPower implements OnLoseBloc
     {
         if (damageAmount > 0) {
             flash();
-            AbstractDungeon.actionManager.addToBottom(new SFXAction("ATTACK_HEAVY"));
             if (owner == null || owner.isPlayer) {
-                AbstractDungeon.actionManager.addToBottom(
+                AbstractDungeon.actionManager.addToTop(
                         new DamageAllEnemiesAction(
                                 owner,
                                 DamageInfo.createDamageMatrix(amount, true),
@@ -63,7 +62,7 @@ public class GlyphOfWardingPower extends AbstractBardPower implements OnLoseBloc
                         )
                 );
             } else {
-                AbstractDungeon.actionManager.addToBottom(
+                AbstractDungeon.actionManager.addToTop(
                         new DamageAction(
                                 AbstractDungeon.player,
                                 new DamageInfo(owner, amount, DamageInfo.DamageType.THORNS),
@@ -71,6 +70,7 @@ public class GlyphOfWardingPower extends AbstractBardPower implements OnLoseBloc
                         )
                 );
             }
+            AbstractDungeon.actionManager.addToTop(new SFXAction("ATTACK_HEAVY"));
         }
 
         return damageAmount;
