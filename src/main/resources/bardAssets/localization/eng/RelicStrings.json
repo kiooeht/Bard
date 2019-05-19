@@ -57,5 +57,13 @@
     "DESCRIPTIONS": [
       "At the start of your turn, #y${ModID}:Queue a [WildNote] [REMOVE_SPACE]."
     ]
+  },
+  "${ModID}:OilPainting": {
+    "NAME": "Oil Painting",
+    "FLAVOR": "This painting depicts a group of people standing on a stage together. They feel oddly familiar to you.",
+    "DESCRIPTIONS": [
+      "Start each combat with #y${ModID}:Inspiration #b",
+      "."
+    ]
   }
 }
