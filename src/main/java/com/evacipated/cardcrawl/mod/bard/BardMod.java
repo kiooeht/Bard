@@ -450,6 +450,10 @@ public class BardMod implements
     public static void renderNoteQueue(SpriteBatch sb, AbstractPlayer player)
     {
         notesPanel.render(sb, player);
+    }
+
+    public static void renderMelodiesPanel(SpriteBatch sb, AbstractPlayer player)
+    {
         melodiesPanel.render(sb, player);
     }
 
