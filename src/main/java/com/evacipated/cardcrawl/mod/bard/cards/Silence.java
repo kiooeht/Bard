@@ -18,11 +18,13 @@ public class Silence extends AbstractBardCard
 {
     public static final String ID = BardMod.makeID("Silence");
     private static final int COST = 1;
+    private static final int TURNS = 3;
 
     public Silence()
     {
         super(ID, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.UNCOMMON, CardTarget.ENEMY);
 
+        magicNumber = baseMagicNumber = TURNS;
         exhaust = true;
     }
 
@@ -36,9 +38,9 @@ public class Silence extends AbstractBardCard
     public void use(AbstractPlayer p, AbstractMonster m)
     {
         if (upgraded) {
-            addToBottom(new ApplyPowerAction(m, p, new SilencedBuffsPower(m)));
+            addToBottom(new ApplyPowerAction(m, p, new SilencedBuffsPower(m, magicNumber), magicNumber));
         }
-        addToBottom(new ApplyPowerAction(m, p, new SilencedDebuffsPower(m)));
+        addToBottom(new ApplyPowerAction(m, p, new SilencedDebuffsPower(m, magicNumber), magicNumber));
     }
 
     @Override

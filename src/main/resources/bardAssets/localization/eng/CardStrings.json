@@ -129,8 +129,8 @@
   },
   "${ModID}:Silence": {
     "NAME": "Silence",
-    "DESCRIPTION": "Enemy cannot debuff you. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Enemy cannot buff itself or debuff you. NL Exhaust."
+    "DESCRIPTION": "Enemy cannot debuff you for !M! turns. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Enemy cannot buff itself or debuff you for !M! turns. NL Exhaust."
   },
   "${ModID}:Aphasia": {
     "NAME": "Aphasia",

@@ -44,15 +44,19 @@
   "${ModID}:SilencedDebuffs": {
     "NAME": "Silenced - Debuffs",
     "DESCRIPTIONS": [
-      "You cannot debuff enemies.",
-      " cannot debuff you."
+      "You cannot debuff enemies for #b",
+      " cannot debuff you for #b",
+      " turns.",
+      " turn."
     ]
   },
   "${ModID}:SilencedBuffs": {
     "NAME": "Silenced - Buffs",
     "DESCRIPTIONS": [
-      "You cannot buff yourself.",
-      " cannot buff itself."
+      "You cannot buff yourself for #b",
+      " cannot buff itself for #b",
+      " turns.",
+      " turn."
     ]
   },
   "${ModID}:SplendidForm": {
