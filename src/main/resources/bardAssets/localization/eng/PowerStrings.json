@@ -89,7 +89,7 @@
   "${ModID}:CovetousAura": {
     "NAME": "Covetous Aura",
     "DESCRIPTIONS": [
-      "Anytime an enemy gains HP or Strength, you also gain the same HP or Strength."
+      "Whenever an enemy gains HP or Strength, you also gain the same HP or Strength."
     ]
   },
   "${ModID}:GlyphOfWarding": {
