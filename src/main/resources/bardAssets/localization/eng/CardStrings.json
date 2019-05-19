@@ -38,7 +38,7 @@
   },
   "${ModID}:BestowCurse": {
     "NAME": "Bestow Curse",
-    "DESCRIPTION": "Enemy takes !M! damage at the start of each of its turns. NL Exhaustive !stslib:ex!."
+    "DESCRIPTION": "Enemy loses !M! HP at the start of each of its turns. NL Exhaustive !stslib:ex!."
   },
   "${ModID}:FeastOnFear": {
     "NAME": "Feast on Fear",
