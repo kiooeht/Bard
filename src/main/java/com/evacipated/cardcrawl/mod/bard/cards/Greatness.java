@@ -17,15 +17,13 @@ public class Greatness extends AbstractBardCard
 {
     public static final String ID = BardMod.makeID("Greatness");
     private static final int COST = 1;
-    private static final int AMT = 1;
-    private static final int UPGRADE_AMT = 1;
-    private static final int INSPIRATION = 100;
+    private static final int INSPIRATION = 75;
+    private static final int UPGRADE_INSPIRATION = 25;
 
     public Greatness()
     {
         super(ID, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.UNCOMMON, CardTarget.SELF);
 
-        magicNumber = baseMagicNumber = AMT;
         inspiration = baseInspiration = INSPIRATION;
     }
 
@@ -38,7 +36,7 @@ public class Greatness extends AbstractBardCard
     @Override
     public void use(AbstractPlayer p, AbstractMonster m)
     {
-        addToBottom(new ApplyPowerAction(p, p, new InspirationPower(p, magicNumber, inspiration), magicNumber));
+        addToBottom(new ApplyPowerAction(p, p, new InspirationPower(p, 1, inspiration), 1));
     }
 
     @Override
@@ -46,9 +44,7 @@ public class Greatness extends AbstractBardCard
     {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(UPGRADE_AMT);
-            rawDescription = UPGRADE_DESCRIPTION;
-            initializeDescription();
+            upgradeInspiration(UPGRADE_INSPIRATION);
         }
     }
 

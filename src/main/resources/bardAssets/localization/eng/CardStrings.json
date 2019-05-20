@@ -82,8 +82,7 @@
   },
   "${ModID}:Greatness": {
     "NAME": "Greatness",
-    "DESCRIPTION": "Gain ${ModID}:Inspiration !${ModID}:In!.",
-    "UPGRADE_DESCRIPTION": "Gain !M! ${ModID}:Inspiration !${ModID}:In!."
+    "DESCRIPTION": "Gain ${ModID}:Inspiration !${ModID}:In!."
   },
   "${ModID}:Invisibility": {
     "NAME": "Invisibility",
