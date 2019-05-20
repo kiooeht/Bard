@@ -23,8 +23,8 @@ public class ReverseGravity extends AbstractBardCard
 {
     public static final String ID = BardMod.makeID("ReverseGravity");
     private static final int COST = 3;
-    private static final int UPGRADE_COST = 2;
     private static final int DAMAGE = 15;
+    private static final int UPGRADE_DAMAGE = 3;
     private static final int WEAK = 1;
 
     public ReverseGravity()
@@ -64,7 +64,8 @@ public class ReverseGravity extends AbstractBardCard
     {
         if (!upgraded) {
             upgradeName();
-            upgradeBaseCost(UPGRADE_COST);
+            upgradeDamage(UPGRADE_DAMAGE);
+            upgradeMagicNumber2(UPGRADE_DAMAGE);
         }
     }
 
