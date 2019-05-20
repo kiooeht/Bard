@@ -24,7 +24,7 @@
     "NAME": "Draw",
     "DESCRIPTION": "Draw 3 cards.",
     "NOTES": [
-      "D", "U", "U"
+      "U", "D", "U"
     ]
   },
   "${ModID}:Artifact": {
@@ -38,14 +38,14 @@
     "NAME": "Weaken",
     "DESCRIPTION": "Apply 1 Weak to ALL enemies.",
     "NOTES": [
-      "D", "A"
+      "A", "D"
     ]
   },
   "${ModID}:VulnerabilitySmall": {
     "NAME": "Vulnerability",
     "DESCRIPTION": "Apply 1 Vulnerable to ALL enemies.",
     "NOTES": [
-      "D", "B"
+      "B", "D"
     ]
   },
   "${ModID}:InspireSmall": {
@@ -66,14 +66,14 @@
     "NAME": "Damage (S)",
     "DESCRIPTION": "Deal 5 damage to ALL enemies.",
     "NOTES": [
-      "A", "D"
+      "D", "A"
     ]
   },
   "${ModID}:DamageMedium": {
     "NAME": "Damage (M)",
     "DESCRIPTION": "Deal 10 damage to ALL enemies.",
     "NOTES": [
-      "A", "D", "A"
+      "D", "A", "A"
     ]
   },
   "${ModID}:DamageLarge": {
