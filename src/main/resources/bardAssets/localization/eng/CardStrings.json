@@ -34,7 +34,7 @@
   },
   "${ModID}:ViciousMockery": {
     "NAME": "Vicious Mockery",
-    "DESCRIPTION": "Apply !M! Weak. NL Deal !D! damage."
+    "DESCRIPTION": "Deal !D! damage. NL Apply !M! Weak."
   },
   "${ModID}:BestowCurse": {
     "NAME": "Bestow Curse",

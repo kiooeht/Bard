@@ -37,16 +37,16 @@ public class ViciousMockery extends AbstractBardCard
     public List<AbstractNote> getNotes()
     {
         return Arrays.asList(
-                DebuffNote.get(),
-                AttackNote.get()
+                AttackNote.get(),
+                DebuffNote.get()
         );
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m)
     {
-        addToBottom(new ApplyPowerAction(m, p, new WeakPower(m, magicNumber, false), magicNumber));
         addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.POISON));
+        addToBottom(new ApplyPowerAction(m, p, new WeakPower(m, magicNumber, false), magicNumber));
     }
 
     @Override
