@@ -1,14 +1,11 @@
 package com.evacipated.cardcrawl.mod.bard.cards;
 
 import com.evacipated.cardcrawl.mod.bard.BardMod;
-import com.evacipated.cardcrawl.mod.bard.actions.common.BetterLoseBlockAction;
+import com.evacipated.cardcrawl.mod.bard.actions.unique.BucklerBashAction;
 import com.evacipated.cardcrawl.mod.bard.characters.Bard;
 import com.evacipated.cardcrawl.mod.bard.notes.AbstractNote;
 import com.evacipated.cardcrawl.mod.bard.notes.AttackNote;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
@@ -20,7 +17,7 @@ public class BucklerBash extends AbstractBardCard
     public static final String ID = BardMod.makeID("BucklerBash");
     private static final int COST = 1;
     private static final int BLOCK_LOSS = 5;
-    private static final int UPGRADE_BLOCK_LOSS = 3;
+    private static final int UPGRADE_BLOCK_LOSS = 2;
     private static final int DAMAGE = 12;
     private static final int UPGRADE_DAMAGE = 6;
 
@@ -41,8 +38,7 @@ public class BucklerBash extends AbstractBardCard
     @Override
     public void use(AbstractPlayer p, AbstractMonster m)
     {
-        addToBottom(new BetterLoseBlockAction(p, p, magicNumber));
-        addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
+        addToBottom(new BucklerBashAction(m, p, magicNumber, damage, damageTypeForTurn));
     }
 
     @Override

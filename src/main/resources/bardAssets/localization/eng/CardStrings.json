@@ -30,7 +30,7 @@
   },
   "${ModID}:BucklerBash": {
     "NAME": "Buckler Bash",
-    "DESCRIPTION": "Lose !M! Block. NL Deal !D! damage."
+    "DESCRIPTION": "Lose !M! Block. NL If you do, deal !D! damage."
   },
   "${ModID}:ViciousMockery": {
     "NAME": "Vicious Mockery",
