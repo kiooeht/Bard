@@ -15,9 +15,9 @@ import java.util.List;
 public class DeathMetal extends AbstractBardCard
 {
     public static final String ID = BardMod.makeID("DeathMetal");
-    private static final int COST = 1;
+    private static final int COST = 2;
     private static final int DAMAGE = 2;
-    private static final int UPGRADE_DAMAGE = 2;
+    private static final int UPGRADE_DAMAGE = 1;
 
     public DeathMetal()
     {
