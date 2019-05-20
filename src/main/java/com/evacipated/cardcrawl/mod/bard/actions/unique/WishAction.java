@@ -1,18 +1,24 @@
 package com.evacipated.cardcrawl.mod.bard.actions.unique;
 
+import com.evacipated.cardcrawl.mod.bard.BardMod;
 import com.evacipated.cardcrawl.mod.bard.actions.common.PutCardInHand;
 import com.evacipated.cardcrawl.mod.bard.characters.Bard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
+import com.megacrit.cardcrawl.localization.UIStrings;
 
 import java.util.UUID;
 
 public class WishAction extends AbstractGameAction
 {
+    private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString(BardMod.makeID("WishAction"));
+    public static final String[] TEXT = uiStrings.TEXT;
+
     private UUID uuid;
     private int deckPosition = -1;
 
@@ -49,7 +55,7 @@ public class WishAction extends AbstractGameAction
             group.sortByRarity(false);
             group.sortByStatus(true);
 
-            AbstractDungeon.gridSelectScreen.open(group, 1, "Make a Wish", false, false, false, false);
+            AbstractDungeon.gridSelectScreen.open(group, 1, TEXT[0], false, false, false, false);
             tickDuration();
             return;
         }

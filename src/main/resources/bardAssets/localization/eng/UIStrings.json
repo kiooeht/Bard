@@ -23,5 +23,10 @@
     "TEXT": [
       "Select a Card to Duplicate"
     ]
+  },
+  "${ModID}:WishAction": {
+    "TEXT": [
+      "Make a Wish"
+    ]
   }
 }
