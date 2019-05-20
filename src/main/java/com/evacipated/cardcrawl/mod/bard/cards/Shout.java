@@ -1,18 +1,23 @@
 package com.evacipated.cardcrawl.mod.bard.cards;
 
+import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.mod.bard.BardMod;
 import com.evacipated.cardcrawl.mod.bard.characters.Bard;
 import com.evacipated.cardcrawl.mod.bard.notes.AbstractNote;
 import com.evacipated.cardcrawl.mod.bard.notes.AttackNote;
 import com.evacipated.cardcrawl.mod.bard.notes.DebuffNote;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.StrengthPower;
+import com.megacrit.cardcrawl.vfx.combat.ShockWaveEffect;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -52,6 +57,8 @@ public class Shout extends AbstractBardCard
     @Override
     public void use(AbstractPlayer p, AbstractMonster m)
     {
+        addToBottom(new SFXAction("ATTACK_PIERCING_WAIL"));
+        addToBottom(new VFXAction(p, new ShockWaveEffect(p.hb.cX, p.hb.cY, Color.valueOf("CE9564"), ShockWaveEffect.ShockWaveType.CHAOTIC), Settings.FAST_MODE ? 0.3f : 1.5f));
         addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn)));
         if (magicNumber > 0) {
             addToBottom(new ApplyPowerAction(m, p, new StrengthPower(m, -magicNumber), -magicNumber));
