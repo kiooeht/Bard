@@ -24,8 +24,8 @@ public class EnGarde extends AbstractBardCard
 {
     public static final String ID = BardMod.makeID("EnGarde");
     private static final int COST = 2;
-    private static final int DAMAGE = 10;
-    private static final int BLOCK = 10;
+    private static final int DAMAGE = 7;
+    private static final int BLOCK = 7;
     private static final int INSPIRATION_TIMES = 2;
     private static final int UPGRADE_INSPIRATION_TIMES = 1;
 
