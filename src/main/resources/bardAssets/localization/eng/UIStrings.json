@@ -8,6 +8,11 @@
       "Melodies"
     ]
   },
+  "${ModID}:InputSettingsScreen": {
+    "TEXT": [
+      "Perform Melody"
+    ]
+  },
   "${ModID}:PerformAllMelodiesAction": {
     "TEXT": [
       "Perform This Melody?",
