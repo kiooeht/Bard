@@ -1,17 +1,21 @@
 package com.evacipated.cardcrawl.mod.bard.cards;
 
 import com.evacipated.cardcrawl.mod.bard.BardMod;
-import com.evacipated.cardcrawl.mod.bard.actions.common.ClearNoteQueueAction;
+import com.evacipated.cardcrawl.mod.bard.actions.common.RemoveNoteFromQueueAction;
 import com.evacipated.cardcrawl.mod.bard.characters.Bard;
 import com.evacipated.cardcrawl.mod.bard.notes.AbstractNote;
+import com.evacipated.cardcrawl.mod.bard.vfx.combat.ThrowNoteEffect;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 
 public class SongBolt extends AbstractBardCard
@@ -37,11 +41,22 @@ public class SongBolt extends AbstractBardCard
     @Override
     public void use(AbstractPlayer p, AbstractMonster m)
     {
-        int noteCount = BardMod.getNoteQueue(p).size();
-        for (int i=0; i<noteCount; ++i) {
-            addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT, true));
+
+        float stagger = 0;
+        Iterator<AbstractNote> iter = BardMod.getNoteQueue(p).iterator();
+        int index = 0;
+        while (iter.hasNext()) {
+            // Clear queue one at a time to look better
+            addToBottom(new RemoveNoteFromQueueAction(index, 1));
+            ++index;
+
+            AbstractNote note = iter.next();
+            if (note.countsAsNote()) {
+                addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT, true));
+                AbstractDungeon.effectList.add(new ThrowNoteEffect(note, BardMod.notesPanel.getX(), BardMod.notesPanel.getY(), m.hb.cX, m.hb.cY, stagger));
+                stagger += Settings.FAST_MODE ? 0.05f : 0.15f;
+            }
         }
-        addToBottom(new ClearNoteQueueAction());
     }
 
     @Override

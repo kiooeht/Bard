@@ -50,7 +50,7 @@ public abstract class AbstractNote
         return getTexture();
     }
 
-    public void render(SpriteBatch sb, float x, float y)
+    public final void renderExact(SpriteBatch sb, float x, float y, float rotation)
     {
         Color oldColor = sb.getColor();
         sb.setColor(color());
@@ -65,9 +65,14 @@ public abstract class AbstractNote
                 tex.getRegionHeight(),
                 Settings.scale * 2,
                 Settings.scale * 2,
-                0
+                rotation
         );
         sb.setColor(oldColor);
+    }
+
+    public void render(SpriteBatch sb, float x, float y)
+    {
+        renderExact(sb, x, y, 0);
     }
 
     public AbstractCard makeChoiceCard()

@@ -57,6 +57,18 @@ public class NotesPanel
         locked = false;
     }
 
+    public float getX()
+    {
+        AbstractPlayer player = AbstractDungeon.player;
+        return player.drawX - (NOTE_SPACING * 3 * Settings.scale);
+    }
+
+    public float getY()
+    {
+        AbstractPlayer player = AbstractDungeon.player;
+        return (yOffset + EXTRA_OFFSET) * Settings.scale + player.drawY + player.hb_h / 2.0f;
+    }
+
     public void update(AbstractPlayer player)
     {
         NoteQueue noteQueue = BardMod.getNoteQueue(player);
