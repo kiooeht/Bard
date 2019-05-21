@@ -1,0 +1,77 @@
+{
+  "${ModID}:AttackUpSmall": {
+    "NOTES": [
+      "U", "A", "A"
+    ]
+  },
+  "${ModID}:DefenseUpSmall": {
+    "NOTES": [
+      "U", "B", "B"
+    ]
+  },
+  "${ModID}:DivineProtection": {
+    "NOTES": [
+      "B", "U", "U", "B"
+    ]
+  },
+  "${ModID}:Draw": {
+    "NOTES": [
+      "U", "D", "U"
+    ]
+  },
+  "${ModID}:Artifact": {
+    "NOTES": [
+      "B", "D", "B"
+    ]
+  },
+  "${ModID}:WeakenSmall": {
+    "NOTES": [
+      "A", "D"
+    ]
+  },
+  "${ModID}:VulnerabilitySmall": {
+    "NOTES": [
+      "B", "D"
+    ]
+  },
+  "${ModID}:InspireSmall": {
+    "NOTES": [
+      "A", "U", "B"
+    ]
+  },
+  "${ModID}:InspireLarge": {
+    "NOTES": [
+      "B", "A", "U", "U"
+    ]
+  },
+  "${ModID}:DamageSmall": {
+    "NOTES": [
+      "D", "A"
+    ]
+  },
+  "${ModID}:DamageMedium": {
+    "NOTES": [
+      "D", "A", "A"
+    ]
+  },
+  "${ModID}:DamageLarge": {
+    "NOTES": [
+      "A", "D", "U", "A"
+    ]
+  },
+  "${ModID}:BlockSmall": {
+    "NOTES": [
+      "B", "U"
+    ]
+  },
+  "${ModID}:BlockMedium": {
+    "NOTES": [
+      "B", "U", "B"
+    ]
+  },
+  "${ModID}:BlockLarge": {
+    "NOTES": [
+      "B", "U", "D", "B"
+    ]
+  }
+}

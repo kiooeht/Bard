@@ -67,7 +67,7 @@
                 <directory>src/main/resources</directory>
                 <filtering>false</filtering>
                 <excludes>
-                    <exclude>bardAssets/localization/**/*.json</exclude>
+                    <exclude>bardAssets/**/*.json</exclude>
                     <exclude>ModTheSpire.json</exclude>
                     <exclude>googly-eye-locations.json</exclude>
                     <exclude>META-INF/bard_version.prop</exclude>
@@ -79,7 +79,7 @@
                 <directory>src/main/resources</directory>
                 <filtering>true</filtering>
                 <includes>
-                    <include>bardAssets/localization/**/*.json</include>
+                    <include>bardAssets/**/*.json</include>
                     <include>ModTheSpire.json</include>
                     <include>googly-eye-locations.json</include>
                     <include>META-INF/bard_version.prop</include>

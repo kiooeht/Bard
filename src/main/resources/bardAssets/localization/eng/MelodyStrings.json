@@ -1,107 +1,62 @@
 {
   "${ModID}:AttackUpSmall": {
     "NAME": "Attack Up",
-    "DESCRIPTION": "Gain 1 Strength.",
-    "NOTES": [
-      "U", "A", "A"
-    ]
+    "DESCRIPTION": "Gain 1 Strength."
   },
   "${ModID}:DefenseUpSmall": {
     "NAME": "Defense Up",
-    "DESCRIPTION": "Gain 1 Dexterity.",
-    "NOTES": [
-      "U", "B", "B"
-    ]
+    "DESCRIPTION": "Gain 1 Dexterity."
   },
   "${ModID}:DivineProtection": {
     "NAME": "Divine Protection",
-    "DESCRIPTION": "Gain 8 Temporary_HP.",
-    "NOTES": [
-      "B", "U", "U", "B"
-    ]
+    "DESCRIPTION": "Gain 8 Temporary_HP."
   },
   "${ModID}:Draw": {
     "NAME": "Draw",
-    "DESCRIPTION": "Draw 3 cards.",
-    "NOTES": [
-      "U", "D", "U"
-    ]
+    "DESCRIPTION": "Draw 3 cards."
   },
   "${ModID}:Artifact": {
     "NAME": "Artifact",
-    "DESCRIPTION": "Gain 1 Artifact.",
-    "NOTES": [
-      "B", "D", "B"
-    ]
+    "DESCRIPTION": "Gain 1 Artifact."
   },
   "${ModID}:WeakenSmall": {
     "NAME": "Weaken",
-    "DESCRIPTION": "Apply 1 Weak to ALL enemies.",
-    "NOTES": [
-      "A", "D"
-    ]
+    "DESCRIPTION": "Apply 1 Weak to ALL enemies."
   },
   "${ModID}:VulnerabilitySmall": {
     "NAME": "Vulnerability",
-    "DESCRIPTION": "Apply 1 Vulnerable to ALL enemies.",
-    "NOTES": [
-      "B", "D"
-    ]
+    "DESCRIPTION": "Apply 1 Vulnerable to ALL enemies."
   },
   "${ModID}:InspireSmall": {
     "NAME": "Inspire (S)",
-    "DESCRIPTION": "Gain 2 Inspiration 50.",
-    "NOTES": [
-      "A", "U", "B"
-    ]
+    "DESCRIPTION": "Gain 2 Inspiration 50."
   },
   "${ModID}:InspireLarge": {
     "NAME": "Inspire (L)",
-    "DESCRIPTION": "Gain 2 Inspiration 100.",
-    "NOTES": [
-      "B", "A", "U", "U"
-    ]
+    "DESCRIPTION": "Gain 2 Inspiration 100."
   },
   "${ModID}:DamageSmall": {
     "NAME": "Damage (S)",
-    "DESCRIPTION": "Deal 5 damage to ALL enemies.",
-    "NOTES": [
-      "D", "A"
-    ]
+    "DESCRIPTION": "Deal 5 damage to ALL enemies."
   },
   "${ModID}:DamageMedium": {
     "NAME": "Damage (M)",
-    "DESCRIPTION": "Deal 10 damage to ALL enemies.",
-    "NOTES": [
-      "D", "A", "A"
-    ]
+    "DESCRIPTION": "Deal 10 damage to ALL enemies."
   },
   "${ModID}:DamageLarge": {
     "NAME": "Damage (L)",
-    "DESCRIPTION": "Deal 18 damage to ALL enemies.",
-    "NOTES": [
-      "A", "D", "U", "A"
-    ]
+    "DESCRIPTION": "Deal 18 damage to ALL enemies."
   },
   "${ModID}:BlockSmall": {
     "NAME": "Block (S)",
-    "DESCRIPTION": "Gain 4 Block.",
-    "NOTES": [
-      "B", "U"
-    ]
+    "DESCRIPTION": "Gain 4 Block."
   },
   "${ModID}:BlockMedium": {
     "NAME": "Block (M)",
-    "DESCRIPTION": "Gain 8 Block.",
-    "NOTES": [
-      "B", "U", "B"
-    ]
+    "DESCRIPTION": "Gain 8 Block."
   },
   "${ModID}:BlockLarge": {
     "NAME": "Block (L)",
-    "DESCRIPTION": "Gain 15 Block.",
-    "NOTES": [
-      "B", "U", "D", "B"
-    ]
+    "DESCRIPTION": "Gain 15 Block."
   }
 }

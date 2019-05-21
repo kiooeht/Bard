@@ -1,6 +1,7 @@
 package com.evacipated.cardcrawl.mod.bard.helpers;
 
 import com.badlogic.gdx.Gdx;
+import com.evacipated.cardcrawl.mod.bard.BardMod;
 import com.evacipated.cardcrawl.mod.bard.MelodyStrings;
 import com.evacipated.cardcrawl.mod.bard.melodies.AbstractMelody;
 import com.evacipated.cardcrawl.mod.bard.notes.AbstractNote;
@@ -108,7 +109,16 @@ public class MelodyManager
     {
         Gson gson = new Gson();
         Type melodyType = new TypeToken<Map<String, MelodyStrings>>(){}.getType();
+
+        Map<String, MelodyStrings> notes = gson.fromJson(loadJson(BardMod.assetPath("melodies/MelodyNotes.json")), melodyType);
         Map<String, MelodyStrings> map = gson.fromJson(loadJson(filepath), melodyType);
+
+        for (String key : map.keySet()) {
+            if (notes.containsKey(key)) {
+                map.get(key).NOTES = notes.get(key).NOTES;
+            }
+        }
+
         melodyStrings.putAll(map);
     }
 
