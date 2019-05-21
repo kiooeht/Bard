@@ -18,7 +18,7 @@
     "FLAVOR": "A magical flute, enchanted to play songs on its own.",
     "DESCRIPTIONS": [
       "Replaces ",
-      ".[] NL #y${ModID}:Queued #y${ModID}:Notes are carried over between combats."
+      ".[] NL At the start of each combat, #y${ModID}:Queue a [WildNote] [REMOVE_SPACE]."
     ]
   },
   "${ModID}:StrangeHarp": {

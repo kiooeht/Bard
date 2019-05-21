@@ -1,14 +1,13 @@
 package com.evacipated.cardcrawl.mod.bard.relics;
 
-import basemod.abstracts.CustomSavable;
 import com.evacipated.cardcrawl.mod.bard.BardMod;
+import com.evacipated.cardcrawl.mod.bard.actions.common.QueueNoteAction;
 import com.evacipated.cardcrawl.mod.bard.characters.Bard;
+import com.evacipated.cardcrawl.mod.bard.notes.WildCardNote;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
-import java.util.List;
-
-public class SelfPlayingFlute extends AbstractBardRelic implements CustomSavable<List<String>>
+public class SelfPlayingFlute extends AbstractBardRelic
 {
     public static final String ID = BardMod.makeID("SelfPlayingFlute");
 
@@ -17,18 +16,6 @@ public class SelfPlayingFlute extends AbstractBardRelic implements CustomSavable
     public SelfPlayingFlute()
     {
         super(ID, RelicTier.BOSS, LandingSound.MAGICAL, Bard.Enums.COLOR);
-    }
-
-    @Override
-    public List<String> onSave()
-    {
-        return BardMod.getNoteQueue(AbstractDungeon.player).getNotesForSaving();
-    }
-
-    @Override
-    public void onLoad(List<String> strings)
-    {
-        BardMod.getNoteQueue(AbstractDungeon.player).loadNotes(strings);
     }
 
     @Override
@@ -59,6 +46,12 @@ public class SelfPlayingFlute extends AbstractBardRelic implements CustomSavable
         } else {
             super.obtain();
         }
+    }
+
+    @Override
+    public void atPreBattle()
+    {
+        addToBottom(new QueueNoteAction(WildCardNote.get()));
     }
 
     @Override
