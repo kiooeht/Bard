@@ -38,8 +38,8 @@ public class Flourish extends AbstractBardCard
     @Override
     public void use(AbstractPlayer p, AbstractMonster m)
     {
-        addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
         addToBottom(new SelectNoteAction());
+        addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
     }
 
     @Override
