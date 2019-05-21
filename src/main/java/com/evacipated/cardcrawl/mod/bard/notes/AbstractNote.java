@@ -52,6 +52,7 @@ public abstract class AbstractNote
 
     public void render(SpriteBatch sb, float x, float y)
     {
+        Color oldColor = sb.getColor();
         sb.setColor(color());
         TextureAtlas.AtlasRegion tex = getQueuedTexture();
         sb.draw(
@@ -66,6 +67,7 @@ public abstract class AbstractNote
                 Settings.scale * 2,
                 0
         );
+        sb.setColor(oldColor);
     }
 
     public AbstractCard makeChoiceCard()
