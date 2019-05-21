@@ -1,5 +1,6 @@
 package com.evacipated.cardcrawl.mod.bard.notes;
 
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.evacipated.cardcrawl.mod.bard.BardMod;
@@ -15,6 +16,11 @@ public class DebuffNote extends AbstractNote
             singleton = new DebuffNote();
         }
         return singleton;
+    }
+
+    private DebuffNote()
+    {
+        super(Color.valueOf("ce9564"));
     }
 
     @Override

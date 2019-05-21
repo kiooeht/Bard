@@ -1,5 +1,6 @@
 package com.evacipated.cardcrawl.mod.bard.notes;
 
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.evacipated.cardcrawl.mod.bard.BardMod;
@@ -15,6 +16,11 @@ public class RestNote extends AbstractNote
             singleton = new RestNote();
         }
         return singleton;
+    }
+
+    private RestNote()
+    {
+        super(Color.valueOf("969696"));
     }
 
     @Override

@@ -1,5 +1,6 @@
 package com.evacipated.cardcrawl.mod.bard.notes;
 
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.evacipated.cardcrawl.mod.bard.BardMod;
@@ -17,7 +18,10 @@ public class AttackNote extends AbstractNote
         return singleton;
     }
 
-    private AttackNote() {}
+    private AttackNote()
+    {
+        super(Color.valueOf("ce6e79"));
+    }
 
     @Override
     public String name()

@@ -1,5 +1,6 @@
 package com.evacipated.cardcrawl.mod.bard.notes;
 
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.evacipated.cardcrawl.mod.bard.BardMod;
 
@@ -13,6 +14,11 @@ public class BlockNote extends AbstractNote
             singleton = new BlockNote();
         }
         return singleton;
+    }
+
+    private BlockNote()
+    {
+        super(Color.valueOf("99f1fb"));
     }
 
     @Override

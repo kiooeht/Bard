@@ -9,8 +9,20 @@ import com.megacrit.cardcrawl.core.Settings;
 
 public abstract class AbstractNote
 {
+    protected Color color;
+
+    protected AbstractNote(Color color)
+    {
+        this.color = color;
+    }
+
     public abstract String name();
     public abstract String ascii();
+
+    public Color color()
+    {
+        return color;
+    }
 
     public boolean isFloaty()
     {
@@ -40,7 +52,7 @@ public abstract class AbstractNote
 
     public void render(SpriteBatch sb, float x, float y)
     {
-        sb.setColor(Color.WHITE);
+        sb.setColor(color());
         TextureAtlas.AtlasRegion tex = getQueuedTexture();
         sb.draw(
                 tex,
