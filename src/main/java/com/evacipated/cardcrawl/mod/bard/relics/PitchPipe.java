@@ -3,8 +3,7 @@ package com.evacipated.cardcrawl.mod.bard.relics;
 import com.evacipated.cardcrawl.mod.bard.BardMod;
 import com.evacipated.cardcrawl.mod.bard.actions.common.QueueNoteAction;
 import com.evacipated.cardcrawl.mod.bard.characters.Bard;
-import com.evacipated.cardcrawl.mod.bard.notes.*;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.evacipated.cardcrawl.mod.bard.notes.BuffNote;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 public class PitchPipe extends AbstractBardRelic
@@ -25,9 +24,7 @@ public class PitchPipe extends AbstractBardRelic
     @Override
     public void atPreBattle()
     {
-        if (AbstractDungeon.player instanceof Bard) {
-            addToBottom(new QueueNoteAction(BuffNote.get()));
-        }
+        addToBottom(new QueueNoteAction(BuffNote.get()));
     }
 
     @Override
