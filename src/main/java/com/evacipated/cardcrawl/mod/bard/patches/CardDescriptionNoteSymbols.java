@@ -95,7 +95,8 @@ public class CardDescriptionNoteSymbols
                 if (note != null) {
                     renderSmallNote(__instance, sb, note.getTexture(),
                             (start_x[0] - __instance.current_x) / Settings.scale / __instance.drawScale,
-                            (-98.0f - ((__instance.description.size() - 4.0f) / 2.0f - i + 1.0f) * spacing));
+                            (-98.0f - ((__instance.description.size() - 4.0f) / 2.0f - i + 1.0f) * spacing),
+                            note.color());
                 } else {
                     System.out.println(m.group(1));
                 }
@@ -104,14 +105,17 @@ public class CardDescriptionNoteSymbols
             }
         }
 
-        public static void renderSmallNote(AbstractCard card, SpriteBatch sb, TextureAtlas.AtlasRegion region, float offsetX, float offsetY)
+        public static void renderSmallNote(AbstractCard card, SpriteBatch sb, TextureAtlas.AtlasRegion region, float offsetX, float offsetY, Color color)
         {
             try {
                 Field f = AbstractCard.class.getDeclaredField("renderColor");
                 f.setAccessible(true);
-                sb.setColor((Color) f.get(card));
+                Color cardColor = (Color) f.get(card);
+                color = color.cpy();
+                color.a = cardColor.a;
+                sb.setColor(color);
             } catch (IllegalAccessException | NoSuchFieldException e) {
-                sb.setColor(Color.WHITE);
+                sb.setColor(color);
             }
 
             Affine2 aff = new Affine2();
