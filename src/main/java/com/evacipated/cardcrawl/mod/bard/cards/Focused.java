@@ -19,14 +19,13 @@ public class Focused extends AbstractBardCard
     public static final String ID = BardMod.makeID("Focused");
     private static final int COST = -1;
     private static final int INSPIRATION_PER_ENERGY = 100;
-    private static final int REFUND = 1;
+    private static final int REFUND = 0;
     private static final int UPGRADE_REFUND = 1;
 
     public Focused()
     {
         super(ID, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.RARE, CardTarget.SELF);
 
-        RefundVariable.setBaseValue(this, REFUND);
 
         inspiration = baseInspiration = 0;
 
@@ -41,7 +40,7 @@ public class Focused extends AbstractBardCard
         } else if (inspiration < baseInspiration) {
             amount += "-" + (baseInspiration - inspiration);
         }
-        rawDescription = String.format(DESCRIPTION, amount);
+        rawDescription = String.format(DESCRIPTION, amount) + (upgraded ? UPGRADE_DESCRIPTION : "");
         initializeDescription();
     }
 
@@ -73,7 +72,10 @@ public class Focused extends AbstractBardCard
     {
         if (!upgraded) {
             upgradeName();
+            // These are separate so the refund number is highlighted when previewing upgrades
+            RefundVariable.setBaseValue(this, REFUND);
             RefundVariable.upgrade(this, UPGRADE_REFUND);
+            updateDescription();
         }
     }
 
