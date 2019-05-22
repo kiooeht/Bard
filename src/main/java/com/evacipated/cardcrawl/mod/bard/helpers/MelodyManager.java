@@ -77,6 +77,16 @@ public class MelodyManager
         melodies.add(melody);
     }
 
+    public static AbstractMelody getMelodByID(String id)
+    {
+        for (AbstractMelody melody : melodies) {
+            if (melody.getID().equals(id)) {
+                return melody.makeCopy();
+            }
+        }
+        return null;
+    }
+
     public static List<AbstractMelody> getAllMelodies()
     {
         return melodies;

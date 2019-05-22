@@ -65,5 +65,14 @@
       "Start each combat with #y${ModID}:Inspiration #b",
       "."
     ]
+  },
+  "${ModID}:EchoChamber": {
+    "NAME": "Echo Chamber",
+    "FLAVOR": "",
+    "DESCRIPTIONS": [
+      "At the start of each combat, perform the last #y${ModID}:Melody performed in the previous combat.",
+      " NL Last #y${ModID}:Melody : ",
+      "."
+    ]
   }
 }
