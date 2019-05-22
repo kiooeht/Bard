@@ -77,7 +77,7 @@ public abstract class AbstractNote
 
     public AbstractCard makeChoiceCard()
     {
-        return new NoteCard(name(), "{" + name() + " Note}", this, AbstractCard.CardType.POWER);
+        return new NoteCard(name(), "[" + name() + "Note]", this, AbstractCard.CardType.POWER);
     }
 
     public boolean isNoteType(Class<? extends AbstractNote> type)
