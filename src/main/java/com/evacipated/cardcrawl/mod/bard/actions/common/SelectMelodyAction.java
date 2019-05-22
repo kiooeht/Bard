@@ -23,6 +23,7 @@ public class SelectMelodyAction extends AbstractGameAction
     private List<AbstractMelody> melodies;
     private boolean consumeNotes;
     private boolean pickCard = false;
+    private boolean canCancel = true;
 
     public SelectMelodyAction()
     {
@@ -36,8 +37,14 @@ public class SelectMelodyAction extends AbstractGameAction
 
     public SelectMelodyAction(List<AbstractMelody> melodies, boolean consumeNotes)
     {
+        this(melodies, consumeNotes, true);
+    }
+
+    public SelectMelodyAction(List<AbstractMelody> melodies, boolean consumeNotes, boolean canCancel)
+    {
         this.melodies = melodies;
         this.consumeNotes = consumeNotes;
+        this.canCancel = canCancel;
         actionType = ActionType.SPECIAL;
         duration = Settings.ACTION_DUR_MED;
     }
@@ -68,7 +75,9 @@ public class SelectMelodyAction extends AbstractGameAction
                 m.invoke(AbstractDungeon.gridSelectScreen);
             } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException ignore) {
             }
-            AbstractDungeon.overlayMenu.cancelButton.show(GridCardSelectScreen.TEXT[1]);
+            if (canCancel) {
+                AbstractDungeon.overlayMenu.cancelButton.show(GridCardSelectScreen.TEXT[1]);
+            }
         } else {
             if (pickCard && !AbstractDungeon.gridSelectScreen.selectedCards.isEmpty()) {
                 pickCard = false;
