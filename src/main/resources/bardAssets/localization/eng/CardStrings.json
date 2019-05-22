@@ -18,11 +18,11 @@
   },
   "${ModID}:HarmoniousVoice": {
     "NAME": "Harmonious Voice",
-    "DESCRIPTION": "Whenever you ${ModID}:Queue a {Block Note} or {Buff Note} , gain !M! Temporary_HP."
+    "DESCRIPTION": "Whenever you ${ModID}:Queue a [BlockNote] or [BuffNote] , gain !M! Temporary_HP."
   },
   "${ModID}:DiscordantVoice": {
     "NAME": "Discordant Voice",
-    "DESCRIPTION": "Whenever you ${ModID}:Queue a {Attack Note} or {Debuff Note} , deal !M! damage to a random enemy."
+    "DESCRIPTION": "Whenever you ${ModID}:Queue a [AttackNote] or [DebuffNote] , deal !M! damage to a random enemy."
   },
   "${ModID}:HideousLaughter": {
     "NAME": "Hideous Laughter",
@@ -66,10 +66,10 @@
   },
   "${ModID}:DervishDance": {
     "NAME": "Dervish Dance",
-    "DESCRIPTION": "Deal !D! damage to ALL enemies for each {Attack Note} you have ${ModID}:Queued.",
+    "DESCRIPTION": "Deal !D! damage to ALL enemies for each [AttackNote] you have ${ModID}:Queued.",
     "EXTENDED_DESCRIPTION": [
       " NL (",
-      " {Attack Note} ${ModID}:Queued)"
+      " [AttackNote] ${ModID}:Queued)"
     ]
   },
   "${ModID}:Parry": {
@@ -108,14 +108,14 @@
   },
   "${ModID}:GuardPoint": {
     "NAME": "Guard Point",
-    "DESCRIPTION": "Gain !B! Block. NL If you have no {Block Note} ${ModID}:Queued, gain !B! Block again."
+    "DESCRIPTION": "Gain !B! Block. NL If you have no [BlockNote] ${ModID}:Queued, gain !B! Block again."
   },
   "${ModID}:InspiringSong": {
     "NAME": "Inspiring Song",
-    "DESCRIPTION": "Gain ${ModID}:Inspiration !${ModID}:In! NL for each {Buff Note} you have ${ModID}:Queued.",
+    "DESCRIPTION": "Gain ${ModID}:Inspiration !${ModID}:In! NL for each [BuffNote] you have ${ModID}:Queued.",
     "EXTENDED_DESCRIPTION": [
       " NL (",
-      " {Buff Note} ${ModID}:Queued)"
+      " [BuffNote] ${ModID}:Queued)"
     ]
   },
   "${ModID}:FaerieFire": {
@@ -248,10 +248,10 @@
   },
   "${ModID}:CuttingWords": {
     "NAME": "Cutting Words",
-    "DESCRIPTION": "Apply !M! Weak and !M! Vulnerable to a random enemy for each {Debuff Note} you have ${ModID}:Queued.",
+    "DESCRIPTION": "Apply !M! Weak and !M! Vulnerable to a random enemy for each [DebuffNote] you have ${ModID}:Queued.",
     "EXTENDED_DESCRIPTION": [
       " NL (",
-      " {Debuff Note} ${ModID}:Queued)"
+      " [DebuffNote] ${ModID}:Queued)"
     ]
   },
   "${ModID}:ThickOfTheFight": {
@@ -305,7 +305,7 @@
     "DESCRIPTION": "Remove all ${ModID}:Rests from your Note Queue. NL Heal !M! HP for each ${ModID}:Rest removed. NL Exhaust.",
     "EXTENDED_DESCRIPTION": [
       " NL (",
-      " {Rest Note} ${ModID}:Queued)"
+      " [RestNote] ${ModID}:Queued)"
     ]
   },
   "${ModID}:Encore": {
@@ -332,10 +332,10 @@
   },
   "${ModID}:FalseLife": {
     "NAME": "False Life",
-    "DESCRIPTION": "Gain !M! Temporary_HP. NL Gain !${ModID}:M2! additional Temporary_HP for each {Block Note} you have ${ModID}:Queued.",
+    "DESCRIPTION": "Gain !M! Temporary_HP. NL Gain !${ModID}:M2! additional Temporary_HP for each [BlockNote] you have ${ModID}:Queued.",
     "EXTENDED_DESCRIPTION": [
       " NL (",
-      " {Block Note} ${ModID}:Queued)"
+      " [BlockNote] ${ModID}:Queued)"
     ]
   },
   "${ModID}:Solo": {
