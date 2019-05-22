@@ -71,8 +71,14 @@ public class MelodiesPanel
 
         melodiesToggleHb.encapsulatedUpdate(melodiesToggleHbListener);
 
-        for (Hitbox hb : melodyHbs) {
-            hb.update();
+        List<AbstractMelody> allMelodies = MelodyManager.getAllMelodies();
+        float y = Settings.HEIGHT - (Y_POS + 52) * Settings.scale;
+        for (int i=0; i<allMelodies.size(); ++i) {
+            if (allMelodies.get(i).length() <= noteQueue.getMaxNotes()) {
+                melodyHbs.get(i).translate(0, y);
+                melodyHbs.get(i).update();
+                y -= 26 * Settings.scale;
+            }
         }
     }
 
@@ -115,8 +121,10 @@ public class MelodiesPanel
 
                 StringBuilder body = new StringBuilder();
                 for (AbstractMelody melody : MelodyManager.getAllMelodies()) {
-                    body.append(melody.makeNotesUIString());
-                    body.append(" NL ");
+                    if (melody.length() <= noteQueue.getMaxNotes()) {
+                        body.append(melody.makeNotesUIString());
+                        body.append(" NL ");
+                    }
                 }
                 body.setLength(body.length() - 4);
 
@@ -133,23 +141,25 @@ public class MelodiesPanel
 
                 float y = Settings.HEIGHT - (Y_POS + 36) * Settings.scale;
                 for (AbstractMelody melody : MelodyManager.getAllMelodies()) {
-                    Color color = Settings.CREAM_COLOR;
-                    if (noteQueue.canPlayMelody(melody)) {
-                        color = Settings.GOLD_COLOR;
+                    if (melody.length() <= noteQueue.getMaxNotes()) {
+                        Color color = Settings.CREAM_COLOR;
+                        if (noteQueue.canPlayMelody(melody)) {
+                            color = Settings.GOLD_COLOR;
+                        }
+                        FontHelper.renderFontRightAligned(
+                                sb,
+                                FontHelper.tipBodyFont,
+                                melody.getName(),
+                                300 * Settings.scale,
+                                y,
+                                color
+                        );
+                        y -= 26 * Settings.scale;
                     }
-                    FontHelper.renderFontRightAligned(
-                            sb,
-                            FontHelper.tipBodyFont,
-                            melody.getName(),
-                            300 * Settings.scale,
-                            y,
-                            color
-                    );
-                    y -= 26 * Settings.scale;
                 }
             }
 
-            // Tooltip
+            // Toggle tooltip
             if (melodiesToggleHb.hovered && !AbstractDungeon.isScreenUp) {
                 float height = -FontHelper.getSmartHeight(FontHelper.tipBodyFont, "", 280.0F * Settings.scale, 26.0F * Settings.scale);
                 height += 74 * Settings.scale; // accounts for header height, box border, and a bit of spacing
@@ -165,19 +175,22 @@ public class MelodiesPanel
             melodiesToggleHb.render(sb);
 
             if (show) {
+                // Hitboxes / Melody tooltips
                 List<AbstractMelody> allMelodies = MelodyManager.getAllMelodies();
                 for (int i=0; i<melodyHbs.size(); ++i) {
-                    Hitbox hb = melodyHbs.get(i);
-                    if (hb.hovered && !AbstractDungeon.isScreenUp) {
-                        TipHelper.renderGenericTip(
-                                hb.x + hb.width,
-                                InputHelper.mY,
-                                allMelodies.get(i).getName(),
-                                allMelodies.get(i).makeNotesUIString() + " NL " + allMelodies.get(i).getDescription()
-                        );
-                    }
+                    if (allMelodies.get(i).length() <= noteQueue.getMaxNotes()) {
+                        Hitbox hb = melodyHbs.get(i);
+                        if (hb.hovered && !AbstractDungeon.isScreenUp) {
+                            TipHelper.renderGenericTip(
+                                    hb.x + hb.width,
+                                    InputHelper.mY,
+                                    allMelodies.get(i).getName(),
+                                    allMelodies.get(i).makeNotesUIString() + " NL " + allMelodies.get(i).getDescription()
+                            );
+                        }
 
-                    hb.render(sb);
+                        hb.render(sb);
+                    }
                 }
             }
         }

@@ -2,6 +2,7 @@ package com.evacipated.cardcrawl.mod.bard.actions.common;
 
 import com.evacipated.cardcrawl.mod.bard.BardMod;
 import com.evacipated.cardcrawl.mod.bard.cards.MelodyCard;
+import com.evacipated.cardcrawl.mod.bard.characters.NoteQueue;
 import com.evacipated.cardcrawl.mod.bard.melodies.AbstractMelody;
 import com.evacipated.cardcrawl.mod.bard.patches.CenterGridCardSelectScreen;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -14,6 +15,7 @@ import com.megacrit.cardcrawl.screens.select.GridCardSelectScreen;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
 import java.util.List;
 
 public class SelectMelodyAction extends AbstractGameAction
@@ -60,6 +62,10 @@ public class SelectMelodyAction extends AbstractGameAction
                     return;
                 }
             }
+            melodies = new ArrayList<>(melodies);
+
+            NoteQueue noteQueue = BardMod.getNoteQueue(AbstractDungeon.player);
+            melodies.removeIf(melody -> melody.length() > noteQueue.getMaxNotes());
 
             pickCard = true;
             CardGroup group = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
