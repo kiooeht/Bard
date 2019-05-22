@@ -43,7 +43,11 @@ public class CardDescriptionNoteSymbols
                                   BitmapFont font, Color textColor, @ByRef String[] tmp, GlyphLayout gl)
         {
             if (tmp[0].length() > 0 && tmp[0].charAt(0) == '[') {
-                AbstractNote note = MelodyManager.getNote(tmp[0].trim());
+                String key = tmp[0].trim();
+                if (key.endsWith("Note]")) {
+                    key = key.replace("*d", "D").replace("*b", "B").replace("*m", "M");
+                }
+                AbstractNote note = MelodyManager.getNote(key);
                 if (note != null) {
                     gl.width = CARD_ENERGY_IMG_WIDTH * __instance.drawScale;
                     renderSmallNote(__instance, sb, note.getTexture(),
@@ -120,7 +124,11 @@ public class CardDescriptionNoteSymbols
                                   float card_energy_w, float drawScale, float current_x, AbstractCard card)
         {
             if (tmp[0].length() > 0 && tmp[0].charAt(0) == '[') {
-                AbstractNote note = MelodyManager.getNote(tmp[0].trim());
+                String key = tmp[0].trim();
+                if (key.endsWith("Note]")) {
+                    key = key.replace("*d", "D").replace("*b", "B").replace("*m", "M");
+                }
+                AbstractNote note = MelodyManager.getNote(key);
                 if (note != null) {
                     gl.width = card_energy_w * drawScale;
                     Color white = Color.WHITE.cpy();
