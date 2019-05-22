@@ -26,6 +26,10 @@ public class CardDescriptionNoteSymbols
             clz=AbstractCard.class,
             method="renderDescription"
     )
+    @SpirePatch(
+            clz=AbstractCard.class,
+            method="renderDescriptionCN"
+    )
     public static class RenderSmallNote
     {
         private static final float CARD_ENERGY_IMG_WIDTH = 24.0f * Settings.scale;
@@ -96,6 +100,10 @@ public class CardDescriptionNoteSymbols
     @SpirePatch(
             clz=SingleCardViewPopup.class,
             method="renderDescription"
+    )
+    @SpirePatch(
+            clz=SingleCardViewPopup.class,
+            method="renderDescriptionCN"
     )
     public static class RenderSmallNoteSingleCardView
     {
