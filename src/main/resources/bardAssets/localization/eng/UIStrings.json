@@ -5,7 +5,10 @@
       "Can hold up to #b",
       " #yNotes. NL Click to perform a #yMelody based on your #yNote #yQueue. Performing a #yMelody consumes its #yNotes.",
       "Toggle Melodies Panel",
-      "Melodies"
+      "Melodies",
+      "+%d more",
+      "Note Queue too short",
+      "Expand your Note Queue to unlock more #yMelodies to perform."
     ]
   },
   "${ModID}:InputSettingsScreen": {

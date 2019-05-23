@@ -29,6 +29,7 @@ public class MelodiesPanel
     private Hitbox melodiesToggleHb;
     private MelodiesHitboxListener melodiesToggleHbListener;
     private List<Hitbox> melodyHbs;
+    private Hitbox extraMelodiesHb;
 
     public MelodiesPanel()
     {
@@ -46,6 +47,8 @@ public class MelodiesPanel
 
             y -= 26 * Settings.scale;
         }
+
+        extraMelodiesHb = new Hitbox(310 * Settings.scale, 26 * Settings.scale);
     }
 
     public void toggleShow()
@@ -71,6 +74,7 @@ public class MelodiesPanel
 
         melodiesToggleHb.encapsulatedUpdate(melodiesToggleHbListener);
 
+        int skipped = 0;
         List<AbstractMelody> allMelodies = MelodyManager.getAllMelodies();
         float y = Settings.HEIGHT - (Y_POS + 52) * Settings.scale;
         for (int i=0; i<allMelodies.size(); ++i) {
@@ -78,7 +82,13 @@ public class MelodiesPanel
                 melodyHbs.get(i).translate(0, y);
                 melodyHbs.get(i).update();
                 y -= 26 * Settings.scale;
+            } else {
+                ++skipped;
             }
+        }
+        if (skipped > 0) {
+            extraMelodiesHb.translate(0, y);
+            extraMelodiesHb.update();
         }
     }
 
@@ -139,6 +149,7 @@ public class MelodiesPanel
                         Settings.CREAM_COLOR
                 );
 
+                int skipped = 0;
                 float y = Settings.HEIGHT - (Y_POS + 36) * Settings.scale;
                 for (AbstractMelody melody : MelodyManager.getAllMelodies()) {
                     if (melody.length() <= noteQueue.getMaxNotes()) {
@@ -155,7 +166,20 @@ public class MelodiesPanel
                                 color
                         );
                         y -= 26 * Settings.scale;
+                    } else {
+                        ++skipped;
                     }
+                }
+                if (skipped > 0) {
+                    // "+X more" text
+                    FontHelper.renderFontRightAligned(
+                            sb,
+                            FontHelper.tipBodyFont,
+                            String.format(NotesPanel.performStrings.TEXT[5], skipped),
+                            300 * Settings.scale,
+                            y,
+                            Settings.CREAM_COLOR
+                    );
                 }
             }
 
@@ -176,6 +200,7 @@ public class MelodiesPanel
 
             if (show) {
                 // Hitboxes / Melody tooltips
+                int skipped = 0;
                 List<AbstractMelody> allMelodies = MelodyManager.getAllMelodies();
                 for (int i=0; i<melodyHbs.size(); ++i) {
                     if (allMelodies.get(i).length() <= noteQueue.getMaxNotes()) {
@@ -190,7 +215,20 @@ public class MelodiesPanel
                         }
 
                         hb.render(sb);
+                    } else {
+                        ++skipped;
                     }
+                }
+                if (skipped > 0) {
+                    if (extraMelodiesHb.hovered && !AbstractDungeon.isScreenUp) {
+                        TipHelper.renderGenericTip(
+                                extraMelodiesHb.x + extraMelodiesHb.width,
+                                InputHelper.mY,
+                                NotesPanel.performStrings.TEXT[6],
+                                NotesPanel.performStrings.TEXT[7]
+                        );
+                    }
+                    extraMelodiesHb.render(sb);
                 }
             }
         }
