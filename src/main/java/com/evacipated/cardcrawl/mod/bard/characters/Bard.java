@@ -74,7 +74,7 @@ public class Bard extends CustomPlayer
                 BardMod.assetPath("images/characters/bard/shoulder2.png"),
                 BardMod.assetPath("images/characters/bard/shoulder.png"),
                 BardMod.assetPath("images/characters/bard/corpse.png"),
-                getLoadout(), 0.0F, -15.0F, 240.0F, 300.0F, new EnergyManager(ENERGY_PER_TURN));
+                getLoadout(), 0.0F, -15.0F, 240.0F, 330.0F, new EnergyManager(ENERGY_PER_TURN));
 
         AnimationState.TrackEntry e = state.setAnimation(0, "Idle", true);
         stateData.setMix("Hit", "Idle", 0.1f);
