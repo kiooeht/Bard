@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.utils.Array;
 import com.evacipated.cardcrawl.mod.bard.BardMod;
+import com.evacipated.cardcrawl.mod.bard.helpers.MelodyManager;
 import com.evacipated.cardcrawl.mod.bard.notes.*;
 import com.evacipated.cardcrawl.modthespire.Loader;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -164,6 +165,19 @@ public abstract class AbstractBardCard extends CustomCard
         }
 
         List<AbstractNote> notes = new ArrayList<>();
+
+        // Other mods can define notes for a card via CardTags
+        for (CardTags tag : card.tags) {
+            AbstractNote note = MelodyManager.getNoteByTag(tag);
+            if (note != null) {
+                notes.add(note);
+            }
+        }
+        if (!notes.isEmpty()) {
+            return notes;
+        }
+
+        // Otherwise, automatically assign values
         if (isBlockGainingCard(card)) {
             notes.add(BlockNote.get());
         }

@@ -3,9 +3,13 @@ package com.evacipated.cardcrawl.mod.bard.notes;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.evacipated.cardcrawl.mod.bard.BardMod;
+import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 
 public class BlockNote extends AbstractNote
 {
+    @SpireEnum(name="BARD_BLOCK_NOTE_TAG") public static AbstractCard.CardTags TAG;
+
     private static BlockNote singleton;
 
     public static BlockNote get()
@@ -31,6 +35,12 @@ public class BlockNote extends AbstractNote
     public String ascii()
     {
         return "B";
+    }
+
+    @Override
+    public AbstractCard.CardTags cardTag()
+    {
+        return TAG;
     }
 
     @Override

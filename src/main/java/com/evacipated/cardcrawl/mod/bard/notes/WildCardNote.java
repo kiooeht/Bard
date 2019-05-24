@@ -6,12 +6,16 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.mod.bard.helpers.MelodyManager;
+import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
 
 import java.util.List;
 
 public class WildCardNote extends AbstractNote
 {
+    @SpireEnum(name="BARD_WILD_NOTE_TAG") public static AbstractCard.CardTags TAG;
+
     private static WildCardNote singleton;
 
     public static WildCardNote get()
@@ -69,6 +73,12 @@ public class WildCardNote extends AbstractNote
     public String ascii()
     {
         return "*";
+    }
+
+    @Override
+    public AbstractCard.CardTags cardTag()
+    {
+        return TAG;
     }
 
     @Override

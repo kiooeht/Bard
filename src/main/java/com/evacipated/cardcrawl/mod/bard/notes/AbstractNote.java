@@ -18,6 +18,7 @@ public abstract class AbstractNote
 
     public abstract String name();
     public abstract String ascii();
+    public abstract AbstractCard.CardTags cardTag();
 
     public Color color()
     {

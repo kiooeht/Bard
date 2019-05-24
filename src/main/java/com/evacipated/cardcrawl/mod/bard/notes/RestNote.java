@@ -4,10 +4,14 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.evacipated.cardcrawl.mod.bard.BardMod;
+import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
 
 public class RestNote extends AbstractNote
 {
+    @SpireEnum(name="BARD_REST_NOTE_TAG") public static AbstractCard.CardTags TAG;
+
     private static RestNote singleton;
 
     public static RestNote get()
@@ -33,6 +37,12 @@ public class RestNote extends AbstractNote
     public String ascii()
     {
         return "R";
+    }
+
+    @Override
+    public AbstractCard.CardTags cardTag()
+    {
+        return TAG;
     }
 
     @Override
