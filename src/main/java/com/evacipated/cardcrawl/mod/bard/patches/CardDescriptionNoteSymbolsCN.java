@@ -39,7 +39,7 @@ public class CardDescriptionNoteSymbolsCN
             @Override
             public int[] Locate(CtBehavior ctBehavior) throws Exception
             {
-                Matcher matcher = new Matcher.MethodCallMatcher(String.class, "replace");
+                Matcher matcher = new Matcher.MethodCallMatcher(String.class, "length");
                 return LineFinder.findInOrder(ctBehavior, matcher);
             }
         }
@@ -70,7 +70,7 @@ public class CardDescriptionNoteSymbolsCN
             @Override
             public int[] Locate(CtBehavior ctBehavior) throws Exception
             {
-                Matcher matcher = new Matcher.MethodCallMatcher(String.class, "replace");
+                Matcher matcher = new Matcher.MethodCallMatcher(String.class, "length");
                 return LineFinder.findInOrder(ctBehavior, matcher);
             }
         }
@@ -86,7 +86,7 @@ public class CardDescriptionNoteSymbolsCN
 
         @SpireInsertPatch(
                 locator=Locator.class,
-                localvars={"gl", "word", "currentLine", "currentWidth", "numLines", "CN_DESC_BOX_WIDTH"}
+                localvars={"gl", "word", "sbuilder", "currentWidth", "numLines", "CN_DESC_BOX_WIDTH"}
         )
         public static void Insert(AbstractCard __instance,  @ByRef GlyphLayout[] gl, @ByRef String[] word,
                                   @ByRef StringBuilder[] currentLine, @ByRef float[] currentWidth, @ByRef int[] numLines,

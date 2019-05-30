@@ -87,7 +87,7 @@ public abstract class AbstractMelody
             StringBuilder builder = new StringBuilder();
             AbstractCard card = makeChoiceCard();
             for (DescriptionLine line : card.description) {
-                builder.append(line.text).append(" ");
+                builder.append(line.getText()).append(" ");
             }
             builder.setLength(builder.length() - 1);
             description = builder.toString();

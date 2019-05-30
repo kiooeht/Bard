@@ -175,9 +175,9 @@ public class CardDescriptionNoteSymbols
 
         @SpireInsertPatch(
                 locator=Locator.class,
-                localvars={"gl", "word", "lastChar"}
+                localvars={"gl", "word"}
         )
-        public static void Insert(AbstractCard __instance,  @ByRef GlyphLayout[] gl, String word, StringBuilder lastChar)
+        public static void Insert(AbstractCard __instance,  @ByRef GlyphLayout[] gl, String word)
         {
             if (word.length() > 0 && word.charAt(0) == '[') {
                 AbstractNote note = MelodyManager.getNote(word.trim());
