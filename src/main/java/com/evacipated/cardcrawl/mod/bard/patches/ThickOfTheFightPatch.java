@@ -4,6 +4,7 @@ import com.evacipated.cardcrawl.mod.bard.cards.ThickOfTheFight;
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.actions.common.ReviveMonsterAction;
 import com.megacrit.cardcrawl.actions.common.SpawnMonsterAction;
+import com.megacrit.cardcrawl.actions.unique.SummonGremlinAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -101,6 +102,31 @@ public class ThickOfTheFightPatch
             public int[] Locate(CtBehavior ctMethodToPatch) throws Exception
             {
                 Matcher finalMatcher = new Matcher.MethodCallMatcher(AbstractCreature.class, "healthBarRevivedEvent");
+                return LineFinder.findInOrder(ctMethodToPatch, finalMatcher);
+            }
+        }
+    }
+
+    @SpirePatch(
+            clz=SummonGremlinAction.class,
+            method="update"
+    )
+    public static class SummonGremlin
+    {
+        @SpireInsertPatch(
+                locator=Locator.class
+        )
+        public static void Insert(SummonGremlinAction __instance)
+        {
+            updateCards();
+        }
+
+        private static class Locator extends SpireInsertLocator
+        {
+            @Override
+            public int[] Locate(CtBehavior ctMethodToPatch) throws Exception
+            {
+                Matcher finalMatcher = new Matcher.MethodCallMatcher(AbstractMonster.class, "showHealthBar");
                 return LineFinder.findInOrder(ctMethodToPatch, finalMatcher);
             }
         }
