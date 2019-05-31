@@ -437,6 +437,16 @@ public class BardAttachPoints
                             0
                     )
             );
+            map.put(BlackHole.ID,
+                    new AttachPoint(
+                            BlackHole.ID,
+                            "float_blackhole",
+                            HubrisMod.assetPath("images/relics/blackhole.png"),
+                            1, 1,
+                            0, 0,
+                            0
+                    )
+            );
             map.put(SphereOfDissonance.ID,
                     new AttachPoint(
                             SphereOfDissonance.ID,
