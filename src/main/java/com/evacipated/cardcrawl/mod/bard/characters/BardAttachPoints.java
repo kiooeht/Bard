@@ -312,6 +312,16 @@ public class BardAttachPoints
                         0
                 )
         );
+        map.put(Sundial.ID,
+                new AttachPoint(
+                        Sundial.ID,
+                        "ground_behind", -5,
+                        "images/largeRelics/sundial.png",
+                        -0.65f, 0.65f,
+                        -215, 15,
+                        0
+                )
+        );
         if (BardMod.hasHubris) {
             map.put(Metronome.ID,
                     new AttachPoint(
