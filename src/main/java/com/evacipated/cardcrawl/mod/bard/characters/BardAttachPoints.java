@@ -312,6 +312,16 @@ public class BardAttachPoints
                         0
                 )
         );
+        map.put(BagOfMarbles.ID,
+                new AttachPoint(
+                        BagOfMarbles.ID,
+                        "ground_infront", -4,
+                        "images/relics/marbles.png",
+                        -0.9f, 0.9f,
+                        275, -8,
+                        0
+                )
+        );
         map.put(Sundial.ID,
                 new AttachPoint(
                         Sundial.ID,
