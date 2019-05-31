@@ -192,7 +192,7 @@ public class BardAttachPoints
         map.put(ChemicalX.ID,
                 new AttachPoint(
                         ChemicalX.ID,
-                        "pocket", 2,
+                        "pocket", 3,
                         "images/relics/chemicalX.png",
                         0.6f, 0.6f,
                         -10, -30,
@@ -202,13 +202,25 @@ public class BardAttachPoints
         map.put(Omamori.ID,
                 new AttachPoint(
                         Omamori.ID,
-                        "pocket", 3,
+                        "pocket", 4,
                         "images/relics/omamori.png",
                         -0.4f, 0.4f,
                         45, -15,
                         0
                 )
         );
+        if (BardMod.hasHubris) {
+            map.put(EmptyBottle.ID,
+                    new AttachPoint(
+                            EmptyBottle.ID,
+                            "pocket", 2,
+                            HubrisMod.assetPath("images/relics/emptyBottle.png"),
+                            0.5f, 0.5f,
+                            4, -25,
+                            15
+                    )
+            );
+        }
         // Ground
         map.put(Toolbox.ID,
                 new AttachPoint(
