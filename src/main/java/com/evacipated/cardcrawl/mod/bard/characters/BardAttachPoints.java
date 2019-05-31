@@ -417,6 +417,16 @@ public class BardAttachPoints
                             0
                     )
             );
+            map.put(SphereOfDissonance.ID,
+                    new AttachPoint(
+                            SphereOfDissonance.ID,
+                            "float2",
+                            HubrisMod.assetPath("images/relics/sphereOfDissonance.png"),
+                            0.5f, 0.5f,
+                            0, 0,
+                            0
+                    )
+            );
         }
     }
 
