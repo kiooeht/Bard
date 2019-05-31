@@ -291,6 +291,16 @@ public class BardAttachPoints
                             0
                     )
             );
+            map.put(PeanutButter.ID,
+                    new AttachPoint(
+                            PeanutButter.ID,
+                            "ground_infront", -2,
+                            HubrisMod.assetPath("images/relics/peanutButter.png"),
+                            0.9f, 0.9f,
+                            -50, 10,
+                            -20
+                    )
+            );
         }
         // Bag pipes
         map.put(Anchor.ID,
