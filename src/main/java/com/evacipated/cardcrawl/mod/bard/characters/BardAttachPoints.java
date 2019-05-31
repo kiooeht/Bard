@@ -432,7 +432,7 @@ public class BardAttachPoints
                             Icosahedron.ID,
                             "float_icosahedron",
                             HubrisMod.assetPath("images/relics/icosahedron.png"),
-                            0.6f, 0.6f,
+                            0.4f, 0.4f,
                             0, 0,
                             0
                     )
