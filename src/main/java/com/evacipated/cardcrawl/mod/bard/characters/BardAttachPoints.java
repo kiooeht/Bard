@@ -15,6 +15,7 @@ import com.evacipated.cardcrawl.mod.bard.relics.SelfPlayingFlute;
 import com.evacipated.cardcrawl.mod.bard.relics.StrangeHarp;
 import com.evacipated.cardcrawl.mod.hubris.HubrisMod;
 import com.evacipated.cardcrawl.mod.hubris.relics.DisguiseKit;
+import com.evacipated.cardcrawl.mod.hubris.relics.FunFungus;
 import com.evacipated.cardcrawl.mod.hubris.relics.Icosahedron;
 import com.evacipated.cardcrawl.mod.hubris.relics.Metronome;
 import com.megacrit.cardcrawl.core.Settings;
@@ -151,13 +152,25 @@ public class BardAttachPoints
         map.put(BronzeScales.ID,
                 new AttachPoint(
                         BronzeScales.ID,
-                        "shoulder", 1,
+                        "shoulder", 2,
                         "images/relics/bronzeScales.png",
                         -0.6f, 0.6f,
                         -10, 7,
                         50
                 )
         );
+        if (BardMod.hasHubris) {
+            map.put(FunFungus.ID,
+                    new AttachPoint(
+                            FunFungus.ID,
+                            "shoulder", 1,
+                            HubrisMod.assetPath("images/relics/funFungus.png"),
+                            0.7f, 0.7f,
+                            -10, 17,
+                            0
+                    )
+            );
+        }
         // Body
         map.put(Ectoplasm.ID,
                 new AttachPoint(
