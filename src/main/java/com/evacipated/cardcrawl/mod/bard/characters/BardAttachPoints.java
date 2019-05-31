@@ -179,6 +179,16 @@ public class BardAttachPoints
             );
         }
         // Body
+        map.put(CentennialPuzzle.ID,
+                new AttachPoint(
+                        CentennialPuzzle.ID,
+                        "chest", 1,
+                        "images/relics/centennialPuzzle.png",
+                        -0.6f, 0.6f,
+                        0, -5,
+                        0
+                )
+        );
         map.put(Ectoplasm.ID,
                 new AttachPoint(
                         Ectoplasm.ID,
