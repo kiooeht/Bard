@@ -80,6 +80,16 @@ public class BardAttachPoints
                             -10
                     )
             );
+            map.put(SlimyHat.ID,
+                    new AttachPoint(
+                            SlimyHat.ID,
+                            "head_side", 7,
+                            HubrisMod.assetPath("images/relics/slimyHat.png"),
+                            -0.5f, 0.5f,
+                            0, 20,
+                            -15
+                    )
+            );
         }
         // Waist
         map.put(Lantern.ID,
