@@ -404,6 +404,16 @@ public class BardAttachPoints
                             40
                     )
             );
+            map.put(TerracottaHorce.ID,
+                    new AttachPoint(
+                            TerracottaHorce.ID,
+                            "bag_pipes_head", 5,
+                            HubrisMod.assetPath("images/relics/terracottaHorce.png"),
+                            1, 1,
+                            150, 14,
+                            6
+                    )
+            );
         }
         // Float
         map.put(SelfPlayingFlute.ID,
