@@ -82,6 +82,9 @@ public class BardMod implements
     private static ModLabeledToggleButton bagpipesUIBtn;
     private static ModLabeledToggleButton bagpipesBothBtn;
 
+    // Crossover checks
+    public static final boolean hasHubris;
+
     static
     {
         String tmpID = "bard";
@@ -96,6 +99,11 @@ public class BardMod implements
         }
         ID = tmpID;
         NAME = tmpNAME;
+
+        hasHubris = Loader.isModLoaded("hubris");
+        if (hasHubris) {
+            logger.info("Detected Hubris");
+        }
     }
 
     public static void initialize()

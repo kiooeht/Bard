@@ -13,6 +13,9 @@ import com.evacipated.cardcrawl.mod.bard.relics.ConductorsBaton;
 import com.evacipated.cardcrawl.mod.bard.relics.CoralOrchestra;
 import com.evacipated.cardcrawl.mod.bard.relics.SelfPlayingFlute;
 import com.evacipated.cardcrawl.mod.bard.relics.StrangeHarp;
+import com.evacipated.cardcrawl.mod.hubris.HubrisMod;
+import com.evacipated.cardcrawl.mod.hubris.relics.DisguiseKit;
+import com.evacipated.cardcrawl.mod.hubris.relics.Icosahedron;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.relics.*;
 
@@ -67,16 +70,18 @@ public class BardAttachPoints
                         0
                 )
         );
-        map.put("hubris:DisguiseKit",
-                new AttachPoint(
-                        "hubris:DisguiseKit",
-                        "head_side", 1,
-                        "hubrisAssets/images/relics/disguiseKit.png",
-                        0.6f, 0.6f,
-                        25, 0,
-                        -10
-                )
-        );
+        if (BardMod.hasHubris) {
+            map.put(DisguiseKit.ID,
+                    new AttachPoint(
+                            DisguiseKit.ID,
+                            "head_side", 1,
+                            HubrisMod.assetPath("images/relics/disguiseKit.png"),
+                            0.6f, 0.6f,
+                            25, 0,
+                            -10
+                    )
+            );
+        }
         // Waist
         map.put(Lantern.ID,
                 new AttachPoint(
@@ -366,6 +371,18 @@ public class BardAttachPoints
                         15
                 )
         );
+        if (BardMod.hasHubris) {
+            map.put(Icosahedron.ID,
+                    new AttachPoint(
+                            Icosahedron.ID,
+                            "float_icosahedron",
+                            HubrisMod.assetPath("images/relics/icosahedron.png"),
+                            0.6f, 0.6f,
+                            0, 0,
+                            0
+                    )
+            );
+        }
     }
 
     public static void attachRelic(Skeleton skeleton, String relicID)
