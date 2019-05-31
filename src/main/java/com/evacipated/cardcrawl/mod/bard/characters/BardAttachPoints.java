@@ -16,6 +16,7 @@ import com.evacipated.cardcrawl.mod.bard.relics.StrangeHarp;
 import com.evacipated.cardcrawl.mod.hubris.HubrisMod;
 import com.evacipated.cardcrawl.mod.hubris.relics.DisguiseKit;
 import com.evacipated.cardcrawl.mod.hubris.relics.Icosahedron;
+import com.evacipated.cardcrawl.mod.hubris.relics.Metronome;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.relics.*;
 
@@ -269,6 +270,18 @@ public class BardAttachPoints
                         0
                 )
         );
+        if (BardMod.hasHubris) {
+            map.put(Metronome.ID,
+                    new AttachPoint(
+                            Metronome.ID,
+                            "ground_behind", 6,
+                            HubrisMod.assetPath("images/relics/metronome.png"),
+                            0.8f, 0.8f,
+                            -115, 20,
+                            0
+                    )
+            );
+        }
         // Bag pipes
         map.put(Anchor.ID,
                 new AttachPoint(
