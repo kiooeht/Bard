@@ -405,6 +405,16 @@ public class BardAttachPoints
                         25
                 )
         );
+        map.put(Sozu.ID,
+                new AttachPoint(
+                        Sozu.ID,
+                        "bag_pipes_head_behind", 4,
+                        "images/relics/sozu.png",
+                        0.9f, 0.9f,
+                        10, -145,
+                        175
+                )
+        );
         map.put(PenNib.ID,
                 new AttachPoint(
                         PenNib.ID,
