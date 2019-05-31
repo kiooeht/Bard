@@ -14,10 +14,7 @@ import com.evacipated.cardcrawl.mod.bard.relics.CoralOrchestra;
 import com.evacipated.cardcrawl.mod.bard.relics.SelfPlayingFlute;
 import com.evacipated.cardcrawl.mod.bard.relics.StrangeHarp;
 import com.evacipated.cardcrawl.mod.hubris.HubrisMod;
-import com.evacipated.cardcrawl.mod.hubris.relics.DisguiseKit;
-import com.evacipated.cardcrawl.mod.hubris.relics.FunFungus;
-import com.evacipated.cardcrawl.mod.hubris.relics.Icosahedron;
-import com.evacipated.cardcrawl.mod.hubris.relics.Metronome;
+import com.evacipated.cardcrawl.mod.hubris.relics.*;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.relics.*;
 
@@ -376,6 +373,18 @@ public class BardAttachPoints
                         -80
                 )
         );
+        if (BardMod.hasHubris) {
+            map.put(OldNail.ID,
+                    new AttachPoint(
+                            OldNail.ID,
+                            "bag_pipes_head_behind", 3,
+                            HubrisMod.assetPath("images/relics/oldNail.png"),
+                            1, 1,
+                            -95, 65,
+                            40
+                    )
+            );
+        }
         // Float
         map.put(SelfPlayingFlute.ID,
                 new AttachPoint(
