@@ -16,10 +16,10 @@ public class Shifting extends AbstractBardCard
 {
     public static final String ID = BardMod.makeID("Shifting");
     private static final int COST = 3;
-    private static final int DAMAGE = 16;
-    private static final int UPGRADE_DAMAGE = 5;
-    private static final int BLOCK = 16;
-    private static final int UPGRADE_BLOCK = 5;
+    private static final int DAMAGE = 12;
+    private static final int UPGRADE_DAMAGE = 4;
+    private static final int BLOCK = 12;
+    private static final int UPGRADE_BLOCK = 4;
 
     public Shifting()
     {

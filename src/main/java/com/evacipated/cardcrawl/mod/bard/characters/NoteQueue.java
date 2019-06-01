@@ -6,7 +6,6 @@ import com.evacipated.cardcrawl.mod.bard.helpers.MelodyManager;
 import com.evacipated.cardcrawl.mod.bard.hooks.OnNoteQueuedHook;
 import com.evacipated.cardcrawl.mod.bard.melodies.AbstractMelody;
 import com.evacipated.cardcrawl.mod.bard.notes.AbstractNote;
-import com.evacipated.cardcrawl.mod.bard.relics.SelfPlayingFlute;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
@@ -55,9 +54,7 @@ public class NoteQueue
 
     public void reset()
     {
-        if (!AbstractDungeon.player.hasRelic(SelfPlayingFlute.ID)) {
-            clear();
-        }
+        clear();
         maxNotes = masterMaxNotes;
         while (notes.size() > maxNotes) {
             notes.pollFirst();

@@ -2,6 +2,7 @@ package com.evacipated.cardcrawl.mod.bard.actions.common;
 
 import com.evacipated.cardcrawl.mod.bard.BardMod;
 import com.evacipated.cardcrawl.mod.bard.cards.MelodyCard;
+import com.evacipated.cardcrawl.mod.bard.characters.NoteQueue;
 import com.evacipated.cardcrawl.mod.bard.melodies.AbstractMelody;
 import com.evacipated.cardcrawl.mod.bard.patches.CenterGridCardSelectScreen;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -14,6 +15,7 @@ import com.megacrit.cardcrawl.screens.select.GridCardSelectScreen;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
 import java.util.List;
 
 public class SelectMelodyAction extends AbstractGameAction
@@ -23,6 +25,7 @@ public class SelectMelodyAction extends AbstractGameAction
     private List<AbstractMelody> melodies;
     private boolean consumeNotes;
     private boolean pickCard = false;
+    private boolean canCancel = true;
 
     public SelectMelodyAction()
     {
@@ -36,8 +39,14 @@ public class SelectMelodyAction extends AbstractGameAction
 
     public SelectMelodyAction(List<AbstractMelody> melodies, boolean consumeNotes)
     {
+        this(melodies, consumeNotes, true);
+    }
+
+    public SelectMelodyAction(List<AbstractMelody> melodies, boolean consumeNotes, boolean canCancel)
+    {
         this.melodies = melodies;
         this.consumeNotes = consumeNotes;
+        this.canCancel = canCancel;
         actionType = ActionType.SPECIAL;
         duration = Settings.ACTION_DUR_MED;
     }
@@ -53,6 +62,10 @@ public class SelectMelodyAction extends AbstractGameAction
                     return;
                 }
             }
+            melodies = new ArrayList<>(melodies);
+
+            NoteQueue noteQueue = BardMod.getNoteQueue(AbstractDungeon.player);
+            melodies.removeIf(melody -> melody.length() > noteQueue.getMaxNotes());
 
             pickCard = true;
             CardGroup group = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
@@ -68,7 +81,9 @@ public class SelectMelodyAction extends AbstractGameAction
                 m.invoke(AbstractDungeon.gridSelectScreen);
             } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException ignore) {
             }
-            AbstractDungeon.overlayMenu.cancelButton.show(GridCardSelectScreen.TEXT[1]);
+            if (canCancel) {
+                AbstractDungeon.overlayMenu.cancelButton.show(GridCardSelectScreen.TEXT[1]);
+            }
         } else {
             if (pickCard && !AbstractDungeon.gridSelectScreen.selectedCards.isEmpty()) {
                 pickCard = false;

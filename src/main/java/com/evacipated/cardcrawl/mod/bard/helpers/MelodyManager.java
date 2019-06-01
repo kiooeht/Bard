@@ -1,12 +1,14 @@
 package com.evacipated.cardcrawl.mod.bard.helpers;
 
 import com.badlogic.gdx.Gdx;
+import com.evacipated.cardcrawl.mod.bard.BardMod;
 import com.evacipated.cardcrawl.mod.bard.MelodyStrings;
 import com.evacipated.cardcrawl.mod.bard.melodies.AbstractMelody;
 import com.evacipated.cardcrawl.mod.bard.notes.AbstractNote;
 import com.evacipated.cardcrawl.mod.bard.notes.WildCardNote;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 
 import java.lang.reflect.Type;
 import java.nio.charset.StandardCharsets;
@@ -19,6 +21,7 @@ public class MelodyManager
 {
     private static List<AbstractNote> allNotes = new ArrayList<>();
     private static Map<String, AbstractNote> notes = new HashMap<>();
+    private static Map<AbstractCard.CardTags, AbstractNote> noteTags = new HashMap<>();
     private static List<AbstractMelody> melodies = new ArrayList<>();
     private static Map<String, MelodyStrings> melodyStrings = new HashMap<>();
 
@@ -27,6 +30,7 @@ public class MelodyManager
         allNotes.add(note);
         notes.put(note.name() + " Note", note);
         notes.put("[" + note.name() + "Note]", note);
+        noteTags.put(note.cardTag(), note);
     }
 
     public static AbstractNote getNoteByAscii(String key)
@@ -37,6 +41,11 @@ public class MelodyManager
             }
         }
         return null;
+    }
+
+    public static AbstractNote getNoteByTag(AbstractCard.CardTags tag)
+    {
+        return noteTags.get(tag);
     }
 
     public static AbstractNote getNote(String key)
@@ -76,6 +85,16 @@ public class MelodyManager
         melodies.add(melody);
     }
 
+    public static AbstractMelody getMelodByID(String id)
+    {
+        for (AbstractMelody melody : melodies) {
+            if (melody.getID().equals(id)) {
+                return melody.makeCopy();
+            }
+        }
+        return null;
+    }
+
     public static List<AbstractMelody> getAllMelodies()
     {
         return melodies;
@@ -108,7 +127,16 @@ public class MelodyManager
     {
         Gson gson = new Gson();
         Type melodyType = new TypeToken<Map<String, MelodyStrings>>(){}.getType();
+
+        Map<String, MelodyStrings> notes = gson.fromJson(loadJson(BardMod.assetPath("melodies/MelodyNotes.json")), melodyType);
         Map<String, MelodyStrings> map = gson.fromJson(loadJson(filepath), melodyType);
+
+        for (String key : map.keySet()) {
+            if (notes.containsKey(key)) {
+                map.get(key).NOTES = notes.get(key).NOTES;
+            }
+        }
+
         melodyStrings.putAll(map);
     }
 

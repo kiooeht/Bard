@@ -58,11 +58,13 @@ public class BagPipesCardNotesPreview2Patch
                     false, false
             );
 
+            Color oldColor = sb.getColor();
             float offsetX = -(NOTE_SPACING * notes.size() / 2f);
             for (AbstractNote note : notes) {
                 Vector2 offset = new Vector2(offsetX, 212);
                 offset.rotate(__instance.angle);
                 offset.scl(__instance.drawScale * Settings.scale);
+                sb.setColor(note.color());
                 sb.draw(
                         note.getTexture(),
                         __instance.current_x + offset.x,
@@ -77,6 +79,7 @@ public class BagPipesCardNotesPreview2Patch
                 );
                 offsetX += NOTE_SPACING;
             }
+            sb.setColor(oldColor);
         }
     }
 }

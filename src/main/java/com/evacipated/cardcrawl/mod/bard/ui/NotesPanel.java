@@ -9,6 +9,7 @@ import com.evacipated.cardcrawl.mod.bard.actions.common.PerformAllMelodiesAction
 import com.evacipated.cardcrawl.mod.bard.actions.common.SelectMelodyAction;
 import com.evacipated.cardcrawl.mod.bard.characters.Bard;
 import com.evacipated.cardcrawl.mod.bard.characters.NoteQueue;
+import com.evacipated.cardcrawl.mod.bard.helpers.input.BardInputActionSet;
 import com.evacipated.cardcrawl.mod.bard.notes.AbstractNote;
 import com.evacipated.cardcrawl.mod.bard.powers.SonataPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -56,6 +57,18 @@ public class NotesPanel
         locked = false;
     }
 
+    public float getX()
+    {
+        AbstractPlayer player = AbstractDungeon.player;
+        return player.drawX - (NOTE_SPACING * 3 * Settings.scale);
+    }
+
+    public float getY()
+    {
+        AbstractPlayer player = AbstractDungeon.player;
+        return (yOffset + EXTRA_OFFSET) * Settings.scale + player.drawY + player.hb_h / 2.0f;
+    }
+
     public void update(AbstractPlayer player)
     {
         NoteQueue noteQueue = BardMod.getNoteQueue(player);
@@ -90,6 +103,10 @@ public class NotesPanel
         notesHbListener.player = player;
         notesHbListener.noteQueue = noteQueue;
         notesHb.encapsulatedUpdate(notesHbListener);
+
+        if (BardInputActionSet.noteQueue.isJustPressed()) {
+            perform(player, noteQueue);
+        }
     }
 
     public void render(SpriteBatch sb, AbstractPlayer player)
@@ -209,12 +226,33 @@ public class NotesPanel
                 TipHelper.renderGenericTip(
                         notesHb.x,
                         notesHb.y + notesHb.height + height,
-                        performStrings.TEXT[0],
+                        performStrings.TEXT[0] + " (" + BardInputActionSet.noteQueue.getKeyString() + ")",
                         body
                 );
             }
 
             notesHb.render(sb);
+        }
+    }
+
+    private void perform(AbstractPlayer player, NoteQueue noteQueue)
+    {
+        if (!locked && !AbstractDungeon.actionManager.turnHasEnded && noteQueue.canPlayAnyMelody()) {
+            locked = true;
+            AbstractDungeon.actionManager.addToBottom(new AbstractGameAction()
+            {
+                @Override
+                public void update()
+                {
+                    unlock();
+                    if (player.hasPower(SonataPower.POWER_ID)) {
+                        AbstractDungeon.actionManager.addToTop(new PerformAllMelodiesAction());
+                    } else {
+                        AbstractDungeon.actionManager.addToTop(new SelectMelodyAction());
+                    }
+                    isDone = true;
+                }
+            });
         }
     }
 
@@ -238,23 +276,7 @@ public class NotesPanel
         @Override
         public void clicked(Hitbox hitbox)
         {
-            if (!locked && !AbstractDungeon.actionManager.turnHasEnded && noteQueue.canPlayAnyMelody()) {
-                locked = true;
-                AbstractDungeon.actionManager.addToBottom(new AbstractGameAction()
-                {
-                    @Override
-                    public void update()
-                    {
-                        unlock();
-                        if (player.hasPower(SonataPower.POWER_ID)) {
-                            AbstractDungeon.actionManager.addToTop(new PerformAllMelodiesAction());
-                        } else {
-                            AbstractDungeon.actionManager.addToTop(new SelectMelodyAction());
-                        }
-                        isDone = true;
-                    }
-                });
-            }
+            perform(player, noteQueue);
         }
     }
 }

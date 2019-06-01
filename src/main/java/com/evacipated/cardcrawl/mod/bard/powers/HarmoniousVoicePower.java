@@ -10,7 +10,6 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
-import com.megacrit.cardcrawl.powers.AbstractPower;
 
 public class HarmoniousVoicePower extends AbstractBardPower implements OnNoteQueuedHook
 {
@@ -39,7 +38,7 @@ public class HarmoniousVoicePower extends AbstractBardPower implements OnNoteQue
     @Override
     public AbstractNote onNoteQueued(AbstractNote note)
     {
-        if (note instanceof BlockNote || note instanceof BuffNote) {
+        if (note.equals(BlockNote.get()) || note.equals(BuffNote.get())) {
             flash();
             AbstractDungeon.actionManager.addToBottom(new AddTemporaryHPAction(owner, owner, amount));
         }

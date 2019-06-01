@@ -9,8 +9,21 @@ import com.megacrit.cardcrawl.core.Settings;
 
 public abstract class AbstractNote
 {
+    protected Color color;
+
+    protected AbstractNote(Color color)
+    {
+        this.color = color;
+    }
+
     public abstract String name();
     public abstract String ascii();
+    public abstract AbstractCard.CardTags cardTag();
+
+    public Color color()
+    {
+        return color;
+    }
 
     public boolean isFloaty()
     {
@@ -38,9 +51,10 @@ public abstract class AbstractNote
         return getTexture();
     }
 
-    public void render(SpriteBatch sb, float x, float y)
+    public final void renderExact(SpriteBatch sb, float x, float y, float rotation)
     {
-        sb.setColor(Color.WHITE);
+        Color oldColor = sb.getColor();
+        sb.setColor(color());
         TextureAtlas.AtlasRegion tex = getQueuedTexture();
         sb.draw(
                 tex,
@@ -52,13 +66,19 @@ public abstract class AbstractNote
                 tex.getRegionHeight(),
                 Settings.scale * 2,
                 Settings.scale * 2,
-                0
+                rotation
         );
+        sb.setColor(oldColor);
+    }
+
+    public void render(SpriteBatch sb, float x, float y)
+    {
+        renderExact(sb, x, y, 0);
     }
 
     public AbstractCard makeChoiceCard()
     {
-        return new NoteCard(name(), "{" + name() + " Note}", this, AbstractCard.CardType.POWER);
+        return new NoteCard(name(), "[" + name() + "Note]", this, AbstractCard.CardType.POWER);
     }
 
     public boolean isNoteType(Class<? extends AbstractNote> type)

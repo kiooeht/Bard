@@ -29,6 +29,7 @@ public class MelodiesPanel
     private Hitbox melodiesToggleHb;
     private MelodiesHitboxListener melodiesToggleHbListener;
     private List<Hitbox> melodyHbs;
+    private Hitbox extraMelodiesHb;
 
     public MelodiesPanel()
     {
@@ -46,6 +47,8 @@ public class MelodiesPanel
 
             y -= 26 * Settings.scale;
         }
+
+        extraMelodiesHb = new Hitbox(310 * Settings.scale, 26 * Settings.scale);
     }
 
     public void toggleShow()
@@ -71,8 +74,21 @@ public class MelodiesPanel
 
         melodiesToggleHb.encapsulatedUpdate(melodiesToggleHbListener);
 
-        for (Hitbox hb : melodyHbs) {
-            hb.update();
+        int skipped = 0;
+        List<AbstractMelody> allMelodies = MelodyManager.getAllMelodies();
+        float y = Settings.HEIGHT - (Y_POS + 52) * Settings.scale;
+        for (int i=0; i<allMelodies.size(); ++i) {
+            if (allMelodies.get(i).length() <= noteQueue.getMaxNotes()) {
+                melodyHbs.get(i).translate(0, y);
+                melodyHbs.get(i).update();
+                y -= 26 * Settings.scale;
+            } else {
+                ++skipped;
+            }
+        }
+        if (skipped > 0) {
+            extraMelodiesHb.translate(0, y);
+            extraMelodiesHb.update();
         }
     }
 
@@ -115,8 +131,10 @@ public class MelodiesPanel
 
                 StringBuilder body = new StringBuilder();
                 for (AbstractMelody melody : MelodyManager.getAllMelodies()) {
-                    body.append(melody.makeNotesUIString());
-                    body.append(" NL ");
+                    if (melody.length() <= noteQueue.getMaxNotes()) {
+                        body.append(melody.makeNotesUIString());
+                        body.append(" NL ");
+                    }
                 }
                 body.setLength(body.length() - 4);
 
@@ -131,25 +149,41 @@ public class MelodiesPanel
                         Settings.CREAM_COLOR
                 );
 
+                int skipped = 0;
                 float y = Settings.HEIGHT - (Y_POS + 36) * Settings.scale;
                 for (AbstractMelody melody : MelodyManager.getAllMelodies()) {
-                    Color color = Settings.CREAM_COLOR;
-                    if (noteQueue.canPlayMelody(melody)) {
-                        color = Settings.GOLD_COLOR;
+                    if (melody.length() <= noteQueue.getMaxNotes()) {
+                        Color color = Settings.CREAM_COLOR;
+                        if (noteQueue.canPlayMelody(melody)) {
+                            color = Settings.GOLD_COLOR;
+                        }
+                        FontHelper.renderFontRightAligned(
+                                sb,
+                                FontHelper.tipBodyFont,
+                                melody.getName(),
+                                300 * Settings.scale,
+                                y,
+                                color
+                        );
+                        y -= 26 * Settings.scale;
+                    } else {
+                        ++skipped;
                     }
+                }
+                if (skipped > 0) {
+                    // "+X more" text
                     FontHelper.renderFontRightAligned(
                             sb,
                             FontHelper.tipBodyFont,
-                            melody.getName(),
+                            String.format(NotesPanel.performStrings.TEXT[5], skipped),
                             300 * Settings.scale,
                             y,
-                            color
+                            Settings.CREAM_COLOR
                     );
-                    y -= 26 * Settings.scale;
                 }
             }
 
-            // Tooltip
+            // Toggle tooltip
             if (melodiesToggleHb.hovered && !AbstractDungeon.isScreenUp) {
                 float height = -FontHelper.getSmartHeight(FontHelper.tipBodyFont, "", 280.0F * Settings.scale, 26.0F * Settings.scale);
                 height += 74 * Settings.scale; // accounts for header height, box border, and a bit of spacing
@@ -165,19 +199,36 @@ public class MelodiesPanel
             melodiesToggleHb.render(sb);
 
             if (show) {
+                // Hitboxes / Melody tooltips
+                int skipped = 0;
                 List<AbstractMelody> allMelodies = MelodyManager.getAllMelodies();
                 for (int i=0; i<melodyHbs.size(); ++i) {
-                    Hitbox hb = melodyHbs.get(i);
-                    if (hb.hovered && !AbstractDungeon.isScreenUp) {
+                    if (allMelodies.get(i).length() <= noteQueue.getMaxNotes()) {
+                        Hitbox hb = melodyHbs.get(i);
+                        if (hb.hovered && !AbstractDungeon.isScreenUp) {
+                            TipHelper.renderGenericTip(
+                                    hb.x + hb.width,
+                                    InputHelper.mY,
+                                    allMelodies.get(i).getName(),
+                                    allMelodies.get(i).makeNotesUIString() + " NL " + allMelodies.get(i).getDescription()
+                            );
+                        }
+
+                        hb.render(sb);
+                    } else {
+                        ++skipped;
+                    }
+                }
+                if (skipped > 0) {
+                    if (extraMelodiesHb.hovered && !AbstractDungeon.isScreenUp) {
                         TipHelper.renderGenericTip(
-                                hb.x + hb.width,
+                                extraMelodiesHb.x + extraMelodiesHb.width,
                                 InputHelper.mY,
-                                allMelodies.get(i).getName(),
-                                allMelodies.get(i).makeNotesUIString() + " NL " + allMelodies.get(i).getDescription()
+                                NotesPanel.performStrings.TEXT[6],
+                                NotesPanel.performStrings.TEXT[7]
                         );
                     }
-
-                    hb.render(sb);
+                    extraMelodiesHb.render(sb);
                 }
             }
         }

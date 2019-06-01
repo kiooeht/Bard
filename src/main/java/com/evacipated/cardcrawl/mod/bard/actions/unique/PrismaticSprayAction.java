@@ -1,7 +1,7 @@
 package com.evacipated.cardcrawl.mod.bard.actions.unique;
 
-import com.evacipated.cardcrawl.mod.bard.actions.common.PutCardInHand;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -46,7 +46,7 @@ public class PrismaticSprayAction extends AbstractGameAction
             } else {
                 card.modifyCostForTurn(-999);
             }
-            AbstractDungeon.actionManager.addToBottom(new PutCardInHand(card, false));
+            AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(card, 1));
         }
         if (!freeToPlayOnce) {
             AbstractDungeon.player.energy.use(EnergyPanel.totalCount);

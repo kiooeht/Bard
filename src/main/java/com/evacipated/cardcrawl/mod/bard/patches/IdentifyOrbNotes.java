@@ -17,6 +17,7 @@ public class IdentifyOrbNotes
         if (__result == null) {
             AbstractNote note = MelodyManager.getNote(word);
             if (note != null) {
+                ColorIdentifyOrbNotes.isNote = note;
                 return note.getTexture();
             }
         }

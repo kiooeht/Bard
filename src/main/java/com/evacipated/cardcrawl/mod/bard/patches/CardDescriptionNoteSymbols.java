@@ -19,62 +19,16 @@ import javassist.CtBehavior;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.regex.Pattern;
 
 public class CardDescriptionNoteSymbols
 {
-    private static Pattern r = Pattern.compile("\\{(.+)\\} ");
-
     @SpirePatch(
             clz=AbstractCard.class,
             method="renderDescription"
     )
-    public static class AlterTmp
-    {
-        private static String savedTmp = null;
-
-        @SpireInsertPatch(
-                locator=Locator.class,
-                localvars={"tmp"}
-        )
-        public static void Insert(AbstractCard __instance, SpriteBatch sb, @ByRef String[] tmp)
-        {
-            if (tmp[0].length() <= 0) {
-                return;
-            }
-
-            if (savedTmp != null) {
-                savedTmp += tmp[0];
-                // length-2 to account for space(' ') appended to tmp
-                if (tmp[0].length() > 1 && tmp[0].charAt(tmp[0].length()-2) == '}') {
-                    tmp[0] = savedTmp;
-                    savedTmp = null;
-                } else {
-                    tmp[0] = "";
-                }
-            } else if (tmp[0].charAt(0) == '{') {
-                if (tmp[0].length() > 1 && tmp[0].charAt(tmp[0].length()-2) == '}') {
-                    return;
-                }
-                savedTmp = tmp[0];
-                tmp[0] = "";
-            }
-        }
-
-        private static class Locator extends SpireInsertLocator
-        {
-            @Override
-            public int[] Locate(CtBehavior ctMethodToPatch) throws Exception
-            {
-                Matcher finalMatcher = new Matcher.MethodCallMatcher(String.class, "charAt");
-                return LineFinder.findInOrder(ctMethodToPatch, finalMatcher);
-            }
-        }
-    }
-
     @SpirePatch(
             clz=AbstractCard.class,
-            method="renderDescription"
+            method="renderDescriptionCN"
     )
     public static class RenderSmallNote
     {
@@ -88,30 +42,35 @@ public class CardDescriptionNoteSymbols
                                   float spacing, int i, @ByRef float[] start_x, float draw_y,
                                   BitmapFont font, Color textColor, @ByRef String[] tmp, GlyphLayout gl)
         {
-            java.util.regex.Matcher m = r.matcher(tmp[0]);
-            if (m.find()) {
-                gl.width = CARD_ENERGY_IMG_WIDTH * __instance.drawScale;
-                AbstractNote note = MelodyManager.getNote(m.group(1));
+            if (tmp[0].length() > 0 && tmp[0].charAt(0) == '[') {
+                String key = tmp[0].trim();
+                if (key.endsWith("Note]")) {
+                    key = key.replace("*d", "D").replace("*b", "B").replace("*m", "M");
+                }
+                AbstractNote note = MelodyManager.getNote(key);
                 if (note != null) {
+                    gl.width = CARD_ENERGY_IMG_WIDTH * __instance.drawScale;
                     renderSmallNote(__instance, sb, note.getTexture(),
                             (start_x[0] - __instance.current_x) / Settings.scale / __instance.drawScale,
-                            (-98.0f - ((__instance.description.size() - 4.0f) / 2.0f - i + 1.0f) * spacing));
-                } else {
-                    System.out.println(m.group(1));
+                            (-98.0f - ((__instance.description.size() - 4.0f) / 2.0f - i + 1.0f) * spacing),
+                            note.color());
+                    start_x[0] += gl.width;
+                    tmp[0] = "";
                 }
-                start_x[0] += gl.width;
-                tmp[0] = "";
             }
         }
 
-        public static void renderSmallNote(AbstractCard card, SpriteBatch sb, TextureAtlas.AtlasRegion region, float offsetX, float offsetY)
+        public static void renderSmallNote(AbstractCard card, SpriteBatch sb, TextureAtlas.AtlasRegion region, float offsetX, float offsetY, Color color)
         {
             try {
                 Field f = AbstractCard.class.getDeclaredField("renderColor");
                 f.setAccessible(true);
-                sb.setColor((Color) f.get(card));
+                Color cardColor = (Color) f.get(card);
+                color = color.cpy();
+                color.a = cardColor.a;
+                sb.setColor(color);
             } catch (IllegalAccessException | NoSuchFieldException e) {
-                sb.setColor(Color.WHITE);
+                sb.setColor(color);
             }
 
             Affine2 aff = new Affine2();
@@ -146,10 +105,12 @@ public class CardDescriptionNoteSymbols
             clz=SingleCardViewPopup.class,
             method="renderDescription"
     )
+    @SpirePatch(
+            clz=SingleCardViewPopup.class,
+            method="renderDescriptionCN"
+    )
     public static class RenderSmallNoteSingleCardView
     {
-        private static String savedTmp = null;
-
         @SpireInsertPatch(
                 locator=Locator.class,
                 localvars={
@@ -162,43 +123,33 @@ public class CardDescriptionNoteSymbols
                                   @ByRef String[] tmp, GlyphLayout gl,
                                   float card_energy_w, float drawScale, float current_x, AbstractCard card)
         {
-            if (savedTmp != null) {
-                savedTmp += tmp[0];
-                // length-2 to account for space(' ') appended to tmp
-                if (tmp[0].length() > 1 && tmp[0].charAt(tmp[0].length()-2) == '}') {
-                    tmp[0] = savedTmp;
-                    savedTmp = null;
-                } else {
-                    tmp[0] = "";
+            if (tmp[0].length() > 0 && tmp[0].charAt(0) == '[') {
+                String key = tmp[0].trim();
+                if (key.endsWith("Note]")) {
+                    key = key.replace("*d", "D").replace("*b", "B").replace("*m", "M");
                 }
-            } else if (tmp[0].charAt(0) == '{') {
-                if (tmp[0].length() > 1 && tmp[0].charAt(tmp[0].length()-2) == '}') {
-                    return;
-                }
-                savedTmp = tmp[0];
-                tmp[0] = "";
-            }
-
-            java.util.regex.Matcher m = r.matcher(tmp[0]);
-            if (m.find()) {
-                gl.width = card_energy_w * drawScale;
-                AbstractNote note = MelodyManager.getNote(m.group(1));
+                AbstractNote note = MelodyManager.getNote(key);
                 if (note != null) {
+                    gl.width = card_energy_w * drawScale;
+                    Color white = Color.WHITE.cpy();
+                    Color oldColor = sb.getColor();
                     try {
                         Method renderSmallEnergy = SingleCardViewPopup.class.getDeclaredMethod("renderSmallEnergy", SpriteBatch.class, TextureAtlas.AtlasRegion.class, float.class, float.class);
                         renderSmallEnergy.setAccessible(true);
 
+                        Color.WHITE.set(note.color());
                         renderSmallEnergy.invoke(__instance, sb, note.getTexture(),
                                 (start_x[0] - current_x) / Settings.scale / drawScale,
                                 -86.0f - ((card.description.size() - 4.0f) / 2.0f - i + 1.0f) * spacing);
                     } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
                         e.printStackTrace();
+                    } finally {
+                        Color.WHITE.set(white);
+                        sb.setColor(oldColor);
                     }
-                } else {
-                    System.out.println(m.group(1));
+                    start_x[0] += gl.width;
+                    tmp[0] = "";
                 }
-                start_x[0] += gl.width;
-                tmp[0] = "";
             }
         }
 
@@ -222,36 +173,18 @@ public class CardDescriptionNoteSymbols
     {
         private static final float CARD_ENERGY_IMG_WIDTH = 16.0f * Settings.scale;
 
-        private static String savedWord = null;
-
         @SpireInsertPatch(
                 locator=Locator.class,
                 localvars={"gl", "word", "lastChar"}
         )
-        public static void Insert(AbstractCard __instance,  @ByRef GlyphLayout[] gl, @ByRef String[] word, StringBuilder lastChar)
+        public static void Insert(AbstractCard __instance,  @ByRef GlyphLayout[] gl, String word, StringBuilder lastChar)
         {
-            if (savedWord != null) {
-                savedWord += word[0];
-                gl[0] = new GlyphLayout(FontHelper.cardDescFont_N, " ");
-                gl[0].width = CARD_ENERGY_IMG_WIDTH;
-                if (lastChar.toString().charAt(0) == '}') {
-                    word[0] = savedWord;
-                    savedWord = null;
-                } else {
-                    savedWord += lastChar.toString();
-                    word[0] = "";
+            if (word.length() > 0 && word.charAt(0) == '[') {
+                AbstractNote note = MelodyManager.getNote(word.trim());
+                if (note != null) {
+                    gl[0] = new GlyphLayout(FontHelper.cardDescFont_N, " ");
+                    gl[0].width = CARD_ENERGY_IMG_WIDTH;
                 }
-            } else if (word[0].length() > 0 && word[0].charAt(0) == '{') {
-                gl[0] = new GlyphLayout(FontHelper.cardDescFont_N, " ");
-                gl[0].width = CARD_ENERGY_IMG_WIDTH;
-                if (word[0].length() > 1 && word[0].charAt(word[0].length()-2) == '}') {
-                    word[0] = "";
-                    lastChar.setLength(0);
-                    return;
-                }
-                savedWord = word[0] + lastChar.toString();
-                word[0] = "";
-                lastChar.setLength(0);
             }
         }
 

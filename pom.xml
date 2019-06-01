@@ -7,7 +7,7 @@
     <name>Bard</name>
     <groupId>com.evacipated.cardcrawl.mod</groupId>
     <artifactId>bard</artifactId>
-    <version>1.2</version>
+    <version>1.4</version>
 
     <properties>
         <ModID>bard</ModID>
@@ -58,6 +58,13 @@
             <scope>system</scope>
             <systemPath>${basedir}/../lib/StSLib.jar</systemPath>
         </dependency>
+        <dependency>
+            <groupId>com.evacipated.cardcrawl.mod</groupId>
+            <artifactId>hubris</artifactId>
+            <version>0.22.0</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/../_ModTheSpire/mods/Hubris.jar</systemPath>
+        </dependency>
     </dependencies>
 
     <build>
@@ -67,7 +74,7 @@
                 <directory>src/main/resources</directory>
                 <filtering>false</filtering>
                 <excludes>
-                    <exclude>bardAssets/localization/**/*.json</exclude>
+                    <exclude>bardAssets/**/*.json</exclude>
                     <exclude>ModTheSpire.json</exclude>
                     <exclude>googly-eye-locations.json</exclude>
                     <exclude>META-INF/bard_version.prop</exclude>
@@ -79,7 +86,7 @@
                 <directory>src/main/resources</directory>
                 <filtering>true</filtering>
                 <includes>
-                    <include>bardAssets/localization/**/*.json</include>
+                    <include>bardAssets/**/*.json</include>
                     <include>ModTheSpire.json</include>
                     <include>googly-eye-locations.json</include>
                     <include>META-INF/bard_version.prop</include>

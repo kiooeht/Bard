@@ -13,6 +13,8 @@ import com.evacipated.cardcrawl.mod.bard.relics.ConductorsBaton;
 import com.evacipated.cardcrawl.mod.bard.relics.CoralOrchestra;
 import com.evacipated.cardcrawl.mod.bard.relics.SelfPlayingFlute;
 import com.evacipated.cardcrawl.mod.bard.relics.StrangeHarp;
+import com.evacipated.cardcrawl.mod.hubris.HubrisMod;
+import com.evacipated.cardcrawl.mod.hubris.relics.*;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.relics.*;
 
@@ -67,16 +69,28 @@ public class BardAttachPoints
                         0
                 )
         );
-        map.put("hubris:DisguiseKit",
-                new AttachPoint(
-                        "hubris:DisguiseKit",
-                        "head_side", 1,
-                        "hubrisAssets/images/relics/disguiseKit.png",
-                        0.6f, 0.6f,
-                        25, 0,
-                        -10
-                )
-        );
+        if (BardMod.hasHubris) {
+            map.put(DisguiseKit.ID,
+                    new AttachPoint(
+                            DisguiseKit.ID,
+                            "head_side", 1,
+                            HubrisMod.assetPath("images/relics/disguiseKit.png"),
+                            0.6f, 0.6f,
+                            25, 0,
+                            -10
+                    )
+            );
+            map.put(SlimyHat.ID,
+                    new AttachPoint(
+                            SlimyHat.ID,
+                            "head_side", 7,
+                            HubrisMod.assetPath("images/relics/slimyHat.png"),
+                            -0.5f, 0.5f,
+                            0, 20,
+                            -15
+                    )
+            );
+        }
         // Waist
         map.put(Lantern.ID,
                 new AttachPoint(
@@ -145,14 +159,36 @@ public class BardAttachPoints
         map.put(BronzeScales.ID,
                 new AttachPoint(
                         BronzeScales.ID,
-                        "shoulder", 1,
+                        "shoulder", 2,
                         "images/relics/bronzeScales.png",
                         -0.6f, 0.6f,
                         -10, 7,
                         50
                 )
         );
+        if (BardMod.hasHubris) {
+            map.put(FunFungus.ID,
+                    new AttachPoint(
+                            FunFungus.ID,
+                            "shoulder", 1,
+                            HubrisMod.assetPath("images/relics/funFungus.png"),
+                            0.7f, 0.7f,
+                            -10, 17,
+                            0
+                    )
+            );
+        }
         // Body
+        map.put(CentennialPuzzle.ID,
+                new AttachPoint(
+                        CentennialPuzzle.ID,
+                        "chest", 1,
+                        "images/relics/centennialPuzzle.png",
+                        -0.6f, 0.6f,
+                        0, -5,
+                        0
+                )
+        );
         map.put(Ectoplasm.ID,
                 new AttachPoint(
                         Ectoplasm.ID,
@@ -166,7 +202,7 @@ public class BardAttachPoints
         map.put(ChemicalX.ID,
                 new AttachPoint(
                         ChemicalX.ID,
-                        "pocket", 2,
+                        "pocket", 3,
                         "images/relics/chemicalX.png",
                         0.6f, 0.6f,
                         -10, -30,
@@ -176,13 +212,25 @@ public class BardAttachPoints
         map.put(Omamori.ID,
                 new AttachPoint(
                         Omamori.ID,
-                        "pocket", 3,
+                        "pocket", 4,
                         "images/relics/omamori.png",
                         -0.4f, 0.4f,
                         45, -15,
                         0
                 )
         );
+        if (BardMod.hasHubris) {
+            map.put(EmptyBottle.ID,
+                    new AttachPoint(
+                            EmptyBottle.ID,
+                            "pocket", 2,
+                            HubrisMod.assetPath("images/relics/emptyBottle.png"),
+                            0.5f, 0.5f,
+                            4, -25,
+                            15
+                    )
+            );
+        }
         // Ground
         map.put(Toolbox.ID,
                 new AttachPoint(
@@ -264,6 +312,48 @@ public class BardAttachPoints
                         0
                 )
         );
+        map.put(BagOfMarbles.ID,
+                new AttachPoint(
+                        BagOfMarbles.ID,
+                        "ground_infront", -4,
+                        "images/relics/marbles.png",
+                        -0.9f, 0.9f,
+                        275, -8,
+                        0
+                )
+        );
+        map.put(Sundial.ID,
+                new AttachPoint(
+                        Sundial.ID,
+                        "ground_behind", -5,
+                        "images/largeRelics/sundial.png",
+                        -0.65f, 0.65f,
+                        -215, 15,
+                        0
+                )
+        );
+        if (BardMod.hasHubris) {
+            map.put(Metronome.ID,
+                    new AttachPoint(
+                            Metronome.ID,
+                            "ground_behind", 6,
+                            HubrisMod.assetPath("images/relics/metronome.png"),
+                            0.8f, 0.8f,
+                            -115, 20,
+                            0
+                    )
+            );
+            map.put(PeanutButter.ID,
+                    new AttachPoint(
+                            PeanutButter.ID,
+                            "ground_infront", -2,
+                            HubrisMod.assetPath("images/relics/peanutButter.png"),
+                            0.9f, 0.9f,
+                            -50, 10,
+                            -20
+                    )
+            );
+        }
         // Bag pipes
         map.put(Anchor.ID,
                 new AttachPoint(
@@ -335,6 +425,16 @@ public class BardAttachPoints
                         25
                 )
         );
+        map.put(Sozu.ID,
+                new AttachPoint(
+                        Sozu.ID,
+                        "bag_pipes_head_behind", 4,
+                        "images/relics/sozu.png",
+                        0.9f, 0.9f,
+                        10, -145,
+                        175
+                )
+        );
         map.put(PenNib.ID,
                 new AttachPoint(
                         PenNib.ID,
@@ -345,6 +445,28 @@ public class BardAttachPoints
                         -80
                 )
         );
+        if (BardMod.hasHubris) {
+            map.put(OldNail.ID,
+                    new AttachPoint(
+                            OldNail.ID,
+                            "bag_pipes_head_behind", 3,
+                            HubrisMod.assetPath("images/relics/oldNail.png"),
+                            1, 1,
+                            -95, 65,
+                            40
+                    )
+            );
+            map.put(TerracottaHorce.ID,
+                    new AttachPoint(
+                            TerracottaHorce.ID,
+                            "bag_pipes_head", 5,
+                            HubrisMod.assetPath("images/relics/terracottaHorce.png"),
+                            1, 1,
+                            150, 14,
+                            6
+                    )
+            );
+        }
         // Float
         map.put(SelfPlayingFlute.ID,
                 new AttachPoint(
@@ -366,6 +488,38 @@ public class BardAttachPoints
                         15
                 )
         );
+        if (BardMod.hasHubris) {
+            map.put(Icosahedron.ID,
+                    new AttachPoint(
+                            Icosahedron.ID,
+                            "float_icosahedron",
+                            HubrisMod.assetPath("images/relics/icosahedron.png"),
+                            0.4f, 0.4f,
+                            0, 0,
+                            0
+                    )
+            );
+            map.put(BlackHole.ID,
+                    new AttachPoint(
+                            BlackHole.ID,
+                            "float_blackhole",
+                            HubrisMod.assetPath("images/relics/blackhole.png"),
+                            1, 1,
+                            0, 0,
+                            0
+                    )
+            );
+            map.put(SphereOfDissonance.ID,
+                    new AttachPoint(
+                            SphereOfDissonance.ID,
+                            "float2",
+                            HubrisMod.assetPath("images/relics/sphereOfDissonance.png"),
+                            0.5f, 0.5f,
+                            0, 0,
+                            0
+                    )
+            );
+        }
     }
 
     public static void attachRelic(Skeleton skeleton, String relicID)

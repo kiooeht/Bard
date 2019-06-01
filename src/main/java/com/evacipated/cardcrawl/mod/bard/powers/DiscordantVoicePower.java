@@ -40,7 +40,7 @@ public class DiscordantVoicePower extends AbstractBardPower implements OnNoteQue
     @Override
     public AbstractNote onNoteQueued(AbstractNote note)
     {
-        if (note instanceof AttackNote || note instanceof DebuffNote) {
+        if (note.equals(AttackNote.get()) || note.equals(DebuffNote.get())) {
             flash();
             AbstractDungeon.actionManager.addToBottom(
                     new DamageRandomEnemyAction(

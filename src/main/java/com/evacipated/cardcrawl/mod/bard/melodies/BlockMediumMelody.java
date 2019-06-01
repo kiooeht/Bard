@@ -19,7 +19,7 @@ public class BlockMediumMelody extends AbstractMelody
     @Override
     protected CustomCard.RegionName getRegionName()
     {
-        return new CustomCard.RegionName("bard/skill/defend");
+        return new CustomCard.RegionName("bard/skill/parry");
     }
 
     @Override

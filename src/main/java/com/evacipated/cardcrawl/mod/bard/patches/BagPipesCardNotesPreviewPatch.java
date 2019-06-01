@@ -128,7 +128,10 @@ public class BagPipesCardNotesPreviewPatch
                 Settings.GOLD_COLOR
         );
 
+        Color white = Color.WHITE.cpy();
+        Color oldColor = sb.getColor();
         for (int i=0; i<notes.size(); ++i) {
+            Color.WHITE.set(notes.get(i).color());
             TipHelper.renderTipEnergy(
                     sb,
                     notes.get(i).getTexture(),
@@ -136,6 +139,8 @@ public class BagPipesCardNotesPreviewPatch
                     y + BODY_OFFSET_Y + NOTE_OFFSET_Y
             );
         }
+        Color.WHITE.set(white);
+        sb.setColor(oldColor);
     }
 
     private static void getConstants()

@@ -19,7 +19,7 @@ public class Defend_Bard extends AbstractBardCard
     public static final String ID = BardMod.makeID("Defend");
     private static final int COST = 1;
     private static final int BLOCK = 5;
-    private static final int UPGRADE_BLOCK = 2;
+    private static final int UPGRADE_BLOCK = 3;
 
     public Defend_Bard()
     {

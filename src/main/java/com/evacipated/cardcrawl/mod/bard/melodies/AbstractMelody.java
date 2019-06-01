@@ -71,6 +71,11 @@ public abstract class AbstractMelody
         return builder.toString();
     }
 
+    public String getID()
+    {
+        return id;
+    }
+
     public String getName()
     {
         return name;

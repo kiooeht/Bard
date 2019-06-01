@@ -18,7 +18,7 @@
     "FLAVOR": "A magical flute, enchanted to play songs on its own.",
     "DESCRIPTIONS": [
       "Replaces ",
-      ".[] NL #y${ModID}:Queued #y${ModID}:Notes are carried over between combats."
+      ".[] NL At the start of each combat, #y${ModID}:Queue #b2 [WildNote] [REMOVE_SPACE]."
     ]
   },
   "${ModID}:StrangeHarp": {
@@ -63,6 +63,15 @@
     "FLAVOR": "This painting depicts a group of people standing on a stage together. They feel oddly familiar to you.",
     "DESCRIPTIONS": [
       "Start each combat with #y${ModID}:Inspiration #b",
+      "."
+    ]
+  },
+  "${ModID}:EchoChamber": {
+    "NAME": "Echo Chamber",
+    "FLAVOR": "",
+    "DESCRIPTIONS": [
+      "At the start of each combat, perform the last #y${ModID}:Melody performed in the previous combat.",
+      " NL Last #y${ModID}:Melody : ",
       "."
     ]
   }

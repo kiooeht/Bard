@@ -1,12 +1,17 @@
 package com.evacipated.cardcrawl.mod.bard.notes;
 
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.evacipated.cardcrawl.mod.bard.BardMod;
+import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
 
 public class DebuffNote extends AbstractNote
 {
+    @SpireEnum(name="BARD_DEBUFF_NOTE_TAG") public static AbstractCard.CardTags TAG;
+
     private static DebuffNote singleton;
 
     public static DebuffNote get()
@@ -15,6 +20,11 @@ public class DebuffNote extends AbstractNote
             singleton = new DebuffNote();
         }
         return singleton;
+    }
+
+    private DebuffNote()
+    {
+        super(Color.valueOf("ce9564"));
     }
 
     @Override
@@ -27,6 +37,12 @@ public class DebuffNote extends AbstractNote
     public String ascii()
     {
         return "D";
+    }
+
+    @Override
+    public AbstractCard.CardTags cardTag()
+    {
+        return TAG;
     }
 
     @Override
