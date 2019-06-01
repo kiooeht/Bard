@@ -1,0 +1,62 @@
+{
+  "${ModID}:AttackUpSmall": {
+    "NAME": "攻击提升",
+    "DESCRIPTION": "获得 1 点 力量 。"
+  },
+  "${ModID}:DefenseUpSmall": {
+    "NAME": "防御提升",
+    "DESCRIPTION": "获得 1 点 敏捷 。"
+  },
+  "${ModID}:DivineProtection": {
+    "NAME": "神圣保护",
+    "DESCRIPTION": "获得 8 点 暂时性生命 。"
+  },
+  "${ModID}:Draw": {
+    "NAME": "抽牌",
+    "DESCRIPTION": "抽 3 张牌。"
+  },
+  "${ModID}:Artifact": {
+    "NAME": "人工制品",
+    "DESCRIPTION": "获得 1 层 人工制品 。"
+  },
+  "${ModID}:WeakenSmall": {
+    "NAME": "虚弱",
+    "DESCRIPTION": "给予所有敌人 1 层 虚弱 。"
+  },
+  "${ModID}:VulnerabilitySmall": {
+    "NAME": "易伤",
+    "DESCRIPTION": "给予所有敌人 1 层 易伤 。"
+  },
+  "${ModID}:InspireSmall": {
+    "NAME": "启迪（小）",
+    "DESCRIPTION": "获得50 ${ModID}:灵感 2 次。"
+  },
+  "${ModID}:InspireLarge": {
+    "NAME": "启迪（大）",
+    "DESCRIPTION": "获得100 ${ModID}:灵感 2 次。"
+  },
+  "${ModID}:DamageSmall": {
+    "NAME": "伤害（小）",
+    "DESCRIPTION": "对所有敌人造成 5 点伤害。"
+  },
+  "${ModID}:DamageMedium": {
+    "NAME": "伤害（中）",
+    "DESCRIPTION": "对所有敌人造成 10 点伤害。"
+  },
+  "${ModID}:DamageLarge": {
+    "NAME": "伤害（大）",
+    "DESCRIPTION": "对所有敌人造成 18 点伤害。"
+  },
+  "${ModID}:BlockSmall": {
+    "NAME": "格挡（小）",
+    "DESCRIPTION": "获得 4 点 格挡 。"
+  },
+  "${ModID}:BlockMedium": {
+    "NAME": "格挡（中）",
+    "DESCRIPTION": "获得 8 点 格挡 。"
+  },
+  "${ModID}:BlockLarge": {
+    "NAME": "格挡（大）",
+    "DESCRIPTION": "获得 15 点 格挡 。"
+  }
+}
