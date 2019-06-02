@@ -1,6 +1,6 @@
 {
   "${ModID}:BagPipes": {
-    "NAME": "威猛风笛",
+    "NAME": "乐笙袋",
     "FLAVOR": "你可靠的工具和武器。",
     "DESCRIPTIONS": [
       "每打出一张牌， #y${ModID}:谱曲 一枚 #y${ModID}:音符 。 #y${ModID}:谱曲 的 #y${ModID}:音符 类型取决于被打出牌的类型。（在卡牌上方提示）"
@@ -15,7 +15,7 @@
   },
   "${ModID}:SelfPlayingFlute": {
     "NAME": "自演长笛",
-    "FLAVOR": "一个神奇的长笛, 他很迷恋自己演奏的音乐。",
+    "FLAVOR": "一个神奇的长笛, 它很迷恋自己演奏的音乐。",
     "DESCRIPTIONS": [
       "替换 ",
       " 。 []  NL 每场战斗开始时， #y${ModID}:谱曲 #b2 枚 [WildNote] [REMOVE_SPACE] 。"
@@ -23,7 +23,7 @@
   },
   "${ModID}:StrangeHarp": {
     "NAME": "奇怪的竖琴",
-    "FLAVOR": "在这个竖琴上播放的每个音色听起来都很怪异。",
+    "FLAVOR": "在这个竖琴上播放的每个音符都听起来很怪异。",
     "DESCRIPTIONS": [
       "每当敌人死亡时, 将它身上所有 #y虚弱 和 #y易伤 转移到随机敌人身上。"
     ]

@@ -8,12 +8,12 @@
     "DESCRIPTION": "获得 !B! 点 格挡 。"
   },
   "${ModID}:Inspire": {
-    "NAME": "启迪",
-    "DESCRIPTION": "获得 !${ModID}:In! ${ModID}:灵感 。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION": "获得 !${ModID}:In! ${ModID}:灵感 。 NL 消耗性 !stslib:ex! 。"
+    "NAME": "激励",
+    "DESCRIPTION": "获得 !${ModID}:In! ${ModID}:激励 。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "获得 !${ModID}:In! ${ModID}:激励 。 NL 消耗性 !stslib:ex! 。"
   },
   "${ModID}:Riposte": {
-    "NAME": "还击",
+    "NAME": "反击",
     "DESCRIPTION": "造成 !D! 点伤害。 NL 获得 !B! 点 格挡 。"
   },
   "${ModID}:HarmoniousVoice": {
@@ -25,7 +25,7 @@
     "DESCRIPTION": "每当你 ${ModID}:谱曲 一枚 [AttackNote] 或 [DebuffNote] ， 对随机一名敌人造成 !M! 点伤害。"
   },
   "${ModID}:HideousLaughter": {
-    "NAME": "讥笑",
+    "NAME": "狂笑术",
     "DESCRIPTION": "给予 !M! 层 易伤 和 !M! 层 虚弱 。"
   },
   "${ModID}:BucklerBash": {
@@ -33,15 +33,15 @@
     "DESCRIPTION": "失去 !M! 点 格挡 。 NL 如果能打出， 造成 !D! 点伤害。"
   },
   "${ModID}:ViciousMockery": {
-    "NAME": "嘲讽",
+    "NAME": "恶毒嘲笑",
     "DESCRIPTION": "造成 !D! 点伤害。 NL 给予 !M! 层 虚弱 。"
   },
   "${ModID}:BestowCurse": {
-    "NAME": "诅咒术",
+    "NAME": "降咒",
     "DESCRIPTION": "敌人在它的回合开始时，失去 !M! 生命。 NL 消耗性 !stslib:ex! 。"
   },
   "${ModID}:FeastOnFear": {
-    "NAME": "恐怖宴会",
+    "NAME": "恐怖宴",
     "DESCRIPTION": "获得 !B! 点 格挡 。 NL 如果敌人身上有 易伤 , 变为获得 !M! 点 暂时性生命 。"
   },
   "${ModID}:Thunderwave": {
@@ -57,7 +57,7 @@
     "DESCRIPTION": "获得 !B! 点 格挡 。 NL 丢弃一张牌。 NL ${ModID}:谱曲 被丢弃牌所属 ${ModID}:音符 。"
   },
   "${ModID}:TinyHut": {
-    "NAME": "庇护小屋",
+    "NAME": "李欧蒙小屋",
     "DESCRIPTION": "获得 !B! 点 格挡 。 NL 每 ${ModID}:谱曲 一枚不同的 ${ModID}:音符 ，抽 !M! 张牌。"
   },
   "${ModID}:Gamble": {
@@ -73,7 +73,7 @@
     ]
   },
   "${ModID}:Parry": {
-    "NAME": "架招",
+    "NAME": "招架",
     "DESCRIPTION": "获得 !B! 点 格挡 。 NL  敏捷 在本牌中发挥 !M! 倍效果。"
   },
   "${ModID}:Balestra": {
@@ -82,7 +82,7 @@
   },
   "${ModID}:Greatness": {
     "NAME": "重大",
-    "DESCRIPTION": "获得 !${ModID}:In! ${ModID}:灵感 。"
+    "DESCRIPTION": "获得 !${ModID}:In! ${ModID}:激励 。"
   },
   "${ModID}:Invisibility": {
     "NAME": "隐形术",
@@ -98,28 +98,28 @@
     "UPGRADE_DESCRIPTION": " 保留 。 NL "
   },
   "${ModID}:Haste": {
-    "NAME": "急速",
+    "NAME": "加速术",
     "DESCRIPTION": "将你的 敏捷 翻倍。 NL 消耗 。",
     "UPGRADE_DESCRIPTION": "将你的 敏捷 翻倍。 NL 消耗性 !stslib:ex! 。"
   },
   "${ModID}:Heroism": {
-    "NAME": "英雄主义",
-    "DESCRIPTION": "获得 !M! 点 暂时性生命 。 NL 获得 !${ModID}:In! ${ModID}:灵感 。"
+    "NAME": "英雄气概",
+    "DESCRIPTION": "获得 !M! 点 暂时性生命 。 NL 获得 !${ModID}:In! ${ModID}:激励 。"
   },
   "${ModID}:GuardPoint": {
-    "NAME": "警备所",
+    "NAME": "防御值",
     "DESCRIPTION": "获得 !B! 点 格挡 。 NL 如果没有 ${ModID}:谱曲 [BlockNote] ，再获得 !B! 点 格挡 。"
   },
   "${ModID}:InspiringSong": {
-    "NAME": "鼓舞之歌",
-    "DESCRIPTION": "每 ${ModID}:谱曲 一枚 [BuffNote] 获得 !${ModID}:In! ${ModID}:灵感 。",
+    "NAME": "激励曲",
+    "DESCRIPTION": "每 ${ModID}:谱曲 一枚 [BuffNote] 获得 !${ModID}:In! ${ModID}:激励 。",
     "EXTENDED_DESCRIPTION": [
       " NL （已${ModID}:谱曲 ",
       " 枚  [BuffNote]  ）"
     ]
   },
   "${ModID}:FaerieFire": {
-    "NAME": "精灵之火",
+    "NAME": "妖火",
     "DESCRIPTION": "给予所有敌人 !M! 层 易伤 。"
   },
   "${ModID}:Shout": {
@@ -127,7 +127,7 @@
     "DESCRIPTION": "造成 !D! 点伤害。 NL 敌人失去 !M! 点 力量 。 NL 在本场战斗中，这张牌降低的 力量 失去减少 1 点。"
   },
   "${ModID}:Silence": {
-    "NAME": "沉默",
+    "NAME": "沉默术",
     "DESCRIPTION": "接下来的 !M! 个回合，敌人不能对你释放 负面效果 。 NL 消耗 。",
     "UPGRADE_DESCRIPTION": "接下来的 !M! 个回合，敌人不能对自己释放 增益效果 或者对你释放 负面效果 。 NL 消耗 。"
   },
@@ -136,12 +136,12 @@
     "DESCRIPTION": "所有敌人失去 !${ModID}:M2! 到 !M! 点 力量 。 NL 消耗 。"
   },
   "${ModID}:PrismaticSpray": {
-    "NAME": "棱镜喷射",
+    "NAME": "虹光喷射",
     "DESCRIPTION": "增加 X 张随机颜色攻击牌到你的手牌。 它们在本回合耗费为 0 。 NL 消耗 。",
     "UPGRADE_DESCRIPTION": "增加 X 张随机颜色攻击牌到你的手牌。 它们在本场战斗耗费为 0 。 NL 消耗 。"
   },
   "${ModID}:LifeDrain": {
-    "NAME": "生命吸取",
+    "NAME": "吸取生命",
     "DESCRIPTION": "造成 !D! 点伤害。 NL 获得一半未被 点 格挡 的伤害的 暂时性生命 。"
   },
   "${ModID}:SixFourTime": {
@@ -152,7 +152,7 @@
     ]
   },
   "${ModID}:MnemonicVestments": {
-    "NAME": "助记背心",
+    "NAME": "助记法衣",
     "DESCRIPTION": " 不能被打出 。 NL 启动: 从牌组中选择一张牌复制到抽牌堆中。 复制品被打出前耗能为 0 。",
     "UPGRADE_DESCRIPTION": " 不能被打出 。 虚无 。 NL 启动: 从牌组中选择一张牌复制到抽牌堆中。 复制品被打出前耗能为 0 。",
     "EXTENDED_DESCRIPTION": [
@@ -161,7 +161,7 @@
   },
   "${ModID}:SplendidForm": {
     "NAME": "壮丽形态",
-    "DESCRIPTION": "在你的回合开始时，获得 !${ModID}:M2! ${ModID}:灵感 。"
+    "DESCRIPTION": "在你的回合开始时，获得 !${ModID}:M2! ${ModID}:激励 。"
   },
   "${ModID}:PowerWordStun": {
     "NAME": "律令震慑",
@@ -172,7 +172,7 @@
     ]
   },
   "${ModID}:Blink": {
-    "NAME": "眨眼",
+    "NAME": "闪现术",
     "DESCRIPTION": "接下来的 !M! 个回合，降低 50% 受到伤害。",
     "UPGRADE_DESCRIPTION": "接下来的 !M! 个回合，降低 50% 受到伤害。"
   },
@@ -189,19 +189,19 @@
     "DESCRIPTION": "对所有敌人造成 !D! 点伤害并给予 !M! 层 虚弱 。 NL 下以回合， 再对所有敌人造成 !${ModID}:M2! 点伤害并给予 !M! 层 虚弱 。"
   },
   "${ModID}:CovetousAura": {
-    "NAME": "贪婪光环",
+    "NAME": "贪婪灵光",
     "DESCRIPTION": "每当敌人获得 力量 时， 你获得等量的 力量 。"
   },
   "${ModID}:EnGarde": {
     "NAME": "预备",
-    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 造成 !D! 点伤害。 NL ${ModID}:灵感 在本牌发挥 !M! 倍效果。"
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 造成 !D! 点伤害。 NL ${ModID}:激励 在本牌发挥 !M! 倍效果。"
   },
   "${ModID}:GlyphOfWarding": {
-    "NAME": "守卫护符",
+    "NAME": "守卫刻文",
     "DESCRIPTION": "每当你获得 点 格挡 或 暂时性生命 ， 对所有敌人造成 !M! 点伤害。"
   },
   "${ModID}:Wish": {
-    "NAME": "愿望",
+    "NAME": "祈愿术",
     "DESCRIPTION": " 不能被打出 。 NL 虚无 。",
     "UPGRADE_DESCRIPTION": "选择任何非稀有的牌。 本场游戏将替换此牌。 NL 抹除 。",
     "EXTENDED_DESCRIPTION": [
@@ -221,16 +221,16 @@
     "DESCRIPTION": "获得 !B! 点 格挡 。"
   },
   "${ModID}:MantleOfInspiration": {
-    "NAME": "启迪斗篷",
-    "DESCRIPTION": "所有从牌中获得的 ${ModID}:灵感 增幅提升 !${ModID}:M2! 。"
+    "NAME": "激励披风",
+    "DESCRIPTION": "所有从牌中获得的 ${ModID}:激励 增幅提升 !${ModID}:M2! 。"
   },
   "${ModID}:LocateObject": {
-    "NAME": "指定",
+    "NAME": "物件定位术",
     "DESCRIPTION": "将抽牌堆的 !M! 张牌加入你的手牌。 NL ${ModID}:谱曲 一枚 ${ModID}:休止符 。 NL 消耗 。",
     "UPGRADE_DESCRIPTION": "将抽牌堆的 !M! 张牌加入你的手牌。 NL ${ModID}:谱曲 一枚 ${ModID}:休止符。 NL 消耗性 !stslib:ex! 。"
   },
   "${ModID}:GreaterMagicWeapon": {
-    "NAME": "大法器",
+    "NAME": "高等法器",
     "DESCRIPTION": "每回合第一张被打出的 攻击牌 给予 !M! 层 易伤 。",
     "UPGRADE_DESCRIPTION": " 固有 。 NL "
   },
@@ -243,11 +243,11 @@
     ]
   },
   "${ModID}:PhantasmalForce": {
-    "NAME": "魅影力量",
+    "NAME": "魅影之力",
     "DESCRIPTION": "获得 !M! 点 暂时性生命 。 NL 如果敌人身上有 虚弱 ， 造成你当前 暂时性生命 值的伤害。"
   },
   "${ModID}:CuttingWords": {
-    "NAME": "刺耳",
+    "NAME": "语出惊人",
     "DESCRIPTION": "你每 ${ModID}:谱曲 一枚 [DebuffNote] ，给予所有敌人 !M! 层 虚弱 和 !M! 层 易伤 。",
     "EXTENDED_DESCRIPTION": [
       " NL （已${ModID}:谱曲 ",
@@ -301,7 +301,7 @@
     "DESCRIPTION": "获得 !B! 点 格挡 。 NL 造成 !D! 点伤害。 NL ${ModID}:谱曲 !M! 枚 ${ModID}:休止符 。"
   },
   "${ModID}:Rest": {
-    "NAME": "休止",
+    "NAME": "休憩",
     "DESCRIPTION": "移除 乐谱 中所有 ${ModID}:休止符 。 NL 每移除一枚 ${ModID}:休止符 回复 !M! 生命。 NL 消耗 。",
     "EXTENDED_DESCRIPTION": [
       " NL （已 ${ModID}:谱曲 ",
@@ -314,8 +314,8 @@
     "UPGRADE_DESCRIPTION": "你的下 !M! 段 ${ModID}:旋律 将演奏两次。"
   },
   "${ModID}:MagnumOpus": {
-    "NAME": "代表作",
-    "DESCRIPTION": "获得 !${ModID}:In! ${ModID}:灵感 。 NL 这张牌在本局游戏中的 ${ModID}:灵感 永久性增加 !${ModID}:M2! 。 NL 消耗 。"
+    "NAME": "杰作",
+    "DESCRIPTION": "获得 !${ModID}:In! ${ModID}:激励 。 NL 这张牌在本局游戏中的 ${ModID}:激励 永久性增加 !${ModID}:M2! 。 NL 消耗 。"
   },
   "${ModID}:Sonata": {
     "NAME": "奏鸣曲",
@@ -331,7 +331,7 @@
     ]
   },
   "${ModID}:FalseLife": {
-    "NAME": "幻命",
+    "NAME": "虚假生命",
     "DESCRIPTION": "获得 !M! 点 暂时性生命 。 NL 每 ${ModID}:谱曲 一枚 [BlockNote] ，额外获得 !${ModID}:M2! 点 暂时性生命 。",
     "EXTENDED_DESCRIPTION": [
       " NL （已 ${ModID}:谱曲 ",
@@ -347,11 +347,11 @@
   },
   "${ModID}:LingeringPerformance": {
     "NAME": "余音袅袅",
-    "DESCRIPTION": "当前拥有的 ${ModID}:灵感 可以额外影响 !M! 张牌。 NL 消耗性 !stslib:ex! 。"
+    "DESCRIPTION": "当前拥有的 ${ModID}:激励 可以额外影响 !M! 张牌。 NL 消耗性 !stslib:ex! 。"
   },
   "${ModID}:Focused": {
     "NAME": "聚精会神",
-    "DESCRIPTION": "获得 X00%s ${ModID}:灵感 。",
+    "DESCRIPTION": "获得 X00%s ${ModID}:激励 。",
     "UPGRADE_DESCRIPTION": " NL 回馈 !stslib:refund! 。"
   },
   "${ModID}:Rhapsody": {

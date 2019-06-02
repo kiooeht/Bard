@@ -1,6 +1,6 @@
 {
   "${ModID}:Inspiration": {
-    "NAME": "灵感",
+    "NAME": "激励",
     "DESCRIPTIONS": [
       "下一",
       "下 #b",
@@ -33,7 +33,7 @@
     ]
   },
   "${ModID}:DeEnergized": {
-    "NAME": "断电",
+    "NAME": "失能",
     "DESCRIPTIONS": [
       "下回合失去 #b",
       " [E] 。",
@@ -42,7 +42,7 @@
     ]
   },
   "${ModID}:SilencedDebuffs": {
-    "NAME": "沉默-负面",
+    "NAME": "沉默术-负面",
     "DESCRIPTIONS": [
       "你不能给敌人释放负面效果 #b",
       " 接下来的 #b",
@@ -51,7 +51,7 @@
     ]
   },
   "${ModID}:SilencedBuffs": {
-    "NAME": "沉默-增益",
+    "NAME": "沉默术-增益",
     "DESCRIPTIONS": [
       "你不能给你自己释放增益效果 #b",
       "  接下来的 #b",
@@ -69,7 +69,7 @@
     ]
   },
   "${ModID}:Blink": {
-    "NAME": "眨眼",
+    "NAME": "闪现术",
     "DESCRIPTIONS": [
       "接下来的 #b",
       " 个回合，减少 #b50% 伤害。",
@@ -91,13 +91,13 @@
     ]
   },
   "${ModID}:CovetousAura": {
-    "NAME": "贪婪光环",
+    "NAME": "贪婪灵光",
     "DESCRIPTIONS": [
       "每当敌人获得 #y力量 时, 你获得等量的 #y力量 。"
     ]
   },
   "${ModID}:GlyphOfWarding": {
-    "NAME": "守护护符",
+    "NAME": "守卫刻文",
     "DESCRIPTIONS": [
       "当你失去 #y格挡 或者 #y暂时性生命 时, 对所有敌人造成 #b",
       " 点伤害。",
@@ -106,14 +106,14 @@
     ]
   },
   "${ModID}:MantleOfInspiration": {
-    "NAME": "启迪斗篷",
+    "NAME": "激励披风",
     "DESCRIPTIONS": [
       "所有从牌中获得的 #y灵感 提高 #b",
       " 。"
     ]
   },
   "${ModID}:GreaterMagicWeapon": {
-    "NAME": "大法器",
+    "NAME": "高等法器",
     "DESCRIPTIONS": [
       "每回合第一张打出的 #y攻击牌 同时给予 #b",
       " 层 #y易伤 。"
