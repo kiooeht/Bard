@@ -7,6 +7,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.graphics.glutils.ShaderProgram;
 import com.evacipated.cardcrawl.mod.bard.cards.variables.InspirationVariable;
 import com.evacipated.cardcrawl.mod.bard.cards.variables.MagicNumber2;
 import com.evacipated.cardcrawl.mod.bard.characters.Bard;
@@ -70,6 +71,8 @@ public class BardMod implements
     public static final String NAME;
 
     public static final Color COLOR = CardHelper.getColor(65, 105, 225);
+
+    public static ShaderProgram colorTintShader;
 
     public static AssetLoader assets = new AssetLoader();
     public static TextureAtlas noteAtlas;
@@ -175,6 +178,11 @@ public class BardMod implements
     public void receivePostInitialize()
     {
         prefs = SaveHelper.getPrefs("BardPrefs");
+
+        colorTintShader = new ShaderProgram(
+                Gdx.files.internal(BardMod.assetPath("shaders/colorTint/vertexShader.vs")),
+                Gdx.files.internal(BardMod.assetPath("shaders/colorTint/fragShader.fs"))
+        );
 
         ModPanel settingsPanel = new ModPanel();
         settingsPanel.addUIElement(new ModLabel(

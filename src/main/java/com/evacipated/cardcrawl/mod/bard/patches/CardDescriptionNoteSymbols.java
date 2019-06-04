@@ -5,8 +5,10 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.graphics.glutils.ShaderProgram;
 import com.badlogic.gdx.math.Affine2;
 import com.badlogic.gdx.math.MathUtils;
+import com.evacipated.cardcrawl.mod.bard.BardMod;
 import com.evacipated.cardcrawl.mod.bard.helpers.MelodyManager;
 import com.evacipated.cardcrawl.mod.bard.notes.AbstractNote;
 import com.evacipated.cardcrawl.modthespire.lib.*;
@@ -131,21 +133,21 @@ public class CardDescriptionNoteSymbols
                 AbstractNote note = MelodyManager.getNote(key);
                 if (note != null) {
                     gl.width = card_energy_w * drawScale;
-                    Color white = Color.WHITE.cpy();
-                    Color oldColor = sb.getColor();
+                    ShaderProgram oldShader = sb.getShader();
+                    sb.setShader(BardMod.colorTintShader);
                     try {
                         Method renderSmallEnergy = SingleCardViewPopup.class.getDeclaredMethod("renderSmallEnergy", SpriteBatch.class, TextureAtlas.AtlasRegion.class, float.class, float.class);
                         renderSmallEnergy.setAccessible(true);
 
-                        Color.WHITE.set(note.color());
+                        BardMod.colorTintShader.setUniformf("tint", note.color());
                         renderSmallEnergy.invoke(__instance, sb, note.getTexture(),
                                 (start_x[0] - current_x) / Settings.scale / drawScale,
                                 -86.0f - ((card.description.size() - 4.0f) / 2.0f - i + 1.0f) * spacing);
+                        sb.flush();
                     } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
                         e.printStackTrace();
                     } finally {
-                        Color.WHITE.set(white);
-                        sb.setColor(oldColor);
+                        sb.setShader(oldShader);
                     }
                     start_x[0] += gl.width;
                     tmp[0] = "";
