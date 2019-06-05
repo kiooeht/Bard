@@ -4,7 +4,9 @@ import com.evacipated.cardcrawl.mod.bard.BardMod;
 import com.evacipated.cardcrawl.mod.bard.characters.Bard;
 import com.evacipated.cardcrawl.mod.bard.notes.AbstractNote;
 import com.evacipated.cardcrawl.mod.bard.notes.DebuffNote;
+import com.evacipated.cardcrawl.mod.bard.vfx.combat.FaerieFireEffect;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -41,6 +43,7 @@ public class FaerieFire extends AbstractBardCard
     @Override
     public void use(AbstractPlayer p, AbstractMonster m)
     {
+        addToBottom(new VFXAction(new FaerieFireEffect(), 0.3f));
         for (AbstractMonster mo : AbstractDungeon.getMonsters().monsters) {
             addToBottom(new ApplyPowerAction(mo, p, new VulnerablePower(mo, magicNumber, false), magicNumber, true, AbstractGameAction.AttackEffect.NONE));
         }
