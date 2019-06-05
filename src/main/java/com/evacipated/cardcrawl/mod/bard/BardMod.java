@@ -307,40 +307,60 @@ public class BardMod implements
         }
     }
 
-    private static String makeLocPath(String filename)
+    private static String makeLocPath(Settings.GameLanguage language, String filename)
     {
         String ret = "localization/";
-        switch (Settings.language) {
+        switch (language) {
+            case ZHS:
+                ret += "zhs/";
+                break;
             default:
                 ret += "eng/";
+                break;
         }
         return assetPath(ret + filename + ".json");
+    }
+
+    private void loadLocFiles(Settings.GameLanguage language)
+    {
+        MelodyManager.loadMelodyStrings(makeLocPath(language, "MelodyStrings"));
+        BaseMod.loadCustomStringsFile(CardStrings.class, makeLocPath(language, "CardStrings"));
+        BaseMod.loadCustomStringsFile(RelicStrings.class, makeLocPath(language, "RelicStrings"));
+        BaseMod.loadCustomStringsFile(PotionStrings.class, makeLocPath(language, "PotionStrings"));
+        BaseMod.loadCustomStringsFile(PowerStrings.class, makeLocPath(language, "PowerStrings"));
+        BaseMod.loadCustomStringsFile(UIStrings.class, makeLocPath(language, "UIStrings"));
+        BaseMod.loadCustomStringsFile(CharacterStrings.class, makeLocPath(language, "CharacterStrings"));
+        BaseMod.loadCustomStringsFile(EventStrings.class, makeLocPath(language, "EventStrings"));
     }
 
     @Override
     public void receiveEditStrings()
     {
-        MelodyManager.loadMelodyStrings(makeLocPath("MelodyStrings"));
-        BaseMod.loadCustomStringsFile(CardStrings.class, makeLocPath("CardStrings"));
-        BaseMod.loadCustomStringsFile(RelicStrings.class, makeLocPath("RelicStrings"));
-        BaseMod.loadCustomStringsFile(PotionStrings.class, makeLocPath("PotionStrings"));
-        BaseMod.loadCustomStringsFile(PowerStrings.class, makeLocPath("PowerStrings"));
-        BaseMod.loadCustomStringsFile(UIStrings.class, makeLocPath("UIStrings"));
-        BaseMod.loadCustomStringsFile(CharacterStrings.class, makeLocPath("CharacterStrings"));
-        BaseMod.loadCustomStringsFile(EventStrings.class, makeLocPath("EventStrings"));
+        loadLocFiles(Settings.GameLanguage.ENG);
+        if (Settings.language != Settings.GameLanguage.ENG) {
+            loadLocFiles(Settings.language);
+        }
     }
 
-    @Override
-    public void receiveEditKeywords()
+    private void loadLocKeywords(Settings.GameLanguage language)
     {
         Gson gson = new Gson();
-        String json = Gdx.files.internal(makeLocPath("Keywords")).readString(String.valueOf(StandardCharsets.UTF_8));
+        String json = Gdx.files.internal(makeLocPath(language, "Keywords")).readString(String.valueOf(StandardCharsets.UTF_8));
         Keyword[] keywords = gson.fromJson(json, Keyword[].class);
 
         if (keywords != null) {
             for (Keyword keyword : keywords) {
                 BaseMod.addKeyword(ID, keyword.PROPER_NAME, keyword.NAMES, keyword.DESCRIPTION);
             }
+        }
+    }
+
+    @Override
+    public void receiveEditKeywords()
+    {
+        loadLocKeywords(Settings.GameLanguage.ENG);
+        if (Settings.language != Settings.GameLanguage.ENG) {
+            loadLocKeywords(Settings.language);
         }
     }
 
