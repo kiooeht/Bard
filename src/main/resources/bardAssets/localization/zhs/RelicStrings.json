@@ -1,0 +1,78 @@
+{
+  "${ModID}:BagPipes": {
+    "NAME": "乐笙袋",
+    "FLAVOR": "你可靠的工具和武器。",
+    "DESCRIPTIONS": [
+      "每打出一张牌， #y${ModID}:谱曲 一枚 #y${ModID}:音符 。 #y${ModID}:谱曲 的 #y${ModID}:音符 类型取决于被打出牌的类型。（在卡牌上方提示）"
+    ]
+  },
+  "${ModID}:PitchPipe": {
+    "NAME": "调音器",
+    "FLAVOR": "保持协调。",
+    "DESCRIPTIONS": [
+      "在每次战斗开始时, #y${ModID}:谱曲 一枚 [BuffNote] [REMOVE_SPACE] 。"
+    ]
+  },
+  "${ModID}:SelfPlayingFlute": {
+    "NAME": "自演长笛",
+    "FLAVOR": "一个神奇的长笛, 它很迷恋自己演奏的音乐。",
+    "DESCRIPTIONS": [
+      "替换 ",
+      " 。 []  NL 每场战斗开始时， #y${ModID}:谱曲 #b2 枚 [WildNote] [REMOVE_SPACE] 。"
+    ]
+  },
+  "${ModID}:StrangeHarp": {
+    "NAME": "奇怪的竖琴",
+    "FLAVOR": "在这个竖琴上播放的每个音符都听起来很怪异。",
+    "DESCRIPTIONS": [
+      "每当敌人死亡时, 将它身上所有 #y虚弱 和 #y易伤 转移到随机敌人身上。"
+    ]
+  },
+  "${ModID}:CoralOrchestra": {
+    "NAME": "珊瑚乐团",
+    "FLAVOR": "",
+    "DESCRIPTIONS": [
+      "每 #b",
+      " 枚 #y${ModID}:音符 被演奏两次。"
+    ]
+  },
+  "${ModID}:DeepVero": {
+    "NAME": "丝瓜笛",
+    "FLAVOR": "",
+    "DESCRIPTIONS": [
+      "每回合获得 [E] 。 每回合结束清空 #y乐谱 。"
+    ]
+  },
+  "${ModID}:ConductorsBaton": {
+    "NAME": "指挥棒",
+    "FLAVOR": "音乐改善之前会一直被挥舞。",
+    "DESCRIPTIONS": [
+      "你的 #y乐谱 可以额外容纳 #b",
+      " 枚 #y${ModID}:音符 。"
+    ]
+  },
+  "${ModID}:MagicTuningFork": {
+    "NAME": "魔术音叉",
+    "FLAVOR": "你过去生活的纪念品。 带有不断变化的音色的铃声。",
+    "DESCRIPTIONS": [
+      "在你的回合开始时, #y${ModID}:谱曲 一枚 [WildNote] [REMOVE_SPACE] 。"
+    ]
+  },
+  "${ModID}:OilPainting": {
+    "NAME": "油画",
+    "FLAVOR": "这幅画描绘了一群人站在一起的舞台上。 他们对你很熟悉。",
+    "DESCRIPTIONS": [
+      "每场战斗开始获得 #b",
+      " #y${ModID}:灵感 。"
+    ]
+  },
+  "${ModID}:EchoChamber": {
+    "NAME": "回音室",
+    "FLAVOR": "",
+    "DESCRIPTIONS": [
+      "每场战斗开始时，#y${ModID}:${ModID}:演奏 上一场战斗最后演奏的 #y旋律 。",
+      " NL 最后的 #y${ModID}:旋律 ： ",
+      "."
+    ]
+  }
+}

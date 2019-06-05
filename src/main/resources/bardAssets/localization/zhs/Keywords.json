@@ -1,0 +1,35 @@
+[
+  {
+    "NAMES": [
+      "激励"
+    ],
+    "DESCRIPTION": " 灵感将会按百分比提升下一张被打出的牌的 #y伤害 和 #y格挡 。 #b能够叠加 。"
+  },
+  {
+    "NAMES": [
+      "音符"
+    ],
+    "DESCRIPTION": "[AttackNote] [BlockNote] [BuffNote] [DebuffNote]"
+  },
+  {
+    "NAMES": [
+      "乐谱",
+      "高音谱号"
+    ],
+    "DESCRIPTION": " 新的 #y音符 将会排在 #y乐谱 最右边。 如果你的 #y乐谱 满了，移除最左边的 #y音符 以腾出位置。"
+  },
+  {
+    "NAMES": [
+      "旋律",
+      "旋律"
+    ],
+    "DESCRIPTION": "#y音色 的顺序。可以组合出一个有益效果。"
+  },
+  {
+    "NAMES": [
+      "休止符",
+      "休止符"
+    ],
+    "DESCRIPTION": "休止符 ( [RestNote] ) 可以像 #y音符 一样 #y谱曲 , 但不会拥有 #y音符 的效果。"
+  }
+]

@@ -1,0 +1,9 @@
+{
+  "${ModID}:InspiredBrew": {
+    "NAME": "激励特酿",
+    "DESCRIPTIONS": [
+      "获得 #b",
+      " #y激励 。"
+    ]
+  }
+}
