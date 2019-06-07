@@ -42,9 +42,9 @@ public class Strike_Bard extends AbstractBardCard
     public void use(AbstractPlayer p, AbstractMonster m)
     {
         if (Settings.isDebug) {
-            addToBottom(new DamageAction(m, new DamageInfo(p, 150, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+            addToBottom(new DamageAction(m, new DamageInfo(p, 150, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
         } else {
-            addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+            addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
         }
     }
 
