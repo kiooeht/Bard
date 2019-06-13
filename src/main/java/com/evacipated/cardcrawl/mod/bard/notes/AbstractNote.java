@@ -16,6 +16,10 @@ public abstract class AbstractNote
         this.color = color;
     }
 
+    public String cardCode()
+    {
+        return "[" + name() + "Note]";
+    }
     public abstract String name();
     public abstract String ascii();
     public abstract AbstractCard.CardTags cardTag();
@@ -78,7 +82,7 @@ public abstract class AbstractNote
 
     public AbstractCard makeChoiceCard()
     {
-        return new NoteCard(name(), "[" + name() + "Note]", this, AbstractCard.CardType.POWER);
+        return new NoteCard(name(), cardCode(), this, AbstractCard.CardType.POWER);
     }
 
     public boolean isNoteType(Class<? extends AbstractNote> type)

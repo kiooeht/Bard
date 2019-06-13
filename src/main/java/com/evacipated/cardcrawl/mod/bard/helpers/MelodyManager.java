@@ -29,7 +29,7 @@ public class MelodyManager
     {
         allNotes.add(note);
         notes.put(note.name() + " Note", note);
-        notes.put("[" + note.name() + "Note]", note);
+        notes.put(note.cardCode(), note);
         noteTags.put(note.cardTag(), note);
     }
 
