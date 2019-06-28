@@ -1,0 +1,35 @@
+{
+  "${ModID}:Perform": {
+    "TEXT": [
+      "乐谱",
+      "最多可容纳 #b",
+      " 枚 #y音符 。 NL 点击则会根据 #y乐谱 演奏出一段 #y旋律 。 演奏 #y旋律 将会消耗 #y音符 。",
+      "切换旋律面板",
+      "旋律",
+      "+%d ",
+      "乐谱太短了",
+      "延长你的乐谱以能演奏更多的 #y旋律 。"
+    ]
+  },
+  "${ModID}:PerformAllMelodiesAction": {
+    "TEXT": [
+      "演奏这段旋律？",
+      "演奏所有旋律？"
+    ]
+  },
+  "${ModID}:SelectMelodyAction": {
+    "TEXT": [
+      "选择一段旋律演奏"
+    ]
+  },
+  "${ModID}:MnemonicVestmentsAction": {
+    "TEXT": [
+      "选择一张牌复制 "
+    ]
+  },
+  "${ModID}:WishAction": {
+    "TEXT": [
+      "一道许愿术"
+    ]
+  }
+}

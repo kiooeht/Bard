@@ -19,7 +19,7 @@ public class PrismaticSpray extends AbstractBardCard
 
     public PrismaticSpray()
     {
-        super(ID, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.UNCOMMON, CardTarget.ALL);
+        super(ID, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.UNCOMMON, CardTarget.NONE);
 
         exhaust = true;
     }

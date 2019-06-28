@@ -52,6 +52,7 @@ public class SelfPlayingFlute extends AbstractBardRelic
     public void atPreBattle()
     {
         addToBottom(new QueueNoteAction(WildCardNote.get()));
+        addToBottom(new QueueNoteAction(WildCardNote.get()));
     }
 
     @Override

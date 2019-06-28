@@ -3,6 +3,7 @@ package com.evacipated.cardcrawl.mod.bard.patches;
 import basemod.patches.com.megacrit.cardcrawl.helpers.TipHelper.FakeKeywords;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.glutils.ShaderProgram;
 import com.evacipated.cardcrawl.mod.bard.BardMod;
 import com.evacipated.cardcrawl.mod.bard.cards.AbstractBardCard;
 import com.evacipated.cardcrawl.mod.bard.notes.AbstractNote;
@@ -128,19 +129,19 @@ public class BagPipesCardNotesPreviewPatch
                 Settings.GOLD_COLOR
         );
 
-        Color white = Color.WHITE.cpy();
-        Color oldColor = sb.getColor();
+        ShaderProgram oldShader = sb.getShader();
+        sb.setShader(BardMod.colorTintShader);
         for (int i=0; i<notes.size(); ++i) {
-            Color.WHITE.set(notes.get(i).color());
+            BardMod.colorTintShader.setUniformf("tint", notes.get(i).color());
             TipHelper.renderTipEnergy(
                     sb,
                     notes.get(i).getTexture(),
                     x + TEXT_OFFSET_X + (i * (notes.get(i).getTexture().getRegionWidth() + 8) * Settings.scale),
                     y + BODY_OFFSET_Y + NOTE_OFFSET_Y
             );
+            sb.flush();
         }
-        Color.WHITE.set(white);
-        sb.setColor(oldColor);
+        sb.setShader(oldShader);
     }
 
     private static void getConstants()

@@ -4,9 +4,11 @@ import com.evacipated.cardcrawl.mod.bard.BardMod;
 import com.evacipated.cardcrawl.mod.bard.characters.Bard;
 import com.evacipated.cardcrawl.mod.bard.notes.AbstractNote;
 import com.evacipated.cardcrawl.mod.bard.notes.BuffNote;
+import com.evacipated.cardcrawl.mod.bard.vfx.combat.PlayerFadeEffect;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.DrawCardNextTurnPower;
 import com.megacrit.cardcrawl.powers.IntangiblePlayerPower;
@@ -45,6 +47,7 @@ public class Invisibility extends AbstractBardCard
     {
         addToBottom(new ApplyPowerAction(p, p, new IntangiblePlayerPower(p, magicNumber2), magicNumber2));
         addToBottom(new ApplyPowerAction(p, p, new DrawCardNextTurnPower(p, magicNumber), magicNumber));
+        AbstractDungeon.effectsQueue.add(new PlayerFadeEffect(0.5f, 0.5f, 0.5f));
     }
 
     @Override

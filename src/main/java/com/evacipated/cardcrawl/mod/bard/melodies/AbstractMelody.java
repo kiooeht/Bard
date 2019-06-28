@@ -102,7 +102,7 @@ public abstract class AbstractMelody
     {
         StringBuilder builder = new StringBuilder();
         for (AbstractNote note : notes) {
-            builder.append("[").append(note.name()).append("Note] ");
+            builder.append(note.cardCode()).append(" ");
         }
         return builder.toString();
     }

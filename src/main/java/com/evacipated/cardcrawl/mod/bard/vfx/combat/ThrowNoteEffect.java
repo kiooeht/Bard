@@ -67,4 +67,9 @@ public class ThrowNoteEffect extends AbstractGameEffect
     {
 
     }
+
+    public float getStaggerTimer()
+    {
+        return staggerTimer;
+    }
 }

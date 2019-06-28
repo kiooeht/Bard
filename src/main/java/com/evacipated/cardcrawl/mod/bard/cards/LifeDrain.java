@@ -5,7 +5,9 @@ import com.evacipated.cardcrawl.mod.bard.actions.unique.LifeDrainAction;
 import com.evacipated.cardcrawl.mod.bard.characters.Bard;
 import com.evacipated.cardcrawl.mod.bard.notes.AbstractNote;
 import com.evacipated.cardcrawl.mod.bard.notes.AttackNote;
+import com.evacipated.cardcrawl.mod.bard.vfx.combat.LifeDrainEffect;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -36,7 +38,8 @@ public class LifeDrain extends AbstractBardCard
     @Override
     public void use(AbstractPlayer p, AbstractMonster m)
     {
-        addToBottom(new LifeDrainAction(m, p, damage, damageTypeForTurn, AbstractGameAction.AttackEffect.POISON));
+        addToBottom(new VFXAction(new LifeDrainEffect(m.hb.cX, m.hb.cY, p.hb.cX, p.hb.cY), 0.5f));
+        addToBottom(new LifeDrainAction(m, p, damage, damageTypeForTurn, AbstractGameAction.AttackEffect.NONE));
     }
 
     @Override

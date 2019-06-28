@@ -1,0 +1,163 @@
+{
+  "${ModID}:Inspiration": {
+    "NAME": "激励",
+    "DESCRIPTIONS": [
+      "下一",
+      "下 #b",
+      " 张打出的牌的",
+      " 张打出的牌的",
+      " #y伤害 和 #y格挡 提升 #b",
+      "%。"
+    ]
+  },
+  "${ModID}:HarmoniousVoice": {
+    "NAME": "协和音程",
+    "DESCRIPTIONS": [
+      "当你谱曲 一枚 [BlockNote] 或者 [BuffNote] ， 获得 #b",
+      " #y暂时性生命 。"
+    ]
+  },
+  "${ModID}:DiscordantVoice": {
+    "NAME": "不协和音",
+    "DESCRIPTIONS": [
+      "当你谱曲 一枚 [AttackNote] 或者 [DebuffNote] ， 随机对敌人造成 #b",
+      " 点伤害。"
+    ]
+  },
+  "${ModID}:Cursed": {
+    "NAME": "诅咒",
+    "DESCRIPTIONS": [
+      "在你的回合开始时， 失去 #b",
+      "在它的回合开始时， 失去 #b",
+      " 生命。"
+    ]
+  },
+  "${ModID}:DeEnergized": {
+    "NAME": "失能",
+    "DESCRIPTIONS": [
+      "下回合失去 #b",
+      " [E] 。",
+      " [E] 。",
+      " - 译者注: - The above line is for plural if needed to distinguish from singular。"
+    ]
+  },
+  "${ModID}:SilencedDebuffs": {
+    "NAME": "沉默术-负面",
+    "DESCRIPTIONS": [
+      "你不能给敌人释放负面效果 #b",
+      " 接下来的 #b",
+      " 个回合，不能给自己释放负面效果 。",
+      " 个回合，不能给自己释放负面效果 。"
+    ]
+  },
+  "${ModID}:SilencedBuffs": {
+    "NAME": "沉默术-增益",
+    "DESCRIPTIONS": [
+      "你不能给你自己释放增益效果 #b",
+      "  接下来的 #b",
+      " 个回合，不能给它自己释放增益效果",
+      " 个回合，不能给它自己释放增益效果"
+    ]
+  },
+  "${ModID}:SplendidForm": {
+    "NAME": "壮丽形态",
+    "DESCRIPTIONS": [
+      "在你的回合开始时, 获得 #y灵感 #b",
+      "在你的回合开始时, 获得 #b",
+      " #y灵感 #b",
+      "。"
+    ]
+  },
+  "${ModID}:Blink": {
+    "NAME": "闪现术",
+    "DESCRIPTIONS": [
+      "接下来的 #b",
+      " 个回合，减少 #b50% 伤害。",
+      " 个回合，减少 #b50% 伤害。"
+    ]
+  },
+  "${ModID}:LingeringEcho": {
+    "NAME": "萦绕回音",
+    "DESCRIPTIONS": [
+      "本回合，你打出的下一张牌保留在手牌中。",
+      "本回合，你打出的下 #b",
+      " 张牌保留在手牌中。"
+    ]
+  },
+  "${ModID}:ReverseGravity": {
+    "NAME": "反重力",
+    "DESCRIPTIONS": [
+      "下一回合的开始时, 对所有敌人造成 #b%1$s 点伤害并给予 #b%2$s 层 #y虚弱 。"
+    ]
+  },
+  "${ModID}:CovetousAura": {
+    "NAME": "贪婪灵光",
+    "DESCRIPTIONS": [
+      "每当敌人获得 #y力量 时, 你获得等量的 #y力量 。"
+    ]
+  },
+  "${ModID}:GlyphOfWarding": {
+    "NAME": "守卫刻文",
+    "DESCRIPTIONS": [
+      "当你失去 #y格挡 或者 #y暂时性生命 时, 对所有敌人造成 #b",
+      " 点伤害。",
+      "当它失去 #y格挡 或者 #y暂时性生命 时, 获得 #b",
+      " 点伤害。"
+    ]
+  },
+  "${ModID}:MantleOfInspiration": {
+    "NAME": "激励披风",
+    "DESCRIPTIONS": [
+      "所有从牌中获得的 #y灵感 提高 #b",
+      " 。"
+    ]
+  },
+  "${ModID}:GreaterMagicWeapon": {
+    "NAME": "高等法器",
+    "DESCRIPTIONS": [
+      "每回合第一张打出的 #y攻击牌 同时给予 #b",
+      " 层 #y易伤 。"
+    ]
+  },
+  "${ModID}:TwoAndFour": {
+    "NAME": "2 和 4",
+    "DESCRIPTIONS": [
+      "在你的回合开始时，选择一枚 #y音符谱曲。",
+      "在你的回合开始时，选择 #b",
+      " 枚 #y音符谱曲。"
+    ]
+  },
+  "${ModID}:Improvisation": {
+    "NAME": "即兴",
+    "DESCRIPTIONS": [
+      "如果在本回合再谱曲 #b",
+      " 枚以上 #y音符 ，",
+      " 枚以上 #y音符 ，",
+      " 则 #y演奏 任意的 #b",
+      " 段 #y旋律 。",
+      " 段 #y旋律 。",
+      " NL 在你回合结束时, 清空 #y乐谱 。"
+    ]
+  },
+  "${ModID}:DeathMetal": {
+    "NAME": "死亡金属",
+    "DESCRIPTIONS": [
+      "你不能继续谱曲 #y音符 。 NL 每当你谱曲一枚 #y音符 , 将对所有敌人造成 #b",
+      " 点伤害。"
+    ]
+  },
+  "${ModID}:Encore": {
+    "NAME": "返场",
+    "DESCRIPTIONS": [
+      "下一段 #y旋律 将被演奏两次。",
+      "下一段 ",
+      " #y旋律 将被演奏两次。"
+    ]
+  },
+  "${ModID}:Sonata": {
+    "NAME": "奏鸣曲",
+    "DESCRIPTIONS": [
+      "你可以演奏 #y乐谱 中所有的 #y旋律 。"
+    ]
+  }
+}
