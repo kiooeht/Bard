@@ -95,7 +95,7 @@ public class CardDescriptionNoteSymbolsCN
             if (word[0].length() > 0 && word[0].charAt(0) == '[') {
                 AbstractNote note = MelodyManager.getNote(word[0].trim());
                 if (note != null) {
-                    gl[0] = new GlyphLayout(FontHelper.cardDescFont_N, " ");
+                    gl[0].setText(FontHelper.cardDescFont_N, " ");
                     gl[0].width = CARD_ENERGY_IMG_WIDTH;
                     currentLine[0].append(" ").append(word[0]).append(" ");
                     if (currentWidth[0] + gl[0].width > CN_DESC_BOX_WIDTH) {

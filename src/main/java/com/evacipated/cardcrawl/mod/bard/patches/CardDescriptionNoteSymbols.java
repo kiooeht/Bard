@@ -184,7 +184,7 @@ public class CardDescriptionNoteSymbols
             if (word.length() > 0 && word.charAt(0) == '[') {
                 AbstractNote note = MelodyManager.getNote(word.trim());
                 if (note != null) {
-                    gl[0] = new GlyphLayout(FontHelper.cardDescFont_N, " ");
+                    gl[0].setText(FontHelper.cardDescFont_N, " ");
                     gl[0].width = CARD_ENERGY_IMG_WIDTH;
                 }
             }
