@@ -23,7 +23,7 @@ import java.util.List;
 
 @SpirePatch(
         clz=FakeKeywords.class,
-        method="Insert"
+        method="Prefix"
 )
 public class BagPipesCardNotesPreviewPatch
 {
@@ -43,7 +43,7 @@ public class BagPipesCardNotesPreviewPatch
             locator=Locator1.class,
             localvars={"sumTooltipHeight"}
     )
-    public static void Insert1(float x, float _y, SpriteBatch sb, ArrayList<String> keywords, float[] y, AbstractCard acard, @ByRef float[] sumTooltipHeight)
+    public static void Insert1(float x, float[] y, SpriteBatch sb, ArrayList<String> keywords, AbstractCard card, @ByRef float[] sumTooltipHeight)
     {
         if (AbstractDungeon.player == null || !AbstractDungeon.player.hasRelic(BagPipes.ID) || !BardMod.bagPipeNotesTooltip()) {
             return;
@@ -53,7 +53,7 @@ public class BagPipesCardNotesPreviewPatch
             getConstants();
         }
 
-        List<AbstractNote> notes = AbstractBardCard.determineNoteTypes(acard);
+        List<AbstractNote> notes = AbstractBardCard.determineNoteTypes(card);
         if (notes != null && !notes.isEmpty()) {
             float h = -FontHelper.getSmartHeight(FontHelper.tipBodyFont, "test", BODY_TEXT_WIDTH, TIP_DESC_LINE_SPACING) - 7.0f * Settings.scale;
 
@@ -66,7 +66,7 @@ public class BagPipesCardNotesPreviewPatch
             locator=Locator2.class,
             localvars={"sumTooltipHeight"}
     )
-    public static void Insert2(float x, float _y, SpriteBatch sb, ArrayList<String> keywords, float[] y, AbstractCard acard, float sumTooltipHeight)
+    public static void Insert2(float x, float[] y, SpriteBatch sb, ArrayList<String> keywords, AbstractCard card, float sumTooltipHeight)
     {
         if (AbstractDungeon.player == null || !AbstractDungeon.player.hasRelic(BagPipes.ID) || !BardMod.bagPipeNotesTooltip()) {
             return;
@@ -76,7 +76,7 @@ public class BagPipesCardNotesPreviewPatch
             getConstants();
         }
 
-        List<AbstractNote> notes = AbstractBardCard.determineNoteTypes(acard);
+        List<AbstractNote> notes = AbstractBardCard.determineNoteTypes(card);
         if (notes != null && !notes.isEmpty()) {
             float h = -FontHelper.getSmartHeight(FontHelper.tipBodyFont, "test", BODY_TEXT_WIDTH, TIP_DESC_LINE_SPACING) - 7.0f * Settings.scale;
 

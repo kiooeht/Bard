@@ -39,8 +39,6 @@ public class ThickOfTheFightAction extends AbstractGameAction
         }
 
         if (target.currentHealth > 0) {
-            target.damageFlash = true;
-            target.damageFlashFrames = 4;
             AbstractDungeon.effectList.add(new FlashAtkImgEffect(target.hb.cX, target.hb.cY, attackEffect));
             info.applyPowers(info.owner, target);
             target.damage(info);

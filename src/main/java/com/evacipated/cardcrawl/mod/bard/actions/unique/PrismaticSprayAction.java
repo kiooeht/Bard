@@ -44,7 +44,7 @@ public class PrismaticSprayAction extends AbstractGameAction
             if (upgraded) {
                 card.modifyCostForCombat(-999);
             } else {
-                card.modifyCostForTurn(-999);
+                card.setCostForTurn(0);
             }
             AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(card, 1));
         }
