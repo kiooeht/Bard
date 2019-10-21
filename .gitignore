@@ -12,6 +12,7 @@ out/
 
 # maven build target
 target/
+dependency-reduced-pom.xml
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
