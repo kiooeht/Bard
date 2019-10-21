@@ -29,11 +29,11 @@
   },
   "${ModID}:InspireSmall": {
     "NAME": "Inspire (S)",
-    "DESCRIPTION": "Gain 2 Inspiration 50."
+    "DESCRIPTION": "Gain 2 ${ModID}:Inspiration 50."
   },
   "${ModID}:InspireLarge": {
     "NAME": "Inspire (L)",
-    "DESCRIPTION": "Gain 2 Inspiration 100."
+    "DESCRIPTION": "Gain 2 ${ModID}:Inspiration 100."
   },
   "${ModID}:DamageSmall": {
     "NAME": "Damage (S)",
