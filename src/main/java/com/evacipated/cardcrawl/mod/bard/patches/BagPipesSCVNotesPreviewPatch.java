@@ -7,7 +7,6 @@ import com.evacipated.cardcrawl.mod.bard.notes.AbstractNote;
 import com.evacipated.cardcrawl.mod.bard.relics.BagPipes;
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.screens.SingleCardViewPopup;
 import javassist.CtBehavior;
@@ -29,7 +28,7 @@ public class BagPipesSCVNotesPreviewPatch
     )
     public static void Insert(SingleCardViewPopup __instance, SpriteBatch sb, AbstractCard card, ArrayList<PowerTip> t)
     {
-        if (AbstractDungeon.player == null || !AbstractDungeon.player.hasRelic(BagPipes.ID) || !BardMod.bagPipeNotesTooltip()) {
+        if (!BagPipes.hasNotesAvailable() || !BardMod.bagPipeNotesTooltip()) {
             return;
         }
 

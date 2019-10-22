@@ -7,6 +7,7 @@ import com.evacipated.cardcrawl.mod.bard.characters.Bard;
 import com.evacipated.cardcrawl.mod.bard.notes.AbstractNote;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 import java.util.List;
@@ -15,6 +16,11 @@ public class BagPipes extends AbstractBardRelic
 {
     public static final String ID = BardMod.makeID("BagPipes");
     public static String NAME = "BagPipes";
+
+    public static boolean hasNotesAvailable()
+    {
+        return AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(BagPipes.ID);
+    }
 
     public BagPipes()
     {

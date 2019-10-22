@@ -11,7 +11,6 @@ import com.evacipated.cardcrawl.mod.bard.relics.BagPipes;
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.helpers.TipHelper;
@@ -45,7 +44,7 @@ public class BagPipesCardNotesPreviewPatch
     )
     public static void Insert1(float x, float[] y, SpriteBatch sb, ArrayList<String> keywords, AbstractCard card, @ByRef float[] sumTooltipHeight)
     {
-        if (AbstractDungeon.player == null || !AbstractDungeon.player.hasRelic(BagPipes.ID) || !BardMod.bagPipeNotesTooltip()) {
+        if (!BagPipes.hasNotesAvailable() || !BardMod.bagPipeNotesTooltip()) {
             return;
         }
 
@@ -68,7 +67,7 @@ public class BagPipesCardNotesPreviewPatch
     )
     public static void Insert2(float x, float[] y, SpriteBatch sb, ArrayList<String> keywords, AbstractCard card, float sumTooltipHeight)
     {
-        if (AbstractDungeon.player == null || !AbstractDungeon.player.hasRelic(BagPipes.ID) || !BardMod.bagPipeNotesTooltip()) {
+        if (!BagPipes.hasNotesAvailable() || !BardMod.bagPipeNotesTooltip()) {
             return;
         }
 
