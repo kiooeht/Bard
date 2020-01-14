@@ -11,7 +11,6 @@ import com.evacipated.cardcrawl.mod.bard.relics.BagPipes;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 
 import java.lang.reflect.Field;
@@ -28,7 +27,7 @@ public class BagPipesCardNotesPreview2Patch
 
     public static void Prefix(AbstractCard __instance, SpriteBatch sb, boolean hovered, boolean selected)
     {
-        if (AbstractDungeon.player == null || !AbstractDungeon.player.hasRelic(BagPipes.ID) || !BardMod.bagPipeNotesCardUI()) {
+        if (!BagPipes.hasNotesAvailable() || !BardMod.bagPipeNotesCardUI()) {
             return;
         }
 

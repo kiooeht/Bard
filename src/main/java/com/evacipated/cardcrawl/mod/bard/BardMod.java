@@ -129,6 +129,31 @@ public class BardMod implements
         MelodyManager.addNote(WildCardNote.get());
     }
 
+    public static void sideload()
+    {
+        BardMod bardMod = new BardMod();
+        BaseMod.subscribe(bardMod, PostInitializeSubscriber.class);
+        BaseMod.subscribe(bardMod, EditStringsSubscriber.class);
+        BaseMod.subscribe(bardMod, EditKeywordsSubscriber.class);
+        BaseMod.subscribe(bardMod, PostPlayerUpdateSubscriber.class);
+        BaseMod.subscribe(bardMod, PostUpdateSubscriber.class);
+
+        BaseMod.addColor(Bard.Enums.COLOR,
+                COLOR,
+                assetPath("images/cardui/512/bg_attack_royal.png"), assetPath("images/cardui/512/bg_skill_royal.png"),
+                assetPath("images/cardui/512/bg_power_royal.png"), assetPath("images/cardui/512/card_royal_orb.png"),
+                assetPath("images/cardui/1024/bg_attack_royal.png"), assetPath("images/cardui/1024/bg_skill_royal.png"),
+                assetPath("images/cardui/1024/bg_power_royal.png"), assetPath("images/cardui/1024/card_royal_orb.png"),
+                assetPath("images/cardui/orb.png"));
+
+        MelodyManager.addNote(AttackNote.get());
+        MelodyManager.addNote(BlockNote.get());
+        MelodyManager.addNote(BuffNote.get());
+        MelodyManager.addNote(DebuffNote.get());
+        MelodyManager.addNote(RestNote.get());
+        MelodyManager.addNote(WildCardNote.get());
+    }
+
     public static String makeID(String id)
     {
         return ID + ":" + id;
