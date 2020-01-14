@@ -7,11 +7,11 @@
     <name>Bard</name>
     <groupId>com.evacipated.cardcrawl.mod</groupId>
     <artifactId>bard</artifactId>
-    <version>1.8.0-beta</version>
+    <version>1.8.0</version>
 
     <properties>
         <ModID>bard</ModID>
-        <SlayTheSpire.version>07-01-2019</SlayTheSpire.version>
+        <SlayTheSpire.version>01-14-2020</SlayTheSpire.version>
         <ModTheSpire.version>3.11.0</ModTheSpire.version>
 
         <make.cards.productionAssets>../productionAssets/cards</make.cards.productionAssets>
