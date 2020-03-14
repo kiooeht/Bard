@@ -25,6 +25,7 @@ import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.rooms.MonsterRoom;
+import com.megacrit.cardcrawl.ui.buttons.PeekButton;
 
 import java.util.Iterator;
 
@@ -237,7 +238,7 @@ public class NotesPanel
 
     private void perform(AbstractPlayer player, NoteQueue noteQueue)
     {
-        if (!locked && !AbstractDungeon.actionManager.turnHasEnded && noteQueue.canPlayAnyMelody()) {
+        if (!locked && !AbstractDungeon.actionManager.turnHasEnded && !PeekButton.isPeeking && noteQueue.canPlayAnyMelody()) {
             locked = true;
             AbstractDungeon.actionManager.addToBottom(new AbstractGameAction()
             {
