@@ -63,7 +63,7 @@ public class BardAttachPoints
                 new AttachPoint(
                         GremlinHorn.ID,
                         "head_top_behind",
-                        "images/relics/gremlinHorn.png",
+                        "images/relics/gremlin_horn.png",
                         0.8f, 0.8f,
                         0, 10,
                         0
