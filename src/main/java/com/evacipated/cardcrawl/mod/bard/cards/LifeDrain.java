@@ -18,7 +18,7 @@ import java.util.List;
 public class LifeDrain extends AbstractBardCard
 {
     public static final String ID = BardMod.makeID("LifeDrain");
-    private static final int COST = 1;
+    private static final int COST = 2;
     private static final int DAMAGE = 8;
     private static final int UPGRADE_DAMAGE = 4;
 
