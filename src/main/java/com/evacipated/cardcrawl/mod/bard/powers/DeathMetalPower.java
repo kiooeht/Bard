@@ -46,7 +46,7 @@ public class DeathMetalPower extends AbstractBardPower implements OnNoteQueuedHo
         AbstractDungeon.actionManager.addToBottom(
                 new DamageAllEnemiesAction(
                         owner,
-                        DamageInfo.createDamageMatrix(amount),
+                        DamageInfo.createDamageMatrix(amount, true),
                         DamageInfo.DamageType.THORNS,
                         AbstractGameAction.AttackEffect.BLUNT_HEAVY
                 )
