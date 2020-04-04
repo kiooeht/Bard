@@ -18,6 +18,7 @@ import com.evacipated.cardcrawl.mod.bard.helpers.MelodyManager;
 import com.evacipated.cardcrawl.mod.bard.melodies.*;
 import com.evacipated.cardcrawl.mod.bard.notes.*;
 import com.evacipated.cardcrawl.mod.bard.patches.PlayerNoteQueuePatches;
+import com.evacipated.cardcrawl.mod.bard.potions.BottledSong;
 import com.evacipated.cardcrawl.mod.bard.potions.InspiredBrew;
 import com.evacipated.cardcrawl.mod.bard.relics.AbstractBardRelic;
 import com.evacipated.cardcrawl.mod.bard.ui.MelodiesPanel;
@@ -286,6 +287,7 @@ public class BardMod implements
         MelodyManager.addMelody(new DivineProtectionMelody());
 
         BaseMod.addPotion(InspiredBrew.class, Color.ROYAL.cpy(), Color.ROYAL.cpy(), Color.ROYAL.cpy(), InspiredBrew.POTION_ID, Bard.Enums.BARD);
+        BaseMod.addPotion(BottledSong.class, Color.GOLDENROD.cpy(), Color.GREEN.cpy(), null, BottledSong.POTION_ID, Bard.Enums.BARD);
 
         notesPanel = new NotesPanel();
         melodiesPanel = new MelodiesPanel();
