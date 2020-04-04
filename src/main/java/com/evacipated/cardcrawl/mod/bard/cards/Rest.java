@@ -1,9 +1,11 @@
 package com.evacipated.cardcrawl.mod.bard.cards;
 
 import com.evacipated.cardcrawl.mod.bard.BardMod;
+import com.evacipated.cardcrawl.mod.bard.actions.common.QueueNoteAction;
 import com.evacipated.cardcrawl.mod.bard.characters.Bard;
 import com.evacipated.cardcrawl.mod.bard.notes.AbstractNote;
 import com.evacipated.cardcrawl.mod.bard.notes.RestNote;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -19,12 +21,14 @@ public class Rest extends AbstractBardCard
     private static final int COST = 0;
     private static final int HEAL = 2;
     private static final int UPGRADE_HEAL = 1;
+    private static final int RESTS = 2;
 
     public Rest()
     {
         super(ID, COST, CardType.SKILL, Bard.Enums.COLOR, CardRarity.UNCOMMON, CardTarget.SELF);
 
         magicNumber = baseMagicNumber = HEAL;
+        magicNumber2 = baseMagicNumber2 = RESTS;
         exhaust = true;
     }
 
@@ -37,11 +41,21 @@ public class Rest extends AbstractBardCard
     @Override
     public void use(AbstractPlayer p, AbstractMonster m)
     {
-        int count = BardMod.getNoteQueue(p).count(RestNote.class);
-        for (int i=0; i<count; ++i) {
-            addToBottom(new HealAction(p, p, magicNumber));
+        for (int i=0; i<magicNumber2; ++i) {
+            addToBottom(new QueueNoteAction(RestNote.get()));
         }
-        BardMod.getNoteQueue(p).removeNotesIf(n -> n instanceof RestNote);
+        addToBottom(new AbstractGameAction()
+        {
+            @Override
+            public void update()
+            {
+                int count = BardMod.getNoteQueue(p).count(RestNote.class);
+                for (int i=0; i<count; ++i) {
+                    addToTop(new HealAction(p, p, magicNumber));
+                }
+                isDone = true;
+            }
+        });
 
         rawDescription = DESCRIPTION;
         initializeDescription();

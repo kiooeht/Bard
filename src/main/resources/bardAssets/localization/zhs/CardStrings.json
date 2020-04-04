@@ -300,14 +300,6 @@
     "NAME": "走调",
     "DESCRIPTION": "获得 !B! 点 格挡 。 NL 造成 !D! 点伤害。 NL ${ModID}:谱曲 !M! 枚 ${ModID}:休止符 。"
   },
-  "${ModID}:Rest": {
-    "NAME": "休憩",
-    "DESCRIPTION": "移除 乐谱 中所有 ${ModID}:休止符 。 NL 每移除一枚 ${ModID}:休止符 回复 !M! 生命。 NL 消耗 。",
-    "EXTENDED_DESCRIPTION": [
-      " NL （已 ${ModID}:谱曲 ",
-      " 枚 [RestNote] ）"
-    ]
-  },
   "${ModID}:Encore": {
     "NAME": "返场",
     "DESCRIPTION": "你的下一段 ${ModID}:旋律 将演奏两次。",
