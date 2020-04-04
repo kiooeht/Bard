@@ -302,7 +302,7 @@
   },
   "${ModID}:Rest": {
     "NAME": "Rest",
-    "DESCRIPTION": "${ModID}:Queue !${ModID}:M2! ${ModID}:Rests. NL Heal !M! HP for each ${ModID}:Rest in your ${ModID}:Note ${ModID}:Queue. NL Exhaust.",
+    "DESCRIPTION": "${ModID}:Queue !${ModID}:M2! ${ModID}:Rests. NL Heal !M! HP for each ${ModID}:Rest in your Note Queue. NL Exhaust.",
     "EXTENDED_DESCRIPTION": [
       " NL (",
       " [RestNote] ${ModID}:Queued)"
