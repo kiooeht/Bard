@@ -1,14 +1,14 @@
 package com.evacipated.cardcrawl.mod.bard.cards;
 
+import basemod.AutoAdd;
 import com.evacipated.cardcrawl.mod.bard.BardMod;
-import com.evacipated.cardcrawl.mod.bard.CardIgnore;
 import com.evacipated.cardcrawl.mod.bard.characters.Bard;
 import com.evacipated.cardcrawl.mod.bard.notes.AbstractNote;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-@CardIgnore
+@AutoAdd.Ignore
 public class NoteCard extends AbstractCard
 {
     public static final String ID = BardMod.makeID("NoteCard");

@@ -1,7 +1,7 @@
 package com.evacipated.cardcrawl.mod.bard.cards;
 
+import basemod.AutoAdd;
 import com.evacipated.cardcrawl.mod.bard.BardMod;
-import com.evacipated.cardcrawl.mod.bard.CardIgnore;
 import com.evacipated.cardcrawl.mod.bard.characters.Bard;
 import com.evacipated.cardcrawl.mod.bard.notes.AbstractNote;
 import com.evacipated.cardcrawl.mod.bard.powers.TwoAndFourPower;
@@ -14,7 +14,7 @@ import java.util.Collections;
 import java.util.List;
 
 // Deprecated
-@CardIgnore
+@AutoAdd.Ignore
 public class TwoAndFour extends AbstractBardCard
 {
     public static final String ID = BardMod.makeID("TwoAndFour");

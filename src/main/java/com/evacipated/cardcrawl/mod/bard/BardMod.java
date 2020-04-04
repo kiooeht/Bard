@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.glutils.ShaderProgram;
+import com.evacipated.cardcrawl.mod.bard.cards.AbstractBardCard;
 import com.evacipated.cardcrawl.mod.bard.cards.variables.InspirationVariable;
 import com.evacipated.cardcrawl.mod.bard.cards.variables.MagicNumber2;
 import com.evacipated.cardcrawl.mod.bard.characters.Bard;
@@ -37,20 +38,11 @@ import com.megacrit.cardcrawl.helpers.*;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
-import javassist.CtClass;
-import javassist.NotFoundException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.clapper.util.classutil.*;
 
-import java.io.File;
 import java.io.IOException;
-import java.lang.reflect.Modifier;
-import java.net.URISyntaxException;
-import java.net.URL;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Properties;
 
 @SpireInitializer
@@ -317,21 +309,27 @@ public class BardMod implements
             cardAtlas.addRegion(ID + "/" + region.name, region);
         }
 
-        try {
-            autoAddCards();
-        } catch (URISyntaxException | IllegalAccessException | InstantiationException | NotFoundException | ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        }
+        new AutoAdd(ID)
+                .packageFilter(AbstractBardCard.class)
+                .setDefaultSeen(true)
+                .cards();
     }
 
     @Override
     public void receiveEditRelics()
     {
-        try {
-            autoAddRelics();
-        } catch (URISyntaxException | IllegalAccessException | InstantiationException | NotFoundException | ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        }
+        new AutoAdd(ID)
+                .packageFilter(AbstractBardRelic.class)
+                .any(AbstractBardRelic.class, (info, relic) -> {
+                    if (relic.color == null) {
+                        BaseMod.addRelic(relic, RelicType.SHARED);
+                    } else {
+                        BaseMod.addRelicToCustomPool(relic, relic.color);
+                    }
+                    if (!info.seen) {
+                        UnlockTracker.markRelicAsSeen(relic.relicId);
+                    }
+                });
     }
 
     private static String makeLocPath(Settings.GameLanguage language, String filename)
@@ -395,104 +393,6 @@ public class BardMod implements
     public void receiveAddAudio()
     {
         BaseMod.addAudio(makeID("ATTACK_HORN_1"), assetPath("audio/sound/SFX_Horn1.ogg"));
-    }
-
-    private static void autoAddCards()
-            throws URISyntaxException, IllegalAccessException, InstantiationException, NotFoundException, ClassNotFoundException
-    {
-        ClassFinder finder = new ClassFinder();
-        URL url = BardMod.class.getProtectionDomain().getCodeSource().getLocation();
-        finder.add(new File(url.toURI()));
-
-        ClassFilter filter =
-                new AndClassFilter(
-                        new NotClassFilter(new InterfaceOnlyClassFilter()),
-                        new NotClassFilter(new AbstractClassFilter()),
-                        new ClassModifiersClassFilter(Modifier.PUBLIC),
-                        new CardFilter()
-                );
-        Collection<ClassInfo> foundClasses = new ArrayList<>();
-        finder.findClasses(foundClasses, filter);
-
-        for (ClassInfo classInfo : foundClasses) {
-            CtClass cls = Loader.getClassPool().get(classInfo.getClassName());
-            if (cls.hasAnnotation(CardIgnore.class)) {
-                continue;
-            }
-            boolean isCard = false;
-            CtClass superCls = cls;
-            while (superCls != null) {
-                superCls = superCls.getSuperclass();
-                if (superCls == null) {
-                    break;
-                }
-                if (superCls.getName().equals(AbstractCard.class.getName())) {
-                    isCard = true;
-                    break;
-                }
-            }
-            if (!isCard) {
-                continue;
-            }
-            System.out.println(classInfo.getClassName());
-            AbstractCard card = (AbstractCard) Loader.getClassPool().getClassLoader().loadClass(cls.getName()).newInstance();
-            BaseMod.addCard(card);
-            if (cls.hasAnnotation(CardNoSeen.class)) {
-                UnlockTracker.hardUnlockOverride(card.cardID);
-            } else {
-                UnlockTracker.unlockCard(card.cardID);
-            }
-        }
-    }
-
-    private static void autoAddRelics()
-            throws URISyntaxException, IllegalAccessException, InstantiationException, NotFoundException, ClassNotFoundException
-    {
-        ClassFinder finder = new ClassFinder();
-        URL url = BardMod.class.getProtectionDomain().getCodeSource().getLocation();
-        finder.add(new File(url.toURI()));
-
-        ClassFilter filter =
-                new AndClassFilter(
-                        new NotClassFilter(new InterfaceOnlyClassFilter()),
-                        new NotClassFilter(new AbstractClassFilter()),
-                        new ClassModifiersClassFilter(Modifier.PUBLIC),
-                        new RelicFilter()
-                );
-        Collection<ClassInfo> foundClasses = new ArrayList<>();
-        finder.findClasses(foundClasses, filter);
-
-        for (ClassInfo classInfo : foundClasses) {
-            CtClass cls = Loader.getClassPool().get(classInfo.getClassName());
-            if (cls.hasAnnotation(CardIgnore.class)) {
-                continue;
-            }
-            boolean isRelic = false;
-            CtClass superCls = cls;
-            while (superCls != null) {
-                superCls = superCls.getSuperclass();
-                if (superCls == null) {
-                    break;
-                }
-                if (superCls.getName().equals(AbstractBardRelic.class.getName())) {
-                    isRelic = true;
-                    break;
-                }
-            }
-            if (!isRelic) {
-                continue;
-            }
-            System.out.println(classInfo.getClassName());
-            AbstractBardRelic relic = (AbstractBardRelic) Loader.getClassPool().getClassLoader().loadClass(cls.getName()).newInstance();
-            if (relic.color == null) {
-                BaseMod.addRelic(relic, RelicType.SHARED);
-            } else {
-                BaseMod.addRelicToCustomPool(relic, relic.color);
-            }
-            if (!cls.hasAnnotation(CardNoSeen.class)) {
-                UnlockTracker.markRelicAsSeen(relic.relicId);
-            }
-        }
     }
 
     @Override
