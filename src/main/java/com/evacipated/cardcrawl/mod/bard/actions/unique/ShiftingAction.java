@@ -1,7 +1,7 @@
 package com.evacipated.cardcrawl.mod.bard.actions.unique;
 
+import basemod.AutoAdd;
 import com.evacipated.cardcrawl.mod.bard.BardMod;
-import com.evacipated.cardcrawl.mod.bard.CardIgnore;
 import com.evacipated.cardcrawl.mod.bard.cards.AbstractBardCard;
 import com.evacipated.cardcrawl.mod.bard.characters.Bard;
 import com.evacipated.cardcrawl.mod.bard.notes.AbstractNote;
@@ -76,7 +76,7 @@ public class ShiftingAction extends AbstractGameAction
         tickDuration();
     }
 
-    @CardIgnore
+    @AutoAdd.Ignore
     private static class ShiftingChoiceCard extends AbstractBardCard
     {
         private static final int COST = -2;

@@ -302,7 +302,7 @@
   },
   "${ModID}:Rest": {
     "NAME": "Rest",
-    "DESCRIPTION": "Remove all ${ModID}:Rests from your Note Queue. NL Heal !M! HP for each ${ModID}:Rest removed. NL Exhaust.",
+    "DESCRIPTION": "${ModID}:Queue !${ModID}:M2! ${ModID}:Rests. NL Heal !M! HP for each ${ModID}:Rest in your Note Queue. NL Exhaust.",
     "EXTENDED_DESCRIPTION": [
       " NL (",
       " [RestNote] ${ModID}:Queued)"
@@ -358,5 +358,9 @@
     "NAME": "Rhapsody",
     "DESCRIPTION": "Perform any ${ModID}:Melody you have the ${ModID}:Notes for, regardless of their order.",
     "UPGRADE_DESCRIPTION": "Choose a ${ModID}:Note to ${ModID}:Queue. NL "
+  },
+  "${ModID}:BottledSong": {
+    "NAME": "Bottled Song",
+    "DESCRIPTION": "Obtain a potion containing the ${ModID}:Notes currently in your Note Queue. NL Exhaust."
   }
 }

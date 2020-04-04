@@ -51,6 +51,6 @@ public class InspiredBrew extends AbstractPotion
     @Override
     public AbstractPotion makeCopy()
     {
-        return null;
+        return new InspiredBrew();
     }
 }

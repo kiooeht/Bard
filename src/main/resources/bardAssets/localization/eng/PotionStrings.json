@@ -5,5 +5,11 @@
       "Gain #yInspiration #b",
       "."
     ]
+  },
+  "${ModID}:BottledSong": {
+    "NAME": "Bottled Song",
+    "DESCRIPTIONS": [
+      "#yQueue the following #yNotes: NL "
+    ]
   }
 }
