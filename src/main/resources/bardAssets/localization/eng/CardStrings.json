@@ -358,5 +358,9 @@
     "NAME": "Rhapsody",
     "DESCRIPTION": "Perform any ${ModID}:Melody you have the ${ModID}:Notes for, regardless of their order.",
     "UPGRADE_DESCRIPTION": "Choose a ${ModID}:Note to ${ModID}:Queue. NL "
+  },
+  "${ModID}:BottledSong": {
+    "NAME": "Bottled Song",
+    "DESCRIPTION": "Obtain a potion containing the ${ModID}:Notes currently in your Note Queue. NL Exhaust."
   }
 }
