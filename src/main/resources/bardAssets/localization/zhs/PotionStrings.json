@@ -5,5 +5,11 @@
       "获得 #b",
       " #y激励 。"
     ]
+  },
+  "${ModID}:BottledSong": {
+    "NAME": "罐装小调",
+    "DESCRIPTIONS": [
+      "#y谱曲 下列 #y音符： NL "
+    ]
   }
 }
