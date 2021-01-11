@@ -106,14 +106,28 @@ public class RhapsodyAction extends AbstractGameAction
         select.use(AbstractDungeon.player, null);
 
         // Manually consume notes
+        int consumed = 0;
         NoteQueue noteQueue = BardMod.getNoteQueue(AbstractDungeon.player);
         for (AbstractNote melodyNote : select.notes) {
             Iterator<AbstractNote> iter = noteQueue.iterator();
             while (iter.hasNext()) {
                 AbstractNote note = iter.next();
-                if (note.getClass().equals(melodyNote.getClass())) {
+                if (note.isNoteExactType(melodyNote.getClass())) {
                     iter.remove();
+                    ++consumed;
                     break;
+                }
+            }
+        }
+
+        int wildNotesToConsume = select.notes.size() - consumed;
+        if (wildNotesToConsume > 0) {
+            Iterator<AbstractNote> iter = noteQueue.iterator();
+            while (iter.hasNext() && wildNotesToConsume > 0) {
+                AbstractNote note = iter.next();
+                if (note.isNoteExactType(WildCardNote.class)) {
+                    iter.remove();
+                    --wildNotesToConsume;
                 }
             }
         }
