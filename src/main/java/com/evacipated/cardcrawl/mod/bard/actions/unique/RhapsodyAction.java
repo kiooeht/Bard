@@ -8,6 +8,7 @@ import com.evacipated.cardcrawl.mod.bard.characters.NoteQueue;
 import com.evacipated.cardcrawl.mod.bard.helpers.MelodyManager;
 import com.evacipated.cardcrawl.mod.bard.melodies.AbstractMelody;
 import com.evacipated.cardcrawl.mod.bard.notes.AbstractNote;
+import com.evacipated.cardcrawl.mod.bard.notes.WildCardNote;
 import com.evacipated.cardcrawl.mod.bard.patches.CenterGridCardSelectScreen;
 import com.evacipated.cardcrawl.mod.bard.patches.ConfirmationGridCardSelectCallback;
 import com.evacipated.cardcrawl.mod.bard.powers.SonataPower;
@@ -42,17 +43,16 @@ public class RhapsodyAction extends AbstractGameAction
 
                 List<AbstractNote> allNotes = MelodyManager.getAllNotes();
                 List<AbstractMelody> allMelodies = MelodyManager.getAllMelodies();
+                NoteQueue noteQueue = BardMod.getNoteQueue(AbstractDungeon.player);
+                int wildCount = noteQueue.countExactType(WildCardNote.class);
                 for (AbstractMelody melody : allMelodies) {
-                    boolean good = true;
+                    int noteCount = 0;
                     for (AbstractNote note : allNotes) {
                         int melodyCount = melody.count(note.getClass());
-                        int queueCount = BardMod.getNoteQueue(AbstractDungeon.player).count(note.getClass());
-                        if (queueCount < melodyCount) {
-                            good = false;
-                            break;
-                        }
+                        int queueCount = noteQueue.countExactType(note.getClass());
+                        noteCount += Integer.min(melodyCount, queueCount);
                     }
-                    if (good) {
+                    if (noteCount + wildCount >= melody.length()) {
                         melodies.add(melody.makeCopy());
                     }
                 }

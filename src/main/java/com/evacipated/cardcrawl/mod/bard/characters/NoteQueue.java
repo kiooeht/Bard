@@ -124,6 +124,17 @@ public class NoteQueue
         return notes.removeIf(pred);
     }
 
+    public int countExactType(Class<? extends AbstractNote> type)
+    {
+        int count = 0;
+        for (AbstractNote note : notes) {
+            if (note.isNoteExactType(type)) {
+                ++count;
+            }
+        }
+        return count;
+    }
+
     public int count(Class<? extends AbstractNote> type)
     {
         int count = 0;

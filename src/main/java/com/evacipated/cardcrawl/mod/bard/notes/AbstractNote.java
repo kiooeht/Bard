@@ -85,9 +85,14 @@ public abstract class AbstractNote
         return new NoteCard(name(), cardCode(), this, AbstractCard.CardType.POWER);
     }
 
-    public boolean isNoteType(Class<? extends AbstractNote> type)
+    public final boolean isNoteExactType(Class<? extends AbstractNote> type)
     {
         return type.isInstance(this);
+    }
+
+    public boolean isNoteType(Class<? extends AbstractNote> type)
+    {
+        return isNoteExactType(type);
     }
 
     @Override
