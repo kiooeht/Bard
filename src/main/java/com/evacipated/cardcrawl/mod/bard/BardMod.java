@@ -25,6 +25,7 @@ import com.evacipated.cardcrawl.mod.bard.relics.AbstractBardRelic;
 import com.evacipated.cardcrawl.mod.bard.ui.MelodiesPanel;
 import com.evacipated.cardcrawl.mod.bard.ui.NotesPanel;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
+import com.evacipated.cardcrawl.mod.widepotions.WidePotionsMod;
 import com.evacipated.cardcrawl.modthespire.Loader;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
@@ -280,6 +281,10 @@ public class BardMod implements
 
         BaseMod.addPotion(InspiredBrew.class, Color.ROYAL.cpy(), Color.ROYAL.cpy(), Color.ROYAL.cpy(), InspiredBrew.POTION_ID, Bard.Enums.BARD);
         BaseMod.addPotion(BottledSong.class, Color.GOLDENROD.cpy(), Color.GREEN.cpy(), null, BottledSong.POTION_ID, Bard.Enums.BARD);
+
+        if (Loader.isModLoaded("widepotions")) {
+            WidePotionsMod.whitelistSimplePotion(InspiredBrew.POTION_ID);
+        }
 
         notesPanel = new NotesPanel();
         melodiesPanel = new MelodiesPanel();

@@ -22,10 +22,15 @@ public class InspiredBrew extends AbstractPotion
     public InspiredBrew()
     {
         super(NAME, POTION_ID, PotionRarity.UNCOMMON, PotionSize.BOLT, PotionColor.BLUE);
+        isThrown = false;
+    }
 
+    @Override
+    public void initializeData()
+    {
         potency = getPotency();
         description = DESCRIPTIONS[0] + potency + DESCRIPTIONS[1];
-        isThrown = false;
+        tips.clear();
         tips.add(new PowerTip(name, description));
         tips.add(new PowerTip(
                 BaseMod.getKeywordTitle(BardMod.makeID("inspiration")),

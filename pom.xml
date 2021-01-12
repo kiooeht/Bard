@@ -65,6 +65,13 @@
             <scope>system</scope>
             <systemPath>${basedir}/../_ModTheSpire/mods/Hubris.jar</systemPath>
         </dependency>
+        <dependency>
+            <groupId>com.evacipated.cardcrawl.mod</groupId>
+            <artifactId>widepotions</artifactId>
+            <version>0.1</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/../_ModTheSpire/mods/WidePotions.jar</systemPath>
+        </dependency>
     </dependencies>
 
     <build>
