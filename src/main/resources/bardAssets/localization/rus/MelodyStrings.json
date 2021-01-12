@@ -1,0 +1,62 @@
+{
+  "bard:AttackUpSmall": {
+    "NAME": "Сила",
+    "DESCRIPTION": "Даёт 1 Силы."
+  },
+  "bard:DefenseUpSmall": {
+    "NAME": "Ловкость",
+    "DESCRIPTION": "Даёт 1 Ловкости."
+  },
+  "bard:DivineProtection": {
+    "NAME": "Божественный щит",
+    "DESCRIPTION": "Даёт 8 Временных_ОЗ."
+  },
+  "bard:Draw": {
+    "NAME": "Добор",
+    "DESCRIPTION": "Вы берёте 3 карты."
+  },
+  "bard:Artifact": {
+    "NAME": "Артефакт",
+    "DESCRIPTION": "Даёт 1 Артефакта."
+  },
+  "bard:WeakenSmall": {
+    "NAME": "Слабость",
+    "DESCRIPTION": "Накладывает 1 Слабости на ВСЕХ врагов."
+  },
+  "bard:VulnerabilitySmall": {
+    "NAME": "Уязвимость",
+    "DESCRIPTION": "Накладывает 1 Уязвимости на ВСЕХ врагов."
+  },
+  "bard:InspireSmall": {
+    "NAME": "Вдохновение (Мал.)",
+    "DESCRIPTION": "Даёт 50 bard:Вдохновения 2 след. картам."
+  },
+  "bard:InspireLarge": {
+    "NAME": "Вдохновение (Круп.)",
+    "DESCRIPTION": "Даёт 100 bard:Вдохновения 2 след. картам."
+  },
+  "bard:DamageSmall": {
+    "NAME": "Урон (Мал.)",
+    "DESCRIPTION": "Наносит 5 урона ВСЕМ врагам."
+  },
+  "bard:DamageMedium": {
+    "NAME": "Урон (Сред.)",
+    "DESCRIPTION": "Наносит 10 урона ВСЕМ врагам."
+  },
+  "bard:DamageLarge": {
+    "NAME": "Урон (Круп.)",
+    "DESCRIPTION": "Наносит 18 урона ВСЕМ врагам."
+  },
+  "bard:BlockSmall": {
+    "NAME": "Защита (Мал.)",
+    "DESCRIPTION": "Даёт 4 Защиты."
+  },
+  "bard:BlockMedium": {
+    "NAME": "Защита (Сред.)",
+    "DESCRIPTION": "Даёт 8 Защиты."
+  },
+  "bard:BlockLarge": {
+    "NAME": "Защита (Круп.)",
+    "DESCRIPTION": "Даёт 15 Защиты."
+  }
+}

@@ -344,6 +344,9 @@ public class BardMod implements
             case ZHS:
                 ret += "zhs/";
                 break;
+            case RUS:
+                ret += "rus/";
+                break;
             default:
                 ret += "eng/";
                 break;

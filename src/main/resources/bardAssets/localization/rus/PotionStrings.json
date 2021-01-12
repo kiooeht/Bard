@@ -1,0 +1,15 @@
+{
+  "bard:InspiredBrew": {
+    "NAME": "Напиток вдохновения",
+    "DESCRIPTIONS": [
+      "Даёт #b",
+      " #ybard:Вдохновения."
+    ]
+  },
+  "bard:BottledSong": {
+    "NAME": "Закупоренная песнь",
+    "DESCRIPTIONS": [
+      "#ybard:Записывает следующие #ybard:Ноты: NL "
+    ]
+  }
+}
