@@ -350,5 +350,17 @@
     "NAME": "狂想曲",
     "DESCRIPTION": "演奏任意你的 ${ModID}:音符 可组合的 ${ModID}:旋律 ，无论顺序是否正确。",
     "UPGRADE_DESCRIPTION": "选择 ${ModID}:谱曲 一枚 ${ModID}:音符 。 NL "
+  },
+  "${ModID}:Rest": {
+    "NAME": "休止",
+    "DESCRIPTION": "${ModID}:谱曲 !${ModID}:M2! 枚 ${ModID}:休止符 。 NL ${ModID}:乐谱 中每有一枚 ${ModID}:休止符 回复 !M! 点生命。 NL 消耗 。",
+    "EXTENDED_DESCRIPTION": [
+      " NL （",
+      " ${ModID}:谱曲 [RestNote] ）"
+    ]
+  },
+  "${ModID}:BottledSong": {
+    "NAME": "罐装小调",
+    "DESCRIPTION": "获得一瓶包含当前 ${ModID}:乐谱 中的 ${ModID}:音符 的药水。 NL 消耗 。"
   }
 }

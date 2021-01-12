@@ -1,0 +1,366 @@
+{
+  "bard:Strike": {
+    "NAME": "Удар",
+    "DESCRIPTION": "Наносит !D! урона."
+  },
+  "bard:Defend": {
+    "NAME": "Оборона",
+    "DESCRIPTION": "Даёт !B! Защиты."
+  },
+  "bard:Inspire": {
+    "NAME": "Вдохновить",
+    "DESCRIPTION": "Даёт !bard:In! bard:Вдохновения. NL Сжигается.",
+    "UPGRADE_DESCRIPTION": "Даёт !bard:In! bard:Вдохновения. NL Сгорающая !stslib:ex!."
+  },
+  "bard:Riposte": {
+    "NAME": "Ответный укол",
+    "DESCRIPTION": "Наносит !D! урона. NL Даёт !B! Защиты."
+  },
+  "bard:HarmoniousVoice": {
+    "NAME": "Мелодичный голос",
+    "DESCRIPTION": "Даёт !M! Временных_ОЗ каждый раз, когда вы bard:Записываете [BlockNote] или [BuffNote] ."
+  },
+  "bard:DiscordantVoice": {
+    "NAME": "Устрашающий голос",
+    "DESCRIPTION": "Наносит !M! урона случ. врагу, когда вы bard:Записываете [AttackNote] или [DebuffNote] ."
+  },
+  "bard:HideousLaughter": {
+    "NAME": "Ужасный смех",
+    "DESCRIPTION": "Накладывает !M! Уязвимости и !M! Слабости."
+  },
+  "bard:BucklerBash": {
+    "NAME": "Врезать баклером",
+    "DESCRIPTION": "Отнимает !M! Защиты, чтобы NL нанести !D! урона."
+  },
+  "bard:ViciousMockery": {
+    "NAME": "Издевка",
+    "DESCRIPTION": "Наносит !D! урона. NL Накладывает !M! Слабости."
+  },
+  "bard:BestowCurse": {
+    "NAME": "Проклянуть",
+    "DESCRIPTION": "Враг теряет !M! ОЗ в начале каждого своего хода. NL Сгорающая !stslib:ex!."
+  },
+  "bard:FeastOnFear": {
+    "NAME": "Пировать страхом",
+    "DESCRIPTION": "Даёт !B! Защиты. NL Даёт !M! Временных_ОЗ вместо Защиты, если на врага наложена Уязвимость."
+  },
+  "bard:Thunderwave": {
+    "NAME": "Громовая волна",
+    "DESCRIPTION": "Наносит !D! урона и накладывает !M! Слабости на ВСЕХ врагов."
+  },
+  "bard:SongBolt": {
+    "NAME": "Обстрел нотами",
+    "DESCRIPTION": "Наносит !D! урона за каждую bard:Записанную bard:Ноту. NL Очищает Нотную Грамоту."
+  },
+  "bard:QuickSong": {
+    "NAME": "Быстрая песнь",
+    "DESCRIPTION": "Даёт !B! Защиты. NL Сбрасывает карту. NL bard:Записывает bard:Ноты сброшенной карты."
+  },
+  "bard:TinyHut": {
+    "NAME": "Хибара",
+    "DESCRIPTION": "Даёт !B! Защиты. NL Вы берёте !M! карту за каждую уникальную bard:Записанную bard:Ноту."
+  },
+  "bard:Gamble": {
+    "NAME": "Авантюра",
+    "DESCRIPTION": "Выберите тип карты (Атака/Навык/Талант) и возьмите 1 карту. NL Если взятая карта выбранного типа, она стоит 0 до конца вашего хода."
+  },
+  "bard:DervishDance": {
+    "NAME": "Дервиш",
+    "DESCRIPTION": "Наносит !D! урона ВСЕМ врагам за каждую bard:Записанную [AttackNote] .",
+    "EXTENDED_DESCRIPTION": [
+      " NL (",
+      " [AttackNote] в Нотной Грамоте)"
+    ]
+  },
+  "bard:Parry": {
+    "NAME": "Парировать",
+    "DESCRIPTION": "Даёт !B! Защиты. NL Ловкость влияет на эту карту !M! раз(а)."
+  },
+  "bard:Balestra": {
+    "NAME": "Балестра",
+    "DESCRIPTION": "Наносит !D! урона !M! раза. NL Ловкость дополнительно влияет на урон этой карты."
+  },
+  "bard:Greatness": {
+    "NAME": "Великолепие",
+    "DESCRIPTION": "Даёт !bard:In! bard:Вдохновения."
+  },
+  "bard:Invisibility": {
+    "NAME": "Невидимость",
+    "DESCRIPTION": "Даёт !bard:M2! Неосязаемости. NL Вы берёте !M! доп. карту в вашем след. ходу. NL Сжигается.",
+    "UPGRADE_DESCRIPTION": "Даёт !bard:M2! Неосязаемости. NL Вы берёте !M! доп. карты в вашем след. ходу. NL Сжигается.",
+    "EXTENDED_DESCRIPTION": [
+      "Великая невидимость"
+    ]
+  },
+  "bard:Accelerando": {
+    "NAME": "Аччелерандо",
+    "DESCRIPTION": "Даёт [E]. NL Вы берёте !M! карты. NL Отнимает [E] в вашем след. ходу.",
+    "UPGRADE_DESCRIPTION": "Оставляется. NL "
+  },
+  "bard:Haste": {
+    "NAME": "Ускориться",
+    "DESCRIPTION": "Удваивает вашу текущую Ловкость. NL Сжигается.",
+    "UPGRADE_DESCRIPTION": "Удваивает вашу текущую Ловкость. NL Сгорающая !stslib:ex!."
+  },
+  "bard:Heroism": {
+    "NAME": "Героизм",
+    "DESCRIPTION": "Даёт !M! Временных_ОЗ. NL Даёт !bard:In! bard:Вдохновения."
+  },
+  "bard:GuardPoint": {
+    "NAME": "Защита точки",
+    "DESCRIPTION": "Даёт !B! Защиты. NL Даёт !B! Защиты ещё раз, если в Нотной Грамоте нет [BlockNote] ."
+  },
+  "bard:InspiringSong": {
+    "NAME": "Вдохновляющая песнь",
+    "DESCRIPTION": "Даёт !bard:In! bard:Вдохновения NL за каждую bard:Записанную [BuffNote] ",
+    "EXTENDED_DESCRIPTION": [
+      " NL (",
+      " [BuffNote] в Нотной Грамоте)"
+    ]
+  },
+  "bard:FaerieFire": {
+    "NAME": "Волшебный огонь",
+    "DESCRIPTION": "Накладывает !M! Уязвимости на ВСЕХ врагов."
+  },
+  "bard:Shout": {
+    "NAME": "Крик",
+    "DESCRIPTION": "Наносит !D! урона. NL Враг теряет !M! Силы. NL Снижает потерю Силы от этой карты на 1 до конца боя."
+  },
+  "bard:Silence": {
+    "NAME": "Тишина",
+    "DESCRIPTION": "Враг не могут накладывать отриц. эффекты на вас в течение !M! ходов. NL Сжигается.",
+    "UPGRADE_DESCRIPTION": "Враг не могут накладывать отриц. эффекты на вас и получать положит. эффекты в течение !M! ходов. NL Сжигается."
+  },
+  "bard:Aphasia": {
+    "NAME": "Афазия",
+    "DESCRIPTION": "ВСЕ враги теряют от !bard:M2! до !M! Силы. NL Сжигается."
+  },
+  "bard:PrismaticSpray": {
+    "NAME": "Радужные брызги",
+    "DESCRIPTION": "Добавляет в руку Х случ. Атак случ. цвета. NL В этом ходу они стоят 0. NL Сжигается.",
+    "UPGRADE_DESCRIPTION": "Добавляет в руку Х случ. Атак случ. цвета. NL В этом бою они стоят 0. NL Сжигается."
+  },
+  "bard:LifeDrain": {
+    "NAME": "Вытянуть жизнь",
+    "DESCRIPTION": "Наносит !D! урона. NL Даёт Временных_ОЗ за половину урона по ОЗ врага."
+  },
+  "bard:SixFourTime": {
+    "NAME": "Такт 6/4",
+    "DESCRIPTION": "Вы можете bard:Записать на !M! bard:Ноты больше в Нотную Грамоту.",
+    "EXTENDED_DESCRIPTION": [
+      "Такт 8/4"
+    ]
+  },
+  "bard:MnemonicVestments": {
+    "NAME": "Мнемоническая ряза",
+    "DESCRIPTION": "Неиграбельная. NL Запуск: Выберите любую карту из колоды и добавьте её копию в стопку добора. NL Она стоит 0, пока не разыграна.",
+    "UPGRADE_DESCRIPTION": "Неиграбельная. Эфирная. NL Запуск: Выберите любую карту из колоды и добавьте её копию в стопку добора. NL Она стоит 0, пока не разыграна.",
+    "EXTENDED_DESCRIPTION": [
+      "Я не могу разыграть эту карту."
+    ]
+  },
+  "bard:SplendidForm": {
+    "NAME": "Роскошный облик",
+    "DESCRIPTION": "Даёт !bard:M2! bard:Вдохновения в начале каждого вашего хода."
+  },
+  "bard:PowerWordStun": {
+    "NAME": "Оглушительная речь",
+    "DESCRIPTION": "Оглушает врага на !M! ход, если у того меньше !bard:M2! % ОЗ.",
+    "EXTENDED_DESCRIPTION": [
+      "(Оглушит.) NL ",
+      "(НЕ Оглушит.) NL "
+    ]
+  },
+  "bard:Blink": {
+    "NAME": "Моргнуть",
+    "DESCRIPTION": "Вы получаете на 50% меньше урона в течение !M! хода.",
+    "UPGRADE_DESCRIPTION": "Вы получаете на 50% меньше урона в течение !M! ходов."
+  },
+  "bard:LingeringEcho": {
+    "NAME": "Долгое эхо",
+    "DESCRIPTION": "Наносит !D! урона. NL Вы не сбрасываете след. разыгранную в этом ходу карту."
+  },
+  "bard:EchoEcho": {
+    "NAME": "Эхо эхо",
+    "DESCRIPTION": "Наносит !bard:M2! урона. NL Наносит !D! урона."
+  },
+  "bard:ReverseGravity": {
+    "NAME": "Обратить притяжение",
+    "DESCRIPTION": "Наносит !D! урона и накладывает !M! Слабости на ВСЕХ врагов. NL Наносит !bard:M2! урона и накладывает !M! Слабости на ВСЕХ врагов ещё раз в начале след. хода."
+  },
+  "bard:CovetousAura": {
+    "NAME": "Аура желаний",
+    "DESCRIPTION": "Когда враг получает Силу, даёт вам столько же Силы."
+  },
+  "bard:EnGarde": {
+    "NAME": "Ангард",
+    "DESCRIPTION": "Даёт !B! Защиты. NL Наносит !D! урона. NL bard:Вдохновение влияет на эту карту !M! раз(а)."
+  },
+  "bard:GlyphOfWarding": {
+    "NAME": "Защитный глиф",
+    "DESCRIPTION": "Наносит !M! урона ВСЕМ врагам, когда вы теряете Защиту или Временные_ОЗ."
+  },
+  "bard:Wish": {
+    "NAME": "Желание",
+    "DESCRIPTION": "Неиграбельная. NL Эфирная.",
+    "UPGRADE_DESCRIPTION": "Выберите любую карту Барда, исключая Редкие. NL Заменяет данную карту выбранной до конца вылазки. NL Изгоняется.",
+    "EXTENDED_DESCRIPTION": [
+      "Я не могу разыграть эту карту."
+    ]
+  },
+  "bard:Shifting": {
+    "NAME": "Непостоянство",
+    "DESCRIPTION": "Наносит !D! урона или NL Даёт !B! Защиты на выбор. NL Наносит !D! урона или NL Даёт !B! Защиты на выбор."
+  },
+  "bard:ShiftingAttack": {
+    "NAME": "Атака",
+    "DESCRIPTION": "Наносит !D! урона."
+  },
+  "bard:ShiftingBlock": {
+    "NAME": "Защита",
+    "DESCRIPTION": "Даёт !B! Защиты."
+  },
+  "bard:MantleOfInspiration": {
+    "NAME": "Плащ вдохновения",
+    "DESCRIPTION": "Вы получаете на !bard:M2! больше bard:Вдохновения от карт."
+  },
+  "bard:LocateObject": {
+    "NAME": "Обнаружить",
+    "DESCRIPTION": "Вы кладёте !M! выбранную карту из стопки добора в руку. NL bard:Записывает bard:Паузу. NL Сжигается.",
+    "UPGRADE_DESCRIPTION": "Вы кладёте !M! выбранную карту из стопки добора в руку. NL bard:Записывает bard:Паузу. NL Сгорающая !stslib:ex!."
+  },
+  "bard:GreaterMagicWeapon": {
+    "NAME": "Великое маг. оружие",
+    "DESCRIPTION": "Первая разыгранная в каждом ходу Атака также накладывает !M! Уязвимости.",
+    "UPGRADE_DESCRIPTION": "Начальная. NL "
+  },
+  "bard:Doot": {
+    "NAME": "Дут",
+    "DESCRIPTION": "Выберите и bard:Запишите bard:Ноту.",
+    "UPGRADE_DESCRIPTION": "Выберите и bard:Запишите !M! bard:Ноты.",
+    "EXTENDED_DESCRIPTION": [
+      "Дут дут"
+    ]
+  },
+  "bard:PhantasmalForce": {
+    "NAME": "Фантомная сила",
+    "DESCRIPTION": "Даёт !M! Временных_ОЗ. NL Наносит урон, равный вашим *Временным *ОЗ, если на врага наложена Слабость."
+  },
+  "bard:CuttingWords": {
+    "NAME": "Режущие слова",
+    "DESCRIPTION": "Накладывает !M! Слабости и !M! Уязвимости на случ. врага за каждую bard:Записанную [DebuffNote] .",
+    "EXTENDED_DESCRIPTION": [
+      " NL (",
+      " [DebuffNote] в Нотной Грамоте)"
+    ]
+  },
+  "bard:ThickOfTheFight": {
+    "NAME": "Гуща битвы",
+    "DESCRIPTION": "Наносит !D! урона случ. врагу за каждого врага в бою. NL Стоит на [E] меньше за каждого врага в бою."
+  },
+  "bard:Demoralize": {
+    "NAME": "Деморализовать",
+    "DESCRIPTION": "Удваивает наложенные на врага Слабость и Уязвимость."
+  },
+  "bard:StudiedStrike": {
+    "NAME": "Изученный удар",
+    "DESCRIPTION": "Наносит !D! урона. NL Наносит !M! доп. урона за каждую ед. Слабости или Уязвимости на цели."
+  },
+  "bard:TwoAndFour": {
+    "NAME": "И 2, и 4",
+    "DESCRIPTION": "Вы bard:Записываете любую bard:Ноту в начале каждого вашего хода.",
+    "UPGRADE_DESCRIPTION": "Начальная. NL "
+  },
+  "bard:FirstStrike": {
+    "NAME": "Первый удар",
+    "DESCRIPTION": "Наносит !D! урона. NL Запуск: Наносит !M! урона ВСЕМ врагам."
+  },
+  "bard:Sift": {
+    "NAME": "Просеять",
+    "DESCRIPTION": "Вы берёте !bard:M2! карту и получаете [E] , равную её стоимости.",
+    "UPGRADE_DESCRIPTION": " NL Вы берёте ещё !M! карту."
+  },
+  "bard:Improv": {
+    "NAME": "Импровизировать",
+    "DESCRIPTION": "За каждые !M! bard:Записанных bard:Нот вы можете сыграть любую bard:Мелодию вне зависимости от *Нот в Нотной Грамоте до конца хода. NL Очищает Нотную Грамоту в конце хода."
+  },
+  "bard:DeathMetal": {
+    "NAME": "Смертельный металл",
+    "DESCRIPTION": "Вы не можете bard:Записывать bard:Ноты до конца боя. NL Вместо этого, наносит !M! урона ВСЕМ врагам за каждую *Записываемую bard:Ноту."
+  },
+  "bard:Flourish": {
+    "NAME": "Процветать",
+    "DESCRIPTION": "Выберите и bard:Запишите bard:Ноту. NL Наносит !D! урона."
+  },
+  "bard:Fermata": {
+    "NAME": "Стоп",
+    "DESCRIPTION": "Даёт !B! Защиты. NL bard:Записывает bard:Паузу."
+  },
+  "bard:OffKey": {
+    "NAME": "Фальш",
+    "DESCRIPTION": "Даёт !B! Защиты. NL Наносит !D! урона. NL bard:Записывает !M! bard:Паузы."
+  },
+  "bard:Rest": {
+    "NAME": "Пауза",
+    "DESCRIPTION": "bard:Записывает !bard:M2! bard:Паузы. NL Восполняет !M! ОЗ за каждую *Паузу в Нотной Грамоте. NL Сжигается.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (",
+      " [RestNote] в Нотной Грамоте)"
+    ]
+  },
+  "bard:Encore": {
+    "NAME": "На бис",
+    "DESCRIPTION": "След. bard:Мелодия играется дважды.",
+    "UPGRADE_DESCRIPTION": "След. !M! bard:Мелодии играются дважды."
+  },
+  "bard:MagnumOpus": {
+    "NAME": "Магнум опус",
+    "DESCRIPTION": "Даёт !bard:In! bard:Вдохновения. NL Навсегда повышает даваемое этой картой bard:Вдохновение на !bard:M2!. NL Сжигается."
+  },
+  "bard:Sonata": {
+    "NAME": "Соната",
+    "DESCRIPTION": "Вы можете одновременно играть все доступные bard:Мелодии в Нотной Грамоте.",
+    "UPGRADE_DESCRIPTION": "Начальная. NL "
+  },
+  "bard:FingerOfDeath": {
+    "NAME": "Перст смерти",
+    "DESCRIPTION": "Наносит урон, равный вашим удвоенным *Временным *ОЗ.",
+    "UPGRADE_DESCRIPTION": "Наносит урон, равный вашим удвоенным *Временным *ОЗ, ВСЕМ врагам.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Наносит !D! урона.)"
+    ]
+  },
+  "bard:FalseLife": {
+    "NAME": "Ложная жизнь",
+    "DESCRIPTION": "Даёт !M! Временных_ОЗ. NL Даёт !bard:M2! доп. Временных_ОЗ за каждую bard:Записанную [BlockNote] .",
+    "EXTENDED_DESCRIPTION": [
+      " NL (",
+      " [BlockNote] в Нотной Грамоте)"
+    ]
+  },
+  "bard:Solo": {
+    "NAME": "Соло",
+    "DESCRIPTION": "Сыграйте любую bard:Мелодию, если Нотная Грамота пуста.",
+    "EXTENDED_DESCRIPTION": [
+      "Нотная Грамота не пуста!"
+    ]
+  },
+  "bard:LingeringPerformance": {
+    "NAME": "Продлённое выступление",
+    "DESCRIPTION": "Текущее bard:Вдохновение будет действовать на ещё !M! карту. NL Сгорающая !stslib:ex!."
+  },
+  "bard:Focused": {
+    "NAME": "Сфокусироваться",
+    "DESCRIPTION": "Даёт X00%s bard:Вдохновения.",
+    "UPGRADE_DESCRIPTION": " NL Возврат !stslib:refund!."
+  },
+  "bard:Rhapsody": {
+    "NAME": "Рапсодия",
+    "DESCRIPTION": "Сыграйте любую bard:Мелодию, на которую есть bard:Ноты в Нотной Грамоте, вне зависимости от их порядка.",
+    "UPGRADE_DESCRIPTION": "Выберите и bard:Запишите bard:Ноту. NL "
+  },
+  "bard:BottledSong": {
+    "NAME": "Закупоренная песнь",
+    "DESCRIPTION": "Даёт зелье, содержащее все текущие bard:Ноты в Нотной Грамоте. NL Сжигается."
+  }
+}

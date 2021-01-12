@@ -7,12 +7,12 @@
     <name>Bard</name>
     <groupId>com.evacipated.cardcrawl.mod</groupId>
     <artifactId>bard</artifactId>
-    <version>1.9.0</version>
+    <version>1.10.0</version>
 
     <properties>
         <ModID>bard</ModID>
-        <SlayTheSpire.version>01-27-2020</SlayTheSpire.version>
-        <ModTheSpire.version>3.11.0</ModTheSpire.version>
+        <SlayTheSpire.version>12-22-2020</SlayTheSpire.version>
+        <ModTheSpire.version>3.18.0</ModTheSpire.version>
 
         <make.cards.productionAssets>../productionAssets/cards</make.cards.productionAssets>
         <make.cards.portraits>../src/main/resources/bardAssets/images/1024Portraits</make.cards.portraits>
@@ -64,6 +64,13 @@
             <version>0.22.0</version>
             <scope>system</scope>
             <systemPath>${basedir}/../_ModTheSpire/mods/Hubris.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>com.evacipated.cardcrawl.mod</groupId>
+            <artifactId>widepotions</artifactId>
+            <version>0.1</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/../_ModTheSpire/mods/WidePotions.jar</systemPath>
         </dependency>
     </dependencies>
 
