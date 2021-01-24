@@ -7,7 +7,7 @@
     <name>Bard</name>
     <groupId>com.evacipated.cardcrawl.mod</groupId>
     <artifactId>bard</artifactId>
-    <version>1.10.0</version>
+    <version>1.11.0</version>
 
     <properties>
         <ModID>bard</ModID>

@@ -1,5 +1,7 @@
 package com.evacipated.cardcrawl.mod.bard.actions.unique;
 
+import com.evacipated.cardcrawl.mod.bard.cards.AbstractBardCard;
+import com.evacipated.cardcrawl.mod.bard.cards.Gamble;
 import com.evacipated.cardcrawl.mod.bard.cards.MelodyCard;
 import com.evacipated.cardcrawl.mod.bard.patches.CenterGridCardSelectScreen;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -44,9 +46,12 @@ public class GambleAction extends AbstractGameAction
 
                 pickCard = true;
                 CardGroup group = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
-                group.addToTop(new MelodyCard("Attack", "Attack", null, AbstractCard.CardType.ATTACK));
-                group.addToTop(new MelodyCard("Skill", "Skill", null, AbstractCard.CardType.SKILL));
-                group.addToTop(new MelodyCard("Power", "Power", null, AbstractCard.CardType.POWER));
+                group.addToTop(new MelodyCard("Attack", AbstractBardCard.getRegionName(Gamble.ID, AbstractCard.CardType.ATTACK),
+                        "Attack", null, AbstractCard.CardType.ATTACK));
+                group.addToTop(new MelodyCard("Skill", AbstractBardCard.getRegionName(Gamble.ID, AbstractCard.CardType.SKILL),
+                        "Skill", null, AbstractCard.CardType.SKILL));
+                group.addToTop(new MelodyCard("Power", AbstractBardCard.getRegionName(Gamble.ID, AbstractCard.CardType.POWER),
+                        "Power", null, AbstractCard.CardType.POWER));
                 group.group.get(0).color = AbstractCard.CardColor.RED;
                 group.group.get(1).color = AbstractCard.CardColor.GREEN;
                 group.group.get(2).color = AbstractCard.CardColor.BLUE;

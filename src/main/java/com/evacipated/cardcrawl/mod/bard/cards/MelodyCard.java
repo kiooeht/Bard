@@ -22,9 +22,9 @@ public class MelodyCard extends CustomCard
     public boolean consumeNotes = true;
     private Consumer<Boolean> playCallback;
 
-    public MelodyCard(String name, String description, List<AbstractNote> notes, CardType type)
+    public MelodyCard(String name, RegionName img, String description, List<AbstractNote> notes, CardType type)
     {
-        this(name, new RegionName(null), description, notes, type, CardTarget.NONE, null);
+        this(name, img, description, notes, type, CardTarget.NONE, null);
     }
 
     public MelodyCard(String name, RegionName img, String description, List<AbstractNote> notes, CardTarget target, Consumer<Boolean> playCallback)
