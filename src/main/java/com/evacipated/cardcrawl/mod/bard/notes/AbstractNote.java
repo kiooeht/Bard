@@ -1,8 +1,10 @@
 package com.evacipated.cardcrawl.mod.bard.notes;
 
+import basemod.abstracts.CustomCard;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.evacipated.cardcrawl.mod.bard.cards.AbstractBardCard;
 import com.evacipated.cardcrawl.mod.bard.cards.NoteCard;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
@@ -23,6 +25,10 @@ public abstract class AbstractNote
     public abstract String name();
     public abstract String ascii();
     public abstract AbstractCard.CardTags cardTag();
+    public CustomCard.RegionName img()
+    {
+        return new CustomCard.RegionName(AbstractBardCard.getRegionName(NoteCard.ID, AbstractCard.CardType.POWER).name + name());
+    }
 
     public Color color()
     {
@@ -82,7 +88,7 @@ public abstract class AbstractNote
 
     public AbstractCard makeChoiceCard()
     {
-        return new NoteCard(name(), cardCode(), this, AbstractCard.CardType.POWER);
+        return new NoteCard(name(), img(), cardCode(), this, AbstractCard.CardType.POWER);
     }
 
     public final boolean isNoteExactType(Class<? extends AbstractNote> type)
