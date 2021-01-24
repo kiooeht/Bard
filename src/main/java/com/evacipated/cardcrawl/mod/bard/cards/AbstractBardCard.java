@@ -74,7 +74,7 @@ public abstract class AbstractBardCard extends CustomCard
         return String.format("%s/%s", type.name().toLowerCase(), id);
     }
 
-    protected static CustomCard.RegionName getRegionName(String id, CardType type)
+    public static CustomCard.RegionName getRegionName(String id, CardType type)
     {
         return new RegionName(String.format("%s/%s", BardMod.ID, getBaseImagePath(id, type)));
     }
